@@ -1,11 +1,13 @@
 package de.nulide.findmydevice.net
 
 import android.content.Context
+import android.net.wifi.ScanResult
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import de.nulide.findmydevice.utils.CellParameters
 import de.nulide.findmydevice.utils.PatchedVolley
 import de.nulide.findmydevice.utils.SingletonHolder
+import de.nulide.findmydevice.utils.getSsidCompat
 import de.nulide.findmydevice.utils.log
 import de.nulide.findmydevice.utils.prettyPrint
 import org.json.JSONArray
@@ -23,14 +25,15 @@ class BeaconDbRepository private constructor(private val context: Context) {
     private val requestQueue: RequestQueue = PatchedVolley.newRequestQueue(context)
 
     fun getCellLocation(
-        paras: List<CellParameters>,
+        cellParas: List<CellParameters>,
+        wifiParas: List<ScanResult>,
         onSuccess: (BeaconDbSuccess) -> Unit,
         onError: (BeaconDbError) -> Unit,
     ) {
         // https://ichnaea.readthedocs.io/en/latest/api/geolocate.html
         val url = "https://api.beacondb.net/v1/geolocate"
 
-        val cellTowers: List<Map<String, Any>> = paras.mapNotNull {
+        val cellTowers: List<Map<String, Any>> = cellParas.mapNotNull {
             val mcc = it.mobileCountryCode?.toInt() ?: return@mapNotNull null
             val mnc = it.mobileNetworkCode?.toInt() ?: return@mapNotNull null
             val lac = it.locationAreaCode ?: return@mapNotNull null
@@ -45,6 +48,20 @@ class BeaconDbRepository private constructor(private val context: Context) {
             )
         }.toList()
 
+        val wifiAccessPoints: List<Map<String, Any>> = wifiParas
+            .filter {
+                // Exclude networks that are hidden or don't want to be mapped
+                val ssid = it.getSsidCompat()
+                ssid.isNotBlank() && !ssid.contains("_nomap")
+            }
+            .map {
+                mapOf<String, Any>(
+                    Pair("macAddress", it.BSSID),
+                    Pair("frequency", it.frequency),
+                    Pair("signalStrength", it.level),
+                )
+            }
+
         // Fallbacks can be very imprecise. Also, we want the cell location and nothing else.
         val fallbacks = mapOf<String, Boolean>(
             Pair("lacf", false),
@@ -54,6 +71,7 @@ class BeaconDbRepository private constructor(private val context: Context) {
             put("considerIp", false)
             put("fallbacks", JSONObject(fallbacks))
             put("cellTowers", JSONArray(cellTowers))
+            put("wifiAccessPoints", JSONArray(wifiAccessPoints))
         }
 
         val request = JsonObjectRequest(
@@ -79,7 +97,8 @@ class BeaconDbRepository private constructor(private val context: Context) {
                 }
 
                 val message = getErrorMessage(response)
-                context.log().w(TAG, "BeaconDB API call failed: $message\n${paras.prettyPrint()}")
+                context.log()
+                    .w(TAG, "BeaconDB API call failed: $message\n${cellParas.prettyPrint()}")
                 onError(BeaconDbError(message, url))
             },
             { error ->
@@ -92,7 +111,8 @@ class BeaconDbRepository private constructor(private val context: Context) {
                 } catch (e: NullPointerException) {
                     error.message ?: ""
                 }
-                context.log().w(TAG, "BeaconDB API call failed: $message\n${paras.prettyPrint()}")
+                context.log()
+                    .w(TAG, "BeaconDB API call failed: $message\n${cellParas.prettyPrint()}")
                 onError(BeaconDbError(message, url))
             },
         )

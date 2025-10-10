@@ -2,6 +2,7 @@ package de.nulide.findmydevice.locationproviders
 
 import android.Manifest
 import android.content.Context
+import android.net.wifi.ScanResult
 import androidx.annotation.RequiresPermission
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.FmdLocation
@@ -13,6 +14,7 @@ import de.nulide.findmydevice.net.OpenCelliDSpec
 import de.nulide.findmydevice.transports.Transport
 import de.nulide.findmydevice.utils.CellParameters
 import de.nulide.findmydevice.utils.Utils
+import de.nulide.findmydevice.utils.WifiScan
 import de.nulide.findmydevice.utils.log
 import de.nulide.findmydevice.utils.prettyPrint
 import de.nulide.findmydevice.utils.requestCellInfo
@@ -51,18 +53,27 @@ class CellLocationProvider<T>(
         return deferred
     }
 
-    private fun onCellInfoUpdate(paras: List<CellParameters>) {
-        if (paras.isEmpty()) {
+    private fun onCellInfoUpdate(cellParas: List<CellParameters>) {
+        if (cellParas.isEmpty()) {
             context.log().i(TAG, "Cell paras are null. Are you connected to the cellular network?")
             transport.send(context, context.getString(R.string.OpenCellId_test_no_connection))
-            deferred.complete(Unit)
+
+            // Cannot try OpenCelliD
+            ocidFinished = true
+
+            // Still try WiFi networks
+            WifiScan(context, { scanResults ->
+                queryBeaconDb(cellParas, scanResults)
+            }).startWifiScan()
             return
         }
 
         // Since internally both repositories use Volley with callbacks, the requests don't block on each other.
-        // TODO: query all
-        queryOpenCelliD(paras.first())
-        queryBeaconDb(paras)
+        queryOpenCelliD(cellParas.first())
+
+        WifiScan(context, { scanResults ->
+            queryBeaconDb(cellParas, scanResults)
+        }).startWifiScan()
     }
 
     private fun queryOpenCelliD(paras: CellParameters) {
@@ -111,11 +122,16 @@ class CellLocationProvider<T>(
         )
     }
 
-    private fun queryBeaconDb(paras: List<CellParameters>) {
+    private fun queryBeaconDb(
+        cellParas: List<CellParameters>,
+        wifiParas: List<ScanResult>,
+    ) {
         context.log().d(TAG, "Querying BeaconDB")
+
         val beaconDbRepo = BeaconDbRepository.getInstance(context)
         beaconDbRepo.getCellLocation(
-            paras,
+            cellParas,
+            wifiParas,
             onSuccess = { beaconDb ->
                 context.log().d(TAG, "Location found by BeaconDB")
 
@@ -126,7 +142,7 @@ class CellLocationProvider<T>(
                     provider = "BeaconDB",
                     batteryLevel = Utils.getBatteryLevel(context),
                     // Use the most recent of the timestamps
-                    timeMillis = paras.maxOf { it.timeMillis },
+                    timeMillis = cellParas.maxOf { it.timeMillis },
                 )
 
                 val settings = SettingsRepository.getInstance(context)
@@ -139,7 +155,7 @@ class CellLocationProvider<T>(
                 context.log().i(TAG, "Failed to get location from BeaconDB")
                 val msg = context.getString(
                     R.string.cmd_locate_response_beacondb_failed,
-                    paras.prettyPrint()
+                    cellParas.prettyPrint()
                 )
                 transport.send(context, msg)
                 beaconDbFinished = true
