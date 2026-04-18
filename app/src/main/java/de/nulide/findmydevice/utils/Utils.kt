@@ -7,6 +7,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.BatteryManager
 import android.os.Build
+import android.util.Base64
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import de.nulide.findmydevice.R
@@ -61,3 +62,12 @@ class Utils {
         }
     }
 }
+
+fun String.decodeBase64(): ByteArray {
+    return Base64.decode(this, Base64.DEFAULT)
+}
+
+fun ByteArray.encodeBase64(): String {
+    return Base64.encodeToString(this, Base64.DEFAULT or Base64.NO_WRAP)
+}
+
