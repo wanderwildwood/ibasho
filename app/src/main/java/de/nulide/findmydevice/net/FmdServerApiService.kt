@@ -3,6 +3,7 @@ package de.nulide.findmydevice.net
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import de.nulide.findmydevice.data.FmdLocation
+import de.nulide.findmydevice.data.FmdPicture
 
 /* ------- Helper types ------- */
 
@@ -104,6 +105,6 @@ interface FmdServerApiService {
 
     fun sendLocation(location: FmdLocation)
 
-    fun sendPicture(picture: String)
+    fun sendPicture(picture: FmdPicture)
 
 }

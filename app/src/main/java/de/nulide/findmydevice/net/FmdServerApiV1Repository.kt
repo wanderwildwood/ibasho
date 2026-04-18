@@ -8,6 +8,7 @@ import com.android.volley.VolleyError
 import de.nulide.findmydevice.data.EncryptedSettingsRepository
 import de.nulide.findmydevice.data.FmdKeyPair
 import de.nulide.findmydevice.data.FmdLocation
+import de.nulide.findmydevice.data.FmdPicture
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.utils.CypherUtils
@@ -615,13 +616,14 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
      * TODO: handled this internally in the repo.
      */
     override fun sendPicture(
-        picture: String,
+        picture: FmdPicture,
     ) {
         val publicKey = settingsRepo.getKeys()?.publicKey
         if (publicKey == null) {
             context.log().e(TAG, "Public key was null")
             return
         }
+        val picture = CypherUtils.encodeBase64(picture.raw)
         val dataBytes = CypherUtils.encryptWithKey(publicKey, picture)
         val dataBase64 = CypherUtils.encodeBase64(dataBytes)
 
