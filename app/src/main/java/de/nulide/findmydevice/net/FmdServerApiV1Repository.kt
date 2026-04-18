@@ -672,25 +672,7 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
             return
         }
 
-        val locationDataObject = JSONObject()
-        try {
-            locationDataObject.put("provider", location.provider)
-
-            locationDataObject.put("lat", location.lat)
-            locationDataObject.put("lon", location.lon)
-
-            locationDataObject.put("accuracy", location.accuracy)
-            locationDataObject.put("altitude", location.altitude)
-            locationDataObject.put("heading", location.bearing)
-            locationDataObject.put("speed", location.speed)
-
-            locationDataObject.put("bat", location.batteryLevel)
-            locationDataObject.put("date", location.timeMillis)
-            locationDataObject.put("time", Date(location.timeMillis).toString())
-        } catch (e: JSONException) {
-            e.printStackTrace()
-        }
-        val jsonSerialised = locationDataObject.toString()
+        val jsonSerialised = location.encodeToJson()
         val encryptedLocationBytes = CypherUtils.encryptWithKey(publicKey, jsonSerialised)
         val encryptedLocation = CypherUtils.encodeBase64(encryptedLocationBytes)
 

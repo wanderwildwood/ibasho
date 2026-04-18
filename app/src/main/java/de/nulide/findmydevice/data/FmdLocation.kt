@@ -4,6 +4,8 @@ import android.content.Context
 import android.location.Location
 import de.nulide.findmydevice.utils.Utils
 import de.nulide.findmydevice.utils.Utils.Companion.getOpenStreetMapLink
+import org.json.JSONException
+import org.json.JSONObject
 import java.util.Date
 
 
@@ -66,5 +68,27 @@ data class FmdLocation(
             .append("Battery: $batteryLevel %\n")
             .append(getOpenStreetMapLink(lat, lon))
         return string.toString()
+    }
+
+    fun encodeToJson(): String {
+        val obj = JSONObject()
+        try {
+            obj.put("provider", this.provider)
+
+            obj.put("lat", this.lat)
+            obj.put("lon", this.lon)
+
+            obj.put("accuracy", this.accuracy)
+            obj.put("altitude", this.altitude)
+            obj.put("heading", this.bearing)
+            obj.put("speed", this.speed)
+
+            obj.put("bat", this.batteryLevel)
+            obj.put("date", this.timeMillis)
+            obj.put("time", Date(this.timeMillis).toString())
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+        return obj.toString()
     }
 }
