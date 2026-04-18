@@ -55,27 +55,14 @@ class EncryptedSettingsRepository private constructor(context: Context) {
         }
     }
 
-    fun getCachedAccessToken(): String {
-        return sharedPrefs.getString(KEY_SERVER_CACHED_ACCESS_TOKEN, "") ?: ""
-    }
+    fun getCachedAccessToken(): String = getString(KEY_SERVER_CACHED_ACCESS_TOKEN)
 
-    fun setCachedAccessToken(newToken: String) {
-        sharedPrefs.edit().putString(KEY_SERVER_CACHED_ACCESS_TOKEN, newToken).apply()
-    }
 
-    internal fun getFmdPin(): String {
-        return sharedPrefs.getString(KEY_FMD_PIN, "") ?: ""
-    }
+    fun setCachedAccessToken(newToken: String) = putString(KEY_SERVER_CACHED_ACCESS_TOKEN, newToken)
 
-    fun getDeletePassword(): String? {
-        return sharedPrefs.getString(KEY_DELETE_PASSWORD, null)
-    }
+    fun getFmdPin(): String = getString(KEY_FMD_PIN)
 
-    fun setDeletePassword(new: String?) {
-        if (new.isNullOrBlank()) {
-            sharedPrefs.edit().remove(KEY_DELETE_PASSWORD).apply()
-        } else {
-            sharedPrefs.edit().putString(KEY_DELETE_PASSWORD, new).apply()
-        }
-    }
+    fun getDeletePassword(): String = getString(KEY_DELETE_PASSWORD)
+
+    fun setDeletePassword(new: String?) = putString(KEY_DELETE_PASSWORD, new)
 }
