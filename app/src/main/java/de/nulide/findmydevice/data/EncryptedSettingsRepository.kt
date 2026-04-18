@@ -43,6 +43,18 @@ class EncryptedSettingsRepository private constructor(context: Context) {
         )
     }
 
+    fun getString(key: String): String {
+        return sharedPrefs.getString(key, "") ?: ""
+    }
+
+    fun putString(key: String, value: String?) {
+        if (value.isNullOrBlank()) {
+            sharedPrefs.edit().remove(key).apply()
+        } else {
+            sharedPrefs.edit().putString(key, value).apply()
+        }
+    }
+
     fun getCachedAccessToken(): String {
         return sharedPrefs.getString(KEY_SERVER_CACHED_ACCESS_TOKEN, "") ?: ""
     }
