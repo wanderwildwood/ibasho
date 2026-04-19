@@ -34,8 +34,6 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
 
         val TAG = FmdServerApiV1Repository::class.simpleName
 
-        const val MIN_REQUIRED_SERVER_VERSION = "0.9.0"
-
         private const val URL_ACCESS_TOKEN = "/requestAccess"
         private const val URL_COMMAND = "/command"
         private const val URL_LOCATION = "/location"
@@ -47,8 +45,6 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
         private const val URL_PUBKEY = "/pubKey"
         private const val URL_PASSWORD = "/password"
         private const val URL_VERSION = "/version"
-
-        private const val ACCESS_TOKEN_VALIDITY_SECS = 7 * 24 * 60 * 60 // 1 week
     }
 
     private val context = spec.context

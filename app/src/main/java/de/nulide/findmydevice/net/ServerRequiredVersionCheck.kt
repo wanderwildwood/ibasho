@@ -3,9 +3,9 @@ package de.nulide.findmydevice.net
 import android.content.Context
 import de.nulide.findmydevice.data.Settings.SET_FMDSERVER_URL
 import de.nulide.findmydevice.data.SettingsRepository
-import de.nulide.findmydevice.net.FmdServerApiV1Repository.Companion.MIN_REQUIRED_SERVER_VERSION
 import org.apache.maven.artifact.versioning.ComparableVersion
 
+private const val MIN_REQUIRED_SERVER_VERSION = "0.9.0"
 
 sealed class MinRequiredVersionResult {
     data class Success(val actualVersion: String) : MinRequiredVersionResult()
