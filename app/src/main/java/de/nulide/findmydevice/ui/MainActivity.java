@@ -27,7 +27,6 @@ import de.nulide.findmydevice.net.MinRequiredVersionResult;
 import de.nulide.findmydevice.net.ServerCommandDownloader;
 import de.nulide.findmydevice.ui.home.CommandListFragment;
 import de.nulide.findmydevice.ui.home.TransportListFragment;
-import de.nulide.findmydevice.ui.onboarding.UpdateboardingModernCryptoActivity;
 import de.nulide.findmydevice.ui.settings.FMDServerActivity;
 import de.nulide.findmydevice.ui.settings.SettingsFragment;
 import de.nulide.findmydevice.warnings.PushWarningsKt;
@@ -79,13 +78,6 @@ public class MainActivity extends FmdActivity {
 
         if (((Number) settings.get(Settings.SET_APP_CRASHED_LOG_ENTRY)).intValue() == 1) {
             Intent intent = new Intent(this, CrashedActivity.class);
-            startActivity(intent);
-            finish();
-            return;
-        }
-
-        if (!(Boolean) settings.get(Settings.SET_UPDATEBOARDING_MODERN_CRYPTO_COMPLETED)) {
-            Intent intent = new Intent(this, UpdateboardingModernCryptoActivity.class);
             startActivity(intent);
             finish();
             return;

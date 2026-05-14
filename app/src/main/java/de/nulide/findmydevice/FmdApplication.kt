@@ -14,7 +14,6 @@ import de.nulide.findmydevice.services.ServerConnectivityCheckService
 import de.nulide.findmydevice.services.ServerLocationUploadService
 import de.nulide.findmydevice.services.isRegisteredWithUnifiedPush
 import de.nulide.findmydevice.services.unregisterWithUnifiedPush
-import de.nulide.findmydevice.ui.onboarding.UpdateboardingModernCryptoActivity
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
 import de.nulide.findmydevice.warnings.notifyWarnUnifiedPushRequired
@@ -68,7 +67,6 @@ class FmdApplication : Application() {
             file.delete()
         }
 
-        UpdateboardingModernCryptoActivity.notifyAboutCryptoRefreshIfRequired(context)
     }
 
     fun restartServices() {
