@@ -169,7 +169,7 @@
     <string name="allowlist_invalid_number">This phone number is invalid!</string>
 
     <!-- Settings: Temporary allowed contacts -->
-    <string name="temporary_allowlist_expired">Your temporary FMD access expired. To continue using FMD, send the PIN again.</string>
+    <string name="temporary_allowlist_expired">Your temporary FMD access expired. To continue using FMD, send the password again.</string>
 
     <!-- Settings: OpenCelliD -->
     <string name="OpenCellId_OpenCellId" translatable="false">OpenCelliD</string>
@@ -203,7 +203,7 @@
     <string name="Settings_Import_Success">Import successful</string>
     <string name="Settings_Import_Failed">Import failed</string>
     <string name="import_success_message">The settings were successfully imported.</string>
-    <string name="import_success_message_warning">CAUTION: Sensitive values are not included in the backup file. Therefore, if you use the following features, please manually set them up again:\n\n1. Set the FMD PIN.\n2. Set the delete password.</string>
+    <string name="import_success_message_warning">CAUTION: Sensitive values are not included in the backup file. Therefore, if you use the following features, please manually set them up again:\n\n1. Set the delete password.</string>
     <string name="import_failed_message">The import failed or was only partially successful. Please check the logs for details.</string>
 
     <!-- Settings: Logs -->
@@ -340,12 +340,12 @@
 
     <string name="transport_sms_title">SMS</string>
     <string name="transport_sms_description">Send commands to your device over SMS. E.g., text \"%s help\" to your device. FMD will reply with an SMS.</string>
-    <string name="transport_sms_description_auth">Only phone numbers that are in the allowlist can send commands. To send commands from a phone number that is not in the allowlist, you have to include the PIN: \"%s mypin help\". For convenience, so that you don\'t have to re-type the PIN every time, this new phone number is added to a temporary allowlist for the next 10 minutes.</string>
+    <string name="transport_sms_description_auth">Only phone numbers that are in the allowlist can send commands. To send commands from a phone number that is not in the allowlist, you can define and include a password: \"%s mypassword help\". For convenience, so that you don\'t have to re-type the password every time, this new phone number is added to a temporary allowlist for the next 10 minutes.</string>
     <string name="transport_sms_description_note">SMS may incur costs for both you and the person texting you. SMS requires your SIM card to be unlocked (e.g., after a reboot).</string>
 
     <string name="transport_notification_reply_title">Notification reply</string>
-    <string name="transport_notification_reply_description">You can allow FMD to read your notifications to listen for commands. FMD can then reply via Android\'s built-in notification reply feature. This allows you to control FMD using a messaging application of your choice, as long as it posts notifications that can be replied to. E.g., you can send a Signal message \"%s mypin help\" to your phone.</string>
-    <string name="transport_notification_reply_description_auth">Controlling FMD via notification reply requires the FMD PIN to be set. Every message must contain the correct PIN.</string>
+    <string name="transport_notification_reply_description">You can allow FMD to read your notifications to listen for commands. FMD can then reply via Android\'s built-in notification reply feature. This allows you to control FMD using a messaging application of your choice, as long as it posts notifications that can be replied to. For example, you can send a Signal message \"%s mypassword help\" to your phone.</string>
+    <string name="transport_notification_reply_description_auth">Controlling FMD via notification reply requires a password to be set. Every message must contain a correct password.</string>
 
     <string name="transport_fmd_server_title" translatable="false">FMD Server</string>
     <string name="transport_fmd_server_description">FMD Server provides a web interface to control your device, view its location, and view pictures it sent. You can self-host FMD Server or use the provided instance. Data is stored encrypted on the server, protected by your password.</string>
@@ -361,8 +361,8 @@
     <!-- Notification Channels -->
     <string name="Notification_Usage">Usage</string>
     <string name="Notification_Usage_Description">Notifications when FMD is receiving commands</string>
-    <string name="Pin_Usage">PIN usage</string>
-    <string name="Notification_Pin_Usage_Description">Notifications when FMD is accessed is via the PIN</string>
+    <string name="Pin_Usage">Password usage</string>
+    <string name="Notification_Pin_Usage_Description">Notifications when FMD is accessed is via a password</string>
     <string name="Notification_Server" translatable="false">FMD Server</string>
     <string name="Notification_Server_Description">Notifications related to FMD Server</string>
     <string name="Notification_Security">Security</string>
