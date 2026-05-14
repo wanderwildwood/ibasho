@@ -98,14 +98,6 @@ class SmsTransport(
                 if (hasPermission) {
                     context.log()
                         .i(TAG, "$phoneNumber used FMD via SMS password '${smsPass.label}'")
-                    // TODO: update strings, remove PIN, add label
-                    send(context, context.getString(R.string.MH_Pin_Accepted))
-                    Notifications.notify(
-                        context,
-                        context.getString(R.string.usage_notification_pin_title),
-                        context.getString(R.string.usage_notification_pin_text, phoneNumber),
-                        Notifications.CHANNEL_PIN
-                    )
 
                     tempAllowlistRepo.add(phoneNumber, subscriptionId)
                     TempContactExpiredService.scheduleJob(

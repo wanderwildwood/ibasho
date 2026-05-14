@@ -378,8 +378,6 @@
     <string name="usage_notification_title">Command executed</string>
     <string name="usage_notification_text">The command \"%s\" was executed.</string>
     <string name="usage_notification_text_source">The command \"%1$s\" was executed by \"%2$s\".</string>
-    <string name="usage_notification_pin_title">FMD PIN used</string>
-    <string name="usage_notification_pin_text">The PIN was used by this number: \"%s\". It is recommended to change the PIN.</string>
     <string name="executing_title">Executing command</string>
     <string name="executing_text">The command \"%1$s\" is being executed by \"%2$s\".</string>
 
@@ -415,7 +413,6 @@
     <string name="crashed_continue_without">Continue without reporting</string>
 
     <!-- Varia -->
-    <string name="MH_Pin_Accepted">Pin accepted!</string>
     <string name="invalid_url">Invalid URL</string>
 
 </resources>
