@@ -142,6 +142,8 @@
 
     <string name="access_sms_password_hint">The passwords in this list can be used to access FMD from any phone number via SMS, by texting \"%s password command\".</string>
     <string name="access_sms_password_add">Add SMS password</string>
+    <string name="access_sms_password_used_by">Used by</string>
+    <string name="access_sms_password_expiry">Expiry time</string>
     <string name="access_sms_password_granted_info">Access granted! You can now use FMD for 10 minutes without including the password in your messages. Any new password that you send before your current access expires will be ignored.</string>
 
     <string name="access_notification_password_hint">The passwords in this list can be used to access FMD from any app that shows a notification with a \"reply\" quick action (such as messenger apps). The notification text should be \"%s password command\".</string>

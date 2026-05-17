@@ -14,6 +14,7 @@ import de.nulide.findmydevice.database.AccessItem
 import de.nulide.findmydevice.database.NotificationPassword
 import de.nulide.findmydevice.database.PhoneNumber
 import de.nulide.findmydevice.database.SmsPassword
+import de.nulide.findmydevice.database.SmsPasswordWithTempPhoneNumbers
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -51,6 +52,10 @@ class AccessControlViewModel(
             when (item) {
                 is PhoneNumber -> accessRepo.updatePhoneNumber(item.copy(permission = newPerm))
                 is SmsPassword -> accessRepo.updateSmsPassword(item.copy(permission = newPerm))
+                is SmsPasswordWithTempPhoneNumbers -> accessRepo.updateSmsPassword(
+                    item.smsPassword.copy(permission = newPerm)
+                )
+
                 is NotificationPassword -> accessRepo.updateNotificationPassword(
                     item.copy(permission = newPerm)
                 )
@@ -65,6 +70,7 @@ class AccessControlViewModel(
             when (item) {
                 is PhoneNumber -> accessRepo.deletePhoneNumber(item)
                 is SmsPassword -> accessRepo.deleteSmsPassword(item)
+                is SmsPasswordWithTempPhoneNumbers -> accessRepo.deleteSmsPassword(item.smsPassword)
                 is NotificationPassword -> accessRepo.deleteNotificationPassword(item)
                 else -> throw IllegalStateException("Cannot delete unsupported item: $item")
             }

@@ -14,6 +14,7 @@ import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -27,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -34,6 +36,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.database.AccessItem
 import de.nulide.findmydevice.database.PhoneNumber
+import de.nulide.findmydevice.database.SmsPassword
+import de.nulide.findmydevice.database.SmsPasswordWithTempPhoneNumbers
+import de.nulide.findmydevice.database.TempPhoneNumber
 import de.nulide.findmydevice.ui.theme.AppTheme
 
 // Help class so that we can both:
@@ -103,7 +108,7 @@ fun <T : AccessItem> AccessControlTab(
                     HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
                 }
                 items(accessItems) { item ->
-                    ItemRow(
+                    ItemElement(
                         item,
                         onEditPermissionsClicked = { permissionToEdit = item },
                         onDeleteClicked = { itemToDelete = item })
@@ -142,6 +147,59 @@ fun <T : AccessItem> AccessControlTab(
 }
 
 @Composable
+private fun <T : AccessItem> ItemElement(
+    item: T,
+    onEditPermissionsClicked: (T) -> Unit,
+    onDeleteClicked: (T) -> Unit,
+) {
+    if (item is SmsPasswordWithTempPhoneNumbers) {
+        Column {
+            ItemRow(item, onEditPermissionsClicked, onDeleteClicked)
+
+            // Header
+            if (item.tempPhoneNumbers.isNotEmpty()) {
+                val style = MaterialTheme.typography.bodySmall.copy(
+                    fontStyle = FontStyle.Italic,
+                )
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 4.dp)
+                ) {
+                    Text(
+                        modifier = Modifier.weight(1f),
+                        text = stringResource(R.string.access_sms_password_used_by),
+                        style = style,
+                    )
+                    Text(
+                        text = stringResource(R.string.access_sms_password_expiry),
+                        style = style,
+                    )
+                }
+            }
+
+            // Table items
+            for (num in item.tempPhoneNumbers) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 4.dp)
+                ) {
+                    Text(
+                        modifier = Modifier.weight(1f),
+                        text = num.number,
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                    Text(num.expiryPretty(), style = MaterialTheme.typography.bodySmall)
+                }
+            }
+        }
+    } else {
+        ItemRow(item, onEditPermissionsClicked, onDeleteClicked)
+    }
+}
+
+@Composable
 private fun <T : AccessItem> ItemRow(
     item: T,
     onEditPermissionsClicked: (T) -> Unit,
@@ -149,7 +207,7 @@ private fun <T : AccessItem> ItemRow(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.padding(vertical = 2.dp)
+        modifier = Modifier.padding(vertical = 6.dp)
     ) {
         Text(text = item.toDisplayLabel(), modifier = Modifier.weight(1f))
         Spacer(Modifier.width(8.dp))
@@ -200,7 +258,7 @@ private fun <T> DeleteDialog(
 
 @Preview
 @Composable
-private fun TabEmptyPreview() {
+private fun TabPreviewEmpty() {
     AppTheme {
         Surface {
             AccessControlTab(
@@ -213,7 +271,7 @@ private fun TabEmptyPreview() {
 
 @Preview
 @Composable
-private fun TabPreview() {
+private fun TabPreviewNumber() {
     AppTheme {
         Surface {
             AccessControlTab(
@@ -221,6 +279,32 @@ private fun TabPreview() {
                 accessItems = listOf(
                     PhoneNumber(0, "John Doe", "+1 234 567 89"),
                     PhoneNumber(0, "Max Muster", "+49 79 123 456 78"),
+                )
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun TabPreviewPassword() {
+    val now = System.currentTimeMillis()
+    AppTheme {
+        Surface {
+            AccessControlTab(
+                accessType = ACCESS_SMS_PASS,
+                accessItems = listOf(
+                    SmsPasswordWithTempPhoneNumbers(
+                        smsPassword = SmsPassword(0, "Label 1", "Password 1"),
+                        tempPhoneNumbers = listOf(
+                            TempPhoneNumber(0, "+1 111 222 33", 42, now - 24 * 60 * 1000L, 0),
+                            TempPhoneNumber(0, "+1 444 555 66", 42, now - 7 * 60 * 1000L, 0),
+                        ),
+                    ),
+                    SmsPasswordWithTempPhoneNumbers(
+                        smsPassword = SmsPassword(0, "Label 2", "Password 2"),
+                        tempPhoneNumbers = emptyList(),
+                    ),
                 )
             )
         }

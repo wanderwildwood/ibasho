@@ -5,6 +5,7 @@ import de.nulide.findmydevice.R
 import de.nulide.findmydevice.database.NotificationPassword
 import de.nulide.findmydevice.database.PhoneNumber
 import de.nulide.findmydevice.database.SmsPassword
+import de.nulide.findmydevice.database.SmsPasswordWithTempPhoneNumbers
 
 open class AccessType<T>(
     @StringRes val hintText: Int,
@@ -24,7 +25,7 @@ object ACCESS_PHONE_NUMBER : AccessType<PhoneNumber>(
     deleteTitle = R.string.allowlist_delete_title_phone_number,
 )
 
-object ACCESS_SMS_PASS : AccessType<SmsPassword>(
+object ACCESS_SMS_PASS : AccessType<SmsPasswordWithTempPhoneNumbers>(
     hintText = R.string.access_sms_password_hint,
     emptyText = R.string.access_password_empty,
     addText = R.string.access_sms_password_add,
