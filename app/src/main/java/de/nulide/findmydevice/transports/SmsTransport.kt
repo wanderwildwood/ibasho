@@ -13,12 +13,10 @@ import de.nulide.findmydevice.commands.hasPermission
 import de.nulide.findmydevice.data.AccessRepository
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
-import de.nulide.findmydevice.data.TEMP_USAGE_VALIDITY_MILLIS
-import de.nulide.findmydevice.data.TemporaryAllowlistRepository
+import de.nulide.findmydevice.database.TEMP_USAGE_VALIDITY_MILLIS
 import de.nulide.findmydevice.permissions.SmsPermission
 import de.nulide.findmydevice.services.TempContactExpiredService
 import de.nulide.findmydevice.ui.access.AccessControlActivity
-import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
 import de.nulide.findmydevice.utils.normalizePhoneNumber
 
@@ -35,7 +33,6 @@ class SmsTransport(
 
     private val settings = SettingsRepository.getInstance(context)
     private val accessRepo = AccessRepository.getInstance(context)
-    private val tempAllowlistRepo = TemporaryAllowlistRepository.getInstance(context)
 
     @get:DrawableRes
     override val icon = R.drawable.ic_sms
@@ -81,16 +78,26 @@ class SmsTransport(
             }
         }
 
-        // Case 2: phone number in temporary allowlist (i.e., it send the correct PIN earlier)
-        // TODO: Check permission of the SMS password that added this number to the allowlist
-        /*
-        if (tempAllowlistRepo.containsValidNumber(phoneNumber)) {
-            context.log().i(TAG, "$phoneNumber used FMD via temporary allowlist")
-            return AccessResponse.ALLOWED
-        }
-         */
+        // Case 2: phone number in temporary allowlist (i.e., it sent the correct password earlier)
+        val storedTempNumber = accessRepo.getTempPhoneNumber(phoneNumber)
+        if (storedTempNumber != null) {
+            val hasPermission =
+                storedTempNumber.smsPassword.permission.hasPermission(parsed.command.permission)
+            val isExpired = storedTempNumber.tempPhoneNumber.isExpired()
 
-        // Case 3: the message contains the correct PIN
+            if (hasPermission && !isExpired) {
+                context.log().i(TAG, "$phoneNumber used FMD via temporary allowlist")
+                return AccessResponse.ALLOWED
+            } else {
+                context.log().i(
+                    TAG,
+                    "$phoneNumber denied access to ${parsed.command.keyword} via password ${storedTempNumber.smsPassword.toDisplayLabel()} hasPermission=$hasPermission isExpired=$isExpired"
+                )
+                return AccessResponse.DENIED_EXISTS
+            }
+        }
+
+        // Case 3: the message contains a correct password
         val pinAccessPossible = parsed.pin != null
         if (pinAccessPossible) {
             val smsPass = accessRepo.getSmsPassword(parsed.pin)
@@ -100,7 +107,10 @@ class SmsTransport(
                     context.log()
                         .i(TAG, "$phoneNumber used FMD via SMS password '${smsPass.label}'")
 
-                    tempAllowlistRepo.add(phoneNumber, subscriptionId)
+                    accessRepo.insertTempPhoneNumber(phoneNumber, subscriptionId, smsPass)
+
+                    send(context, context.getString(R.string.access_sms_password_granted_info))
+
                     TempContactExpiredService.scheduleJob(
                         context,
                         TEMP_USAGE_VALIDITY_MILLIS + 1000

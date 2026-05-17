@@ -21,12 +21,15 @@ import de.nulide.findmydevice.warnings.notifyWarnUnifiedPushRequired
 import kotlinx.coroutines.launch
 import org.unifiedpush.android.connector.INSTANCE_DEFAULT
 import org.unifiedpush.android.connector.UnifiedPush
+import java.io.File
 
 
 class FmdApplication : Application() {
 
     companion object {
         private val TAG = FmdApplication::class.java.simpleName
+
+        private val TEMP_ALLOWLIST_FILENAME = "temporary_allowlist.json"
     }
 
     // Workaround to "pass" this from the NotificationListenerService to the CommandExecutionWorker.
@@ -57,6 +60,12 @@ class FmdApplication : Application() {
         ProcessLifecycleOwner.get().lifecycleScope.launch {
             settings.migrateSettings()
             AllowlistRepository.getInstance(context).migrateAllowlist()
+        }
+
+        // Cleanup old file
+        val file = File(TEMP_ALLOWLIST_FILENAME)
+        if (file.exists()) {
+            file.delete()
         }
 
         UpdateboardingModernCryptoActivity.notifyAboutCryptoRefreshIfRequired(context)

@@ -3,17 +3,17 @@ package de.nulide.findmydevice.services
 import android.app.job.JobInfo
 import android.app.job.JobParameters
 import android.app.job.JobScheduler
-import android.app.job.JobService
 import android.content.ComponentName
 import android.content.Context
 import de.nulide.findmydevice.R
-import de.nulide.findmydevice.data.TemporaryAllowlistRepository
+import de.nulide.findmydevice.data.AccessRepository
 import de.nulide.findmydevice.transports.SmsTransport
 import de.nulide.findmydevice.utils.log
+import kotlinx.coroutines.launch
 
-class TempContactExpiredService : JobService() {
+class TempContactExpiredService : FmdJobService() {
 
-    private val TAG = TempContactExpiredService::class.java.simpleName
+    override val TAG = TempContactExpiredService::class.java.simpleName
 
     companion object {
         private val FIVE_MINS_MILLIS = 5 * 60 * 1000L
@@ -36,21 +36,28 @@ class TempContactExpiredService : JobService() {
     }
 
     override fun onStartJob(params: JobParameters?): Boolean {
-        val repo = TemporaryAllowlistRepository.getInstance(this)
-        val expired = repo.removeExpired()
+        super.onStartJob(params)
 
-        for (temporaryPhoneNumber in expired) {
-            val transport =
-                SmsTransport(this, temporaryPhoneNumber.first, temporaryPhoneNumber.second)
-            transport.send(this, getString(R.string.temporary_allowlist_expired))
-            this.log().i(TAG, "Phone number expired: " + temporaryPhoneNumber.first)
+        val context = this
+        val repo = AccessRepository.getInstance(context)
+
+        coroutineScope.launch {
+            val expired = repo.deleteExpiredTempPhoneNumbers()
+
+            for (item in expired) {
+                val transport = SmsTransport(context, item.number, item.subscriptionId)
+                transport.send(context, getString(R.string.temporary_allowlist_expired))
+                context.log().i(TAG, "Phone number expired ${item.number}")
+            }
+            jobFinished()
         }
 
-        return false
+        // Continue running in coroutine
+        return true
     }
 
     override fun onStopJob(params: JobParameters?): Boolean {
-        // This job is not periodic. Ask the system to reschedule us if we are stopped, so that the cleanup can run later.
-        return true
+        super.onStopJob(params)
+        return false
     }
 }
