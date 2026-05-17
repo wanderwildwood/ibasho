@@ -2,9 +2,11 @@ package de.nulide.findmydevice.database
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
+import androidx.room.Relation
 import de.nulide.findmydevice.commands.FmdPermission
 import kotlinx.parcelize.Parcelize
 
@@ -31,5 +33,24 @@ data class SmsPassword(
 
     override fun toDisplayLabel(): String {
         return label
+    }
+}
+
+data class SmsPasswordWithTempPhoneNumbers(
+    @Embedded val smsPassword: SmsPassword,
+
+    @Relation(
+        parentColumn = "rowId",
+        entityColumn = "sms_password_id",
+    )
+    val tempPhoneNumbers: List<TempPhoneNumber>,
+) : AccessItem {
+
+    override fun getItemPermission(): Long {
+        return smsPassword.getItemPermission()
+    }
+
+    override fun toDisplayLabel(): String {
+        return smsPassword.toDisplayLabel()
     }
 }
