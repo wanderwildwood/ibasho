@@ -1,6 +1,7 @@
 package de.nulide.findmydevice.ui.access
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,6 +27,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
@@ -40,6 +42,7 @@ import de.nulide.findmydevice.database.SmsPassword
 import de.nulide.findmydevice.database.SmsPasswordWithTempPhoneNumbers
 import de.nulide.findmydevice.database.TempPhoneNumber
 import de.nulide.findmydevice.ui.theme.AppTheme
+import de.nulide.findmydevice.utils.Utils
 
 // Help class so that we can both:
 // 1. Pass a ViewModel to create a tab to keep the upper code simple.
@@ -164,7 +167,7 @@ private fun <T : AccessItem> ItemElement(
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 4.dp)
+                        .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 6.dp)
                 ) {
                     Text(
                         modifier = Modifier.weight(1f),
@@ -179,14 +182,23 @@ private fun <T : AccessItem> ItemElement(
             }
 
             // Table items
+            val context = LocalContext.current
             for (num in item.tempPhoneNumbers) {
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 4.dp)
+                        .padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Text(
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier
+                            .weight(1f)
+                            .combinedClickable(
+                                onClick = {},
+                                onLongClick = { Utils.copyToClipboard(context, "", num.number) },
+                            )
+                            // Make click area larger
+                            .padding(vertical = 6.dp),
                         text = num.number,
                         style = MaterialTheme.typography.bodySmall
                     )
@@ -205,11 +217,22 @@ private fun <T : AccessItem> ItemRow(
     onEditPermissionsClicked: (T) -> Unit,
     onDeleteClicked: (T) -> Unit,
 ) {
+    val context = LocalContext.current
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.padding(vertical = 6.dp)
     ) {
-        Text(text = item.toDisplayLabel(), modifier = Modifier.weight(1f))
+        Text(
+            modifier = Modifier
+                .weight(1f)
+                .combinedClickable(
+                    onClick = {},
+                    onLongClick = { Utils.copyToClipboard(context, "", item.toDisplayLabel()) },
+                )
+                // Make click area larger
+                .padding(vertical = 8.dp),
+            text = item.toDisplayLabel(),
+        )
         Spacer(Modifier.width(8.dp))
         OutlinedIconButton({ onEditPermissionsClicked(item) }) {
             Icon(
