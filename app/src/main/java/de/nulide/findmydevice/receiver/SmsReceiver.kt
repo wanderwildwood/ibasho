@@ -11,6 +11,7 @@ import androidx.work.workDataOf
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.utils.log
+import de.nulide.findmydevice.utils.normalizePhoneNumber
 import de.nulide.findmydevice.workers.CommandExecutionWorker
 
 
@@ -33,11 +34,12 @@ class SmsReceiver : BroadcastReceiver() {
         for (pdu in pdus) {
             val sms = SmsMessage.createFromPdu(pdu, format)
 
-            val phoneNumber = sms.originatingAddress
+            var phoneNumber = sms.originatingAddress
             if (phoneNumber.isNullOrBlank()) {
                 context.log().i(TAG, "Cannot handle SMS: phoneNumber is empty!")
                 return
             }
+            phoneNumber = normalizePhoneNumber(context, phoneNumber) ?: phoneNumber
 
             val msg = sms.messageBody
             if (msg.isNullOrBlank()) {
