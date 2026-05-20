@@ -1,6 +1,5 @@
 package de.nulide.findmydevice.ui;
 
-import static org.unifiedpush.android.connector.ConstantsKt.INSTANCE_DEFAULT;
 import static de.nulide.findmydevice.net.ServerRequiredVersionCheckKt.isMinRequiredVersion;
 import static de.nulide.findmydevice.services.UnifiedPushServiceKt.isRegisteredWithUnifiedPush;
 import static de.nulide.findmydevice.ui.SetupWarningsActivityKt.shouldShowSetupWarnings;
@@ -20,15 +19,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationBarView;
 
-import org.unifiedpush.android.connector.UnifiedPush;
-
 import de.nulide.findmydevice.BuildConfig;
 import de.nulide.findmydevice.R;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.net.MinRequiredVersionResult;
 import de.nulide.findmydevice.net.ServerCommandDownloader;
-import de.nulide.findmydevice.services.TempContactExpiredService;
 import de.nulide.findmydevice.ui.home.CommandListFragment;
 import de.nulide.findmydevice.ui.home.TransportListFragment;
 import de.nulide.findmydevice.ui.onboarding.UpdateboardingModernCryptoActivity;
@@ -142,7 +138,6 @@ public class MainActivity extends FmdActivity {
                 .replace(R.id.fragment_container, activeFragment, activeFragment.getStaticTag())
                 .commit();
 
-        TempContactExpiredService.scheduleJob(this, 0);
         invalidateOptionsMenu();
     }
 

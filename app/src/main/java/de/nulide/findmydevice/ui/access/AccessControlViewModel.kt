@@ -37,6 +37,14 @@ class AccessControlViewModel(
         }
     }
 
+    init {
+        // Fallback in case the scheduled TempContactExpiredService failed to complete the cleanup.
+        // Done here to ensure that the UI is up-to-date (at least at launch time).
+        viewModelScope.launch {
+            accessRepo.removeAndNotifyExpiredTempPhoneNumbers()
+        }
+    }
+
     val phoneNumbers = accessRepo.getPhoneNumbers()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(1_000L), emptyList())
     val smsPasswords = accessRepo.getSmsPasswords()

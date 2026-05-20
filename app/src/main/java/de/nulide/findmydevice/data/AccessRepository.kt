@@ -2,6 +2,7 @@ package de.nulide.findmydevice.data
 
 import android.content.Context
 import androidx.room.Room
+import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.FmdPermission
 import de.nulide.findmydevice.database.ACCESS_DB_FILENAME
 import de.nulide.findmydevice.database.AccessDatabase
@@ -12,7 +13,9 @@ import de.nulide.findmydevice.database.SmsPasswordWithTempPhoneNumbers
 import de.nulide.findmydevice.database.TEMP_USAGE_VALIDITY_MILLIS
 import de.nulide.findmydevice.database.TempPhoneNumber
 import de.nulide.findmydevice.database.TempPhoneNumberWithSmsPassword
+import de.nulide.findmydevice.transports.SmsTransport
 import de.nulide.findmydevice.utils.SingletonHolder
+import de.nulide.findmydevice.utils.log
 import de.nulide.findmydevice.utils.normalizePhoneNumber
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -133,13 +136,23 @@ class AccessRepository private constructor(private val context: Context) {
         db.tempPhoneNumberDao().insert(tempNumber)
     }
 
-    suspend fun deleteExpiredTempPhoneNumbers(): List<TempPhoneNumber> =
+    private suspend fun deleteExpiredTempPhoneNumbers(): List<TempPhoneNumber> =
         withContext(Dispatchers.IO) {
             val cutoffTimeMillis = System.currentTimeMillis() - TEMP_USAGE_VALIDITY_MILLIS
             val toDelete = db.tempPhoneNumberDao().getExpired(cutoffTimeMillis)
             db.tempPhoneNumberDao().delete(toDelete)
             return@withContext toDelete
         }
+
+    suspend fun removeAndNotifyExpiredTempPhoneNumbers() {
+        val expired = deleteExpiredTempPhoneNumbers()
+
+        for (item in expired) {
+            val transport = SmsTransport(context, item.number, item.subscriptionId)
+            transport.send(context, context.getString(R.string.temporary_allowlist_expired))
+            context.log().i(TAG, "Phone number expired ${item.number}")
+        }
+    }
 
     /* ------- Notification Passwords ------- */
 

@@ -5,10 +5,7 @@ import android.app.job.JobParameters
 import android.app.job.JobScheduler
 import android.content.ComponentName
 import android.content.Context
-import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.AccessRepository
-import de.nulide.findmydevice.transports.SmsTransport
-import de.nulide.findmydevice.utils.log
 import kotlinx.coroutines.launch
 
 class TempContactExpiredService : FmdJobService() {
@@ -42,13 +39,7 @@ class TempContactExpiredService : FmdJobService() {
         val repo = AccessRepository.getInstance(context)
 
         coroutineScope.launch {
-            val expired = repo.deleteExpiredTempPhoneNumbers()
-
-            for (item in expired) {
-                val transport = SmsTransport(context, item.number, item.subscriptionId)
-                transport.send(context, getString(R.string.temporary_allowlist_expired))
-                context.log().i(TAG, "Phone number expired ${item.number}")
-            }
+            repo.removeAndNotifyExpiredTempPhoneNumbers()
             jobFinished()
         }
 
