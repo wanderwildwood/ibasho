@@ -2,6 +2,7 @@ package de.nulide.findmydevice.data
 
 import android.content.Context
 import androidx.room.Room
+import de.nulide.findmydevice.commands.FmdPermission
 import de.nulide.findmydevice.database.ACCESS_DB_FILENAME
 import de.nulide.findmydevice.database.AccessDatabase
 import de.nulide.findmydevice.database.NotificationPassword
@@ -77,7 +78,7 @@ class AccessRepository private constructor(private val context: Context) {
     suspend fun migratePhoneAllowListToDb(oldList: AllowlistModel) {
         for (old in oldList) {
             val number = normalizePhoneNumber(context, old.number) ?: continue
-            val new = PhoneNumber(0, old.name, number)
+            val new = PhoneNumber(0, old.name, number, FmdPermission.ALL)
             db.phoneNumberDao().insert(new)
         }
     }

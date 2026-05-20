@@ -19,7 +19,7 @@ data class PhoneNumber(
 
     @ColumnInfo("number") val number: String,
 
-    @ColumnInfo("permissions") val permission: Long = FmdPermission.ALL,
+    @ColumnInfo("permissions") val permission: Long = FmdPermission.DEFAULT,
 ) : AccessItem {
 
     override fun getItemPermission(): Long {

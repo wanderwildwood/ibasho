@@ -9,6 +9,7 @@ import com.google.gson.ToNumberPolicy
 import com.google.gson.stream.JsonReader
 import de.nulide.findmydevice.BuildConfig
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.commands.FmdPermission
 import de.nulide.findmydevice.database.NotificationPassword
 import de.nulide.findmydevice.database.SmsPassword
 import de.nulide.findmydevice.utils.CypherUtils
@@ -160,9 +161,16 @@ class SettingsRepository private constructor(private val context: Context) {
         if (pin.isNotBlank()) {
             context.log().i(TAG, "Migrating FMD PIN to database")
             val accessRepo = AccessRepository.getInstance(context)
-            accessRepo.insertSmsPassword(SmsPassword(0, label = "FMD PIN", password = pin))
+            accessRepo.insertSmsPassword(
+                SmsPassword(0, label = "FMD PIN", password = pin, permission = FmdPermission.ALL)
+            )
             accessRepo.insertNotificationPassword(
-                NotificationPassword(0, label = "FMD PIN", password = pin)
+                NotificationPassword(
+                    0,
+                    label = "FMD PIN",
+                    password = pin,
+                    permission = FmdPermission.ALL
+                )
             )
         }
     }

@@ -25,7 +25,18 @@ enum class FmdPermission(val bit: Long) {
     ;
 
     companion object {
+        val NONE = 0L
+
         val ALL: Long = entries.fold(0L) { acc, p -> acc or p.bit }
+
+        /**
+         * A sensible set of locked-down, but still useful default permissions.
+         */
+        val DEFAULT: Long = NONE
+            .addPermission(HELP) // should always be allowed
+            .addPermission(FLASH)
+            .addPermission(LOCATE)
+            .addPermission(RING)
     }
 }
 

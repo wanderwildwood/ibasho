@@ -118,6 +118,10 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_FMDSERVER_LAST_CMD_MILLIS:
                     return 0L;
                 case SET_FMDSERVER_PERMISSIONS:
+                    // Use ALL instead of DEFAULT for FMD Server because
+                    // 1) the server currently has no response channel for "access denied" error messages
+                    // 2) the server is primarily for your own usage, not for giving access to
+                    //    your phone to others (unlike SMS/Notification Reply).
                     return FmdPermission.Companion.getALL();
                 //case SET_GPS_STATE:
                 //    return 1;
