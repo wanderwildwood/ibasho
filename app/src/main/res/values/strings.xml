@@ -57,6 +57,7 @@
     <string name="Settings_Lockscreenmessage_Description">Lock screen message:\nWhen locking the device, this message will appear on the lock screen.</string>
     <string name="delete_pw_warning_no_backup">Warning: The password is not included in the app backup.</string>
     <string name="delete_pw_warning_empty">Warning: Deleting won\'t work because the delete password is empty. You must both enable the feature and set a password.</string>
+    <string name="auhtenticate_for_backup_title">Authenticate to export backup.</string>
 
     <!-- Settings: FMD Server -->
     <string name="Settings_FMD_Server_General">General</string>

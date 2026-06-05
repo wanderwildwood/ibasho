@@ -3,8 +3,11 @@ package de.nulide.findmydevice.ui.settings
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.hardware.biometrics.BiometricPrompt
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import android.os.CancellationSignal
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -88,13 +91,7 @@ class SettingsFragment : TaggedFragment() {
             2 -> settingIntent = Intent(context, AccessControlActivity::class.java)
             3 -> settingIntent = Intent(context, OpenCellIdActivity::class.java)
             4 -> settingIntent = Intent(context, AppearanceActivity::class.java)
-            5 -> {
-                val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
-                intent.putExtra(Intent.EXTRA_TITLE, filenameForExport())
-                intent.setType("*/*")
-                startActivityForResult(intent, EXPORT_REQ_CODE)
-            }
-
+            5 -> authenticateForBackup(context)
             6 -> {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
                 intent.setType("*/*")
@@ -236,4 +233,28 @@ class SettingsFragment : TaggedFragment() {
             .setCancelable(false)
             .show()
     }
+
+    private fun authenticateForBackup(context: Context){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        val biometricPrompt = BiometricPrompt.Builder(context)
+            .setDeviceCredentialAllowed(true)
+            .setTitle(context.getString(R.string.auhtenticate_for_backup_title))
+            .build()
+
+        val cancelSignal = CancellationSignal()
+        val callback = object : BiometricPrompt.AuthenticationCallback() {
+            override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
+                val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
+                intent.putExtra(Intent.EXTRA_TITLE, filenameForExport())
+                intent.setType("*/*")
+                startActivityForResult(intent, EXPORT_REQ_CODE)
+            }
+        }
+
+        biometricPrompt.authenticate(cancelSignal, context.mainExecutor, callback)
+        } else {
+            TODO("VERSION.SDK_INT < Q")
+        }
+    }
+
 }
