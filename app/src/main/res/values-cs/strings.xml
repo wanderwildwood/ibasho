@@ -303,4 +303,27 @@
     <string name="Settings_Debugging">Řešení chyb</string>
     <string name="server_apparently_deleted_text">Aplikaci FMD se nepodařilo přihlásit do vašeho účtu „%s“ na FMD Serveru. Vypadá to, že účet byl ze serveru smazán.</string>
     <string name="invalid_url">Neplatná adresa</string>
+    <string name="save">Uložit</string>
+    <string name="Settings_Access_Control">Ovládání přístupu</string>
+    <string name="fmd_permission_allowed_commands_title">Vybrat povolené příkazy</string>
+    <string name="fmd_permission_allowed_commands_description_server">Vyberte, které příkazy může tento serverový účet vykonávat (a které ne).</string>
+    <string name="allowlist_delete_title_phone_number">Odstranit telefonní číslo?</string>
+    <string name="allowlist_delete_message">Jakmile bude tato položka smazána, již nebude moci přistupovat k FMD. Budete ji moci znovu přidat později.</string>
+    <string name="cmd_missing_fmd_permissions">Nepodařilo se vykonat příkaz „%s“: Nemáte oprávnění vykonat tento příkaz.</string>
+    <string name="cmd_missing_android_permissions">Nepodařilo se vykonat příkaz „%1$s“: Aplikaci FMD nebyla udělena následující oprávnění systému Android: %2$s.</string>
+    <string name="label">Popisek</string>
+    <string name="back">Zpět</string>
+    <string name="access_tab_phone_number">Telefonní čísla</string>
+    <string name="access_tab_sms_password">SMS hesla</string>
+    <string name="access_tab_notification_password">Hesla pro oznámení</string>
+    <string name="access_phone_number_hint">Telefonní čísla v tomto seznamu mohou přistupovat k FMD skrze SMS posláním „%s příkaz“.</string>
+    <string name="access_phone_number_empty">Žádná telefonní čísla. Klepněte na tlačítko níže pro přidání prvního!</string>
+    <string name="access_sms_password_hint">Hesla v tomto seznamu lze použít pro přístup k FMD z kteréhokoli telefonního čísla skrze SMS posláním „%s heslo příkaz“.</string>
+    <string name="access_sms_password_add">Přidat SMS heslo</string>
+    <string name="access_notification_password_hint">Hesla v tomto seznamu lze použít k přístupu k FMD z jakékoli aplikace, která zobrazuje oznámení z rychlou akcí „odpovědět“ (například chatovací aplikace). Text oznámení by měl být „%s heslo příkaz“.</string>
+    <string name="access_notification_password_add">Přidat heslo pro oznámení</string>
+    <string name="access_password_empty">Žádná hesla. Klepněte na tlačítko níže pro přidání prvního!</string>
+    <string name="access_password_exists">Toto heslo již existuje: %s</string>
+    <string name="access_add_password_label_message">Zvolte si popisek, abyste mohli heslo identifikovat. Po uložení tohoto záznamu již heslo nebude znovu zobrazeno.</string>
+    <string name="allowlist_delete_title_password">Odstranit heslo?</string>
 </resources>
