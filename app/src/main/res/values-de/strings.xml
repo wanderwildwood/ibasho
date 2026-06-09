@@ -332,4 +332,7 @@
     <string name="Settings_Debugging">Fehlerbehebung</string>
     <string name="server_apparently_deleted_text">FMD kann sich nicht in dein FMD-Server-Konto „%s“ einloggen. Es scheint, als wäre das Konto vom Server gelöscht worden.</string>
     <string name="invalid_url">Ungültige URL</string>
+    <string name="save">Speichern</string>
+    <string name="fmd_permission_allowed_commands_title">Wähle erlaubte Befehle aus</string>
+    <string name="allowlist_delete_title_phone_number">Telefonnummer löschen?</string>
 </resources>
