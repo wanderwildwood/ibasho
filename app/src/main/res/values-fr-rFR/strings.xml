@@ -314,4 +314,12 @@
     <string name="Settings_Debugging">Résolution de problèmes</string>
     <string name="server_apparently_deleted_text">FMD ne peut pas se connecter à votre compte \"%s\" sur le serveur FMD. Il semble que le compte ait été supprimé du serveur.</string>
     <string name="invalid_url">URL invalide</string>
+    <string name="save">Enregistrer</string>
+    <string name="Settings_Access_Control">Contrôle d\'accès</string>
+    <string name="fmd_permission_allowed_commands_title">Choisir les commandes autorisées</string>
+    <string name="fmd_permission_allowed_commands_description_server">Décider quelles commandes ce compte du serveur est autorisé à exécuter (et lesquelles il ne l\'est pas).</string>
+    <string name="allowlist_delete_title_phone_number">Supprimer le numéro de téléphone ?</string>
+    <string name="allowlist_delete_message">Une fois cet élément supprimé, il ne sera plus autorisé à accéder à FMD. Vous pouvez le rajouter plus tard si vous changez d\'avis.</string>
+    <string name="cmd_missing_fmd_permissions">Impossible d\'exécuter la commande \"%s\" : vous n\'êtes pas autorisés à exécuter cette commande.</string>
+    <string name="cmd_missing_android_permissions">Impossible d\'exécuter la commande \"%1$s\" : les autorisations Android suivantes ne sont pas autorisées pour l\'appli FMD : %2$s.</string>
 </resources>
