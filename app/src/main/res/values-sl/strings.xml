@@ -318,4 +318,27 @@
     <string name="Settings_Debugging">Odpravljanje težav</string>
     <string name="server_apparently_deleted_text">FMD se ne more prijaviti v vaš račun strežnika FMD \"%s\". Kot kaže, je bil račun izbrisan s strežnika.</string>
     <string name="invalid_url">Napačen URL</string>
+    <string name="save">Shrani</string>
+    <string name="Settings_Access_Control">Nadzor dostopa</string>
+    <string name="fmd_permission_allowed_commands_title">Izberite dovoljene ukaze</string>
+    <string name="fmd_permission_allowed_commands_description_server">Določite, katere ukaze lahko izvaja ta račun (in katerih ne).</string>
+    <string name="allowlist_delete_title_phone_number">Izbrišem telefonsko številko?</string>
+    <string name="allowlist_delete_message">Ko bo ta vnos izbrisan, ne bo mogel več dostopati do FMD. Če si premislite, ga lahko pozneje ponovno dodate.</string>
+    <string name="cmd_missing_fmd_permissions">Ukaza \"%s\" ni mogoče izvesti: nimate dovoljenja za izvedbo tega ukaza.</string>
+    <string name="cmd_missing_android_permissions">Ukaza \"%1$s\" ni mogoče izvesti: Aplikacija FMD nima odobrenih naslednjih dovoljenj za Android: %2$s.</string>
+    <string name="label">Oznaka</string>
+    <string name="back">Nazaj</string>
+    <string name="access_tab_phone_number">Telefonske številke</string>
+    <string name="access_tab_sms_password">SMS gesla</string>
+    <string name="access_phone_number_hint">Telefonske številke na tem seznamu imajo dostop do FMD prek SMS-a, tako da pošljejo SMS z besedilom \"%s ukaz\".</string>
+    <string name="access_phone_number_empty">Ni telefonskih številk. Kliknite na spodnji gumb, da jih dodate!</string>
+    <string name="access_sms_password_hint">Gesla na tem seznamu lahko uporabite za dostop do FMD s katere koli telefonske številke prek SMS-a, tako da pošljete SMS z besedilom \"%s geslo ukaz\".</string>
+    <string name="access_sms_password_add">Dodaj SMS geslo</string>
+    <string name="access_notification_password_hint">Gesla na tem seznamu se lahko uporabijo za dostop do FMD iz katere koli aplikacije, ki prikaže obvestilo s hitrim dejanjem \"odgovori\" (na primer aplikacije za sporočanje). Besedilo obvestila mora biti \"%s geslo ukaz\".</string>
+    <string name="allowlist_delete_title_password">Izbrišem geslo?</string>
+    <string name="access_tab_notification_password">Gesla za obvestilne aplikacije</string>
+    <string name="access_notification_password_add">Dodaj geslo za obvestilne aplikacije</string>
+    <string name="access_password_empty">Ni gesel. Kliknite spodnji gumb, da jih dodate!</string>
+    <string name="access_password_exists">To geslo že obstaja: %s</string>
+    <string name="access_add_password_label_message">Izberite oznako, da boste lahko prepoznali geslo. Geslo se po shranjevanju tega vnosa ne bo več prikazalo.</string>
 </resources>
