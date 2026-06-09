@@ -1,20 +1,19 @@
 package de.nulide.findmydevice.ui.settings
 
 import android.app.Activity
-import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
-import android.hardware.biometrics.BiometricPrompt
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.os.CancellationSignal
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.ListView
+import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
+import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
+import androidx.biometric.BiometricPrompt
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -35,15 +34,12 @@ import kotlinx.coroutines.withContext
 import net.lingala.zip4j.ZipFile
 import net.lingala.zip4j.exception.ZipException
 import java.io.File
-import kotlin.math.exp
 
 class SettingsFragment : TaggedFragment() {
 
     companion object {
         private const val EXPORT_REQ_CODE = 30
         private const val IMPORT_REQ_CODE = 40
-
-        private const val KEYGUARD_AUTH = 50
 
         private const val TEMP_ZIP_NAME = "tmp_backup_import.zip"
 
@@ -139,8 +135,6 @@ class SettingsFragment : TaggedFragment() {
                     context.log().w(TAG, "Cannot export: URI is null!")
                 }
             }
-        } else if (requestCode == KEYGUARD_AUTH && resultCode == Activity.RESULT_OK){
-            exportBackup()
         }
     }
 
@@ -240,30 +234,23 @@ class SettingsFragment : TaggedFragment() {
             .show()
     }
 
-    private fun authenticateForBackup(context: Context){
-        val title = context.getString(R.string.auhtenticate_for_backup_title)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        val biometricPrompt = BiometricPrompt.Builder(context)
-            .setDeviceCredentialAllowed(true)
+    private fun authenticateForBackup(context: Context) {
+        val title = context.getString(R.string.export_authenticate_title)
+        val promptInfo = BiometricPrompt.PromptInfo.Builder()
+            .setAllowedAuthenticators(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
             .setTitle(title)
             .build()
 
-        val cancelSignal = CancellationSignal()
         val callback = object : BiometricPrompt.AuthenticationCallback() {
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                 exportBackup()
             }
         }
-
-        biometricPrompt.authenticate(cancelSignal, context.mainExecutor, callback)
-        } else {
-            val keyguardManager = context.getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
-            val intent = keyguardManager.createConfirmDeviceCredentialIntent(title, "")
-            startActivityForResult(intent, KEYGUARD_AUTH)
-        }
+        val biometricPrompt = BiometricPrompt(this, callback)
+        biometricPrompt.authenticate(promptInfo)
     }
 
-    private fun exportBackup(){
+    private fun exportBackup() {
         val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
         intent.putExtra(Intent.EXTRA_TITLE, filenameForExport())
         intent.setType("*/*")
