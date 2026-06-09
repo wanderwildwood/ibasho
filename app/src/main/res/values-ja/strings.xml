@@ -47,7 +47,6 @@
     <string name="request_failed_exception">例外</string>
     <string name="Settings_FMDConfig">FMDの設定</string>
     <string name="Settings_Appearance">表示</string>
-    <string name="pin">ピンコード</string>
     <string name="Settings_FMDServer_Change_Password_Button">パスワードを変更</string>
     <string name="Settings_FMD_Server_User_ID">ユーザーID：</string>
     <string name="Settings_FMDServer_Logout_Text">FMDサーバーのアカウントからログアウトしてよろしいですか？</string>
@@ -98,8 +97,6 @@
     <string name="crashed_copy_log">ログをコピー</string>
     <string name="Settings_FMDServer_Location_Type_Title">位置情報の取得元</string>
     <string name="request_failed_title">ネットワークのリクエストに失敗しました</string>
-    <string name="Settings_Enter_Pin">ピンコードを入力</string>
-    <string name="pin_match_command_keyword">コマンドと同じピンコードは設定できません！</string>
     <string name="Settings_FMDCommand_Description">FMDとの通信に使うコマンド。</string>
     <string name="Settings_FMDServer_Push_Description">FMDのサーバーから端末にコマンドを送信するには、UnifiedPushのディストリビューター用アプリが必要になります。</string>
     <string name="Settings_FMDServer_Update_Interval_Title">バックグラウンドで位置情報をアップロードする際の時間間隔</string>
@@ -109,7 +106,6 @@
     <string name="Settings_Lockscreenmessage_Description">ロック画面に表示するメッセージ：\n端末をロックする際、ロック画面にこのメッセージを表示します。</string>
     <string name="pw_change_wrong_password">パスワードが正しくありません</string>
     <string name="request_failed_response_body">レスポンスの内容</string>
-    <string name="Settings_Pin_Not_Backed_Up">注意：ピンコードはアプリのバックアップには含まれません。</string>
     <string name="Settings_Select_Ringtone">呼び出し音を選択</string>
     <string name="server_version_upgrade_required_title">FMDのサーバーのアップグレードが必要です</string>
     <string name="server_fmd_id_hint">FMD IDは、FMDサーバーがアカウントを確認する際に必要となります。空欄にするとサーバーが自動でIDを作成します。なお、FMD IDはサーバー上に平文で保存され、サーバーの管理者はこれを見ることができます。</string>

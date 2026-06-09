@@ -9,8 +9,6 @@
     <string name="Toast_Duplicate_contact">Этот контакт уже существует.</string>
     <string name="cmd_locate_response_gps_will_follow">GPS координаты скоро будут отправлены.</string>
     <string name="cmd_help_message_start">Команды FMD:</string>
-    <string name="Settings_FMD_via_Pin_Description">Позволяет вам взаимодействовать с FMD через ПИН-код. Это позволяет вам отправлять команды с мобильного номера, не находящегося в списке разрешённых контактов.</string>
-    <string name="Settings_Enter_Pin">Введите ПИН-код</string>
     <string name="MH_Pin_Accepted">ПИН-код принят!</string>
     <string name="ringer_stop_ringing">ОСТАНОВИТЬ РИНГТОН</string>
     <string name="cmd_locate_response_location_off">Извините, определение местоположения отключено.</string>
@@ -32,7 +30,6 @@
     <string name="Settings_FMDServer_Logout_Button">Выйти</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Это удалит все данные с сервера. Вы уверены?</string>
     <string name="notify_crypto_update_text">Вам необходимо обновить некоторые настройки для продолжения использования FMD. Нажмите, чтобы открыть их.</string>
-    <string name="Whitelist_help">Контактам в этом списке разрешено отправлять FMD команды через SMS сообщения. Команды от всех остальных контактов будут проигнорированы.</string>
     <string name="app_description">FMD (Find My Device) позволяет вам удалённо находить ваше устройство. Вы можете взаимодействовать с ним с помощью FMD через SMS сообщения, мессенджеры, или используя FMD Сервер. Находите ваше устройство, заставляйте его воспроизводить звук, блокируйте его, или удаляйте хранящиеся на нём данные - всё это можно сделать удалённо.</string>
     <string name="Settings_FMDServer_Info">С сервером FMD вы можете отправлять команды через интернет, от сервера к приложению. Вы также можете просматривать местоположение устройства на карте, или просматривать фотографии, сделанные устройством. Для инструкций по самостоятельному хостингу сервера, перейдите на сайт.</string>
     <string name="server_unregister_failed_body">Отмена регистрации не удалась из-за следующей ошибки: {ERROR}
@@ -54,7 +51,6 @@
     <string name="registration_token_hint">Приватные инстанции могут потребовать секретный токен. Оставьте это поле пустым, если инстанция публичная.</string>
     <string name="server_unregister_continue_anyway">Всё равно продолжить</string>
     <string name="server_version_error_low_version">Необходима как минимум версия сервера {MIN}, а версия выбранного сервера {CURRENT}. Продолжайте на свой риск.</string>
-    <string name="Whitelist_empty">Нет разрешённых контактов. Нажмите на кнопку, чтобы добавить их.</string>
     <string name="server_unregister_failed_title">Отмена регистрации не удалась</string>
     <string name="server_unregister_dont_continue">Не продолжать</string>
     <string name="loading">Загрузка…</string>
@@ -64,7 +60,6 @@
     <string name="accept">Принять</string>
     <string name="Edit">Редактировать</string>
     <string name="GPS">GPS</string>
-    <string name="pin">ПИН-код</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Интервал фоновой выгрузки местоположения</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD выгружает местоположение устройства каждые X минут.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Источник местоположения</string>
@@ -110,7 +105,6 @@
     <string name="bottom_nav_commands">Команды</string>
     <string name="bottom_nav_transports">Транспортные каналы</string>
     <string name="bottom_nav_settings">Настройки</string>
-    <string name="cmd_missing_permissions">Команда %1$s не может быть выполнена: Отсутствуют разрешения %2$s.</string>
     <string name="required_permissions_title">Необходимые разрешения</string>
     <string name="usage_notification_title">Команда выполнена</string>
     <string name="usage_notification_text">Команда \"%s\" была выполнена.</string>
@@ -245,7 +239,6 @@
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD оповестит вас, если последнее успешное соединение с сервером FMD было больше, чем X часов назад. Это не будет работать, если проверки доступности соединения отключены.</string>
     <string name="cmd_delete_response_dry_run">Пробный запуск прошёл успешно, без фактического удаления устройства.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Максимально разрешённое время без доступного соединения</string>
-    <string name="pin_match_command_keyword">ПИН-код не должен быть таким же, как и одна из команд!</string>
     <string name="log_view_clear">Очистить логи</string>
     <string name="log_view_clear_confirm">Вы действительно хотите удалить все записи лога?</string>
     <string name="usage_notification_pin_title">Был использован ПИН-код FMD</string>
@@ -257,20 +250,15 @@
     <string name="server_fmd_id_hint">Имя пользователя идентифицирует ваш аккаунт на FMD Сервере. Администратор сервера может видеть ваше имя пользователя.</string>
     <string name="Settings_FMDServer_Push_Register_Again">Зарегистрировать повторно</string>
     <string name="allowlist_reset_title">Сброс разрешённых контактов</string>
-    <string name="update_pin_hash_change_text">ПИН-код FMD был сброшен во время обновления приложения. Чтобы продолжить пользоваться FMD с ПИН-кодом, пожалуйста установите ПИН снова.</string>
-    <string name="Settings_Pin_Not_Backed_Up">Предупреждение: ПИН-код не включён в резервную копию приложения.</string>
     <string name="allowlist_reset_text">В связи со сбоем, разрешённые контакты были сброшены. Пожалуйста, настройте их снова.</string>
     <string name="cmd_ringermode_description_short">Изменить режим звонка</string>
     <string name="cmd_ringermode_response_empty">Текущий режим звонка это \"%s\".</string>
     <string name="cmd_ringermode_response">Режим звонка был изменён с \"%1$s\" (старый) на \"%2$s\" (новый).</string>
-    <string name="Settings_Set_Pin">Установить PIN-код</string>
-    <string name="Settings_Change_Pin">Сменить PIN-код</string>
     <string name="server_connectivity_check_not_enabled_title">Включить проверку подключения к серверу</string>
     <string name="server_connectivity_check_not_enabled_text">FMD может регулярно проверять, всё ещё ли доступен FMD Server. Ради обеспечения приватности, эта настройка отключена по умолчанию. Но по причинам доступности, мы рекомендуем включить её.</string>
     <string name="cmd_locate_response_beacondb_failed">Ошибка получения местоположения от BeaconDB. Это могло произойти, если сотовая вышка не находится в базе данных.\n\n%s</string>
     <string name="cmd_ringermode_description_long">Имейте ввиду, что \"беззвучный\" также включает режим \"Не беспокоить\". Это ожидаемое поведение, управляемое Android.</string>
     <string name="setup_recommendations_title">Рекомендации</string>
-    <string name="pin_min_length">PIN-код должен состоять как минимум из 8 символов. Рекомендуется 16 или более.</string>
     <string name="Settings_FMDServer_Push_Open_Help">Больше информации о пуш-уведомлениях</string>
     <string name="Settings_FMDServer_Push_Install_Sunup">Установить Sunup</string>
     <string name="Settings_FMDServer_Push_Info_Sunup">Рекомендованное приложение распространителя UnifiedPush это Sunup. Sunup легко настроить и он использует пуш-сервера от Mozilla.</string>

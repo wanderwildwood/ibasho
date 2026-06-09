@@ -22,7 +22,6 @@
     <string name="Settings_FMDServer_Login">تسجيل الدخول</string>
     <string name="Settings_FMDServer_Register">التسجيل</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">سياسة الخصوصية</string>
-    <string name="Whitelist_empty">لا توجد جهات اتصال مسموح بها. انقر فوق الزر لإضافة البعض!</string>
     <string name="notify_crypto_update_text">تحتاج إلى تحديث بعض الإعدادات لمواصلة استخدام FMD. انقر للفتح.</string>
     <string name="server_unregister_failed_title">فشل إلغاء التسجيل</string>
     <string name="server_unregister_continue_anyway">استمر على أي حال</string>
@@ -40,16 +39,12 @@
     <string name="Settings_FMDServer_Change_Password_Button">تغيير كلمة المرور</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">سيؤدي هذا إلى حذف جميع البيانات من الخادم! هل أنت متأكد؟</string>
     <string name="password">كلمة المرور</string>
-    <string name="Whitelist_help">يُسمح لجهات الاتصال الموجودة في هذه القائمة بإرسال أوامر FMD عبر الرسائل القصيرة. سيتم تجاهل الأوامر من أي شخص آخر.</string>
     <string name="WhiteList_Add_Contact">إضافة جهة اتصال</string>
     <string name="about">نبذة عن</string>
     <string name="app_description">يسمح لك FMD (Find My Device) بتحديد موقع جهازك عن بعد. يمكنك التواصل مع FMD عبر الرسائل القصيرة أو برامج المراسلة الفورية أو باستخدام خادم FMD. حدد موقع جهازك، أو اجعله يرن، أو اقفله، أو امسح بياناته - كل ذلك من جهاز التحكم عن بُعد.</string>
     <string name="Notification_Security_Description">الإشعارات حول التحديثات الأمنية</string>
     <string name="accept">قبول</string>
     <string name="GPS">جي بي أس</string>
-    <string name="Settings_FMD_via_Pin_Description">يسمح لك بالتواصل مع FMD عبر رمز PIN، مما يتيح لك إرسال الأوامر من رقم هاتف غير موجود في قائمة جهات الإتصال المسموح بها.</string>
-    <string name="Settings_Enter_Pin">أدخل الرقم السري</string>
-    <string name="pin">الرقم السري</string>
     <string name="Settings_FMD_Server_Server_URL">عنوان URL للخادم:</string>
     <string name="Settings_FMD_Server_User_ID">معرف المستخدم:</string>
     <string name="server_version_error_low_version">مطلوب إصدار الخادم {MIN} على الأقل، ولكن الخادم المحدد لديه إصدار {CURRENT}. تابع على مسؤوليتك الخاصة.</string>
@@ -98,7 +93,6 @@
     <string name="export_failed">فشل التصدير</string>
     <string name="bottom_nav_commands">أوامر</string>
     <string name="bottom_nav_settings">الإعدادات</string>
-    <string name="cmd_missing_permissions">لا يمكن تنفيذ الأمر %1$s: غياب الصلاحيات %2$s.</string>
     <string name="Settings_Appearance">المظهر</string>
     <string name="appearance_language">لغة</string>
     <string name="appearance_language_choose">إختر اللغة</string>
@@ -227,5 +221,4 @@
     <string name="server_connectivity_check_not_enabled_text">يمكن لـ FMD التحقق بانتظام من إمكانية الوصول إلى خادم FMD. هذه الميزة معطلة إفتراضيًا لأسباب تتعلق بالخصوصية، ولكننا نوصي بتفعيلها لأسباب تتعلق بتوفر الخدمة.</string>
     <string name="server_password_hint">إختر كلمة مرور يصعب تخمينها، ولكن يمكنك إستعادتها في حال فقدان جهازك. تمنحك هذه الكلمة إمكانية الوصول إلى الأوامر التي تُنفذ عن بُعد على جهازك. لا يستطيع مسؤول الخادم الوصول إلى كلمة مرورك أو إعادة تعيينها.</string>
     <string name="allowlist_invalid_number">رقم الهاتف هذا غير صالح!</string>
-    <string name="Settings_Pin_Not_Backed_Up">تحذير: رمز PIN لن يُحفظ في النسخة الإحتياطية.</string>
 </resources>

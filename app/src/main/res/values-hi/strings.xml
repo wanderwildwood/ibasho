@@ -38,7 +38,6 @@
     <string name="cmd_locate_response_location_off">क्षमा करें, स्थान बंद है।</string>
     <string name="LockScreen_Usage_detectd">LockScreenMessage: उपयोग का पता चला।</string>
     <string name="Settings_Export">निर्यात सेटिंग्स</string>
-    <string name="Settings_Enter_Pin">पिन दर्ज करें</string>
     <string name="help">सहायता</string>
     <string name="GPS">GPS</string>
     <string name="copied">कॉपी किया गया</string>
@@ -47,7 +46,6 @@
     <string name="Settings_Import">आयात सेटिंग्स</string>
     <string name="Settings_Logs">लॉग</string>
     <string name="Settings_About">ऐप के बारे में</string>
-    <string name="pin">पिन</string>
     <string name="Settings_FMDCommand_Description">कमांड का उपयोग FMD एप्लिकेशन के साथ संचार करने के लिए किया जाता है।</string>
     <string name="Settings_Lockscreenmessage_Description">लॉक स्क्रीन संदेश: \nडिवाइस को लॉक करते समय यह संदेश लॉक स्क्रीन पर दिखाई देगा।</string>
     <string name="Settings_FMD_Server_User_ID">उपयोक्ता ID:</string>
@@ -64,9 +62,7 @@
     <string name="loading">लोड हो रहा है…</string>
     <string name="accept">स्वीकारें</string>
     <string name="Settings_FMDConfig">FMD-विन्यास</string>
-    <string name="Whitelist_help">इस सूची के संपर्कों को SMS के माध्यम से FMD कमांड भेजने की अनुमति है। बाकी सभी के आदेशों को नजरअंदाज कर दिया जाएगा।</string>
     <string name="registration_token_hint">निजी इंस्टैंस के लिए गुप्त टोकन की आवश्यकता हो सकती है। यदि इंस्टैंस सार्वजनिक है तो इसे खाली छोड़ दें।</string>
-    <string name="Whitelist_empty">कोई अनुमत संपर्क नहीं। कुछ जोड़ने के लिए बटन पर क्लिक करें!</string>
     <string name="OpenCellId_privacy">गोपनीयता: ध्यान रखें कि OpenCeliD आपके वर्तमान सेल टॉवर और इस प्रकार प्रत्येक API क्वेरी के साथ आपके लोकेशन को जानता है।</string>
     <string name="OpenCellId_open_website">OpenCeliD वेबसाइट खोलें</string>
     <string name="OpenCellId_test_opencellid">OpenCeliD कनेक्शन का परीक्षण करें</string>
@@ -86,7 +82,6 @@
     <string name="LockScreen_Backbutton_pressed">LockScreenMessage: बैक-बटन दबाया गया।</string>
     <string name="Toast_Empty_FMDCommand">खाली कमांड की अनुमति नहीं है\n डिफ़ॉल्ट पर लौट रहा है।[fmd]</string>
     <string name="Cell">सेल</string>
-    <string name="Settings_FMD_via_Pin_Description">आपको PIN के माध्यम से FMD के साथ संचार करने की अनुमति देता है। यह आपको ऐसे फोन नंबर से आदेश भेजने की अनुमति देता है जो अनुमत संपर्क सूची में नहीं है।</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">इससे सर्वर से सारा डेटा मिट जाएगा! क्या आप निश्चित हैं?</string>
     <string name="Settings_FMDServer_Location_Type_Description">वह स्रोत जिससे पृष्ठभूमि में नियमित अंतराल पर स्थान डेटा अपलोड किया जाता है।
 \nयदि कोई भी चयनित नहीं है, तो कोई भी स्थान नियमित रूप से अपलोड नहीं किया जाता है। (आप किसी अपलोड को बाध्य करने के लिए अभी भी वेब इंटरफ़ेस का उपयोग कर सकते हैं। इसके लिए पुश की आवश्यकता होती है।)</string>
@@ -100,7 +95,6 @@
     <string name="Notification_Server_Description">FMD सर्वर से संबंधित अधिसूचनाएं</string>
     <string name="Settings_FMDServer_Server_Url">सर्वर URL</string>
     <string name="cmd_camera_description_short">एक तस्वीर लें</string>
-    <string name="cmd_missing_permissions">कमांड %1$s नहीं चला सकता: %2$s अनुमतियां गायब हैं।</string>
     <string name="cmd_camera_description_long">फ्रंट/बैक कैमरे से तस्वीर लेता है और उसे FMD सर्वर पर अपलोड करता है। वर्तमान में केवल FMD सर्वर पर अपलोड करना समर्थित है। आप इस कमांड को अन्य ट्रांसपोर्ट चैनलों के माध्यम से भी भेज सकते हैं, और तस्वीर FMD सर्वर पर अपलोड हो जाएगी (यदि कोई खाता मौजूद है)।</string>
     <string name="cmd_camera_response_no_fmd_server">तस्वीर नहीं ले सकते: कोई FMD सर्वर खाता मौजूद नहीं है।</string>
     <string name="cmd_delete_description_short">डिवाइस को फ़ैक्टरी-रीसेट करें</string>

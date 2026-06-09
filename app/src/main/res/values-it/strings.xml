@@ -11,8 +11,6 @@
     <string name="Toast_Duplicate_contact">Questo contatto esiste già.</string>
     <string name="cmd_locate_response_gps_will_follow">Le coordinate GPS verranno inviate a breve.</string>
     <string name="cmd_help_message_start">Comandi FMD:</string>
-    <string name="Settings_FMD_via_Pin_Description">Consente di comunicare con FMD tramite un PIN. Questo permette di inviare comandi da un numero di telefono non presente nella lista dei Contatti Ammessi.</string>
-    <string name="Settings_Enter_Pin">Inserisci PIN</string>
     <string name="MH_Pin_Accepted">Pin corretto!</string>
     <string name="OpenCellId_help">FMD può utilizzare il servizio OpenCelliD per ottenere una posizione approssimativa basata sulla torre cellulare a cui il dispositivo è collegato. Per ogni richiesta di localizzazione è necessaria una connessione a Internet. È inoltre necessario creare un account su OpenCelliD e ottenere il proprio token di accesso all\'API.</string>
     <string name="OpenCellId_open_website">Apri sito OpenCellId</string>
@@ -32,8 +30,6 @@
     <string name="server_unregister_continue_anyway">Prosegui comunque</string>
     <string name="server_unregister_dont_continue">Non proseguire</string>
     <string name="copied">Copiato</string>
-    <string name="Whitelist_help">I contatti di questo elenco possono inviare comandi FMD via SMS. I comandi provenienti da tutti gli altri verranno ignorati.</string>
-    <string name="Whitelist_empty">Nessun contatto fidato. Fare clic sul pulsante per aggiungerne alcuni!</string>
     <string name="ringer_stop_ringing">SMETTI DI SQUILLARE</string>
     <string name="cmd_locate_response_location_off">Spiacente, la posizione è disattivata.</string>
     <string name="Settings_FMDConfig">Generale</string>
@@ -67,7 +63,6 @@
     <string name="Notification_Security_Description">Notifiche riguardo aggiornamenti di sicurezza</string>
     <string name="Notification_FAIL">Malfunzionamenti</string>
     <string name="Notification_Fail_Description">Notifiche quando qualcosa non va, come la connessione al server FMD</string>
-    <string name="pin">PIN</string>
     <string name="Settings_FMDServer_Logout_Button">Esci</string>
     <string name="Settings_FMDServer_Location_Type_Title">Origine posizione</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Aggiorna con batteria scarica</string>
@@ -105,7 +100,6 @@
     <string name="allowlist_add_phone_number">Aggiungi numero di telefono</string>
     <string name="allowlist_phone_number_name">nome</string>
     <string name="allowlist_phone_number">Numero di telefono</string>
-    <string name="cmd_missing_permissions">Impossibile eseguire il comando %1$s: Permessi mancanti %2$s.</string>
     <string name="cmd_camera_response_no_fmd_server">Impossibile fare foto: non esistono account dell\'FMD server.</string>
     <string name="Notification_Server_Description">Notifiche relative al server FMD</string>
     <string name="Settings_FMD_Server_Connection_Status">Stato della connessione:</string>
@@ -230,7 +224,6 @@
     <string name="crashed_title">Rapporto anomalia</string>
     <string name="usage_notification_pin_text">Il PIN è stato utilizzato da questo numero: \"%s\". Si raccomanda di cambiare PIN.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Intervallo Controllo Connettività</string>
-    <string name="pin_match_command_keyword">Il PIN non può essere uguale ad uno dei comandi!</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD vi avviserà se l\'ultima connessione riuscita al server FMD risale a più di tot ore fa. Questo non ha effetto se il controllo della connettività è disabilitato.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD controlla la connettività al server FMD ogni tot ore. Impostando il valore 0 si disabilita il controllo della connettività.</string>
     <string name="usage_notification_pin_title">Utilizzo PIN FMD</string>
@@ -242,19 +235,15 @@
     <string name="cmd_delete_response_dry_run">Prova riuscita, evitando l\'effettiva cancellazione del dispositivo.</string>
     <string name="allowlist_reset_title">Rimuovi contatti fidati</string>
     <string name="allowlist_reset_text">A causa di un arresto anomalo, i contatti fidati sono stati ripristinati. Si prega di configurarli nuovamente.</string>
-    <string name="update_pin_hash_change_text">Il PIN di FMD è stato resettato durante un aggiornamento dell\'app. Per continuare a utilizzare FMD con un PIN, impostare nuovamente il PIN.</string>
     <string name="Settings_FMDServer_Push_Description">L\'invio di comandi dal server FMD al dispositivo richiede un\'applicazione del distributore UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributore: %s</string>
     <string name="Settings_FMDServer_Push_Register">Registra</string>
     <string name="Settings_FMDServer_Push_Register_Again">Registra Nuovamente</string>
     <string name="Settings_FMDServer_Push_Url">URL Push: %s</string>
     <string name="server_fmd_id_hint">Il nome utente identifica l\'account su Server FMD. L\'amministratore del server può vedere il nome utente.</string>
-    <string name="Settings_Pin_Not_Backed_Up">Attenzione: Il PIN non è incluso nel backup dell\'app.</string>
     <string name="cmd_ringermode_description_short">Cambia la modalità della suoneria</string>
     <string name="cmd_ringermode_response_empty">La modalità della suoneria corrente è \"%s\".</string>
     <string name="cmd_ringermode_response">La modalità della suoneria è cambiata da \"%1$s\" (vecchia) to \"%2$s\" (nuova).</string>
-    <string name="Settings_Set_Pin">Imposta PIN</string>
-    <string name="Settings_Change_Pin">Cambia PIN</string>
     <string name="Settings_FMDServer_Push_Open_Help">Maggiori informazioni su push</string>
     <string name="server_connectivity_check_not_enabled_title">Abilita monitoraggio connettività server</string>
     <string name="server_connectivity_check_not_enabled_text">FMD può verificare regolarmente se il server FMD è ancora raggiungibile. Per motivi di privacy, questa funzione è disattivata per impostazione predefinita. Tuttavia, per motivi di disponibilità, consigliamo di attivarla.</string>
@@ -268,7 +257,6 @@
     <string name="dont_show_again">Non mostrare nuovamente</string>
     <string name="Settings_Access_Control">Controllo accesso</string>
     <string name="Settings_Debugging">Risoluzione problemi</string>
-    <string name="pin_min_length">Il PIN deve essere composto da almeno 8 caratteri. Si consigliano almeno 16 caratteri.</string>
     <string name="delete_pw_warning_no_backup">Attenzione: la password non è inclusa nel backup dell\'app.</string>
     <string name="delete_pw_warning_empty">Attenzione: l\'eliminazione non andrà a buon fine perché la password di cancellazione è vuota. È necessario sia abilitare la funzione sia impostare una password.</string>
     <string name="Settings_FMDServer_Push_Install_Sunup">Installa Sunup</string>

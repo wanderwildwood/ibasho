@@ -11,8 +11,6 @@
     <string name="Toast_Duplicate_contact">Este contacto ya existe.</string>
     <string name="cmd_locate_response_gps_will_follow">Las coordenadas GPS se enviarán pronto.</string>
     <string name="cmd_help_message_start">Comandos de FMD:</string>
-    <string name="Settings_FMD_via_Pin_Description">Te permite comunicarte con FMD mediante un PIN. Esto te permite enviar comandos desde un número de teléfono que no está en la lista de contactos permitidos.</string>
-    <string name="Settings_Enter_Pin">Introducir el PIN</string>
     <string name="MH_Pin_Accepted">¡Pin aceptado!</string>
     <string name="ringer_stop_ringing">DEJAR DE SONAR</string>
     <string name="cmd_locate_response_location_off">Lo sentimos, la ubicación está desactivada.</string>
@@ -48,7 +46,6 @@
     <string name="help">Ayuda</string>
     <string name="copied">Copiado</string>
     <string name="Edit">Editar</string>
-    <string name="pin">PIN</string>
     <string name="Settings_FMD_Server_Server_URL">URL del servidor:</string>
     <string name="Settings_FMD_Server_User_ID">ID del usuario:</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Intervalos de subida de la ubicación en segundo plano</string>
@@ -66,8 +63,6 @@
     <string name="password">Contraseña</string>
     <string name="registration_token">Token de registro</string>
     <string name="registration_token_hint">Las instancias privadas pueden requerir un token secreto. Déjelo vacío si la instancia es pública.</string>
-    <string name="Whitelist_help">Los contactos de esta lista pueden enviar comandos FMD por SMS. Los comandos de todos los demás serán ignorados.</string>
-    <string name="Whitelist_empty">No se permiten contactos. ¡Haz clic en el botón para añadir algunos!</string>
     <string name="OpenCellId_help">FMD puede utilizar el servicio OpenCelliD para obtener una ubicación aproximada basada en la torre de telefonía móvil a la que está conectado al dispositivo. Se requiere una conexión a Internet para cada consulta de ubicación. También es necesario crear una cuenta en OpenCelliD y obtener su propio token de acceso a la API.</string>
     <string name="OpenCellId_open_website">Abrir la página web de OpenCelliD</string>
     <string name="OpenCellId_privacy">Privacidad: recuerde que OpenCelliD aprende su torre de telefonía actual y por lo tanto su ubicación con cada solicitud de API.</string>
@@ -148,7 +143,6 @@
     <string name="usage_notification_title">Comando ejecutado</string>
     <string name="cmd_camera_description_long">Toma una fotografía con la cámara frontal o trasera y la sube al Servidor FMD. Actualmente, solo se admite subirla al Servidor FMD. También puedes enviar este comando a través de otros canales de transporte y la fotografía se subirá al Servidor FMD (si existe una cuenta).</string>
     <string name="cmd_locate_description_long">Localiza el dispositivo usando uno o más proveedores de ubicación. GPS ofrece la mayor precisión, pero puede no funcionar siempre. El proveedor \"fusionado\" está definido por Android y combina múltiples fuentes (normalmente WiFi o torres celulares). El proveedor \"cell\" consulta los servicios públicos OpenCelliD y BeaconDB para las ubicaciones de las torres celulares cercanas.</string>
-    <string name="cmd_missing_permissions">No se puede ejecutar el comando %1$s: Falta permiso(s) %2$s.</string>
     <string name="cmd_delete_response_disabled">No se puede eliminar: el comando eliminar no está habilitado en la configuración.</string>
     <string name="cmd_delete_description_short">Ajuste de fábrica del dispositivo</string>
     <string name="cmd_delete_description_long">Esto borrará todos los datos. Después de eso, ya no podrá comunicarse con el dispositivo. Para evitar el uso accidental y malintencionado, este comando requiere una contraseña y debe estar habilitado explícitamente en la configuración.</string>
@@ -245,15 +239,12 @@
     <string name="Settings_FMDServer_Check_Interval_Title">Intervalo entre comprobaciones de conectividad</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD comprueba la conectividad con el Servidor FMD cada X horas. Establezca este valor en 0 para desactivar las comprobaciones de conectividad.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Tiempo máximo permitido sin conectividad</string>
-    <string name="pin_match_command_keyword">¡El código PIN no debe ser igual a ninguno de los comandos!</string>
     <string name="server_connectivity_lost_text">Ya no se puede acceder al servidor FMD en %1$s . La última conexión exitosa fue en %2$s .</string>
     <string name="server_connectivity_lost_title">Se perdió la conectividad del servidor FMD</string>
     <string name="usage_notification_pin_title">PIN FMD utilizado</string>
     <string name="usage_notification_pin_text">El PIN fue utilizado por este número: \" %s \". Se recomienda cambiar el PIN.</string>
     <string name="cmd_delete_response_dry_run">La prueba se ha ejecutado correctamente, se omite la eliminación del dispositivo real.</string>
     <string name="allowlist_reset_title">Restablecer contactos permitidos</string>
-    <string name="update_pin_hash_change_text">El PIN de FMD se ha restablecido durante una actualización de la aplicación. Para seguir utilizando FMD con un PIN, por favor vuelva a configurarlo.</string>
-    <string name="Settings_Pin_Not_Backed_Up">Advertencia: El PIN no está incluido en la copia de seguridad de la aplicación.</string>
     <string name="Settings_FMDServer_Push_Register">Registrarse</string>
     <string name="allowlist_reset_text">Debido a un fallo, se han restablecido los contactos permitidos. Por favor vuelva a configurarlos.</string>
     <string name="Settings_FMDServer_Push_Description">Enviar comandos desde el Servidor FMD a su dispositivo se requiere una aplicación de distribuidor UnifiedPush.</string>
@@ -261,9 +252,6 @@
     <string name="Settings_FMDServer_Push_Url">Inserte URL: %s</string>
     <string name="Settings_FMDServer_Push_Register_Again">Volver a registrarse</string>
     <string name="server_fmd_id_hint">El ID de FMD identifica su cuenta en el servidor FMD. Déjelo vacío para permitir que el servidor genere un ID. El administrador del servidor pude ver el ID de FMD.</string>
-    <string name="Settings_Set_Pin">Definir PIN</string>
-    <string name="Settings_Change_Pin">Cambiar PIN</string>
-    <string name="pin_min_length">El PIN debe tener al menos 8 caracteres. Se recomiendan 16 o más.</string>
     <string name="Fused">Fusionado</string>
     <string name="dont_show_again">No mostrar más</string>
     <string name="delete_pw_warning_no_backup">Advertencia: La contraseña no está incluida en el respaldo de la aplicación.</string>

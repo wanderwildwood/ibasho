@@ -13,8 +13,6 @@
     <string name="Settings_Import_Success">Importowanie zakończone</string>
     <string name="Settings_Import_Failed">Importowanie nie powiodło się</string>
     <string name="Settings_About">O aplikacji</string>
-    <string name="Settings_Enter_Pin">Wpisz PIN</string>
-    <string name="pin">PIN</string>
     <string name="help">Pomoc</string>
     <string name="request_failed_exception">Błąd</string>
     <string name="loading">Ładowanie…</string>
@@ -24,7 +22,6 @@
     <string name="Settings_Import">Importuj ustawienia</string>
     <string name="Settings_Export">Ustawienia eksportu</string>
     <string name="Settings_Logs">Logi</string>
-    <string name="Settings_FMD_via_Pin_Description">Zezwala na komunikację z FMD za pomocą PINu. Dzięki temu możliwe jest wysyłanie poleceń z numeru telefonu, który nie jest na liście dozwolonych kontaktów.</string>
     <string name="Cell">Komórka</string>
     <string name="Settings_FMD_Server_General">Ogólne</string>
     <string name="Settings_Select_Ringtone">Wybierz dzwonek</string>
@@ -114,7 +111,6 @@
     <string name="missing_permissions_title">Brak Uprawnień</string>
     <string name="usage_notification_title">Komenda wykonana</string>
     <string name="ringer_stop_ringing">PRZESTAŃ DZWONIĆ</string>
-    <string name="Settings_Pin_Not_Backed_Up">Uwaga: PIN nie jest zawarty w kopii zapasowej aplikacji.</string>
     <string name="Settings_FMDServer_Push_Url">URL powiadomień push: %s</string>
     <string name="Settings_FMDServer_Push_Register">Zarejestruj</string>
     <string name="Settings_FMDServer_Push_Register_Again">Zarejestruj ponownie</string>
@@ -123,9 +119,6 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maksymalny dozwolony czas bez połączenia</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Title">Załaduj przy niskim stanie baterii</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Załaduj lokalizację tego urządzenia przy niskim stanie baterii. To wymaga uprawnienia do wyświetlania powiadomień.</string>
-    <string name="Settings_Set_Pin">Ustaw PIN</string>
-    <string name="Settings_Change_Pin">Zmień PIN</string>
-    <string name="pin_match_command_keyword">PIN nie może być jednym z poleceń!</string>
     <string name="Settings_FMDServer_Push_Description">Wysyłanie poleceń z serwera FMD na Twoje urządzenie wymaga aplikacji dystrybucji usługi UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Dystrybutor: %s</string>
     <string name="Settings_FMDServer_Push_Open_Help">Więcej informacji na temat push</string>

@@ -10,8 +10,6 @@
     <string name="Settings_Export">导出设置</string>
     <string name="Settings_Logs">日志</string>
     <string name="Settings_About">关于</string>
-    <string name="Settings_Enter_Pin">输入 PIN</string>
-    <string name="pin">PIN</string>
     <string name="Settings_Ringer_Tone_Description">选择一个在 FMD 铃声发送时响起的铃声。</string>
     <string name="Settings_Select_Ringtone">选择铃声</string>
     <string name="Settings_Lockscreenmessage_Description">锁定屏幕通知： \n当设备锁定时，这条通知将会在锁屏上出现。</string>
@@ -42,7 +40,6 @@
     <string name="accept">允许</string>
     <string name="Settings_Settings">设置</string>
     <string name="Settings_FMDConfig">常规</string>
-    <string name="Settings_FMD_via_Pin_Description">允许您通过 PIN 与 FMD 交流。使可以您从“授权联系人”列表以外的电话号码发送命令。</string>
     <string name="Settings_FMDCommand_Description">用于与 FMD 通信的命令。</string>
     <string name="Settings_FMDServer_Location_Type_Description">后台定时上传位置数据的数据源配置项。\n若未选择任何数据源，系统将不会自动上传定位信息。（此时仍可通过网页端强制上传，但该操作需依赖推送功能支持。）</string>
     <string name="server_version">服务端版本</string>
@@ -50,8 +47,6 @@
     <string name="server_version_error_low_version">最低需要 {MIN} 版本的服务端，但是当前已选服务端版本为 {CURRENT}。继续操作可能存在风险，请谨慎决定。</string>
     <string name="Settings_FMDServer_open_website">打开 FMD 服务端网站</string>
     <string name="Settings_FMDServer_Register">注册</string>
-    <string name="Whitelist_help">本名单中的联系人具有通过短信发送FMD指令的权限。其余号码发送的指令系统将不予响应。</string>
-    <string name="Whitelist_empty">无授权联系人。请点击这个按钮添加！</string>
     <string name="WhiteList_Add_Contact">添加联系人</string>
     <string name="OpenCellId_help">FMD 可以利用 OpenCelliD 服务根据设备连接到的信号塔获得其大致位置。每次位置查询都需要连接互联网。您还需要在 OpenCelliD 创建一个账号并且获取您的 API 访问令牌。</string>
     <string name="OpenCellId_test_no_connection">没有移动网络连接</string>
@@ -110,7 +105,6 @@
     <string name="Toast_Duplicate_contact">此联系人已存在。</string>
     <string name="Settings_FMDServer_Logout_Text">您真的想登出您的 FMD 服务器账户吗？</string>
     <string name="WhiteList_no_contact_picker">未找到联系人选择程序！</string>
-    <string name="pin_match_command_keyword">PIN 不得与命令之一相同！</string>
     <string name="Settings_FMDServer_Delete_Account">删除账户</string>
     <string name="Settings_FMDServer_Unregister_Success">成功注销并删除数据！</string>
     <string name="pw_change_empty">密码不能为空。</string>
@@ -234,7 +228,6 @@
     <string name="transport_inapp_send_command_title">发送应用内命令</string>
     <string name="perm_sms_name">短信</string>
     <string name="cmd_locate_last_known_location_not_available">无最后已知的位置。请求最新位置以强制更新位置。</string>
-    <string name="cmd_missing_permissions">无法执行命令%1$s：缺少权限%2$s。</string>
     <string name="missing_permissions_description">运行 FMD 需要以下权限。</string>
     <string name="missing_permissions_title">缺少权限</string>
     <string name="crashed_text">FMD 崩溃了！以下是日志：</string>
@@ -245,17 +238,12 @@
     <string name="Settings_FMDServer_Push_Register">注册</string>
     <string name="Settings_FMDServer_Push_Register_Again">重新注册</string>
     <string name="Settings_FMDServer_Push_Description">通过 FMD 服务器向设备发送指令，必须借助 UnifiedPush 分发器应用。</string>
-    <string name="update_pin_hash_change_text">应用更新期间重置了 FMD PIN。想继续使用带 PIN 的 FMD，请重新设置。</string>
     <string name="allowlist_reset_title">重置授权联系人</string>
-    <string name="Settings_Pin_Not_Backed_Up">警告：应用备份中未包含 PIN。</string>
     <string name="allowlist_reset_text">由于崩溃，授权联系人被重置。请重新配置。</string>
     <string name="cmd_ringermode_description_short">更改响铃模式</string>
     <string name="cmd_ringermode_response_empty">当前响铃模式为“%s”。</string>
     <string name="cmd_ringermode_response">已从“%1$s”（原）更改为“%2$s”（新）。</string>
     <string name="dont_show_again">不再显示</string>
-    <string name="Settings_Set_Pin">设置 PIN</string>
-    <string name="Settings_Change_Pin">更改 PIN</string>
-    <string name="pin_min_length">PIN 必须至少包含 8 个字符，建议至少包含 16 个字符。</string>
     <string name="delete_pw_warning_no_backup">警告：应用备份中未包含密码。</string>
     <string name="delete_pw_warning_empty">警告：由于删除密码为空，无法执行删除操作。您必须同时启用该功能并设置密码。</string>
     <string name="password_match_command_keyword">密码不能与任何命令相同！</string>

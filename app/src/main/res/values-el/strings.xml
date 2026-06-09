@@ -31,14 +31,6 @@
     <string name="Settings_Export">Ρυθμίσεις εξαγωγής</string>
     <string name="Settings_Logs">Αρχεία καταγραφής</string>
     <string name="Settings_About">Πληροφορίες για την εφαρμογή</string>
-    <string name="Settings_FMD_via_Pin_Description">Σας επιτρέπει να επικοινωνείτε με το FMD μέσω PIN. Με αυτό τον τρόπο μπορείτε να στέλνετε εντολές από έναν αριθμό τηλεφώνου που δεν βρίσκεται στη λίστα επιτρεπόμενων επαφών.</string>
-    <string name="Settings_Pin_Not_Backed_Up">Προειδοποίηση: Ο PIN δεν περιλαμβάνεται στο αντίγραφο ασφαλείας της εφαρμογής.</string>
-    <string name="Settings_Set_Pin">Ορίστε PIN</string>
-    <string name="Settings_Change_Pin">Αλλάξτε τον PIN</string>
-    <string name="Settings_Enter_Pin">Εισάγετε PIN</string>
-    <string name="pin">PIN</string>
-    <string name="pin_min_length">Ο PIN πρέπει να έχει τουλάχιστον 8 χαρακτήρες. Συνιστάται να έχει 16 ή περισσότερους.</string>
-    <string name="pin_match_command_keyword">Ο PIN δεν πρέπει να είναι ίδιος με καμία από τις εντολές!</string>
     <string name="Settings_FMDCommand_Description">Η εντολή που χρησιμοποιείται για την επικοινωνία με το FMD.</string>
     <string name="Toast_Empty_FMDCommand">Δεν επιτρέπεται κενή εντολή. Χρησιμοποιείται η προεπιλογή.</string>
     <string name="Settings_Ringer_Tone_Description">Επιλέξτε έναν ήχο κλήσης για την εντολή «κουδούνισμα».</string>

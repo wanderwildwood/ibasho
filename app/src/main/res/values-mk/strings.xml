@@ -17,8 +17,6 @@
     <string name="Settings_Import_Failed">Внесот не успеа</string>
     <string name="Settings_Export">Извади нагодувања</string>
     <string name="Settings_Logs">Записи</string>
-    <string name="Settings_Enter_Pin">Внеси ЛИБ (личен идентификационен број)</string>
-    <string name="pin">ЛИБ (личен идентификационен број)</string>
     <string name="Settings_Ringer_Tone_Description">Одбери ѕвонка која ќе свири кога е пратена FMD ѕвони наредба.</string>
     <string name="Settings_Lockscreenmessage_Description">Порака при заклучен екран: \nКога ќе се заклучи уредот, оваа порака ќе се појави на заклучениот екран.</string>
     <string name="Settings_FMD_Server_User_ID">Корисничко име:</string>
@@ -40,7 +38,6 @@
     <string name="Settings_FMDServer_Login">Најави се</string>
     <string name="registration_token">Симбол (токен) за регистрација</string>
     <string name="registration_token_hint">Приватните инстанци може да изискуваат тајни симболи (токени). Остави го ова празно ако инстанцата е јавна.</string>
-    <string name="Whitelist_empty">Нема дозволени контакти. Кликни на копчето за да додадеш нови!</string>
     <string name="WhiteList_Add_Contact">Додај контакт</string>
     <string name="Toast_Duplicate_contact">Веќе постои истиот контакт.</string>
     <string name="WhiteList_no_contact_picker">Не е пронајдена апликација за одбирање контакти!</string>
@@ -93,7 +90,6 @@
     <string name="bottom_nav_commands">Наредби</string>
     <string name="Settings_Import">Внеси нагодувања</string>
     <string name="Settings_About">За апликацијата</string>
-    <string name="Settings_FMD_via_Pin_Description">Ти дозволува да комуницираш со FMD користејќи ЛИБ (личен идентификациски број). Ова ти овозможува да праќаш наредби од телефонски број кој не се наоѓа во списокот на Дозволени контакти.</string>
     <string name="Toast_Empty_FMDCommand">Празна наредба не е дозволена\n Враќање на пред-поставката.[fmd]</string>
     <string name="Settings_FMDCommand_Description">Наредба која се користи да се комуницира со FMD.</string>
     <string name="Settings_FMD_Server_Server_URL">Адреса на серверот:</string>
@@ -107,7 +103,6 @@
     <string name="Settings_FMDServer_Register">Регистрирај се</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Полиса за приватност</string>
     <string name="password">Лозинка</string>
-    <string name="Whitelist_help">Контактите во оваа листа имаат дозвола да праќаат FMD наредби преку СМС. Командите од сите други ќе бидат игнорирани.</string>
     <string name="allowlist_phone_number">Телефонски број</string>
     <string name="OpenCellId_help">FMD може да ја користи услугата OpenCelliD за да се стекне со приближна позиција базирана на телефонските кули до кои уредо е поврзан. Потребна е Интернет врска за секое барање за позиција. Потребно е, исто така, да создадеш сметка при OpenCelliD и да се стекнеш со свој API Access симбол (токен).</string>
     <string name="about">За апликацијата</string>
@@ -117,7 +112,6 @@
     <string name="server_unregister_failed_body">Дерегистрирањето не успеа со следнава грешка: {ERROR}
 \n
 \nМожеш. сепак, да продолжиш, но твојата сметка можно е да не се избрише од серверот. Ако продолжиш, твојата сметка ќе се избрише само локално од овој уред.</string>
-    <string name="cmd_missing_permissions">Не може да се изврши командата %1$s: Недостасуваат следниве дозволи: %2$s.</string>
     <string name="cmd_camera_description_short">Направи фотографија</string>
     <string name="cmd_camera_description_long">Прави фотографија со предната и задната камера, и ја прикачува на FMD серверот. Моментално поддржано е само прикачување на FMD серверот. Можеш да ја испратиш оваа наредба и по други преносни канали, и сликата ќе се прикачи на FMD серверот (ако постои таква сметка).</string>
     <string name="cmd_camera_response_success">Овој уред моментално прави фотографија и ќе ја испрати до FMD серверот. Наскоро ќе можеш да ја видиш тука: %s</string>

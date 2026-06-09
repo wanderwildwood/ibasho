@@ -11,8 +11,6 @@
     <string name="Toast_Duplicate_contact">Yhteystieto on jo olemassa.</string>
     <string name="cmd_locate_response_gps_will_follow">GPS-koordinaatit lähetetään pian.</string>
     <string name="cmd_help_message_start">FMD-komennot:</string>
-    <string name="Settings_FMD_via_Pin_Description">Kommunikoi FMD:n kanssa PIN-koodia käyttäen. Tämä mahdollistaa komentojen lähettämisen puhelinnunerosta, joka ei ole valkoisella listalla.</string>
-    <string name="Settings_Enter_Pin">Syötä PIN-koodi</string>
     <string name="MH_Pin_Accepted">PIN-koodi hyväksytty!</string>
     <string name="ringer_stop_ringing">PYSÄYTÄ SOITTO</string>
     <string name="cmd_locate_response_location_off">Pahoittelut, sijainti on poissa käytöstä.</string>
@@ -38,8 +36,6 @@
     <string name="Cell">Tukiasema</string>
     <string name="Edit">Muokkaa</string>
     <string name="Settings_FMDServer_Logout_Button">Kirjaudu ulos</string>
-    <string name="Whitelist_help">Vain tässä listassa olevat yhteystiedot voivat lähettää FMD-komentoja tekstiviestitse. Muut yhteystiedot ohitetaan.</string>
-    <string name="pin">PIN</string>
     <string name="Settings_FMD_Server_General">Yleinen</string>
     <string name="Settings_FMD_Server_Server_URL">Palvelimen URL:</string>
     <string name="Settings_FMD_Server_User_ID">Käyttäjän ID:</string>
@@ -51,7 +47,6 @@
     <string name="Settings_FMDServer_AddAccount">FMD-palvelin: Kirjaudu/rekisteröidy</string>
     <string name="Settings_FMDServer_open_website">Avaa FMD-palvelimen verkkosivu</string>
     <string name="password">Salasana</string>
-    <string name="Whitelist_empty">Ei sallittuja yhteystietoja. Klikkaa painiketta lisääksesi!</string>
     <string name="copied">Kopioitu</string>
     <string name="loading">Ladataan…</string>
     <string name="help">Apua</string>
@@ -183,7 +178,6 @@
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Sovelluksen tulisi olla käynnissä taustalla. Jotta sen toiminta voidaan varmistaa myös laitteen ollessa lepotilassa, akun optimointi sovellukselle tulee kytkeä pois päältä.</string>
     <string name="transport_sms_description">Lähetä komentoja laitteellesi tekstiviestitse. Lähetä esimerkiksi viesti: \"%s help\" laitteellesi. FMD vastaa tekstiviestillä.</string>
     <string name="transport_fmd_server_description">FMD-palvelin tarjoaa verkkokäyttöliittymän laitteen ohjaamiseen, sijainnin näkemiseen ja FMD:n lähettämien valokuvien katsomiseen. Voit myös itse ylläpitää palvelinta. Tiedot on salattu palvelimella, salasanallasi suojattuja.</string>
-    <string name="cmd_missing_permissions">Komentoa %1$s ei voitu suorittaa: Käyttöoikeus puuttuu %2$s.</string>
     <string name="grant">Myönnä</string>
     <string name="grant_write_secure_settings_title">Myönnä suojattujen asetusten kirjoitusoikeus</string>
     <string name="perm_root_denied">Root-oikeus evätty</string>
@@ -237,6 +231,5 @@
     <string name="cmd_delete_response_dry_run">Testiajo suoritettu, ohitetaan todellinen laitteen poisto.</string>
     <string name="usage_notification_pin_text">PIN-koodia käytti numero %s. On suositeltavaa vaihtaa PIN-koodi.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD tarkistaa yhteyden FMD-palvelimelle määrittämäsi tuntimäärän välein. Aseta nollaksi poistaaksesi tarkistus käytöstä.</string>
-    <string name="pin_match_command_keyword">PIN-koodi ei voi olla sama kuin mikään komennoista!</string>
     <string name="usage_notification_pin_title">FMD PIN-koodia käytetty</string>
 </resources>

@@ -15,7 +15,6 @@
     <string name="Settings_Import_Success">Успішно імпортовано</string>
     <string name="Settings_Export">Експорт налаштувань</string>
     <string name="Settings_Logs">Журнал</string>
-    <string name="Settings_Enter_Pin">Введіть PIN</string>
     <string name="Settings_Select_Ringtone">Виберіть мелодію дзвінка</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Інтервал завантаження фонового місцезнаходження</string>
     <string name="Settings_FMDServer_Location_Type_Title">Джерело місцезнаходження</string>
@@ -42,7 +41,6 @@
     <string name="Settings_Import_Failed">Не вдалось імпортувати</string>
     <string name="Settings_About">Про</string>
     <string name="Settings_FMDCommand_Description">Команда для зв\'язку з FMD.</string>
-    <string name="Settings_FMD_via_Pin_Description">Дозволяє зв’язуватися з FMD за допомогою PIN-коду. Це дозволяє надсилати команди з номера телефону, якого немає у списку дозволених контактів.</string>
     <string name="Settings_Ringer_Tone_Description">Виберіть рингтон для команди \"ring\".</string>
     <string name="Settings_FMDServer_use_default_server">Використовуйте публічний сервер</string>
     <string name="Settings_FMDServer_Location_Type_Description">Джерело(-а), з якого(-их) дані про місцезнаходження завантажуються у фоновому режимі через певні проміжки часу.
@@ -59,8 +57,6 @@
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Політика конфіденційності</string>
     <string name="registration_token">Реєстраційний токен</string>
     <string name="registration_token_hint">Для приватних екземплярів може знадобитися секретний токен. Залиште це поле порожнім, якщо екземпляр публічний.</string>
-    <string name="Whitelist_help">Контакти з цього списку мають право надсилати команди FMD через SMS. Команди від усіх інших будуть ігноруватись.</string>
-    <string name="Whitelist_empty">Немає дозволених контактів. Натисніть кнопку, щоб додати!</string>
     <string name="WhiteList_no_contact_picker">Не знайдено додаток для вибору контакту!</string>
     <string name="allowlist_phone_number_name">Імʼя</string>
     <string name="OpenCellId_help">FMD може використовувати сервіс OpenCelliD, щоб отримати приблизне місцезнаходження на основі вежі стільникового зв\'язку, до якої підключено пристрій. Для кожного запиту на визначення місцезнаходження потрібне підключення до Інтернету. Вам також потрібно створити обліковий запис на OpenCelliD і отримати власний токен доступу до API.</string>
@@ -105,7 +101,6 @@
     <string name="server_unregister_failed_body">Скасування реєстрації завершилося невдало з наступною помилкою: {ERROR}
 \n
 \nВи можете продовжити в будь-якому випадку, але ваш обліковий запис не було видалено з сервера. Якщо ви продовжите, ваш обліковий запис буде видалено локально на цьому пристрої.</string>
-    <string name="cmd_missing_permissions">Неможливо виконати команду %1$s: Не вистачає дозволу(ів) %2$s.</string>
     <string name="cmd_delete_response_success">Тепер пристрій слід видалити. До побачення!</string>
     <string name="cmd_gps_response_on">Сервіси Визначення Місцезнаходження увімкнені.</string>
     <string name="cmd_gps_response_off">Сервіси Визначення Місцезнаходження вимкнені.</string>
@@ -201,11 +196,9 @@
     <string name="pw_change_empty">Пароль не може бути порожнім.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth вимкнено.</string>
     <string name="cmd_delete_response_dry_run">Пробний запуск успішно завершено, фактичне видалення пристрою пропущено.</string>
-    <string name="Settings_Pin_Not_Backed_Up">Попередження: PIN не входить до резервної копії програми.</string>
     <string name="server_fmd_id_hint">Ідентифікатор FMD ідентифікує ваш обліковий запис на сервері FMD. Залиште це поле порожнім, щоб сервер міг згенерувати ідентифікатор. Адміністратор сервера може бачити ідентифікатор FMD.</string>
     <string name="allowlist_reset_text">Через збій дозволені контакти було скинуто. Будь ласка, налаштуйте їх ще раз.</string>
     <string name="allowlist_reset_title">Скидання дозволених контактів</string>
-    <string name="update_pin_hash_change_text">PIN-код FMD було скинуто під час оновлення програми. Щоб продовжити користуватися FMD з PIN-кодом, будь ласка, встановіть його знову.</string>
     <string name="export_success">Експорт пройшов успішно</string>
     <string name="export_failed">Не вдалось експортувати</string>
     <string name="Settings_Appearance">Зовнішній вигляд</string>
@@ -238,7 +231,6 @@
     <string name="appearance_theme_choose">Виберіть тему</string>
     <string name="cmd_bluetooth_description_short">Вмикає та вимикає Bluetooth</string>
     <string name="cmd_bluetooth_response_on">Bluetooth увімкнено.</string>
-    <string name="pin_match_command_keyword">PIN-код не повинен дорівнювати одній з команд!</string>
     <string name="Settings_FMDServer_Delete_Account">Видалити обліковий запис</string>
     <string name="Settings_FMDServer_Unregister_Success">Скасування реєстрації та видалення даних успішно завершено!</string>
     <string name="Settings_FMDServer_Logout_Text">Ви дійсно хочете вийти зі свого облікового запису сервера FMD?</string>
@@ -248,7 +240,6 @@
     <string name="usage_notification_pin_title">PIN-код ящуру використано</string>
     <string name="server_version_upgrade_required_title">Потрібно оновити сервер FMD</string>
     <string name="usage_notification_pin_text">PIN використовувався номером: \"%s\". Рекомендується змінити PIN-код.</string>
-    <string name="pin">PIN</string>
     <string name="perm_sms_name">SMS</string>
     <string name="Settings_FMDServer_Push_Distributor">Дистриб\'ютор: %s</string>
     <string name="Settings_FMDServer_Push_Url">Штовхати URL: %s</string>
@@ -261,15 +252,12 @@
     <string name="cmd_ringermode_response">Режим дзвінка змінено з \"%1$s\" (старий) на \"%2$s\" (новий).</string>
     <string name="cmd_locate_response_beacondb_failed">Помилка отримання місцезнаходження з BeaconDB. Це може статися, якщо вежі стільникового зв\'язку немає в базі даних.\n\n%s</string>
     <string name="cmd_ringermode_description_long">Зверніть увагу, що «беззвучний» режим також активує режим «Не турбувати». Це очікувана поведінка, визначена Android.</string>
-    <string name="Settings_Set_Pin">Встановити PIN-код</string>
-    <string name="Settings_Change_Pin">Змінити PIN-код</string>
     <string name="server_connectivity_check_not_enabled_title">Увімкнути перевірку підключення до сервера</string>
     <string name="server_connectivity_check_not_enabled_text">FMD може регулярно перевіряти, чи доступний сервер FMD. З міркувань конфіденційності ця функція вимкнена за замовчуванням. Але з міркувань доступності ми рекомендуємо її ввімкнути.</string>
     <string name="setup_recommendations_title">Рекомендації</string>
     <string name="Settings_FMDServer_Push_Open_Help">Більше інформації про push-повідомлення</string>
     <string name="server_password_hint">Виберіть пароль, який неможливо вгадати, але який ви зможете відновити у разі втрати пристрою. Пароль надає доступ до віддаленого виконання команд на вашому пристрої. Адміністратор сервера не може отримати доступ до вашого пароля або скинути його.</string>
     <string name="allowlist_invalid_number">Цей номер телефону недійсний!</string>
-    <string name="pin_min_length">PIN-код має містити щонайменше 8 символів. Рекомендовано 16 або більше.</string>
     <string name="password_min_length">Пароль має містити щонайменше 8 символів. Рекомендовано 16 або більше.</string>
     <string name="Settings_FMDServer_Push_Install_Sunup">Встановити Sunup</string>
     <string name="Settings_FMDServer_Push_Info_Sunup">Рекомендованим дистриб\'ютором UnifiedPush є Sunup. Sunup легко налаштовується та використовує push-сервери від Mozilla.</string>

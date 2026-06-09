@@ -28,11 +28,6 @@
     <string name="Settings_Export">Exportar configurações</string>
     <string name="Settings_Logs">Registos</string>
     <string name="Settings_About">Sobre</string>
-    <string name="Settings_FMD_via_Pin_Description">Permite que comunique com o FMD através de um PIN. Isto permite que envie comandos de um número de telefone que não está na lista de contatos permitidos.</string>
-    <string name="Settings_Pin_Not_Backed_Up">Alerta: O PIN não é incluso no backup de apps.</string>
-    <string name="Settings_Enter_Pin">Digite o PIN</string>
-    <string name="pin">PIN</string>
-    <string name="pin_match_command_keyword">O PIN não pode ser igual a um dos comandos!</string>
     <string name="Settings_FMDCommand_Description">O comando utilizado para comunicar com o FMD.</string>
     <string name="Toast_Empty_FMDCommand">Comando vazio não permitido, usando o padrão.</string>
     <string name="Settings_Ringer_Tone_Description">Selecione um som de toque que tocará quando o comando \'fmd ring\' é enviado.</string>
@@ -94,8 +89,6 @@
     <string name="registration_token">Token de registo</string>
     <string name="registration_token_hint">Instâncias privadas podem solicitar um token secreto. Deixe em branco se a instância é pública.</string>
     <string name="server_registration_token_error">Solicitação de rede falhou com HTTP 401. Isto pode acontecer se o servidor requer um token de registo e o token que ofereceu está errado.</string>
-    <string name="Whitelist_help">Os contatos nesta lista podem enviar comandos do FMD por SMS. Comandos de outras pessoas serão ignorados.</string>
-    <string name="Whitelist_empty">Não há nenhum contato permitido! Clique no botão para adicionar alguns!</string>
     <string name="WhiteList_Add_Contact">Adicionar contato</string>
     <string name="Toast_Duplicate_contact">Este contato já existe.</string>
     <string name="WhiteList_no_contact_picker">Nenhuma aplicação selecionadora de contato encontrada!</string>
@@ -135,8 +128,6 @@
     <string name="server_unregister_failed_body">Ocorreu uma falha ao remover o registo com o seguinte erro: {ERROR}\n\nPode continuar mesmo assim, mas a sua conta pode não ter sido apagada do servidor. Se continuar, a sua conta será apagada localmente do dispositivo.</string>
     <string name="server_unregister_continue_anyway">Continuar mesmo assim</string>
     <string name="server_unregister_dont_continue">Não continuar</string>
-    <string name="update_pin_hash_change_text">O PIN do FMD foi redefinido durante uma atualização da app. Para continuar usando o FMD com um PIN, por favor, defina o PIN novamente.</string>
-    <string name="cmd_missing_permissions">Não foi possível executar o comando %1$s: Faltando a(s) permissão(ões) %2$s.</string>
     <string name="cmd_bluetooth_description_short">Ativar o Bluetooth</string>
     <string name="cmd_bluetooth_response_no_bluetooth">O dispositivo não parece ter Bluetooth.</string>
     <string name="cmd_bluetooth_response_on">Bluetooth ativado.</string>

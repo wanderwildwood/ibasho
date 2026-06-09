@@ -45,9 +45,6 @@
     <string name="Settings_Export">匯出設定</string>
     <string name="Settings_Logs">日誌</string>
     <string name="Settings_About">關於</string>
-    <string name="Settings_FMD_via_Pin_Description">允許您透過 PIN 與 FMD 進行通訊。這可讓您從不在允許聯絡人清單中的電話號碼傳送指令。</string>
-    <string name="Settings_Enter_Pin">輸入 PIN 碼</string>
-    <string name="pin">PIN</string>
     <string name="Settings_FMDCommand_Description">用於與 FMD 通訊的指令。</string>
     <string name="Settings_Ringer_Tone_Description">選擇「ring」指令的鈴聲。</string>
     <string name="Settings_Select_Ringtone">選擇鈴聲</string>
@@ -67,20 +64,17 @@
     <string name="server_version_error">取得伺服器版本時發生錯誤</string>
     <string name="password">密碼</string>
     <string name="registration_token_hint">私人實例可能需要私密權杖。若該實例為公開的，請留空。</string>
-    <string name="Whitelist_help">此清單中的聯絡人可透過簡訊傳送 FMD 指令，來自其他人的指令將會被忽略。</string>
     <string name="Settings_FMDServer_use_default_server">使用公共伺服器</string>
     <string name="Settings_FMDServer_Login">登入</string>
     <string name="Settings_FMDServer_Register">註冊</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">隱私權政策</string>
     <string name="registration_token">註冊令牌</string>
-    <string name="Whitelist_empty">尚未設定任何允許的聯絡人。請點擊按鈕新增！</string>
     <string name="server_unregister_failed_title">取消註冊失敗</string>
     <string name="server_unregister_continue_anyway">仍要繼續</string>
     <string name="server_unregister_dont_continue">不要繼續</string>
     <string name="Notification_Security">安全</string>
     <string name="Notification_FAIL">失敗</string>
     <string name="pw_change_success">密碼已變更</string>
-    <string name="pin_match_command_keyword">PIN 不得與任何指令相同！</string>
     <string name="Settings_no_ringtone_picker">找不到鈴聲選擇器！</string>
     <string name="Settings_FMDServer_Logout_Text">您真的要登出您的 FMD 伺服器帳號嗎？</string>
     <string name="Settings_FMDServer_Delete_Account">刪除帳號</string>
@@ -109,7 +103,6 @@
     <string name="allowlist_phone_number">手機號碼</string>
     <string name="Toast_Duplicate_contact">此聯絡人已存在。</string>
     <string name="bottom_nav_commands">命令</string>
-    <string name="Settings_Pin_Not_Backed_Up">警告：應用程式備份中不包含 PIN 碼。</string>
     <string name="Cell">行動數據</string>
     <string name="Toast_Empty_FMDCommand">不允許空命令，正在使用預設值。</string>
     <string name="add">增加</string>
@@ -117,9 +110,6 @@
     <string name="Settings_Import_Success">匯入成功</string>
     <string name="Settings_Import_Failed">輸入失敗</string>
     <string name="bottom_nav_settings">設定</string>
-    <string name="Settings_Set_Pin">設定 PIN 碼</string>
-    <string name="Settings_Change_Pin">變更 PIN 碼</string>
-    <string name="pin_min_length">PIN 碼至少必須為 8 個字元，建議使用 16 個以上的字元。</string>
     <string name="Settings_FMDServer_Push_Distributor">分發器：%s</string>
     <string name="Settings_FMDServer_Push_Open_Help">更多有關推送的資訊</string>
     <string name="Settings_FMDServer_Push_Install_Sunup">安裝 Sunup</string>
@@ -161,8 +151,6 @@
     <string name="app_description">FMD（Find My Device）可讓您遠端定位您的裝置。您可以透過簡訊、即時通訊軟體，或使用 FMD 伺服器與 FMD 通訊。您可在遠端定位裝置、讓裝置響鈴、鎖定裝置，或清除裝置上的資料。</string>
     <string name="notify_crypto_update_text">您需要更新部分設定才能繼續使用 FMD。點擊以開啟設定。</string>
     <string name="server_unregister_failed_body">取消註冊失敗，發生以下錯誤：{ERROR}\n\n您仍可選擇繼續，但您的帳號可能尚未從伺服器刪除。若您繼續操作，該帳號將只會從此裝置上刪除。</string>
-    <string name="update_pin_hash_change_text">FMD 的 PIN 已在應用程式更新期間被重設。若要繼續使用 PIN 方式操作 FMD，請重新設定 PIN。</string>
-    <string name="cmd_missing_permissions">無法執行指令 %1$s：缺少必要的權限 %2$s。</string>
     <string name="cmd_bluetooth_description_short">切換藍牙開啟或關閉</string>
     <string name="cmd_bluetooth_response_no_bluetooth">此設備似乎沒有藍牙。</string>
     <string name="cmd_bluetooth_response_on">藍牙已開啟。</string>

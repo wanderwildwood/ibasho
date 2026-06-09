@@ -21,7 +21,6 @@
     <string name="Settings_Import">Instellingen importeren</string>
     <string name="Settings_Logs">Logboeken</string>
     <string name="Settings_About">Over</string>
-    <string name="pin">Pincode</string>
     <string name="Settings_FMDCommand_Description">De opdracht die wordt gebruikt om te communiceren met FMD.</string>
     <string name="Toast_Empty_FMDCommand">Lege opdracht niet toegestaan. Standaardopdracht wordt gebruikt.</string>
     <string name="Settings_Ringer_Tone_Description">Selecteer een beltoon voor de opdracht \"ring\".</string>
@@ -101,7 +100,6 @@
     <string name="request_failed_response_body">Hoofdtekst van de reactie</string>
     <string name="Settings_FMDConfig">Algemeen</string>
     <string name="Settings_Export">Instellingen exporteren</string>
-    <string name="Settings_Enter_Pin">Pincode invoeren</string>
     <string name="Settings_FMD_Server_Server_URL">Server-URL:</string>
     <string name="Settings_FMDServer_Location_Type_Description">De bron(nen) van waaruit de locatiegegevens op regelmatige tijdstippen op de achtergrond worden geüpload.\nAls er geen is geselecteerd, worden er geen regelmatige locaties geüpload. (Je kunt nog wel de webinterface gebruiken om een upload te forceren. Dit vereist push.)</string>
     <string name="password_new">Nieuw wachtwoord</string>
@@ -125,9 +123,7 @@
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Privacybeleid</string>
     <string name="registration_token">Registratie-token</string>
     <string name="registration_token_hint">Voor privé-instanties kan een geheim token nodig zijn. Laat dit leeg als de instantie openbaar is.</string>
-    <string name="Whitelist_help">De contacten in deze lijst mogen FMD-opdrachten sturen via sms. Opdrachten van anderen worden genegeerd.</string>
     <string name="server_registration_token_error">Netwerkaanvraag is mislukt met HTTP 401. Dit kan gebeuren als de server een registratietoken vereist en het opgegeven token onjuist was.</string>
-    <string name="Whitelist_empty">Geen Toegestane contacten. Klik op de knop om er een paar toe te voegen!</string>
     <string name="server_unregister_dont_continue">Niet doorgaan</string>
     <string name="cmd_bluetooth_response_no_bluetooth">Het apparaat lijkt geen Bluetooth te hebben.</string>
     <string name="cmd_bluetooth_response_on">Bluetooth staat aan.</string>
@@ -214,10 +210,8 @@
     <string name="missing_permissions_title">Ontbrekende machtigingen</string>
     <string name="LockScreen_Backbutton_pressed">LockScreenMessage: Knop Terug gedrukt.</string>
     <string name="ringer_stop_ringing">OVERGAAN STOPPEN</string>
-    <string name="cmd_missing_permissions">Kan opdracht %1$s niet uitvoeren. Ontbrekende machtiging(en): %2$s .</string>
     <string name="crashed_send_log">Logboek sturen</string>
     <string name="crashed_copy_log">Logboek kopiëren</string>
-    <string name="Settings_FMD_via_Pin_Description">Hiermee wordt het mogelijk gemaakt om via een pincode met FMD te communiceren. Zo kun je opdrachten sturen vanaf een telefoonnummer dat niet op de lijst toegestane contacten staat.</string>
     <string name="Settings_Lockscreenmessage_Description">Boodschap op het vergrendelingsscherm:\nBij vergrendeling van het apparaat, wordt deze boodschap getoond op het vergrendelingsscherm.</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Upload de locatie van dit apparaat wanneer het batterijniveau laag wordt.</string>
     <string name="OpenCellId_privacy">Privacy: houd er rekening mee dat OpenCelliD bij elke API-query je huidige zendmast en daarmee je locatie leest.</string>
@@ -236,7 +230,6 @@
     <string name="Settings_FMDServer_Check_Interval_Description">FMD controleert elke X uur de verbinding met de FMD Server. Zet deze op 0 om de controle op de verbinding uit te schakelen.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maximaal toegestane tijd zonder verbinding</string>
     <string name="usage_notification_pin_text">De pincode werd gebruikt met dit nummer: \"%s\". Het wordt aanbevolen om de pincode te wijzigen.</string>
-    <string name="pin_match_command_keyword">De pincode mag niet gelijk zijn aan een van de opdrachten!</string>
     <string name="server_fmd_id_hint">De gebruikersnaam identificeert jouw account op de FMD Server. De serverbeheerder kan de gebruikersnaam zien.</string>
     <string name="Settings_FMDServer_Push_Description">Om commando\'s van FMD Server naar je apparaat te sturen, heb je een UnifiedPush-distributeur-app nodig.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributeur: %s</string>
@@ -244,14 +237,10 @@
     <string name="Settings_FMDServer_Push_Register">Registreren</string>
     <string name="Settings_FMDServer_Push_Register_Again">Opnieuw registreren</string>
     <string name="allowlist_reset_text">Ten gevolge van een crash zijn de Toegestane contacten teruggezet. Configureer deze opnieuw.</string>
-    <string name="Settings_Pin_Not_Backed_Up">Waarschuwing: De pincode is niet opgenomen in de app-back-up.</string>
     <string name="allowlist_reset_title">Toegestane contacten teruggezet</string>
-    <string name="update_pin_hash_change_text">De FMD-pincode is teruggezet tijdens een app-update. Om FMD met een pincode te blijven gebruiken, moet deze opnieuw worden ingesteld.</string>
     <string name="cmd_ringermode_description_short">Belmodus wijzigen</string>
     <string name="cmd_ringermode_response_empty">De huidige belmodus is \"%s\".</string>
     <string name="cmd_ringermode_response">De belmodus is gewijzigd van \"%1$s\" (oud) naar \"%2$s\" (nieuw).</string>
-    <string name="Settings_Set_Pin">PIN instellen</string>
-    <string name="Settings_Change_Pin">PIN wijzigen</string>
     <string name="server_connectivity_check_not_enabled_title">Controle op serververbindig inschakelen</string>
     <string name="server_connectivity_check_not_enabled_text">FMD kan regelmatig controleren of FMD Server nog bereikbaar is. Om privacy redenen is dit standaard uitgeschakeld. Maar met het oog op beschikbaarheid raden wij aan om het in te schakelen.</string>
     <string name="cmd_locate_response_beacondb_failed">Fout bij het verkrijgen van locatie van BeaconDB. Dit kan gebeuren als de zendmast niet in de database staat.\n\n%s</string>
@@ -260,7 +249,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Meer informatie over push</string>
     <string name="server_password_hint">Kies een wachtwoord dat niet geraden kan worden, maar dat je wel kunt gebruiken wanneer je je apparaat kwijtraakt. Het wachtwoord verleent toegang tot het op afstand uitvoeren van opdrachten op je apparaat. De serverbeheerder heeft geen toegang tot je wachtwoord en kan dit niet opnieuw instellen.</string>
     <string name="allowlist_invalid_number">Dit telefoonnummer is ongeldig!</string>
-    <string name="pin_min_length">De pincode moet minimaal 8 tekens lang zijn. 16 of meer wordt aangeraden.</string>
     <string name="password_min_length">Het wachtwoord moet minimaal 8 tekens lang zijn. 16 of meer wordt aangeraden.</string>
     <string name="missing_push_description">Zonder UnifiedPush-distributeur-app kun je geen opdrachten van FMD Server ontvangen.</string>
     <string name="missing_push_title">UnifiedPush ontbreekt</string>

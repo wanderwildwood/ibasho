@@ -102,9 +102,6 @@
     <string name="Settings_Import">Nhập cài đặt</string>
     <string name="Settings_Logs">Nhật ký</string>
     <string name="Settings_About">Giới thiệu</string>
-    <string name="Settings_FMD_via_Pin_Description">Cho phép bạn giao tiếp với FMD qua PIN. Điều này cho phép bạn gửi lệnh từ một số điện thoại không có trong danh sách liên hệ cho phép.</string>
-    <string name="Settings_Enter_Pin">Nhập PIN</string>
-    <string name="pin">PIN</string>
     <string name="Settings_Ringer_Tone_Description">Chọn một âm thanh sẽ được phát khi tín hiệu FMD được gửi.</string>
     <string name="Settings_Select_Ringtone">Chọn âm thanh</string>
     <string name="Settings_no_ringtone_picker">Không tìm thấy trình chọn âm thanh!</string>
@@ -132,7 +129,6 @@
     <string name="password">Mật khẩu</string>
     <string name="registration_token_hint">Các phiên bản riêng tư có thể yêu cầu một mã bí mật. Để trống nếu phiên bản là công khai.</string>
     <string name="server_registration_token_error">Yêu cầu mạng thất bại với HTTP 401. Điều này có thể xảy ra nếu máy chủ yêu cầu một mã đăng ký và mã bạn cung cấp là sai.</string>
-    <string name="Whitelist_empty">Không có liên hệ được phép. Nhấn nút để thêm một vài liên hệ!</string>
     <string name="WhiteList_Add_Contact">Thêm liên hệ</string>
     <string name="WhiteList_no_contact_picker">Không tìm thấy ứng dụng chọn liên hệ!</string>
     <string name="allowlist_add_phone_number">Thêm số điện thoại</string>
@@ -157,7 +153,6 @@
     <string name="about_wiki">Wiki</string>
     <string name="server_unregister_failed_body">Hủy đăng ký không thành công với lỗi sau: {ERROR}\n\nBạn có thể tiếp tục nhưng tài khoản của bạn có thể chưa được xóa khỏi máy chủ. Nếu bạn tiếp tục, tài khoản của bạn sẽ bị xóa cục bộ khỏi thiết bị này.</string>
     <string name="server_unregister_dont_continue">Không tiếp tục</string>
-    <string name="cmd_missing_permissions">Không thể thực hiện lệnh %1$s: Thiếu quyền %2$s.</string>
     <string name="cmd_bluetooth_description_short">Bật và tắt Bluetooth</string>
     <string name="cmd_bluetooth_response_no_bluetooth">Thiết bị dường như không có Bluetooth.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth đã được tắt.</string>
@@ -195,7 +190,6 @@
     <string name="Toast_Duplicate_contact">Liên hệ này đã tồn tại.</string>
     <string name="OpenCellId_help">FMD có thể sử dụng dịch vụ OpenCelliD để lấy vị trí gần đúng dựa trên trạm phát sóng di động mà thiết bị đang kết nối. Cần có kết nối internet cho mỗi truy vấn vị trí. Bạn cũng cần tạo một tài khoản tại OpenCelliD và lấy mã truy cập API của riêng bạn.</string>
     <string name="registration_token">Mã đăng ký</string>
-    <string name="Whitelist_help">Các liên hệ trong danh sách này được phép gửi lệnh FMD qua SMS. Lệnh từ những người khác sẽ bị bỏ qua.</string>
     <string name="OpenCellId_privacy">Quyền riêng tư: hãy nhớ rằng OpenCelliD sẽ biết trạm phát sóng di động hiện tại của bạn và do đó là vị trí của bạn với mỗi truy vấn API.</string>
     <string name="OpenCellId_tower_collector_info">Bạn có thể đóng góp cho OpenCelliD bằng cách thu thập và tải lên thông tin trạm phát sóng di động. Bạn cần một ứng dụng chuyên dụng cho việc này. Một ứng dụng như vậy là Tower Collector.</string>
     <string name="OpenCellId_tower_collector_download">Tải xuống Tower Collector</string>
@@ -222,7 +216,6 @@
     <string name="cmd_bluetooth_response_on">Bluetooth đã được bật.</string>
     <string name="log_view_clear">Xóa nhật ký</string>
     <string name="crashed_open_issuetracker">Mở Trình theo dõi sự cố</string>
-    <string name="pin_match_command_keyword">Mã PIN không được bằng một trong các lệnh!</string>
     <string name="Settings_FMDCommand_Description">Lệnh được sử dụng để giao tiếp với FMD.</string>
     <string name="Toast_Empty_FMDCommand">Lệnh trống không được phép, sử dụng mặc định.</string>
     <string name="Settings_Lockscreenmessage_Description">Tin nhắn màn hình khóa:\nKhi khóa thiết bị, tin nhắn này sẽ xuất hiện trên màn hình khóa.</string>

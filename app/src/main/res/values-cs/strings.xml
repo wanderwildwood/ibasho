@@ -33,9 +33,6 @@
     <string name="GPS">GPS</string>
     <string name="request_failed_status_code">Stavový kód</string>
     <string name="request_failed_exception">Výjimka</string>
-    <string name="Settings_FMD_via_Pin_Description">Umožňuje komunikovat s FMD pomocí kódu PIN. To vám umožní posílat příkazy z mobilního čísla, které se nenachází na seznamu povolených kontaktů.</string>
-    <string name="Settings_Enter_Pin">Zadat PIN</string>
-    <string name="pin">PIN</string>
     <string name="Settings_Ringer_Tone_Description">Vyberte vyzvánění pro příkaz „ring“.</string>
     <string name="Settings_Lockscreenmessage_Description">Zpráva na zamykací obrazovce:\nPři uzamčení zařízení bude tato zpráva zobrazena na zamykací obrazovce.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Zdroj polohy</string>
@@ -47,7 +44,6 @@
     <string name="Settings_FMDServer_use_default_server">Použít veřejný server</string>
     <string name="password">Heslo</string>
     <string name="registration_token">Registrační token</string>
-    <string name="Whitelist_help">Kontakty v tomto seznamu mohou posílat příkazy FMD pomocí SMS. Příkazy od všech ostatních budou ignorovány.</string>
     <string name="WhiteList_Add_Contact">Přidat kontakt</string>
     <string name="OpenCellId_privacy">Soukromí: vezměte prosím v potaz, že se OpenCelliD dozví vaše aktuální mobilní věže a tím pádem vaší polohu při každém dotazu na API.</string>
     <string name="OpenCellId_test_opencellid">Vyzkoušet připojení k OpenCelliD</string>
@@ -93,7 +89,6 @@
     <string name="Settings_FMDServer_Register">Registrace</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Ochrana soukromí</string>
     <string name="registration_token_hint">Soukromé instance mohou vyžadovat tajný token. Ponechte prázdné, pokud se jedná o veřejnou instanci.</string>
-    <string name="Whitelist_empty">Žádné povolené kontakty. Klepněte na tlačítko pro jejich přidání!</string>
     <string name="Notification_Server_Description">Oznámení týkající se FMD Serveru</string>
     <string name="Settings_FMDServer_Server_Url">Adresa serveru</string>
     <string name="cmd_camera_response_no_fmd_server">Nepodařilo se pořídit obrázek: neexistuje účet na FMD Serveru.</string>
@@ -126,7 +121,6 @@
     <string name="grant_write_secure_settings_description">Toto oprávnění lze udělit pouze pomocí příkazu „pm grant“ s nástrojem pro příkazovou řádku systému Android. Tento příkaz můžete ručně vykonat pomocí nástroje Android Debug Bridge (ADB) s počítačem. Můžete jej také vykonat přímo na vašem zařízení pomocí rootu nebo aplikace Shizuku.\n\nUživatelské ID: %d</string>
     <string name="grant_via_adb">Udělit pomocí ADB</string>
     <string name="perm_root_denied">Root přístup zamítnut</string>
-    <string name="cmd_missing_permissions">Nepodařilo se spustit příkaz %1$s: chybějící oprávnění %2$s.</string>
     <string name="cmd_camera_description_long">Pořídí obrázek s předním/zadním fotoaparátem a nahraje jej na FMD Server. Momentálně je podporováno pouze nahrání na FMD Server. Tento příkaz můžete poslat také ostatními kanály a obrázek bude nahrán na FMD Server (pokud existuje účet).</string>
     <string name="cmd_camera_description_short">Pořídit obrázek</string>
     <string name="cmd_camera_response_success">Zařízení pořizuje obrázek a nahraje jej na FMD Server. Brzy si jej budete moci prohlédnout zde: %s</string>
@@ -236,7 +230,6 @@
     <string name="Settings_FMDServer_Check_Interval_Description">FMD kontroluje spojení s FMD Serverem každých X hodin. Nastavte na 0 pro zakázání kontroly spojení.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Interval kontroly spojení</string>
     <string name="cmd_delete_response_dry_run">Zkušební běh proběhl úspěšně, překakování skutečného odstranění zařízení.</string>
-    <string name="pin_match_command_keyword">PIN se nesmí rovnat jednomu z příkazů!</string>
     <string name="server_fmd_id_hint">Uživatelské jméno identifikuje váš účet na FMD Serveru. Správce serveru může vaše jméno vidět.</string>
     <string name="Settings_FMDServer_Push_Description">Odesílání příkazů z FMD Serveru do vašeho zařízení vyžaduje distribuční aplikaci služby UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributor: %s</string>
@@ -244,14 +237,10 @@
     <string name="Settings_FMDServer_Push_Register_Again">Znovu registrovat</string>
     <string name="Settings_FMDServer_Push_Url">Adresa Push: %s</string>
     <string name="allowlist_reset_text">Kvůli pádu byly resetovány povolené kontakty. Nastavte je prosím znovu.</string>
-    <string name="update_pin_hash_change_text">Během aktualizace aplikace byl resetován PIN FMD. Abyste mohli nadále používat FMD s PINem, nastavte jej prosím znovu.</string>
-    <string name="Settings_Pin_Not_Backed_Up">Varování: záloha aplikace neobsahuje PIN.</string>
     <string name="allowlist_reset_title">Povolené kontakty byly resetovány</string>
     <string name="cmd_ringermode_description_short">Změnit režim vyzvánění</string>
     <string name="cmd_ringermode_response_empty">Aktuální režim vyzvánění je „%s“.</string>
     <string name="cmd_ringermode_response">Režim vyzvánění byl změněn z „%1$s“ (původní) na „%2$s“ (nový).</string>
-    <string name="Settings_Set_Pin">Natavit PIN</string>
-    <string name="Settings_Change_Pin">Změnit PIN</string>
     <string name="server_connectivity_check_not_enabled_title">Povolit kontrolu spojení se serverem</string>
     <string name="server_connectivity_check_not_enabled_text">FMD může pravidelně kontorolovat, zda je FMD Server stále dostupný. Z důvodu ochrany soukromí je tato funkce ve výchozím nastavení vypnutá. Z důvodu zajištění dostupnosti ji ale doporučujeme povolit.</string>
     <string name="cmd_locate_response_beacondb_failed">Chyba při získávání polohy ze služby BeaconDB. Toto se může stát, pokud není mobilní věž v databázi.\n\n%s</string>
@@ -260,7 +249,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Další informace o zprávách push</string>
     <string name="server_password_hint">Zvolte si heslo, které nelze uhodnout, ale které můžete obnovit, pokud zařízení ztratíte. Heslo umožňuje vzdálený přístup k příkazům spouštěným na vašem zařízení. Správce serveru nemá přístup k vašemu heslu ani jej nemůže resetovat.</string>
     <string name="allowlist_invalid_number">Toto telefonní číslo je neplatné!</string>
-    <string name="pin_min_length">PIN musí mít alespoň 8 znaků. Je doporučeno 16 nebo více.</string>
     <string name="password_min_length">Heslo musí mít alespoň 8 znaků. Je doporučeno 16 nebo více.</string>
     <string name="Settings_FMDServer_Push_Install_Sunup">Nainstalovat Sunup</string>
     <string name="Settings_FMDServer_Push_Info_Sunup">Doporučená distribuční aplikace UnifiedPush je Sunup. Sunup je jednoduchý na nastavení a používá doručovací servery organizace Mozilla.</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="pin_match_command_keyword">PIN kodu komutlardan biriyle aynı olmamalıdır!</string>
     <string name="Settings_Select_Ringtone">Zil sesi seçin</string>
     <string name="Settings_FMD_Server_User_ID">Kullanıcı ID:</string>
     <string name="Settings_FMDServer_Delete_Account">Hesabı sil</string>
@@ -31,8 +30,6 @@
     <string name="Settings_Import">Ayarları İçe Aktar</string>
     <string name="Settings_Export">Ayarları Dışa Aktar</string>
     <string name="Settings_Logs">Günlükler</string>
-    <string name="Settings_Enter_Pin">PIN kodu girin</string>
-    <string name="pin">PIN kodu</string>
     <string name="Settings_FMDCommand_Description">FMD ile iletişim kurmak için kullanılan komut.</string>
     <string name="Toast_Empty_FMDCommand">Belirleyeceğiniz komut boş olamaz, varsayılan komut kullanılacak.</string>
     <string name="Settings_Lockscreenmessage_Description">Kilit ekranı mesajı:\nCihaz kilitlendiğinde, bu mesaj kilit ekranında gözükecektir.</string>
@@ -46,8 +43,6 @@
     <string name="Settings_FMDServer_Logout_Button">Oturumdan çık</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD, her X saat FMD sunucusuna bağlantı durumunu kontol eder. Bağlantı kontrolünü devre dışı bırakmak için bunu 0\'a ayarlayın.</string>
     <string name="Settings_About">Hakkında</string>
-    <string name="Settings_FMD_via_Pin_Description">FMD ile bir PIN kodu aracılığıyla iletişim kurmanıza izin verir. Bu izin verilen kişiler listesinde olmayan bir telefon numarasından komutlar göndermenize izin verir.</string>
-    <string name="Settings_Pin_Not_Backed_Up">Uyarı: PIN kodu uygulama yedeğine dahil değildir.</string>
     <string name="Settings_FMDServer_Logout_Text">FMD Sunucu hesabınızdan gerçekten çıkmak istiyor musunuz?</string>
     <string name="Settings_FMDServer_Unregister_Success">Kaydı silme ve veri silme başarılı!</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Başarılı</string>
@@ -85,7 +80,6 @@
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Gizlilik Politikası</string>
     <string name="server_fmd_id_hint">FMD ID hesabınızın FMD sunucusunda kimliğini belirler. Sunucunun ID üretmesi için bunu boş bırakın. FMD ID\'nin sunucuda düz yazı olarak depolandığını göz önünde bulundurun, örn. sunucu yöneticisi görebilir.</string>
     <string name="registration_token_hint">Özel instancelar gizli bir token gerektirebilir. Eğer instance halka açıksa bunu boş bırakın.</string>
-    <string name="Whitelist_help">Bu listedeki kişiler SMS aracılığıyla FMD komutları gönderebilir. Diğer herkesten gelen komutlar görmezden gelinecektir.</string>
     <string name="WhiteList_no_contact_picker">Rehber uygulaması bulunamadı!</string>
     <string name="allowlist_add_phone_number">Telefon Numarası Ekle</string>
     <string name="allowlist_phone_number_name">İsim</string>
@@ -97,7 +91,6 @@
     <string name="appearance_theme_follow_system">Sisteme Ayak Uydur</string>
     <string name="appearance_theme_light">Açık</string>
     <string name="log_view_clear">Günlükleri Temizle</string>
-    <string name="update_pin_hash_change_text">FMD PINi bir uygulama güncellemesi sıraında sıfırlandı. FMD\'yi bir PIN ile kullanmaya devam etmek için, lütfen PIN\'i tekrar ayarlayın.</string>
     <string name="server_connectivity_lost_title">FMD Sunucu bağlantısı kayboldu</string>
     <string name="server_version_upgrade_required_text">Şu anda kullandığınız FMD Sunucusu {CURRENT} sürümüne sahip, fakat bu uygulama en az {MIN} gerektiriyor. Cihazınızı FMD Sunucusuyla kontrol etmek artık çalışmayabilir. Lütfen sunucunuzu yükseltin.</string>
     <string name="server_version_error">Sunucu sürümü edinilirken hata</string>
@@ -108,7 +101,6 @@
     <string name="password">Şifre</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">FMD ID ve şifre boş olmamalıdır.</string>
     <string name="registration_token">Kayıt Tokeni</string>
-    <string name="Whitelist_empty">İzin verilen kişi yok. Eklemek için butona tıklayın!</string>
     <string name="WhiteList_Add_Contact">Kişi Ekle</string>
     <string name="Toast_Duplicate_contact">Bu kişi zaten mevcut.</string>
     <string name="allowlist_phone_number">Telefon Numarası</string>
@@ -127,7 +119,6 @@
     <string name="server_unregister_continue_anyway">Yine de devam et</string>
     <string name="cmd_bluetooth_description_short">Bluetooth\'ı aç ya da kapat</string>
     <string name="server_unregister_dont_continue">Devam etme</string>
-    <string name="cmd_missing_permissions">Komut çalıştırılamadı %1$s: Eksik izin(ler) %2$s.</string>
     <string name="cmd_bluetooth_response_no_bluetooth">Cihaz Bluetooth\'a sahip gözükmüyor.</string>
     <string name="cmd_bluetooth_response_on">Bluetooth açıldı.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth kapatıldı.</string>
@@ -246,9 +237,6 @@
     <string name="missing_permissions_description">Listelenen izinler FMD\'nin çalışması için gerekli.</string>
     <string name="Fused">Çok kaynaklı konum sağlayıcı</string>
     <string name="dont_show_again">Tekrar gösterme</string>
-    <string name="Settings_Set_Pin">PIN kodu belirleyin</string>
-    <string name="Settings_Change_Pin">PIN kodunu değiştirin</string>
-    <string name="pin_min_length">PIN kodu en az 8 karakter olmalıdır. 16 karakter veya daha fazla olması önerilir.</string>
     <string name="delete_pw_warning_no_backup">Dikkat: Şifre uygulama yedeğine dahil edilmez.</string>
     <string name="delete_pw_warning_empty">Dikkat: Silme şifresi belirlenmediği için silme işlemi yapılamayacak. Hem özelliği aktifleştirip hem de şifre belirlemeniz gerekmektedir.</string>
     <string name="Settings_FMDServer_Push_Open_Help">Push bildirimleri ile daha fazla bilgi</string>

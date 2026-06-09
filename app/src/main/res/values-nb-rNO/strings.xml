@@ -9,9 +9,6 @@
     <string name="Settings_Settings">Innstillinger</string>
     <string name="Settings_Import">Importer innstillinger</string>
     <string name="Settings_Export">Eksporter innstillinger</string>
-    <string name="Settings_FMD_via_Pin_Description">Lar deg kommunisere med FMD via en PIN. Du vil legges til på midlertidig hvitliste.</string>
-    <string name="Settings_Enter_Pin">Skriv inn PIN</string>
-    <string name="pin">PIN</string>
     <string name="Settings_Select_Ringtone">Velg ringetone</string>
     <string name="Cell">Mobil</string>
     <string name="Settings_Ringer_Tone_Description">Velg ringetone for FMD anrop.</string>
@@ -73,7 +70,6 @@
     <string name="request_failed_status_code">Statuskode</string>
     <string name="request_failed_response_body">Brødtekst for svaret</string>
     <string name="registration_token_hint">Det kan hende en privat instans krever et hemmelig symbol. La stå tomt hvis instansen er offentlig.</string>
-    <string name="Whitelist_help">Kontaktene i denne listen kan sende FMD-kommandoer via SMS. Kommandoer annensteds fra vil bli ignorert.</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Programmet er ment å kjøre i bakgrunnen. Skru av batterioptimaliseringer for å forsikre at alt fungerer i hvilemodus.</string>
     <string name="request_failed_exception">Unntak</string>
     <string name="cmd_camera_response_no_fmd_server">Kan ikke knipse bilde: Ingen FMD-tjenerkonto finnes.</string>
@@ -100,7 +96,6 @@
     <string name="cmd_locate_description_long">Finn enheten ved bruk av én eller flere posisjonstilbydere. Operativsystemstilbyderen betyr vanligvis GPS, noen ganger med en kombinasjon av andre kilder. En sekundær tilbyder er OpenCelliD, som bruker en database av mobilmastposisjoner.</string>
     <string name="cmd_camera_description_short">Knips et bilde</string>
     <string name="cmd_delete_description_short">Fabrikk-tilbakestill enheten</string>
-    <string name="cmd_missing_permissions">Kan ikke kjøre kommandoen «%1$s»: Manglende tilgang(er) %2$s.</string>
     <string name="cmd_camera_description_long">Tar et bilde med front/bakside-kamera og laster det opp til FMD-tjeneren. Kun opplasting til FMD-tjeneren støttes per nå. Du kan sende denne kommandoen via andre transportkanaler også, og bildet vil deretter lastes opp til FMD-tjeneren (hvis en konto finnes).</string>
     <string name="cmd_delete_response_pwd_missing">Kan ikke slette: Manglende passord. Bruk: %s.</string>
     <string name="cmd_gps_description_short">Veksle GPS av eller på</string>
@@ -147,5 +142,4 @@
     <string name="Toast_Empty_FMDCommand">Tom kommando er ikke tillatt\n Returnerer til forvalg.[fmd]</string>
     <string name="Settings_FMDServer_open_website">Åpne FMD-tjenernettsiden</string>
     <string name="Settings_FMDServer_Info">Med FMD-tjeneren kan du sende kommandoer over Internett fra tjeneren til programmet. Du kan også vise enhetsposisjon på kartet, eller vise bilder tatt av enheten. Instruks om egen vertstjening er å finne på nettsiden.</string>
-    <string name="Whitelist_empty">Klikk for å legge til tillatte kontakter.</string>
 </resources>

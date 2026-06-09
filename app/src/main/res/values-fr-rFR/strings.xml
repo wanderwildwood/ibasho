@@ -2,8 +2,6 @@
 <resources>
     <string name="ringer_stop_ringing">ARRETER DE SONNER</string>
     <string name="MH_Pin_Accepted">Code PIN accepté !</string>
-    <string name="Settings_Enter_Pin">Entrer le code PIN</string>
-    <string name="Settings_FMD_via_Pin_Description">Permet de communiquer avec FMD via un code PIN. Cela vous permet d\'envoyer des commandes à partir d\'un numéro de téléphone qui ne figure pas dans la liste des contacts autorisés.</string>
     <string name="cmd_help_message_start">les commandes de FMD :</string>
     <string name="cmd_locate_response_gps_will_follow">Les coordonnées GPS seront envoyées bientôt.</string>
     <string name="Toast_Duplicate_contact">Ce contact existe déjà.</string>
@@ -50,8 +48,6 @@
     <string name="password">Mot de passe</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Politique de confidentialité</string>
     <string name="registration_token">Jeton d\'enregistrement</string>
-    <string name="Whitelist_help">Les contacts figurant dans cette liste sont autorisés à envoyer des commandes FMD par SMS. Les commandes provenant d\'autres personnes seront ignorées.</string>
-    <string name="Whitelist_empty">Aucun contact autorisé. Cliquez sur le bouton pour en ajouter !</string>
     <string name="about_source_code">Code source</string>
     <string name="notify_crypto_update_text">Vous devez mettre à jour certains paramètres pour continuer à utiliser FMD. Appuyez pour ouvrir.</string>
     <string name="server_unregister_continue_anyway">Continuer tout de même</string>
@@ -68,7 +64,6 @@
     <string name="Settings_FMDServer_Update_Interval_Title">Intervalle d’envoi de localisation en arrière-plan</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Envoi la localisation de l\'appareil lorsque le niveau de la batterie est faible.</string>
     <string name="help">Aide</string>
-    <string name="pin">Code PIN</string>
     <string name="Settings_FMDServer_Login">Se connecter</string>
     <string name="Settings_FMDServer_AddAccount">Serveur FMD : Se connecter</string>
     <string name="Settings_FMDServer_open_website">Ouvrir le site web du serveur FMD</string>
@@ -117,7 +112,6 @@
 \n
 \nRéseaux Wifi :
 \n%2$s</string>
-    <string name="cmd_missing_permissions">Impossible d\'exécuter la commande %1$s : autorisation(s) manquante(s) %2$s.</string>
     <string name="cmd_camera_description_long">Prend une photo avec la caméra avant/arrière et l\'envoie vers le serveur FMD. Actuellement, seul le transfert vers le serveur FMD est pris en charge. Vous pouvez également envoyer cette commande via d\'autres canaux de communication, et la photo sera téléversée vers le serveur FMD (si un compte existe).</string>
     <string name="cmd_delete_description_long">Cela efface toutes les données. Par la suite, vous ne pourrez plus communiquer avec l\'appareil. Pour prévenir une utilisation accidentelle et malveillante, cette commande requiert un mot de passe et doit être explicitement activée dans les paramètres.</string>
     <string name="cmd_locate_description_short">Localiser l\'appareil</string>
@@ -242,17 +236,14 @@
     <string name="appearance_theme_dark">Sombre</string>
     <string name="appearance_theme">Thème</string>
     <string name="appearance_theme_choose">Choisir le thème</string>
-    <string name="pin_match_command_keyword">Le code PIN doit être différent des commandes !</string>
     <string name="cmd_delete_response_dry_run">Essai réussi, on passe la vraie réinitialisation de l’appareil.</string>
     <string name="server_login_attempts_title">Tentatives échouées de connexion au Serveur FMD</string>
     <string name="server_login_attempts_text">Quelqu’un a essayé de se connecter à votre compte Serveur FMD « %s ». À cause de plusieurs mauvais mots de passe, le compte est maintenant bloqué pour 10 minutes.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth désactivé.</string>
     <string name="Notification_InApp">Canal d\'envoi intégré à l’application</string>
-    <string name="Settings_Pin_Not_Backed_Up">Attention : le code PIN n\'est pas inclus dans la sauvegarde de l\'application.</string>
     <string name="Settings_FMDServer_Push_Description">Envoyer des commandes depuis le serveur FMD vers votre appareil nécessite une application publiant grâce à UnifiedPush.</string>
     <string name="allowlist_reset_title">Réinitialisation des contacts autorisés</string>
     <string name="allowlist_reset_text">A cause d\'un plantage, les contacts autorisés ont été réinitialisés. Merci de les configurer à nouveau.</string>
-    <string name="update_pin_hash_change_text">Le code PIN de FMD a été réinitialisé suite à une mise à jour de l\'appli. Pour continuer à utiliser un code PIN, merci de l\'enregistrer à nouveau.</string>
     <string name="Settings_FMDServer_Push_Distributor">Publication : %s</string>
     <string name="Settings_FMDServer_Push_Url">URL de publication : %s</string>
     <string name="Settings_FMDServer_Push_Register">S\'enregistrer</string>
@@ -261,8 +252,6 @@
     <string name="cmd_ringermode_description_short">Changer le mode de sonnerie</string>
     <string name="cmd_ringermode_response_empty">Le mode de sonnerie actuelle est \"%s\".</string>
     <string name="cmd_ringermode_response">Le mode de sonnerie a été modifié de \"%1$s\" (ancien) vers \"%2$s\" (nouveau).</string>
-    <string name="Settings_Set_Pin">Définir le code PIN</string>
-    <string name="Settings_Change_Pin">Modifier le code PIN</string>
     <string name="cmd_locate_response_beacondb_failed">Erreur de récupération de la localisation depuis BeaconDB. Cela peut arriver si l\'antenne mobile n\'est pas dans la base de données.\n\n%s</string>
     <string name="cmd_ringermode_description_long">A noter que \"Silencieux\" active aussi le mode Ne Pas Déranger. C\'est un comportement normal, défini par Android.</string>
     <string name="server_connectivity_check_not_enabled_title">Activer la vérification de la connectivité du serveur</string>
@@ -271,7 +260,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Plus d\'informations sur les publications</string>
     <string name="server_password_hint">Choisissez un mot de passe qui ne puisse pas être deviné mais dont vous pourrez vous rappeler si vous perdez votre téléphone. Le mot de passe donne accès au lancement de commande à distance sur votre appareil. L\'administrateur du serveur ne peut pas accéder à votre mot de passe ou le réinitialiser.</string>
     <string name="allowlist_invalid_number">Ce numéro de téléphone est invalide !</string>
-    <string name="pin_min_length">Le code PIN doit contenir au moins 8 caractères. Il est recommandé d\'en avoir 16 ou plus.</string>
     <string name="password_min_length">Le mot de passe doit faire au moins 8 caractères. Il est recommandé d\'en avoir 16 ou plus.</string>
     <string name="Settings_FMDServer_Push_Info_Sunup">L\'application de distribution UnifiedPush recommandée est Sunup. Sunup se paramètre facilement et utilise les serveurs de notification de Mozilla.</string>
     <string name="Settings_FMDServer_Push_Install_Sunup">Installer Sunup</string>
