@@ -303,4 +303,27 @@
     <string name="server_apparently_deleted_text">O FMD não pode se conectar à sua conta do FMD Server \"%s\". Parece que esta conta foi apagada do servidor.</string>
     <string name="server_username">Nome do usuário</string>
     <string name="invalid_url">URL inválida</string>
+    <string name="save">Salvar</string>
+    <string name="Settings_Access_Control">Controle de acesso</string>
+    <string name="fmd_permission_allowed_commands_title">Escolher comandos permitidos</string>
+    <string name="fmd_permission_allowed_commands_description_server">Decida quais comandos essa conta do servidor pode executar (e quais não).</string>
+    <string name="allowlist_delete_title_phone_number">Apagar número de telefone?</string>
+    <string name="allowlist_delete_message">Ao apagar essa entrada, ela não poderá mais acessar o FMD. Você pode readicioná-la depois caso queira.</string>
+    <string name="cmd_missing_fmd_permissions">Não é possível executar o comando \"%s\": Você não tem permissão para executar esse comando.</string>
+    <string name="cmd_missing_android_permissions">Não é possível executar o comando \"%1$s\": As seguintes permissões do Android não foram concedidas ao app do FMD: %2$s.</string>
+    <string name="back">Voltar</string>
+    <string name="access_tab_phone_number">Números de telefone</string>
+    <string name="access_tab_sms_password">Senhas em SMS</string>
+    <string name="access_tab_notification_password">Senhas em notificações</string>
+    <string name="access_phone_number_hint">Os números de telefone nesta lista podem acessar o FMD pelo SMS, enviando \"%s comando\".</string>
+    <string name="access_phone_number_empty">Não há números de telefone. Clique no botão abaixo para adicionar um!</string>
+    <string name="access_sms_password_hint">As senhas nesta lista podem ser usadas para o FMD de qualquer número de telefone pelo SMS, enviando \"%s senha comando\".</string>
+    <string name="access_sms_password_add">Adicionar senha de SMS</string>
+    <string name="access_notification_password_hint">As senhas nesta lista podem ser usadas para acessar o FMD de qualquer app que mostre uma notificação com uma ação rápida de responder (como apps de mensagem). O texto da notificação deve ser \"%s senha comando\".</string>
+    <string name="access_notification_password_add">Adicionar senha de notificação</string>
+    <string name="access_password_empty">Não há senhas. Clique no botão abaixo para adicionar uma!</string>
+    <string name="access_password_exists">Essa senha já existe: %s</string>
+    <string name="access_add_password_label_message">Escolha um rótulo para que possa identificar a senha. A senha não será mostrada novamente depois de salvar essa entrada.</string>
+    <string name="allowlist_delete_title_password">Apagar senha?</string>
+    <string name="label">Rótulo</string>
 </resources>
