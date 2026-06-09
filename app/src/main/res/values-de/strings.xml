@@ -322,8 +322,23 @@
     <string name="fmd_permission_allowed_commands_title">Wähle erlaubte Befehle aus</string>
     <string name="allowlist_delete_title_phone_number">Telefonnummer löschen?</string>
     <string name="cmd_missing_fmd_permissions">Kann Befehl \"%s\" nicht ausführen: keine Berechtigung.</string>
-    <string name="cmd_missing_android_permissions">Kann Befehl \"%1$s\" nicht ausführen: die folgenden Andoroid-Berechtigungen sind nicht gewährt: %2$s.</string>
+    <string name="cmd_missing_android_permissions">Kann Befehl \"%1$s\" nicht ausführen: die folgenden Android-Berechtigungen sind nicht gewährt: %2$s.</string>
     <string name="Settings_Access_Control">Zugriffskontrolle</string>
     <string name="fmd_permission_allowed_commands_description_server">Bestimme, welche Befehle dieser Server ausführen darf (und welche nicht).</string>
-    <string name="allowlist_delete_message">Sobald dieser EIntrag gelöscht ist, kann er nicht mehr auf FMD zugreifen. Du kannst ihn später wieder hinzufügen.</string>
+    <string name="allowlist_delete_message">Sobald dieser Eintrag gelöscht ist, kann er nicht mehr auf FMD zugreifen. Du kannst ihn später wieder hinzufügen.</string>
+    <string name="back">Zurück</string>
+    <string name="access_tab_phone_number">Telefonnummern</string>
+    <string name="access_tab_sms_password">SMS-Passwörter</string>
+    <string name="access_tab_notification_password">Benachrichtigungspasswörter</string>
+    <string name="label">Bezeichnung</string>
+    <string name="access_phone_number_hint">Die Telefonnummern in dieser Liste dürfen auf FMD via SMS zugreifen, indem sie \"%s befehl\" schicken.</string>
+    <string name="access_phone_number_empty">Keine Telefonnummern. Klick auf die Schaltfläche unten, um eine hinzuzufügen!</string>
+    <string name="access_sms_password_hint">Mit den Passwörtern in dieser Liste kann man über SMS von jeder Telefonnummer aus auf FMD zugreifen, indem man „%s passwort befehl“ sendet.</string>
+    <string name="access_sms_password_add">SMS-Passwort hinzufügen</string>
+    <string name="access_notification_password_hint">Die Passwörter in dieser Liste können verwendet werden, um über jede App, die eine Benachrichtigung mit der Schnellaktion „Antworten“ anzeigt (z. B. Messenger-Apps), auf FMD zuzugreifen. Der Benachrichtigungstext sollte lauten: „%s passwort befehl“.</string>
+    <string name="access_notification_password_add">Benachrichtigungspasswort hinzufügen</string>
+    <string name="access_password_empty">Keine Passwörter. Klick auf die Schaltfläche unten, um eines hinzuzufügen!</string>
+    <string name="access_password_exists">Dieses Passwort ist bereits vorhanden: %s</string>
+    <string name="access_add_password_label_message">Wähle eine Bezeichnung, damit du das Passwort wiedererkennen kannst. Das Passwort wird nach dem Speichern dieses Eintrags nicht mehr angezeigt.</string>
+    <string name="allowlist_delete_title_password">Passwort löschen?</string>
 </resources>
