@@ -8,6 +8,7 @@ plugins {
     // https://kotlinlang.org/docs/ksp-quickstart.html
     id 'com.google.devtools.ksp' version '2.3.6'
     id 'androidx.room'
+    id 'kotlin-parcelize'
 }
 
 android {
