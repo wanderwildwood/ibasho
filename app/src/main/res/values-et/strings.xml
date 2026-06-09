@@ -303,4 +303,21 @@
     <string name="Settings_Debugging">Veaotsing</string>
     <string name="server_apparently_deleted_text">FMD ei suuda FMD serverisse logida sisse „%s“ kasutajakontoga. Tundub, et see konto on serverist kustutatud.</string>
     <string name="invalid_url">Vigane võrguaadress</string>
+    <string name="save">Salvesta</string>
+    <string name="Settings_Access_Control">Juurdepääsu haldus</string>
+    <string name="fmd_permission_allowed_commands_title">Vali lubatud käsud</string>
+    <string name="fmd_permission_allowed_commands_description_server">Saad valida, milliste käskude käivitamine selle serveri kasutajakonto puhul on lubatud (ja millised mitte).</string>
+    <string name="allowlist_delete_title_phone_number">Kas kustutad telefoninumbri?</string>
+    <string name="allowlist_delete_message">Kui kustutad selle kirje, siis sa enam ei saa FMD-teenusele ligi. Kui peaksid meelt muutma, siis saad ta alati uuesti lubada.</string>
+    <string name="cmd_missing_fmd_permissions">„%s“ käsu käivitamine pole võimalik. Sul pole selleks vajalikke õigusi.</string>
+    <string name="cmd_missing_android_permissions">„%1$s“ käsu käivitamine pole võimalik - FMD rakendusel puuduvad Androidis selleks vajalikud õigused: %2$s.</string>
+    <string name="label">Silt</string>
+    <string name="back">Tagasi</string>
+    <string name="access_tab_phone_number">Telefoninumbrid</string>
+    <string name="access_tab_sms_password">SMS-i salasõnad</string>
+    <string name="access_tab_notification_password">Teavituse salasõnad</string>
+    <string name="access_phone_number_hint">Siin loendis olevatel telefoninumbritel on ligipääs FMD teenusele SMS-iga saadetavate käskude abil, näiteks „%s käsk“.</string>
+    <string name="access_phone_number_empty">Ühtegi telefoninumbrit pole. Mõne lisamiseks klõpsa allpool olevat nuppu!</string>
+    <string name="access_sms_password_hint">Siin loendis olevatel telefoninumbritel on ligipääs FMD teenusele SMS-iga saadetavate salasõnadega käskude abil, näiteks „%s salasõna käsk“.</string>
+    <string name="access_sms_password_add">Lisa SMS-i salasõna</string>
 </resources>
