@@ -303,4 +303,27 @@
     <string name="Settings_Debugging">Probleemoplossing</string>
     <string name="server_apparently_deleted_text">FMD kan niet inloggen op uw FMD Server-account \"%s\". Het lijkt erop dat het account van de server is verwijderd.</string>
     <string name="invalid_url">Ongeldige URL</string>
+    <string name="save">Opslaan</string>
+    <string name="Settings_Access_Control">Toegangscontrole</string>
+    <string name="fmd_permission_allowed_commands_title">Toegestane opdrachten kiezen</string>
+    <string name="fmd_permission_allowed_commands_description_server">Bepaal welke opdrachten dit serveraccount mag uitvoeren (en welke niet).</string>
+    <string name="allowlist_delete_title_phone_number">Telefoonnummer verwijderen?</string>
+    <string name="allowlist_delete_message">Zodra dit item is verwijderd, heeft het geen toegang meer tot FMD. Je kunt het later opnieuw toevoegen als je van gedachten verandert.</string>
+    <string name="cmd_missing_fmd_permissions">Kan opdracht \"%s\" niet uitvoeren: U mag deze opdracht niet uitvoeren.</string>
+    <string name="cmd_missing_android_permissions">Kan opdracht \"%1$s\" niet uitvoeren: De volgende Android-toestemming (-en) worden niet verleend aan de FMD-app: %2$s.</string>
+    <string name="label">Label</string>
+    <string name="back">Terug</string>
+    <string name="access_tab_phone_number">Telefoonnummers</string>
+    <string name="access_tab_sms_password">SMS-wachtwoorden</string>
+    <string name="access_tab_notification_password">Meldingen-wachtwoorden</string>
+    <string name="access_phone_number_hint">De telefoonnummers in deze lijst hebben toegang tot FMD via sms, door \"%s opdracht\" te sms\'en.</string>
+    <string name="access_phone_number_empty">Geen telefoonnummers. Klik op knop hieronder om er een toe te voegen!</string>
+    <string name="access_sms_password_hint">De wachtwoorden in deze lijst kunnen worden gebruikt om toegang te krijgen tot FMD vanaf elk telefoonnummer via sms, door \"%s wachtwoord opdracht\" te sms\'en.</string>
+    <string name="access_sms_password_add">SMS-wachtwoord toevoegen</string>
+    <string name="access_notification_password_hint">De wachtwoorden in deze lijst kunnen worden gebruikt om toegang te krijgen tot FMD vanuit elke app die een melding toont met een \"antwoord\" snelle actie (zoals messenger-apps). De meldingstekst moet \"%s wachtwoord opdracht\" zijn.</string>
+    <string name="access_notification_password_add">Meldingen-wachtwoord toevoegen</string>
+    <string name="access_password_empty">Geen wachtwoorden. Klik op de knop hieronder om er een toe te voegen!</string>
+    <string name="access_password_exists">Dit wachtwoord bestaat al: %s</string>
+    <string name="access_add_password_label_message">Kies een label zodat u het wachtwoord kunt identificeren. Het wachtwoord wordt niet meer getoond nadat u dit item hebt opgeslagen.</string>
+    <string name="allowlist_delete_title_password">Wachtwoord verwijderen?</string>
 </resources>
