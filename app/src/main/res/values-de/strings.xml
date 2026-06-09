@@ -321,4 +321,9 @@
     <string name="save">Speichern</string>
     <string name="fmd_permission_allowed_commands_title">Wähle erlaubte Befehle aus</string>
     <string name="allowlist_delete_title_phone_number">Telefonnummer löschen?</string>
+    <string name="cmd_missing_fmd_permissions">Kann Befehl \"%s\" nicht ausführen: keine Berechtigung.</string>
+    <string name="cmd_missing_android_permissions">Kann Befehl \"%1$s\" nicht ausführen: die folgenden Andoroid-Berechtigungen sind nicht gewährt: %2$s.</string>
+    <string name="Settings_Access_Control">Zugriffskontrolle</string>
+    <string name="fmd_permission_allowed_commands_description_server">Bestimme, welche Befehle dieser Server ausführen darf (und welche nicht).</string>
+    <string name="allowlist_delete_message">Sobald dieser EIntrag gelöscht ist, kann er nicht mehr auf FMD zugreifen. Du kannst ihn später wieder hinzufügen.</string>
 </resources>
