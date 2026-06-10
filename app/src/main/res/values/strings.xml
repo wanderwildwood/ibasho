@@ -137,6 +137,8 @@
     <string name="access_tab_sms_password">SMS passwords</string>
     <string name="access_tab_notification_password">Notification passwords</string>
 
+    <string name="access_permission_hint">For each entry, you can choose which commands are allowed. By default, new entries are restricted to the most basic commands.</string>
+
     <string name="access_phone_number_hint">The phone numbers in this list are allowed to access FMD via SMS, by texting \"%s command\".</string>
     <string name="access_phone_number_empty">No phone numbers. Click to the button below to add one!</string>
 
@@ -155,7 +157,6 @@
 
     <string name="fmd_permission_allowed_commands_title">Choose allowed commands</string>
     <string name="fmd_permission_allowed_commands_description_server">Decide which commands this server account is allowed to execute (and which not).</string>
-    <string name="fmd_permission_default_allowed_commands_hint">By default only the flash, locate and ring commands are allowed.</string>
 
     <!-- Settings: Allowed contacts -->
     <string name="WhiteList_Add_Contact">Add contact</string>

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -91,7 +92,8 @@ fun <T : AccessItem> AccessControlTab(
     ) {
         if (accessItems.isEmpty()) {
             Text(stringResource(accessType.hintText, commandKeyword))
-            Text(stringResource(R.string.fmd_permission_default_allowed_commands_hint))
+            Spacer(Modifier.height(8.dp))
+            Text(stringResource(R.string.access_permission_hint))
             HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
             Box(
                 modifier = Modifier.weight(1f),
@@ -109,7 +111,8 @@ fun <T : AccessItem> AccessControlTab(
             ) {
                 item {
                     Text(stringResource(accessType.hintText, commandKeyword))
-                    Text(stringResource(R.string.fmd_permission_default_allowed_commands_hint))
+                    Spacer(Modifier.height(8.dp))
+                    Text(stringResource(R.string.access_permission_hint))
                     HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
                 }
                 items(accessItems) { item ->
