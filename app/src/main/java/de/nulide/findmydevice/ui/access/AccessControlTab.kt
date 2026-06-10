@@ -91,6 +91,7 @@ fun <T : AccessItem> AccessControlTab(
     ) {
         if (accessItems.isEmpty()) {
             Text(stringResource(accessType.hintText, commandKeyword))
+            Text(stringResource(R.string.fmd_permission_default_allowed_commands_hint))
             HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
             Box(
                 modifier = Modifier.weight(1f),
@@ -108,6 +109,7 @@ fun <T : AccessItem> AccessControlTab(
             ) {
                 item {
                     Text(stringResource(accessType.hintText, commandKeyword))
+                    Text(stringResource(R.string.fmd_permission_default_allowed_commands_hint))
                     HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
                 }
                 items(accessItems) { item ->
