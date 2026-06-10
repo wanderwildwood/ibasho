@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="Locked_Lock_Screen">FMD \nЭто устройство заблокировано! \nСообщение от его владельца:</string>
     <string name="Enable">Включить</string>
     <string name="Settings_Lockscreenmessage_Description">Сообщение на экране блокировки: \nКогда устройство будет заблокировано, это сообщение появится на экране блокировки.</string>
@@ -9,7 +9,6 @@
     <string name="Toast_Duplicate_contact">Этот контакт уже существует.</string>
     <string name="cmd_locate_response_gps_will_follow">GPS координаты скоро будут отправлены.</string>
     <string name="cmd_help_message_start">Команды FMD:</string>
-    <string name="MH_Pin_Accepted">ПИН-код принят!</string>
     <string name="ringer_stop_ringing">ОСТАНОВИТЬ РИНГТОН</string>
     <string name="cmd_locate_response_location_off">Извините, определение местоположения отключено.</string>
     <string name="Settings_FMDConfig">Общие</string>
@@ -32,9 +31,7 @@
     <string name="notify_crypto_update_text">Вам необходимо обновить некоторые настройки для продолжения использования FMD. Нажмите, чтобы открыть их.</string>
     <string name="app_description">FMD (Find My Device) позволяет вам удалённо находить ваше устройство. Вы можете взаимодействовать с ним с помощью FMD через SMS сообщения, мессенджеры, или используя FMD Сервер. Находите ваше устройство, заставляйте его воспроизводить звук, блокируйте его, или удаляйте хранящиеся на нём данные - всё это можно сделать удалённо.</string>
     <string name="Settings_FMDServer_Info">С сервером FMD вы можете отправлять команды через интернет, от сервера к приложению. Вы также можете просматривать местоположение устройства на карте, или просматривать фотографии, сделанные устройством. Для инструкций по самостоятельному хостингу сервера, перейдите на сайт.</string>
-    <string name="server_unregister_failed_body">Отмена регистрации не удалась из-за следующей ошибки: {ERROR}
-\n
-\nВы всё равно можете продолжить, но ваш аккаунт может быть не удалён с сервера. Если вы продолжите, ваш аккаунт будет удалён лишь локально, с этого устройства.</string>
+    <string name="server_unregister_failed_body">Отмена регистрации не удалась из-за следующей ошибки: {ERROR} \n \nВы всё равно можете продолжить, но ваш аккаунт может быть не удалён с сервера. Если вы продолжите, ваш аккаунт будет удалён лишь локально, с этого устройства.</string>
     <string name="Settings_Import">Импортировать настройки</string>
     <string name="Settings_Export">Экспортировать настройки</string>
     <string name="Settings_FMD_Server_Server_URL">URL-адрес сервера:</string>
@@ -83,8 +80,7 @@
     <string name="Notification_FAIL">Неудачи</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Это приложение предназначено для работы в фоновом режиме. Чтобы убедиться, что оно работает даже когда ваше устройство не используется, вам необходимо отключить оптимизацию батареи для этого приложения.</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD будет периодически отправлять вам уведомления, например, чтобы предупреждать вас о том, что кто-то отслеживает ваше устройство.</string>
-    <string name="Settings_FMDServer_Location_Type_Description">Источник (источники) из которого данные о местоположении выгружаются с регулярными интервалами в фоновом режиме.
-\nЕсли не выбрано ни одного, местоположения не будут регулярно выгружаться (вы всё ещё можете использовать веб-интерфейс чтобы принудительно активировать выгрузку, для чего необходимы настроенные пуш-уведомления).</string>
+    <string name="Settings_FMDServer_Location_Type_Description">Источник (источники) из которого данные о местоположении выгружаются с регулярными интервалами в фоновом режиме. \nЕсли не выбрано ни одного, местоположения не будут регулярно выгружаться (вы всё ещё можете использовать веб-интерфейс чтобы принудительно активировать выгрузку, для чего необходимы настроенные пуш-уведомления).</string>
     <string name="Notification_Server_Description">Уведомления, относящиеся к серверу FMD</string>
     <string name="transport_fmd_server_description">Сервер FMD предоставляет веб-интерфейс для взаимодействия с вашим устройством, просмотра его местоположения, и просмотра фотографий, присланных им. Вы можете самостоятельно хостить сервер FMD, или использовать стандартную инстанцию. Данные на сервере хранятся в зашифрованном виде, и защищены вашим паролем.</string>
     <string name="Settings_Import_Success">Импортирование успешно</string>
@@ -142,13 +138,7 @@
     <string name="cmd_gps_description_short">Включение и выключение Сервисов Определения Местоположения</string>
     <string name="cmd_stats_description_short">Получить статистику сети</string>
     <string name="cmd_stats_description_long">Получает статистику сети с устройства. Например, его IP адрес и список окружающих его Wi-Fi сетей.</string>
-    <string name="cmd_stats_response">Статистика сети:
-\n
-\nIP адреса устройства:
-\n%1$s
-\n
-\nWi-Fi сети:
-\n%2$s</string>
+    <string name="cmd_stats_response">Статистика сети: \n \nIP адреса устройства: \n%1$s \n \nWi-Fi сети: \n%2$s</string>
     <string name="cmd_nodisturb_response_off">Режим \"Не беспокоить\" выключен.</string>
     <string name="perm_device_admin_name">Администратор устройства</string>
     <string name="perm_do_not_disturb_access_name">Доступ к режиму \"Не беспокоить\"</string>
@@ -192,11 +182,7 @@
     <string name="Settings_FMD_Server_Connection_Status_Success">Успешно</string>
     <string name="server_login_attempts_title">Неудачные попытки входа на FMD Сервер</string>
     <string name="server_login_attempts_text">Кто-то пытался войти в ваш аккаунт FMD Сервера \"%s\". В связи с множественными неудачными попытками входа, аккаунт был заблокирован на 10 минут.</string>
-    <string name="cmd_locate_response_opencellid_failed">Ошибка получения местоположения с OpenCelliD. Это может произойти, если сотовая вышка не находится в базе данных.
-\n
-\nПожалуйста, попробуйте использовать следующую ссылку: %1$s
-\n
-\n%2$s</string>
+    <string name="cmd_locate_response_opencellid_failed">Ошибка получения местоположения с OpenCelliD. Это может произойти, если сотовая вышка не находится в базе данных. \n \nПожалуйста, попробуйте использовать следующую ссылку: %1$s \n \n%2$s</string>
     <string name="server_registration_token_error">Не удалось совершить сетевой запрос из-за ошибки HTTP 401. Это может произойти в случае, если сервер требует токен регистрации, а предоставленный вами токен был неверным.</string>
     <string name="cmd_locate_response_gps_fail">Получение нового местоположения по GPS не удалось. Возможно из-за превышения времени ожидания.</string>
     <string name="pw_change_network_failed">Смена пароля не удалась из-за ошибки сети.</string>
@@ -241,8 +227,6 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Максимально разрешённое время без доступного соединения</string>
     <string name="log_view_clear">Очистить логи</string>
     <string name="log_view_clear_confirm">Вы действительно хотите удалить все записи лога?</string>
-    <string name="usage_notification_pin_title">Был использован ПИН-код FMD</string>
-    <string name="usage_notification_pin_text">ПИН-код был использован следующим мобильным номером: \"%s\". Рекомендуется сменить ПИН.</string>
     <string name="Settings_FMDServer_Push_Distributor">Распространитель: %s</string>
     <string name="Settings_FMDServer_Push_Url">Пуш ссылка: %s</string>
     <string name="Settings_FMDServer_Push_Register">Зарегистрировать</string>

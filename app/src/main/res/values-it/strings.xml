@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="Edit">Modifica</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Questa applicazione dovrebbe funzionare in background. Per assicurarsi che funzioni anche quando il dispositivo è in standby, è necessario disattivare l\'ottimizzazione della batteria per questa applicazione.</string>
     <string name="Locked_Lock_Screen">FMD\nQuesto dispositivo è bloccato!\nMessaggio dal proprietario:</string>
@@ -11,7 +11,6 @@
     <string name="Toast_Duplicate_contact">Questo contatto esiste già.</string>
     <string name="cmd_locate_response_gps_will_follow">Le coordinate GPS verranno inviate a breve.</string>
     <string name="cmd_help_message_start">Comandi FMD:</string>
-    <string name="MH_Pin_Accepted">Pin corretto!</string>
     <string name="OpenCellId_help">FMD può utilizzare il servizio OpenCelliD per ottenere una posizione approssimativa basata sulla torre cellulare a cui il dispositivo è collegato. Per ogni richiesta di localizzazione è necessaria una connessione a Internet. È inoltre necessario creare un account su OpenCelliD e ottenere il proprio token di accesso all\'API.</string>
     <string name="OpenCellId_open_website">Apri sito OpenCellId</string>
     <string name="Settings_FMD_Server_General">Generale</string>
@@ -24,9 +23,7 @@
     <string name="server_version_error">Impossibile ottenere la versione del server</string>
     <string name="server_version_error_low_version">È richiesta almeno la versione del server {MIN}, ma il server selezionato ha la versione {CURRENT}. Continuare a proprio rischio e pericolo.</string>
     <string name="server_unregister_failed_title">Disiscrizione fallita</string>
-    <string name="server_unregister_failed_body">La disiscrizione non è riuscita con il seguente errore: {ERRORE}
-\n
-\nÈ possibile continuare comunque, ma l\'account potrebbe non essere stato eliminato dal server. Se si continua, l\'account verrà eliminato localmente da questo dispositivo.</string>
+    <string name="server_unregister_failed_body">La disiscrizione non è riuscita con il seguente errore: {ERRORE} \n \nÈ possibile continuare comunque, ma l\'account potrebbe non essere stato eliminato dal server. Se si continua, l\'account verrà eliminato localmente da questo dispositivo.</string>
     <string name="server_unregister_continue_anyway">Prosegui comunque</string>
     <string name="server_unregister_dont_continue">Non proseguire</string>
     <string name="copied">Copiato</string>
@@ -49,8 +46,7 @@
     <string name="Settings_FMDServer_Update_Interval_Description">Il tempo in minuti in cui FMD deve inviare nuovi dati sulla posizione al server.</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Info privacy</string>
     <string name="accept">Accetta</string>
-    <string name="Settings_FMDServer_Location_Type_Description">L\'origine/i da cui i dati della posizione vengono caricati a intervalli regolari in background.
-\nSe non viene selezionato niente, nessuna posizione viene caricata regolarmente. (È ancora possibile utilizzare l\'interfaccia web per forzare il caricamento. Questo richiede il push.)</string>
+    <string name="Settings_FMDServer_Location_Type_Description">L\'origine/i da cui i dati della posizione vengono caricati a intervalli regolari in background. \nSe non viene selezionato niente, nessuna posizione viene caricata regolarmente. (È ancora possibile utilizzare l\'interfaccia web per forzare il caricamento. Questo richiede il push.)</string>
     <string name="GPS">GPS</string>
     <string name="Cell">Cella</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Questo cancellerà tutti i dati dal server Sei sicuro?</string>
@@ -222,11 +218,9 @@
     <string name="server_version_upgrade_required_title">Necessario aggiornamento del server FMD</string>
     <string name="server_version_upgrade_required_text">Il server FMD in uso ha la versione {CURRENT}, ma questa applicazione richiede almeno {MIN}. Il controllo del dispositivo tramite il server FMD potrebbe non funzionare più. Aggiorna il server.</string>
     <string name="crashed_title">Rapporto anomalia</string>
-    <string name="usage_notification_pin_text">Il PIN è stato utilizzato da questo numero: \"%s\". Si raccomanda di cambiare PIN.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Intervallo Controllo Connettività</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD vi avviserà se l\'ultima connessione riuscita al server FMD risale a più di tot ore fa. Questo non ha effetto se il controllo della connettività è disabilitato.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD controlla la connettività al server FMD ogni tot ore. Impostando il valore 0 si disabilita il controllo della connettività.</string>
-    <string name="usage_notification_pin_title">Utilizzo PIN FMD</string>
     <string name="log_view_clear">Cancella voci</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Tempo massimo consentito senza connettività</string>
     <string name="server_connectivity_lost_title">Connettività Server FMD persa</string>

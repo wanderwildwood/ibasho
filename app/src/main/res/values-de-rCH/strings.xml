@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="loading">Es ladet…</string>
     <string name="help">Hilfe</string>
     <string name="accept">Akzeptiere</string>
@@ -109,9 +109,7 @@
     <string name="Settings_Logs">Protokoll</string>
     <string name="Settings_FMDServer_Info">Mit FMD Server chasch Befehl übers Internet schicke, vom Server ad App. Du chasch au de Standort vom Gerät ufere Karte gse oder d Bilder wos Gerät gmacht het aaluege. En Self-Hosting-Aaleitig hets uf de Websiite.</string>
     <string name="Settings_FMDServer_Location_Type_Description">D Quell(e) vo wo de Standort regelmässig im Hintergrund ufeglade wird. \nFalls du keini uswählsch wird kein Standort ufeglade. (Du chasch wiiterhin en Upload übers Webinterface erzwinge. Dafür bruchts Push.)</string>
-    <string name="server_unregister_failed_body">D De-Registrierig isch fehlgschlage: {ERROR}
-\n
-\nDu chasch trotzdem wiiter mache, aber dis Konto isch viellicht nöd vom Server glöscht worde. Wenn du wiiter machsch wird dis Konto lokal vom Gerät glöscht.</string>
+    <string name="server_unregister_failed_body">D De-Registrierig isch fehlgschlage: {ERROR} \n \nDu chasch trotzdem wiiter mache, aber dis Konto isch viellicht nöd vom Server glöscht worde. Wenn du wiiter machsch wird dis Konto lokal vom Gerät glöscht.</string>
     <string name="OpenCellId_help">FMD chan d OpenCelliD-Dienst bruche zum en ungfähre Standort finde wo uf de Mobilfunkzelle basiert in wellere dis Gerät iigloggt isch. Für jedi Aafrag bruchts en Internetverbindig. Du bruchsch au es Konto bi OpenCelliD zum es API Access Token becho.</string>
     <string name="perm_write_secure_settings_name">Secure Settings verwalte</string>
     <string name="grant_write_secure_settings_description">Die Berechtigung cha nur mit em Kommandozeilebefehl \"pm grant\" vo Android erteilt werde. Du chasch de Befehl manuell über de Android Debug Bridge (ADB) vomene Computer us usführe. Du chasch ihn au direkt uf dim Gerät mit Root oder Shizuku usführe.\n\nNutzer-ID: %d</string>
@@ -122,20 +120,12 @@
     <string name="cmd_camera_description_long">Nimmt es Bild mit de Front-/Rückkamera uf und ladets zu FMD Server ufe. Derziit wird nur Ufelade zu FMD Server unterstützt. Du chasch de Befehl au über anderi Transportkanäl sende, unds Bild wird denn zu FMD Server ufeglade (soferns es Konto het).</string>
     <string name="cmd_locate_description_long">Ort s Gerät mithilf vo eim oder mehrerne Standortabieter. S GPS het die höchscht Genauigkeit, aber funktioniert nöd immer. De \"fused\"-Abieter isch vo Android definiert, und brucht en Kombination vo Quellene (oft WLAN und Mobilfunkmaste). De \"cell\"-Abieter frögt die öffentlich OpenCelliD und BeaconDB Dienst nach de Mobilfunkmaststandört.</string>
     <string name="cmd_stats_description_long">Rüef d Netzwerkstatistike vom Gerät ab. Zum Biispiel sini IP-Adresse und en Lischte vo de umliegende WLAN-Netzwerk.</string>
-    <string name="cmd_stats_response">Netzwerk-Statistike:
-\n
-\nGeräte-IPs:
-\n%1$s
-\n
-\nWLAN-Netzwerke:
-\n%2$s</string>
+    <string name="cmd_stats_response">Netzwerk-Statistike: \n \nGeräte-IPs: \n%1$s \n \nWLAN-Netzwerke: \n%2$s</string>
     <string name="Enable">Iistelle</string>
     <string name="Delete">Lösche</string>
     <string name="Toast_Duplicate_contact">De Kontakt gits scho.</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD schickt mengisch Benachrichtigunge, z.B. zum Warne dass öpper s Gerät ortet.</string>
-    <string name="Locked_Lock_Screen">FMD
-\nS Gerät isch gsperrt worde!
-\nNachricht vom Besitzer:</string>
+    <string name="Locked_Lock_Screen">FMD \nS Gerät isch gsperrt worde! \nNachricht vom Besitzer:</string>
     <string name="transport_notification_reply_description_auth">Zum FMD per Antworte uf Benachrichtigunge steuern muss d FMD-PIN gesetzt sii. Jedi Nachricht muss d korrekti PIN enthalte.</string>
     <string name="transport_fmd_server_description_auth">Jede wo diin Benutzername und diis Passwort kennt chan sich bii FMD Server aamelde und diis Gerät stüre.</string>
     <string name="missing_permissions_description">FMD brucht die folgende Berechtigunge.</string>
@@ -155,7 +145,6 @@
     <string name="transport_sms_description_note">SMS chan Chöschte verursache, sowohl für dich als au für die Persone, wo dir SMS schicket. Für SMS muss dini SIM-Karte entsperrt sii (z. B. nacheme Neustart).</string>
     <string name="transport_notification_reply_title">Antworte uf Benachrichtigunge</string>
     <string name="LockScreen_Usage_detectd">LockScreenMessage: Verwendig erkannt.</string>
-    <string name="MH_Pin_Accepted">PIN akzeptiert!</string>
     <string name="LockScreen_Backbutton_pressed">LockScreenMessage: Zrugg-Taste isch druckt worde.</string>
     <string name="ringer_stop_ringing">HÖR UF LÜÜTE</string>
     <string name="cmd_locate_response_opencellid_failed">Fähler bim Finde vom Standort mit OpenCelliD. Das chan passiere wenn de Mobilfunkmast nöd ide Datebank isch.\n\nBitte probier de folgendi Link: %1$s\n\n%2$s</string>
@@ -238,8 +227,6 @@
     <string name="server_connectivity_lost_text">De FMD-Server bi %1$s chan nüme erreicht werde. Di letscht erfolgriich Verbindig isch am %2$s gsi.</string>
     <string name="log_view_clear_confirm">Wotscht würkli alli Protokolliiträg lösche?</string>
     <string name="cmd_delete_response_dry_run">Testlauf erfolgriich, die eigentlichi Gerätlöschig wird übersprunge.</string>
-    <string name="usage_notification_pin_title">FMD PIN brucht</string>
-    <string name="usage_notification_pin_text">De PIN isch von dere Nummere brucht worde: \"%s\". Mer empfehlet, de PIN z ändere.</string>
     <string name="Settings_FMDServer_Push_Distributor">Verteiler: %s</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
     <string name="Settings_FMDServer_Push_Register">Registriere</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="loading">Laster inn …</string>
     <string name="help">Hjelp</string>
     <string name="copied">Kopiert</string>
@@ -87,7 +87,6 @@
     <string name="cmd_delete_response_pwd_wrong">Kan ikke slette: Feil passord.</string>
     <string name="cmd_delete_response_success">Enheten bør nå være slettet. Adjø.</string>
     <string name="cmd_locate_response_gps_will_follow">GPS-koordinater vil bli sendt snart.</string>
-    <string name="MH_Pin_Accepted">PIN godtatt.</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Last opp enhetens posisjon når batterinivået blir lavt. Dette krever merknadstilgang.</string>
     <string name="cmd_delete_description_long">Dette fjerner all data. Etterpå vil du ikke kunne kommunisere med enheten. For å forhindre utilsiktet og ondsinnet bruk krever kommandoen et passord, og det må innvilges spesielt i innstillingene.</string>
     <string name="OpenCellId_help">FMD kan bruke OpenCelliD-tjenesten til å hente en omtrentlig posisjon basert på mobilmasten(e) enheten er tilkoblet. Tilkobling til Internett kreves for hver posisjonsspørring. Du må også opprette en konto på OpenCelliD og skaffe ditt eget API-tilgangssymbol.</string>
@@ -120,13 +119,7 @@
     <string name="grant_via_shizuku">Innvilg via Shizuku</string>
     <string name="perm_shizuku_failed">Kunne ikke innvilge via Shizuku</string>
     <string name="cmd_stats_description_short">Hent nettverksstatistikk</string>
-    <string name="cmd_stats_response">Nettverksstatistikk:
-\n
-\nEnhets-IP-er:
-\n%1$s
-\n
-\nWi-Fi-nettverk:
-\n%2$s</string>
+    <string name="cmd_stats_response">Nettverksstatistikk: \n \nEnhets-IP-er: \n%1$s \n \nWi-Fi-nettverk: \n%2$s</string>
     <string name="cmd_nodisturb_response_off">«Ikke forstyrr«-modus avskrudd.</string>
     <string name="perm_battery_optimizations_name">Ignorer batterioptimalisering</string>
     <string name="perm_do_not_disturb_access_name">Tilgang til «Ikke forstyrr»</string>
@@ -135,9 +128,7 @@
     <string name="grant_write_secure_settings_title">Innvilg skriving av sikkerhetsinnstillinger</string>
     <string name="grant_write_secure_settings_description">Denne tilgangen kan kun innvilges med Androids «pm grant»-kommandolinjeverktøy. Du kan kjøre denne kommandoen manuelt via Android-avlusningsbroen (ADB) ved å bruke en datamaskin. Du kan også kjøre det direkte på enheten din ved bruk av rot-tilgang eller Shizuku.\n\nUser ID: %d</string>
     <string name="perm_write_secure_settings_name">Skriving av sikkerhetsinnstillinger</string>
-    <string name="Locked_Lock_Screen">FMD
-\nDenne enheten er låst.
-\nMelding fra eieren:</string>
+    <string name="Locked_Lock_Screen">FMD \nDenne enheten er låst. \nMelding fra eieren:</string>
     <string name="LockScreen_Backbutton_pressed">Låseskjermsmelding: «Tilbake»-knapp trykket.</string>
     <string name="Toast_Empty_FMDCommand">Tom kommando er ikke tillatt\n Returnerer til forvalg.[fmd]</string>
     <string name="Settings_FMDServer_open_website">Åpne FMD-tjenernettsiden</string>

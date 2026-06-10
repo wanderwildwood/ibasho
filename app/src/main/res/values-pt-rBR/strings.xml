@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="request_failed_response_body">Corpo da resposta</string>
     <string name="request_failed_exception">Exceção</string>
     <string name="Settings_Settings">Configurações</string>
@@ -84,7 +84,6 @@
     <string name="Delete">Apagar</string>
     <string name="cmd_locate_response_gps_will_follow">Coordenadas de GPS serão enviadas em breve.</string>
     <string name="Toast_Duplicate_contact">Este contato já existe.</string>
-    <string name="MH_Pin_Accepted">PIN aceito!</string>
     <string name="cmd_locate_response_location_off">Não foi possível executar o comando locate: a localização está desativada.</string>
     <string name="ringer_stop_ringing">PARAR DE TOCAR</string>
     <string name="Toast_Empty_FMDCommand">Comando vazio não permitido, usando o padrão.</string>
@@ -222,14 +221,12 @@
     <string name="log_view_clear_confirm">Você quer mesmo apagar todos os itens dos registros?</string>
     <string name="log_view_clear">Limpar registros</string>
     <string name="server_connectivity_lost_text">O FMD Server em %1$s não pode mais ser acessado. A última conexão bem-sucedida foi em %2$s.</string>
-    <string name="usage_notification_pin_text">O PIN foi usado pelo número: \"%s\". É recomendado alterar o PIN.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Intervalo do teste de conectividade</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Tempo máximo permitido sem conexão</string>
     <string name="server_connectivity_lost_title">Conexão ao FMD Server perdida</string>
     <string name="cmd_delete_response_dry_run">Execução seca bem-sucedida, pulando o apagamento real do dispositivo.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">O FMD testa sua conexão ao FMD Server a cada X horas. Configure isto pra 0 para desativar o teste de conectividade.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">O FMD irá te notificar se a última conexão ao FMD Server foi a mais de X horas atrás. Isto não tem efeito se o teste de conectividade está desativado.</string>
-    <string name="usage_notification_pin_title">PIN do FMD utilizado</string>
     <string name="server_fmd_id_hint">O nome de usuário identifica sua conta no FMD Server. O administrador do servidor pode vê-lo.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distribuidor: %s</string>
     <string name="Settings_FMDServer_Push_Url">URL do Push: %s</string>

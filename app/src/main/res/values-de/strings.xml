@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Generic -->
     <string name="loading">Laden…</string>
     <string name="help">Hilfe</string>
@@ -78,14 +78,11 @@
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Diese Anwendung soll im Hintergrund laufen. Um sicherzustellen, dass sie auch im Standby funktioniert, muss die Akku-Optimierung für diese App deaktiviert werden.</string>
     <string name="Delete">Löschen</string>
     <string name="Enable">Aktivieren</string>
-    <string name="Locked_Lock_Screen">FMD
-\nDieses Gerät wurde gesperrt!
-\nNachricht vom Besitzer:</string>
+    <string name="Locked_Lock_Screen">FMD \nDieses Gerät wurde gesperrt! \nNachricht vom Besitzer:</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD sendet gelegentlich Benachrichtigungen, z.B. um zu warnen, wenn jemand das Gerät ortet.</string>
     <string name="cmd_help_message_start">FMD-Kommandos:</string>
     <string name="cmd_locate_response_gps_will_follow">GPS-Koordinaten werden demnächst versendet werden.</string>
     <string name="Toast_Duplicate_contact">Dieser Kontakt existiert bereits.</string>
-    <string name="MH_Pin_Accepted">PIN akzeptiert!</string>
     <string name="ringer_stop_ringing">KLINGELN STOPPEN</string>
     <string name="cmd_locate_response_location_off">Ortung fehlgeschlagen: Der Standort ist ausgeschaltet.</string>
     <string name="LockScreen_Usage_detectd">Sperrbildschirmnachricht: Verwendung erkannt.</string>
@@ -147,23 +144,13 @@
     <string name="cmd_lock_description_short">Gerät sperren</string>
     <string name="cmd_nodisturb_description_short">„Bitte nicht stören“-Modus ein- und ausschalten</string>
     <string name="cmd_stats_description_long">Rufe die Netzwerkstatistiken des Geräts ab, zum Beispiel seine IP-Adresse und eine Liste der umliegenden WLAN-Netzwerke.</string>
-    <string name="cmd_stats_response">Netzwerk-Statistiken:
-\n
-\nGeräte-IPs:
-\n%1$s
-\n
-\nWLAN-Netzwerke:
-\n%2$s</string>
+    <string name="cmd_stats_response">Netzwerk-Statistiken: \n \nGeräte-IPs: \n%1$s \n \nWLAN-Netzwerke: \n%2$s</string>
     <string name="perm_battery_optimizations_name">Akku-Optimierungen ignorieren</string>
     <string name="cmd_nodisturb_response_on">Der \"Bitte Nicht Stören\"-Modus ist nun eingeschaltet.</string>
     <string name="cmd_nodisturb_response_off">Der \"Bitte Nicht Stören\"-Modus ist nun ausgeschaltet.</string>
     <string name="usage_notification_text">Der Befehl „%s“ wurde ausgeführt.</string>
     <string name="Settings_Import_Failed">Import fehlgeschlagen</string>
-    <string name="cmd_locate_response_opencellid_failed">Fehler beim Abrufen des Standorts aus OpenCelliD. Dies kann passieren, wenn der Mobilfunkmast nicht in der Datenbank enthalten ist.
-\n
-\nBitte versuchen Sie den folgenden Link: %1$s
-\n
-\n%2$s</string>
+    <string name="cmd_locate_response_opencellid_failed">Fehler beim Abrufen des Standorts aus OpenCelliD. Dies kann passieren, wenn der Mobilfunkmast nicht in der Datenbank enthalten ist. \n \nBitte versuchen Sie den folgenden Link: %1$s \n \n%2$s</string>
     <string name="cmd_locate_last_known_location_not_available">Kein letzter bekannter Standort. Frage den aktuellen Standort an, um eine Standortaktualisierung zu erzwingen.</string>
     <string name="transport_sms_description_note">SMS kann Kosten verursachen, sowohl für dich als auch für die Personen, die dir SMS schicken. Für SMS muss deine SIM-Karte entsperrt sein (z. B. nach einem Neustart).</string>
     <string name="transport_notification_reply_title">Antworten auf Benachrichtigungen</string>
@@ -255,8 +242,6 @@
     <string name="server_connectivity_lost_text">Der FMD Server bei %1$s kann nicht mehr erreicht werden. Die letzte erfolgreiche Verbindung war am %2$s.</string>
     <string name="cmd_delete_response_dry_run">Testlauf erfolgreich, die eigentliche Gerätelöschung wird übersprungen.</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Intervall des Standortuploads im Hintergrund</string>
-    <string name="usage_notification_pin_title">FMD-PIN benutzt</string>
-    <string name="usage_notification_pin_text">Die PIN wurde von dieser Nummer verwendet: „%s“. Wir empfehlen, die PIN zu ändern.</string>
     <string name="server_fmd_id_hint">Der Benutzername identifiziert dein Konto auf FMD Server. Der Server-Administrator kann den Benutzernamen sehen.</string>
     <string name="Settings_FMDServer_Push_Url">Push-URL: %s</string>
     <string name="Settings_FMDServer_Push_Register_Again">Erneut registrieren</string>

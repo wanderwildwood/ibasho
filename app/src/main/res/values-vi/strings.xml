@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="cmd_camera_response_success">Thiết bị đang chụp ảnh và sẽ gửi nó đến máy chủ FMD. Bạn có thể xem nó ở đây sớm thôi: %s</string>
     <string name="cmd_delete_description_short">Đặt lại thiết bị về cài đặt gốc</string>
     <string name="cmd_delete_description_long">Điều này xóa tất cả dữ liệu. Sau đó, bạn sẽ không còn có thể giao tiếp với thiết bị. Để ngăn chặn việc sử dụng ngẫu nhiên và độc hại, lệnh này yêu cầu một mật khẩu và cần được bật rõ ràng trong cài đặt.</string>
@@ -74,7 +74,6 @@
     <string name="crashed_text">FMD đã gặp sự cố! Đây là nhật ký:</string>
     <string name="crashed_copy_log">Sao chép nhật ký</string>
     <string name="crashed_continue_without">Tiếp tục mà không báo cáo</string>
-    <string name="MH_Pin_Accepted">Mã pin đã được chấp nhận!</string>
     <string name="loading">Đang tải…</string>
     <string name="help">Trợ giúp</string>
     <string name="copied">Đã sao chép</string>
@@ -167,10 +166,8 @@
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Ứng dụng này được thiết kế để hoạt động trong nền. Để đảm bảo nó hoạt động ngay cả khi thiết bị của bạn ở chế độ chờ, bạn cần tắt tối ưu hóa pin cho ứng dụng này.</string>
     <string name="grant_via_shizuku">Cấp Quyền Qua Shizuku</string>
     <string name="Notification_Usage_Description">Thông báo khi FMD đang nhận lệnh</string>
-    <string name="usage_notification_pin_title">Mã PIN FMD đã được sử dụng</string>
     <string name="missing_permissions_description">Các quyền sau đây là cần thiết để FMD hoạt động.</string>
     <string name="Locked_Lock_Screen">FMD\nThiết bị này đã bị khóa!\nTin nhắn từ chủ sở hữu:</string>
-    <string name="usage_notification_pin_text">Mã PIN đã được sử dụng bởi số này: \"%s\". Khuyến nghị thay đổi mã PIN.</string>
     <string name="transport_sms_description_auth">Chỉ những số điện thoại có trong danh sách cho phép mới có thể gửi lệnh. Để gửi lệnh từ một số điện thoại không có trong danh sách cho phép, bạn phải bao gồm mã PIN: \"%s mypin help\". Để tiện lợi, để bạn không phải nhập lại mã PIN mỗi lần, số điện thoại mới này sẽ được thêm vào danh sách cho phép tạm thời trong 10 phút tới.</string>
     <string name="transport_fmd_server_description">Máy chủ FMD cung cấp giao diện web để điều khiển thiết bị của bạn, xem vị trí của nó và xem các hình ảnh mà nó gửi. Bạn có thể tự lưu trữ Máy chủ FMD hoặc sử dụng phiên bản được cung cấp. Dữ liệu được lưu trữ mã hóa trên máy chủ, được bảo vệ bằng mật khẩu của bạn.</string>
     <string name="Settings_Export">Xuất cài đặt</string>

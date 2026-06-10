@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="Settings_Select_Ringtone">Zil sesi seçin</string>
     <string name="Settings_FMD_Server_User_ID">Kullanıcı ID:</string>
     <string name="Settings_FMDServer_Delete_Account">Hesabı sil</string>
@@ -195,7 +195,6 @@
     <string name="Notification_Usage_Description">FMD komut alırken bildirimler</string>
     <string name="Notification_Pin_Usage_Description">FMD, PIN aracılığıyla erişildiğinde bildirimler</string>
     <string name="Notification_InApp_Description">Uygulama içi ulaşım kanalından bildirimler</string>
-    <string name="usage_notification_pin_title">FMD PIN\'i kullanıldı</string>
     <string name="setup_warnings_title">Kurulum Uyarıları</string>
     <string name="missing_permissions_title">Eksik İzinler</string>
     <string name="Locked_Lock_Screen">FindMyDevice\nBu cihaz kilitli!\nSahibinden mesaj:</string>
@@ -220,11 +219,9 @@
     <string name="Notification_Fail_Description">Bir şeyler başarısız olduğundaki, FMD Sunucusuna bağlanmak gibi, bildirimler</string>
     <string name="usage_notification_title">Komut çalıştırıldı</string>
     <string name="usage_notification_text_source">\"%1$s\" komudu \"%2$s\" tarafından çalıştırıldı.</string>
-    <string name="usage_notification_pin_text">PIN bu numara tarafından kullanıldı: \"%s\". PIN\'i değiştirmeniz önerilir.</string>
     <string name="LockScreen_Usage_detectd">KilitEkranıMesajı: Kullanım tespit edildi.</string>
     <string name="crashed_title">Çöküş Raporu</string>
     <string name="crashed_copy_log">Günlüğü kopyala</string>
-    <string name="MH_Pin_Accepted">Pin kabul edildi!</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Bu uygulamanın arka planda çalışması lazım. Cihazınız beklemedeyken bile çalıştığından emin olmak için, bu uygulama için şarj optimizasyonunu devre dışı bırakmanız gerekli.</string>
     <string name="transport_sms_description">Cihazınıza SMS üzerinden komutlar gönderin. Örn. \"%s help\" diye cihazınıza mesaj atın. FMD,SMS ile yanıt verecektir.</string>
     <string name="transport_fmd_server_description">FMD Sunucusu cihazınızı kontrol etmek, konumunu görüntülemek ve gönderdiği fotoğrafları incelemek için bir web arayüzü sağlar. FMD Sunucusunu kendiniz sağlayabilirsiniz ya da çoktan sağlanan instance\'ı kullanabilirsiniz. Veri, sunucuda şifreniz ile şifrelenerek depolanır.</string>

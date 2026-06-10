@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="loading">Se încarcă…</string>
     <string name="help">Ajutor</string>
     <string name="copied">Copiat</string>
@@ -229,8 +229,6 @@
     <string name="usage_notification_title">Comandă executată</string>
     <string name="usage_notification_text">Comanda \"%s\" a fost executată.</string>
     <string name="usage_notification_text_source">Comanda \"%1$s\" a fost executată de \"%2$s\".</string>
-    <string name="usage_notification_pin_title">PIN-ul FMD a fost folosit</string>
-    <string name="usage_notification_pin_text">PIN-ul a fost folosit de pe acest număr: \"%s\". Este recomandat să schimbi PIN-ul.</string>
     <string name="setup_warnings_title">Avertismente de configurare</string>
     <string name="setup_recommendations_title">Recomandări</string>
     <string name="missing_permissions_title">Permisiuni lipsă</string>
@@ -245,5 +243,4 @@
     <string name="crashed_copy_log">Copiază jurnalul</string>
     <string name="crashed_open_issuetracker">Deschide sistemul de urmărire a erorilor</string>
     <string name="crashed_continue_without">Continuă fără a raporta</string>
-    <string name="MH_Pin_Accepted">PIN acceptat!</string>
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="Toast_Empty_FMDCommand">Порожня команда не дозволена, використовується за замовчуванням.</string>
     <string name="Settings_Lockscreenmessage_Description">Повідомлення на екрані блокування:\nПід час блокування пристрою це повідомлення з’явиться на екрані блокування.</string>
     <string name="Settings_FMD_Server_General">Загальне</string>
@@ -43,8 +43,7 @@
     <string name="Settings_FMDCommand_Description">Команда для зв\'язку з FMD.</string>
     <string name="Settings_Ringer_Tone_Description">Виберіть рингтон для команди \"ring\".</string>
     <string name="Settings_FMDServer_use_default_server">Використовуйте публічний сервер</string>
-    <string name="Settings_FMDServer_Location_Type_Description">Джерело(-а), з якого(-их) дані про місцезнаходження завантажуються у фоновому режимі через певні проміжки часу.
-\nЯкщо не вибрано жодного, дані про місцезнаходження не будуть регулярно завантажуватися. (Ви все ще можете використовувати вебінтерфейс, щоб примусово завантажувати дані. Для цього потрібно натиснути кнопку.)</string>
+    <string name="Settings_FMDServer_Location_Type_Description">Джерело(-а), з якого(-их) дані про місцезнаходження завантажуються у фоновому режимі через певні проміжки часу. \nЯкщо не вибрано жодного, дані про місцезнаходження не будуть регулярно завантажуватися. (Ви все ще можете використовувати вебінтерфейс, щоб примусово завантажувати дані. Для цього потрібно натиснути кнопку.)</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Вивантажувати місцезнаходження цього пристрою при низькому заряді акумулятора.</string>
     <string name="server_version">Версія сервера</string>
     <string name="server_version_error_low_version">Мінімальна потрібна версія сервера {MIN}, але вибраний сервер використовує версію {CURRENT}. Продовжуйте на свій страх і ризик.</string>
@@ -85,22 +84,14 @@
     <string name="cmd_locate_last_known_location_text">Останнє відоме місцезнаходження</string>
     <string name="cmd_ring_description_short">Дзвінок пристоєм</string>
     <string name="cmd_nodisturb_response_on">Режим «Не турбувати» увімкнено.</string>
-    <string name="cmd_stats_response">Статистика мережі:
-\n
-\nIP-адреси пристрою:
-\n%1$s
-\n
-\nWi-Fi мережі:
-\n%2$s</string>
+    <string name="cmd_stats_response">Статистика мережі: \n \nIP-адреси пристрою: \n%1$s \n \nWi-Fi мережі: \n%2$s</string>
     <string name="perm_camera_name">Камера</string>
     <string name="perm_location_name">Розташування</string>
     <string name="app_description">FMD (Find My Device) дозволяє віддалено визначити місцезнаходження вашого пристрою. Ви можете спілкуватися з FMD через SMS, месенджери або за допомогою FMD Server. Знайдіть свій пристрій, увімкніть дзвінок, заблокуйте його або витріть всі дані - і все це дистанційно.</string>
     <string name="notify_crypto_update_text">Вам потрібно оновити деякі налаштування, щоб продовжити використання FMD. Натисніть, щоб відкрити.</string>
     <string name="server_unregister_failed_title">Не вдалося скасувати реєстрацію</string>
     <string name="server_unregister_continue_anyway">Все одно продовжити</string>
-    <string name="server_unregister_failed_body">Скасування реєстрації завершилося невдало з наступною помилкою: {ERROR}
-\n
-\nВи можете продовжити в будь-якому випадку, але ваш обліковий запис не було видалено з сервера. Якщо ви продовжите, ваш обліковий запис буде видалено локально на цьому пристрої.</string>
+    <string name="server_unregister_failed_body">Скасування реєстрації завершилося невдало з наступною помилкою: {ERROR} \n \nВи можете продовжити в будь-якому випадку, але ваш обліковий запис не було видалено з сервера. Якщо ви продовжите, ваш обліковий запис буде видалено локально на цьому пристрої.</string>
     <string name="cmd_delete_response_success">Тепер пристрій слід видалити. До побачення!</string>
     <string name="cmd_gps_response_on">Сервіси Визначення Місцезнаходження увімкнені.</string>
     <string name="cmd_gps_response_off">Сервіси Визначення Місцезнаходження вимкнені.</string>
@@ -150,7 +141,6 @@
     <string name="missing_permissions_description">Для запуску FMD потрібні наступні дозволи.</string>
     <string name="ringer_stop_ringing">Зупинити дзвінок</string>
     <string name="crashed_copy_log">Скопіювати журнал</string>
-    <string name="MH_Pin_Accepted">PIN-код прийнятий!</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Ця програма має працювати у фоновому режимі. Щоб вона працювала, навіть коли ваш пристрій перебуває в режимі очікування, вам потрібно вимкнути оптимізацію заряду акумулятора для цієї програми.</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD час від часу надсилатиме вам сповіщення, наприклад, щоб попередити, що хтось визначає місцезнаходження вашого пристрою.</string>
     <string name="perm_unused_app_description">Android ставить на паузу додатки, які не відкриваються протягом кількох місяців, і видаляє їхні дозволи. FMD, однак, має працювати у фоновому режимі. Після його налаштування вам рідко потрібно буде його відкривати. Тому вам потрібно вимкнути для FMD цю функцію, інакше він може не працювати через кілька місяців.</string>
@@ -237,9 +227,7 @@
     <string name="log_view_clear_confirm">Ви впевнені що хочете видалити всі записи журналу?</string>
     <string name="cmd_locate_response_gps_fail">Не вдалося отримати нові дані про місцеперебування за GPS. Можливо, через тайм-аут.</string>
     <string name="crashed_title">Звіт про аварійне завершення роботи</string>
-    <string name="usage_notification_pin_title">PIN-код ящуру використано</string>
     <string name="server_version_upgrade_required_title">Потрібно оновити сервер FMD</string>
-    <string name="usage_notification_pin_text">PIN використовувався номером: \"%s\". Рекомендується змінити PIN-код.</string>
     <string name="perm_sms_name">SMS</string>
     <string name="Settings_FMDServer_Push_Distributor">Дистриб\'ютор: %s</string>
     <string name="Settings_FMDServer_Push_Url">Штовхати URL: %s</string>

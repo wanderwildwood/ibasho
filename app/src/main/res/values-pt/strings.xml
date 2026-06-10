@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="loading">A carregar…</string>
     <string name="help">Ajuda</string>
     <string name="copied">Copiado</string>
@@ -225,8 +225,6 @@
     <string name="usage_notification_title">Comando executado</string>
     <string name="usage_notification_text">O comando \"%s\" foi executado.</string>
     <string name="usage_notification_text_source">O comando \"%1$s\" foi executado por \"%2$s\".</string>
-    <string name="usage_notification_pin_title">PIN do FMD utilizado</string>
-    <string name="usage_notification_pin_text">O PIN foi usado pelo número: \"%s\". É recomendado alterar o PIN.</string>
     <string name="setup_warnings_title">Alertas de configuração</string>
     <string name="missing_permissions_title">Permissões ausentes</string>
     <string name="missing_permissions_description">As seguintes permissões são necessárias para o funcionamento do FMD.</string>
@@ -240,5 +238,4 @@
     <string name="crashed_copy_log">Copiar registos</string>
     <string name="crashed_open_issuetracker">Abrir o rastreador de problemas</string>
     <string name="crashed_continue_without">Continuar sem relatar</string>
-    <string name="MH_Pin_Accepted">PIN aceito!</string>
 </resources>

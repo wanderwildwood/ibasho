@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="help">مساعدة</string>
     <string name="Settings_Settings">الإعدادات</string>
     <string name="Settings_Import">إستيراد الإعدادات</string>
@@ -54,22 +54,17 @@
     <string name="notify_crypto_update_title">الإجراء مطلوب</string>
     <string name="OpenCellId_open_website">فتح موقع OpenCelliD</string>
     <string name="OpenCellId_test_opencellid">اختبار الإتصال مع OpenCelliD</string>
-    <string name="server_unregister_failed_body">فشل إلغاء التسجيل بسبب الخطأ التالي: {ERROR}
-\n
-\nيمكنك المتابعة على أي حال، ولكن ربما لم يتم حذف حسابك من الخادم. إذا تابعت، فسيتم حذف حسابك محليًا من هذا الجهاز.</string>
+    <string name="server_unregister_failed_body">فشل إلغاء التسجيل بسبب الخطأ التالي: {ERROR} \n \nيمكنك المتابعة على أي حال، ولكن ربما لم يتم حذف حسابك من الخادم. إذا تابعت، فسيتم حذف حسابك محليًا من هذا الجهاز.</string>
     <string name="Notification_Security">حماية</string>
     <string name="Notification_Pin_Usage_Description">الإشعارات عند الوصول إلى FMD عبر الرقم السري</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">من المفترض أن يعمل هذا التطبيق في الخلفية. ولضمان عمله حتى عندما يكون جهازك في وضع الاستعداد، يتعين عليك إيقاف تشغيل تحسين البطارية لهذا التطبيق.</string>
     <string name="Notification_Fail_Description">إشعارات عند فشل شيء ما، مثل الاتصال بخادم FMD</string>
-    <string name="MH_Pin_Accepted">تم قبول الرقم السري!</string>
     <string name="LockScreen_Backbutton_pressed">رسالة شاشة القفل: تم الضغط على زر الرجوع.</string>
     <string name="LockScreen_Usage_detectd">رسالة قفل الشاشة: تم اكتشاف الاستخدام.</string>
     <string name="ringer_stop_ringing">ايقاف الرنين</string>
     <string name="cmd_locate_response_location_off">لا يمكن تحديد الموقع: الموقع الجغرافي غير مفعل.</string>
     <string name="Permission_POST_NOTIFICATIONS">سوف يرسل لك FMD أحيانًا إشعارات، على سبيل المثال لتحذيرك من أن شخصًا ما يحدد موقع جهازك.</string>
-    <string name="Locked_Lock_Screen">FMD
-\nهذا الهاتف مغلق!
-\nرسالة من المالك:</string>
+    <string name="Locked_Lock_Screen">FMD \nهذا الهاتف مغلق! \nرسالة من المالك:</string>
     <string name="Toast_Duplicate_contact">جهة الاتصال هذه موجودة بالفعل.</string>
     <string name="Delete">حذف</string>
     <string name="cmd_help_message_start">أوامر FMD:</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="copied">Gekopieerd</string>
     <string name="accept">Accepteren</string>
     <string name="add">Toevoegen</string>
@@ -92,7 +92,6 @@
     <string name="crashed_text">MKZ is gecrasht! Hier is het logboek:</string>
     <string name="crashed_open_issuetracker">Issue tracker openen</string>
     <string name="crashed_continue_without">Doorgaan zonder melding</string>
-    <string name="MH_Pin_Accepted">Pincode geaccepteerd!</string>
     <string name="loading">Laden…</string>
     <string name="help">Hulp</string>
     <string name="request_failed_title">Netwerkaanvraag mislukt</string>
@@ -222,14 +221,12 @@
     <string name="log_view_clear">Logboeken wissen</string>
     <string name="log_view_clear_confirm">Wil je echt alle logboekvermeldingen wissen?</string>
     <string name="cmd_delete_response_dry_run">Proefdraaien is gelukt en het daadwerkelijke verwijderen van het apparaat wordt overgeslagen.</string>
-    <string name="usage_notification_pin_title">FMD-pincode gebruikt</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD zal je op de hoogte stellen als de laatste succesvolle verbinding met FMD Server meer dan X uur geleden is. Dit heeft geen effect als de controle op de verbinding is uitgeschakeld.</string>
     <string name="server_connectivity_lost_title">Verbinding met FMD Server verbroken</string>
     <string name="server_connectivity_lost_text">De FMD Server op %1$s is niet meer bereikbaar. De laatste succesvolle verbinding was op %2$s.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Interval voor controle van de verbinding</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD controleert elke X uur de verbinding met de FMD Server. Zet deze op 0 om de controle op de verbinding uit te schakelen.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maximaal toegestane tijd zonder verbinding</string>
-    <string name="usage_notification_pin_text">De pincode werd gebruikt met dit nummer: \"%s\". Het wordt aanbevolen om de pincode te wijzigen.</string>
     <string name="server_fmd_id_hint">De gebruikersnaam identificeert jouw account op de FMD Server. De serverbeheerder kan de gebruikersnaam zien.</string>
     <string name="Settings_FMDServer_Push_Description">Om commando\'s van FMD Server naar je apparaat te sturen, heb je een UnifiedPush-distributeur-app nodig.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributeur: %s</string>

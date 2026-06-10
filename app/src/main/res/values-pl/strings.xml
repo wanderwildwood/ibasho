@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="Settings_FMDConfig">Ogólne</string>
     <string name="copied">Skopiowano</string>
     <string name="accept">Akceptuję</string>
@@ -98,7 +98,6 @@
     <string name="appearance_language">Język</string>
     <string name="Settings_FMD_Server_Connection_Status">Status połączenia:</string>
     <string name="log_view_export">Eksportuj Logi</string>
-    <string name="MH_Pin_Accepted">Pin zaakceptowano!</string>
     <string name="crashed_send_log">Wyślij log</string>
     <string name="crashed_copy_log">Skopiuj log</string>
     <string name="Settings_FMDServer_Unregister_Success">Wyrejestrowanie i usunięcie danych powiodło się!</string>
@@ -127,7 +126,7 @@
     <string name="pw_change_empty">Hasło nie może być puste.</string>
     <string name="pw_change_network_failed">Zmiana hasła nie powiodła się z powodu błędu sieci.</string>
     <string name="server_login_attempts_title">Nieudane próby logowania do serwera FMD</string>
-    <string name="server_login_attempts_text">Ktoś próbował zalogować się do Twojego konta na serwerze FMD \"%s\". Z powodu wielu błędnych haseł, konto zostało zablokowane na 10 minut.</string>
+    <string name="server_login_attempts_text">Ktoś próbował zalogować się do Twojego konta na serwerze FMD \"%s\". Z powodu wielu błędnych haseł, konto zostało zablokowane na 10 minut.</string>
     <string name="server_version_upgrade_required_title">Wymagana aktualizacja serwera FMD</string>
     <string name="server_version_upgrade_required_text">Serwer FMD z którego korzystasz ma wersję {CURRENT}, a ta aplikacja wymaga conajmniej wersji {MIN}. Kontrolowanie Twojego urządzenia przez serwer FMD może nie działać. Proszę zaktualizować serwer.</string>
     <string name="server_connectivity_lost_title">Stracono połączenie z serwerem FMD</string>

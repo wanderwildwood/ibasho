@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="Settings_FMDServer_Register">பதிவு செய்யுங்கள்</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">தனியுரிமைக் கொள்கை</string>
     <string name="password">கடவுச்சொல்</string>
@@ -33,7 +33,6 @@
     <string name="ringer_stop_ringing">ஒலிப்பதை நிறுத்துங்கள்</string>
     <string name="crashed_title">செயலிழப்பு அறிக்கை</string>
     <string name="crashed_continue_without">புகாரளிக்காமல் தொடரவும்</string>
-    <string name="MH_Pin_Accepted">முள் ஏற்றுக்கொள்ளப்பட்டது!</string>
     <string name="loading">ஏற்றுகிறது…</string>
     <string name="help">உதவி</string>
     <string name="copied">நகலெடுக்கப்பட்டது</string>
@@ -222,7 +221,6 @@
     <string name="Notification_FAIL">தோல்விகள்</string>
     <string name="Notification_Fail_Description">அறிவிப்புகள் ஏதேனும் தோல்வியுற்றால், எஃப்எம்டி சேவையகத்திற்கான இணைப்பு போன்றவை</string>
     <string name="usage_notification_text_source">%1$s கட்டளை %2$s ஆல் செயல்படுத்தப்பட்டது.</string>
-    <string name="usage_notification_pin_title">FMD முள் பயன்படுத்தப்பட்டது</string>
     <string name="crashed_text">எஃப்எம்டி செயலிழந்தது! இங்கே பதிவு:</string>
     <string name="crashed_send_log">பதிவு அனுப்பு</string>
     <string name="crashed_copy_log">நகல் பதிவு</string>
@@ -237,7 +235,6 @@
     <string name="allowlist_reset_title">அனுமதிக்கப்பட்ட தொடர்புகள் மீட்டமைக்க</string>
     <string name="allowlist_reset_text">விபத்து காரணமாக, அனுமதிக்கப்பட்ட தொடர்புகள் மீட்டமைக்கப்பட்டன. தயவுசெய்து அவற்றை மீண்டும் உள்ளமைக்கவும்.</string>
     <string name="usage_notification_text">\"%s\" கட்டளை செயல்படுத்தப்பட்டது.</string>
-    <string name="usage_notification_pin_text">முள் இந்த எண்ணால் பயன்படுத்தப்பட்டது: \"%s\". முள் மாற்ற பரிந்துரைக்கப்படுகிறது.</string>
     <string name="cmd_ringermode_description_short">ரிங்கர் பயன்முறையை மாற்றவும்</string>
     <string name="cmd_ringermode_response_empty">தற்போதைய ரிங்கர் பயன்முறை \"%s\".</string>
     <string name="cmd_ringermode_response">ரிங்கர் பயன்முறை \"%1$s\" (பழையது) இலிருந்து \"%2$s\" (புதியது) ஆக மாற்றப்பட்டது.</string>

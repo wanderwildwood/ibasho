@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="help">Abiteave</string>
     <string name="export_failed">Eksportimine ei õnnestunud</string>
     <string name="accept">Nõustu</string>
@@ -172,7 +172,6 @@
     <string name="grant_write_secure_settings_description">Neid õigusi saad jagada vaid Androidi „pm grant“ käsurea tarvikuga. Üks võimalus oleks seda teha arvutist käsitsi Android Debug Bridge (ADB) abil. Või kui nutiseadmes on juurkasutaja lubatud või Shizuku kasutusel, siis saad teha ka otse nutiseadmest.\n\nKasutajatunnus: %d</string>
     <string name="cmd_stats_description_short">Vaata võrguühenduse statistikat</string>
     <string name="crashed_text">FMD on jooksnud kokku! Vealogi on siin:</string>
-    <string name="MH_Pin_Accepted">PIN-kood on sobilik!</string>
     <string name="server_version_upgrade_required_text">Sinu kasutatava FMD serveri versioon on {CURRENT}, aga rakendus eeldab, et on {MIN}. Sinu nutiseadme juhtimine FMD serverist ei pruugi enam toimida. Palun uuenda oma serverit.</string>
     <string name="server_connectivity_lost_text">Ei õnnestu enam leida FMD serverit asukohas %1$s. Viimane õnnestunud ühendus oli %2$s.</string>
     <string name="cmd_locate_response_location_off">Asukoht pole teada: asukohatuvastus on lülitatud välja.</string>
@@ -184,7 +183,6 @@
     <string name="perm_overlay_name">Muude rakenduste peal kuvamine</string>
     <string name="server_version_error_low_version">Kasutusel peaks olema serveri versioon {MIN}, aga valitud serveril on hetkel {CURRENT}. Edasi jätkad omal vastutusel.</string>
     <string name="cmd_locate_last_known_location_text">Viimane teadaolev asukoht</string>
-    <string name="usage_notification_pin_text">PIN-koodi on kasutatud sellest telefoninumbrist: %s. Turvakaalutlustel palun muuda PIN-kood kohe ära.</string>
     <string name="cmd_locate_last_known_location_not_available">Viimast teadaolevat asukohta pole teada. Saada päring praeguse asukoha tuvastamiseks.</string>
     <string name="cmd_stats_response">Võrguühenduse statistika:\n\nSeadme IP-aadressid:\n%1$s\n\nWiFi võrgud:\n%2$s</string>
     <string name="perm_unused_app_name">Kasutamata rakendustele kehtivad piirangud</string>
@@ -212,7 +210,6 @@
     <string name="usage_notification_title">Käsk on käivitatud</string>
     <string name="usage_notification_text">„%s“ käsk on käivitatud.</string>
     <string name="usage_notification_text_source">„%2$s“ käivitas käsu: „%1$s“.</string>
-    <string name="usage_notification_pin_title">PMD PIN-kood on kasutatud</string>
     <string name="Pin_Usage">PIN-koodi kasutus</string>
     <string name="Notification_Pin_Usage_Description">Teavitused, kui FMD ligipääs toimub PIN-koodi vehendusel</string>
     <string name="Notification_InApp">Rakendusesisene transpordikanal</string>

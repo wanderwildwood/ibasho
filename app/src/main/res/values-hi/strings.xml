@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="Settings_Select_Ringtone">रिंगटोन चुनें</string>
     <string name="Settings_FMD_Server_General">सामान्य</string>
     <string name="Settings_FMD_Server_Server_URL">सर्वर URL:</string>
@@ -29,11 +29,8 @@
     <string name="Notification_Security">सुरक्षा</string>
     <string name="Notification_FAIL">विफलताएं</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD कभी-कभी आपको सूचनाएं भेजेगा, उदाहरण के लिए आपको चेतावनी देने के लिए कि कोई आपके डिवाइस का पता लगा रहा है।</string>
-    <string name="Locked_Lock_Screen">FMD
-\nयह फोन लॉक है!
-\nमालिक की ओर से संदेश:</string>
+    <string name="Locked_Lock_Screen">FMD \nयह फोन लॉक है! \nमालिक की ओर से संदेश:</string>
     <string name="cmd_help_message_start">FMD के कमांड:</string>
-    <string name="MH_Pin_Accepted">पिन स्वीकृत!</string>
     <string name="ringer_stop_ringing">घंटी बजाना बंद करें</string>
     <string name="cmd_locate_response_location_off">क्षमा करें, स्थान बंद है।</string>
     <string name="LockScreen_Usage_detectd">LockScreenMessage: उपयोग का पता चला।</string>
@@ -68,9 +65,7 @@
     <string name="OpenCellId_test_opencellid">OpenCeliD कनेक्शन का परीक्षण करें</string>
     <string name="about_wiki">विकि</string>
     <string name="app_description">FMD (Find My Device) आपको दूर से अपने डिवाइस का पता लगाने की अनुमति देता है। आप FMD के साथ SMS, इंस्टेंट मैसेंजर या FMD सर्वर का उपयोग करके संचार कर सकते हैं। अपने डिवाइस का पता लगाएं, उसे बजाएं, उसे लॉक करें, या उसे मिटायें - यह सब रिमोट से।</string>
-    <string name="server_unregister_failed_body">निम्न त्रुटि के साथ पंजीकरण रद्द करना विफल रहा: {ERROR}
-\n
-\nआप वैसे भी जारी रख सकते हैं, लेकिन हो सकता है कि आपका खाता सर्वर से मिटाया न गया हो। यदि आप जारी रखते हैं, तो आपका खाता इस डिवाइस से स्थानीय रूप से मिटा दिया जाएगा।</string>
+    <string name="server_unregister_failed_body">निम्न त्रुटि के साथ पंजीकरण रद्द करना विफल रहा: {ERROR} \n \nआप वैसे भी जारी रख सकते हैं, लेकिन हो सकता है कि आपका खाता सर्वर से मिटाया न गया हो। यदि आप जारी रखते हैं, तो आपका खाता इस डिवाइस से स्थानीय रूप से मिटा दिया जाएगा।</string>
     <string name="Notification_Usage">प्रयोग</string>
     <string name="Notification_Pin_Usage_Description">पिन के माध्यम से FMD तक पहुंचने पर अधिसूचनाएं</string>
     <string name="Notification_Security_Description">सुरक्षा अपडेट के बारे में सूचनाएं</string>
@@ -83,8 +78,7 @@
     <string name="Toast_Empty_FMDCommand">खाली कमांड की अनुमति नहीं है\n डिफ़ॉल्ट पर लौट रहा है।[fmd]</string>
     <string name="Cell">सेल</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">इससे सर्वर से सारा डेटा मिट जाएगा! क्या आप निश्चित हैं?</string>
-    <string name="Settings_FMDServer_Location_Type_Description">वह स्रोत जिससे पृष्ठभूमि में नियमित अंतराल पर स्थान डेटा अपलोड किया जाता है।
-\nयदि कोई भी चयनित नहीं है, तो कोई भी स्थान नियमित रूप से अपलोड नहीं किया जाता है। (आप किसी अपलोड को बाध्य करने के लिए अभी भी वेब इंटरफ़ेस का उपयोग कर सकते हैं। इसके लिए पुश की आवश्यकता होती है।)</string>
+    <string name="Settings_FMDServer_Location_Type_Description">वह स्रोत जिससे पृष्ठभूमि में नियमित अंतराल पर स्थान डेटा अपलोड किया जाता है। \nयदि कोई भी चयनित नहीं है, तो कोई भी स्थान नियमित रूप से अपलोड नहीं किया जाता है। (आप किसी अपलोड को बाध्य करने के लिए अभी भी वेब इंटरफ़ेस का उपयोग कर सकते हैं। इसके लिए पुश की आवश्यकता होती है।)</string>
     <string name="OpenCellId_help">डिवाइस जिस सेल टावर से जुड़ा है, उसके आधार पर अनुमानित स्थान प्राप्त करने के लिए FMD OpenCeliD सेवा का उपयोग कर सकता है। प्रत्येक स्थान क्वेरी के लिए इंटरनेट कनेक्शन आवश्यक है। आपको OpenCeliD पर एक खाता बनाना होगा और अपना स्वयं का API एक्सेस टोकन प्राप्त करना होगा।</string>
     <string name="cmd_locate_last_known_location_text">अंतिम ज्ञात स्थान</string>
     <string name="cmd_locate_last_known_location_not_available">कोई अंतिम ज्ञात स्थान नहीं है। स्थान अपडेट करने के लिए नवीनतम स्थान का अनुरोध करें।</string>
@@ -129,13 +123,7 @@
     <string name="cmd_locate_description_long">एक या अधिक स्थान प्रदाताओं का उपयोग करके डिवाइस का पता लगाएं। ऑपरेटिंग सिस्टम प्रदाता आमतौर पर GPS होता है, कभी-कभी अन्य स्रोतों के संयोजन के साथ। दूसरा प्रदाता OpenCelliD है, जो सेल टावर स्थानों के डेटाबेस का उपयोग करता है।</string>
     <string name="cmd_stats_description_short">नेटवर्क आंकड़े प्राप्त करें</string>
     <string name="cmd_stats_description_long">डिवाइस से नेटवर्क आंकड़े प्राप्त करें। उदाहरण के लिए, इसका IP पता और आस-पास के Wifi नेटवर्क की सूची।</string>
-    <string name="cmd_stats_response">नेटवर्क आंकड़े:
-\n
-\nडिवाइस आईपी:
-\n%1$s
-\n
-\nवाई-फाई नेटवर्क:
-\n%2$s</string>
+    <string name="cmd_stats_response">नेटवर्क आंकड़े: \n \nडिवाइस आईपी: \n%1$s \n \nवाई-फाई नेटवर्क: \n%2$s</string>
     <string name="cmd_lock_response">डिवाइस अब लॉक हो जाना चाहिए।</string>
     <string name="cmd_ring_description_short">डिवाइस को बजाता है</string>
     <string name="cmd_ring_response">अब डिवाइस बजना शुरू हो जाना चाहिए।</string>

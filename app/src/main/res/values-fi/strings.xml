@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="Locked_Lock_Screen">FMD
-\nTämä puhelin on lukittu!
-\nViesti omistajalta:</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="Locked_Lock_Screen">FMD \nTämä puhelin on lukittu! \nViesti omistajalta:</string>
     <string name="Enable">Ota käyttöön</string>
     <string name="Settings_Lockscreenmessage_Description">Lukitusnäytön viesti: \nKun laite lukitaan, tämä viesti näkyy lukitusnäytöllä.</string>
     <string name="Settings_FMDCommand_Description">Komento, jota käytetään FMD:n ohjaamiseen.</string>
@@ -11,7 +9,6 @@
     <string name="Toast_Duplicate_contact">Yhteystieto on jo olemassa.</string>
     <string name="cmd_locate_response_gps_will_follow">GPS-koordinaatit lähetetään pian.</string>
     <string name="cmd_help_message_start">FMD-komennot:</string>
-    <string name="MH_Pin_Accepted">PIN-koodi hyväksytty!</string>
     <string name="ringer_stop_ringing">PYSÄYTÄ SOITTO</string>
     <string name="cmd_locate_response_location_off">Pahoittelut, sijainti on poissa käytöstä.</string>
     <string name="Settings_FMDConfig">FMD-SMS</string>
@@ -30,8 +27,7 @@
     <string name="Settings_FMDServer_Update_Interval_Description">Aikaväli sijainnin lähettämiseen palvelimelle minuutteina.</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Tietosuojakäytäntö</string>
     <string name="accept">Hyväksy</string>
-    <string name="Settings_FMDServer_Location_Type_Description">Lähteet, joista sijaintitieto ladataan palvelimelle säännöllisin väliajoin taustalla.
-\nJos lähteitä ei ole valittu, sijaintitietoja ei ladata säännöllisesti. (Voit silti pyytää sijaintitiedon verkkokäyttöliittymän kautta. Tämä vaatii pushin.)</string>
+    <string name="Settings_FMDServer_Location_Type_Description">Lähteet, joista sijaintitieto ladataan palvelimelle säännöllisin väliajoin taustalla. \nJos lähteitä ei ole valittu, sijaintitietoja ei ladata säännöllisesti. (Voit silti pyytää sijaintitiedon verkkokäyttöliittymän kautta. Tämä vaatii pushin.)</string>
     <string name="GPS">GPS</string>
     <string name="Cell">Tukiasema</string>
     <string name="Edit">Muokkaa</string>
@@ -229,7 +225,5 @@
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD ilmoittaa, jos viimeisimmästä onnistuneesta yhteyden tarkistuksesta on kulunut pidempään kuin määrittämäsi tuntimäärä ja tarkistus on käytössä.</string>
     <string name="server_connectivity_lost_title">Yhteys FMD-palvelimeen on katkennut</string>
     <string name="cmd_delete_response_dry_run">Testiajo suoritettu, ohitetaan todellinen laitteen poisto.</string>
-    <string name="usage_notification_pin_text">PIN-koodia käytti numero %s. On suositeltavaa vaihtaa PIN-koodi.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD tarkistaa yhteyden FMD-palvelimelle määrittämäsi tuntimäärän välein. Aseta nollaksi poistaaksesi tarkistus käytöstä.</string>
-    <string name="usage_notification_pin_title">FMD PIN-koodia käytetty</string>
 </resources>
