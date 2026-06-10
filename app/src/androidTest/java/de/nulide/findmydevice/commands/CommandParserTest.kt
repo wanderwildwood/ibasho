@@ -49,7 +49,7 @@ class CommandParserTest {
 
         val parser = CommandParser("fmd", helpCommand, availableCommands(appContext))
         val actual = parser.parse("fmd mypin nonexistent")
-        val expected = ParserResult.UnknownCommand("nonexistent")
+        val expected = ParserResult.Success("fmd", "mypin", helpCommand, emptyList())
 
         assertEquals(expected, actual)
     }
