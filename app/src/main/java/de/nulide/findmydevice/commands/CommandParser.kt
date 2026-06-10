@@ -104,6 +104,7 @@ class CommandParser(
             }
         }
 
+        // Show the help if the user sent an invalid command
         return ParserResult.Success(
             triggerWord = expectedTriggerWord,
             pin,
