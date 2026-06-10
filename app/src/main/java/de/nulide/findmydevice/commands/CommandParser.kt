@@ -22,8 +22,6 @@ sealed class ParserResult {
         val actual: String,
         val expected: String,
     ) : ParserResult()
-
-    data class UnknownCommand(val commandKeyword: String) : ParserResult()
 }
 
 
@@ -106,6 +104,11 @@ class CommandParser(
             }
         }
 
-        return ParserResult.UnknownCommand(commandKeyword)
+        return ParserResult.Success(
+            triggerWord = expectedTriggerWord,
+            pin,
+            helpCommand,
+            emptyList(),
+        )
     }
 }

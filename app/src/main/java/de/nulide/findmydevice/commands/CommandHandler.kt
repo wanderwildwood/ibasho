@@ -122,10 +122,6 @@ class CommandHandler<T>
                     "Not handling: '${parsed.actual}' does not match trigger word '${parsed.expected}'"
                 )
             }
-
-            is ParserResult.UnknownCommand -> {
-                context.log().w(TAG, "No command found that matches '${parsed.commandKeyword}'")
-            }
         }
     }
 
