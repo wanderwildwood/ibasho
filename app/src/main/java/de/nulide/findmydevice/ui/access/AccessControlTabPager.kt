@@ -22,6 +22,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.ui.common.FmdTopAppBar
+import de.nulide.findmydevice.ui.common.LoadingDialog
 import de.nulide.findmydevice.ui.theme.AppTheme
 import kotlinx.coroutines.launch
 
@@ -56,6 +57,11 @@ fun AccessControlTabsScreen(
         Scaffold(
             topBar = { FmdTopAppBar(R.string.Settings_Access_Control, onBackClicked) }
         ) { innerPadding ->
+            val isLoading by viewModel.isLoading.collectAsStateWithLifecycle()
+            if (isLoading) {
+                LoadingDialog()
+            }
+
             Column(
                 modifier = Modifier.padding(innerPadding),
             ) {

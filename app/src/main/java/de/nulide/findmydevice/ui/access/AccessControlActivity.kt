@@ -194,9 +194,11 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
                     val password = passwordInput.getText().toString()
 
                     validatePassword(context, password, forceMinLength = true, allowEmpty = false) {
+                        viewModel.setLoading(true)
                         lifecycleScope.launch {
                             val passwordHash = settings.hashLocalPassword(password)
                             onSaveClicked(label, passwordHash)
+                            viewModel.setLoading(false)
                         }
                     }
                 })

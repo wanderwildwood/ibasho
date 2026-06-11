@@ -15,7 +15,9 @@ import de.nulide.findmydevice.database.NotificationPassword
 import de.nulide.findmydevice.database.PhoneNumber
 import de.nulide.findmydevice.database.SmsPassword
 import de.nulide.findmydevice.database.SmsPasswordWithTempPhoneNumbers
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
@@ -87,5 +89,12 @@ class AccessControlViewModel(
 
     fun getCommandKeyword(): String {
         return settingsRepo.get(Settings.SET_FMD_COMMAND) as String
+    }
+
+    private val _isLoading = MutableStateFlow(false)
+    val isLoading = _isLoading.asStateFlow()
+
+    fun setLoading(value: Boolean) {
+        _isLoading.value = value
     }
 }
