@@ -40,7 +40,7 @@
     <string name="Settings_FMDConfig">General</string>
     <string name="Settings_FMDServer" translatable="false">FMD Server</string>
     <string name="Settings_Access_Control">Access control</string>
-    <string name="Settings_OpenCellId" translatable="false">OpenCelliD</string>
+    <string name="Settings_OpenCellId" translatable="false">BeaconDB &amp; OpenCelliD</string>
     <string name="Settings_Appearance">Appearance</string>
     <string name="Settings_Import">Import settings</string>
     <string name="Settings_Export">Export settings</string>
@@ -177,13 +177,14 @@
     <string name="temporary_allowlist_expired">Your temporary FMD access expired. To continue using FMD, send the password again.</string>
 
     <!-- Settings: OpenCelliD -->
-    <string name="OpenCellId_OpenCellId" translatable="false">OpenCelliD</string>
-    <string name="OpenCellId_API_Key_Description" translatable="false">API Access Token</string>
-    <string name="OpenCellId_help">FMD can use the OpenCelliD service to get an approximate location based on the cell tower that the device is connected to. An internet connection is required for every location query. You also need to create an account at OpenCelliD and get your own API Access Token.</string>
-    <string name="OpenCellId_privacy">Privacy: keep in mind that OpenCelliD learns your current cell tower and thus your location with every API query.</string>
-    <string name="OpenCellId_tower_collector_info">You can contribute to OpenCelliD by collecting and uploading cell tower information. You need a dedicated app for this. One such app is Tower Collector.</string>
-    <string name="OpenCellId_tower_collector_download">Download Tower Collector</string>
+    <string name="network_info_general">FMD can use the BeaconDB and OpenCelliD services to get a location estimate based on the surrounding cell towers (both) and Wi-Fi networks (BeaconDB only). An internet connection is required for every location query.</string>
+    <string name="network_info_privacy">Privacy: Keep in mind that BeaconDB and OpenCelliD learn your location with every query. Please see their respective privacy policies for details.</string>
+    <string name="beacondb_open_website">Open BeaconDB website</string>
     <string name="OpenCellId_open_website">Open OpenCelliD website</string>
+    <string name="network_crowdsourcing_description">You can contribute to BeaconDB and OpenCelliD by collecting and uploading cell tower and Wi-Fi data. See the documentation for more information.</string>
+    <string name="network_crowdsourcing_button">Open documentation</string>
+    <string name="opencellid_api_key_title" translatable="false">API Access Token</string>
+    <string name="opencellid_api_key_description">For OpenCelliD, you need to create an account on the OpenCelliD website and get your own API Access Token.</string>
     <string name="OpenCellId_test_opencellid">Test OpenCelliD connection</string>
     <string name="OpenCellId_test_no_connection">No cell connection</string>
 

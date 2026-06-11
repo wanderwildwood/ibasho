@@ -44,9 +44,18 @@ class OpenCellIdActivity : FmdActivity(), TextWatcher {
         viewBinding.editTextOpenCellIDAPIKey.setText(apiToken)
         viewBinding.editTextOpenCellIDAPIKey.addTextChangedListener(this)
 
+
+        viewBinding.buttonBeaconDbWebsite.setOnClickListener({
+            openUrl(it.context, "https://beacondb.net/")
+        })
+        viewBinding.buttonOpenOpenCellIdWebsite.setOnClickListener({
+            openUrl(it.context, "https://opencellid.org/")
+        })
+        viewBinding.buttonOpenFmdWebsite.setOnClickListener({
+            openUrl(it.context, "https://fmd-foss.org/docs/fmd-android/locating#crowdsource")
+        })
+
         viewBinding.buttonPaste.setOnClickListener(::onPasteClicked)
-        viewBinding.buttonOpenOpenCellIdWebsite.setOnClickListener(::onOpenWebsiteClicked)
-        viewBinding.buttonDownloadTowerCollector.setOnClickListener(::onDownloadTowerCollectorClicked)
         viewBinding.buttonTestOpenCellId.setOnClickListener(::onTestConnectionClicked)
 
         setupTestConnection(apiToken.isEmpty())
@@ -75,14 +84,6 @@ class OpenCellIdActivity : FmdActivity(), TextWatcher {
 
     private fun onPasteClicked(view: View) {
         viewBinding.editTextOpenCellIDAPIKey.setText(pasteFromClipboard(view.context))
-    }
-
-    private fun onOpenWebsiteClicked(view: View) {
-        openUrl(view.context, "https://opencellid.org/")
-    }
-
-    private fun onDownloadTowerCollectorClicked(view: View) {
-        openUrl(view.context, "https://f-droid.org/packages/info.zamojski.soft.towercollector/")
     }
 
     private fun onTestConnectionClicked(view: View) {
