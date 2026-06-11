@@ -48,6 +48,8 @@ class SettingsRepository private constructor(private val context: Context) {
         val TAG = SettingsRepository::class.simpleName
     }
 
+    private val passwordToHashCache: MutableMap<String, String> = mutableMapOf()
+
     private val gson = GsonBuilder()
         // Force Gson to parse numbers as either Long or Double.
         // When needed, we can cast Longs down to Ints.
@@ -188,6 +190,12 @@ class SettingsRepository private constructor(private val context: Context) {
 
     // Run this on the compute-dispatcher (to avoid blocking the main thread)
     suspend fun hashLocalPassword(password: String): String = withContext(Dispatchers.Default) {
+        // Cache password hashes to avoid expensive re-computations (e.g., during repeated notification-based access).
+        val cachedHash = passwordToHashCache[password]
+        if (cachedHash != null) {
+            return@withContext cachedHash
+        }
+
         // Use the same salt for all local passwords.
         // This is necessary so that we can hash once and then compare against all passwords in the database.
         // This (in turn) is necessary because a priori we don't know which password entry the user intended to use.
@@ -197,7 +205,10 @@ class SettingsRepository private constructor(private val context: Context) {
             saltBase64 = CypherUtils.generateArgon2SaltB64()
             set(Settings.SET_LOCAL_PASSWORD_SALT_B64, saltBase64)
         }
-        return@withContext CypherUtils.hashPasswordForLocalAccess(password, saltBase64)
+
+        val hash = CypherUtils.hashPasswordForLocalAccess(password, saltBase64)
+        passwordToHashCache[password] = hash
+        return@withContext hash
     }
 
     fun serverAccountExists(): Boolean {
