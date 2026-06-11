@@ -60,11 +60,11 @@ class NotificationReplyTransport(
     override fun getDestinationString() = destination?.packageName ?: "Notification Response"
 
     override suspend fun isAllowed(parsed: ParserResult.Success): AccessResponse {
-        if (parsed.pin == null) {
+        if (parsed.passwordHash == null) {
             return AccessResponse.DENIED_UNKNOWN
         }
 
-        val notifPass = access.getNotificationPassword(parsed.pin)
+        val notifPass = access.getNotificationPassword(parsed.passwordHash)
         if (notifPass == null) {
             context.log().i(TAG, "Notification password not found in database")
             return AccessResponse.DENIED_UNKNOWN

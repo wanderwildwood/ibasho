@@ -12,8 +12,8 @@ interface NotificationPasswordDao {
     @Query("SELECT * FROM notification_password")
     fun getAll(): Flow<List<NotificationPassword>>
 
-    @Query("SELECT * FROM notification_password WHERE password = :password LIMIT 1")
-    suspend fun get(password: String): NotificationPassword?
+    @Query("SELECT * FROM notification_password WHERE password_hash = :passwordHash LIMIT 1")
+    suspend fun get(passwordHash: String): NotificationPassword?
 
     @Insert
     suspend fun insert(password: NotificationPassword)

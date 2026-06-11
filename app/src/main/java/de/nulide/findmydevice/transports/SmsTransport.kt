@@ -98,9 +98,8 @@ class SmsTransport(
         }
 
         // Case 3: the message contains a correct password
-        val pinAccessPossible = parsed.pin != null
-        if (pinAccessPossible) {
-            val smsPass = accessRepo.getSmsPassword(parsed.pin)
+        if (parsed.passwordHash != null) {
+            val smsPass = accessRepo.getSmsPassword(parsed.passwordHash)
             if (smsPass != null) {
                 val hasPermission = smsPass.permission.hasPermission(parsed.command.permission)
                 if (hasPermission) {

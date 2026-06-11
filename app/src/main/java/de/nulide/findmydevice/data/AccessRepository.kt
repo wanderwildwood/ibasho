@@ -100,8 +100,8 @@ class AccessRepository private constructor(private val context: Context) {
         return db.smsPasswordDao().getAll()
     }
 
-    suspend fun getSmsPassword(password: String): SmsPassword? {
-        return db.smsPasswordDao().get(password)
+    suspend fun getSmsPassword(passwordHash: String): SmsPassword? {
+        return db.smsPasswordDao().get(passwordHash)
     }
 
     suspend fun insertSmsPassword(password: SmsPassword) = withContext(Dispatchers.IO) {
@@ -160,8 +160,8 @@ class AccessRepository private constructor(private val context: Context) {
         return db.notificationPasswordDao().getAll()
     }
 
-    suspend fun getNotificationPassword(password: String): NotificationPassword? {
-        return db.notificationPasswordDao().get(password)
+    suspend fun getNotificationPassword(passwordHash: String): NotificationPassword? {
+        return db.notificationPasswordDao().get(passwordHash)
     }
 
     suspend fun insertNotificationPassword(password: NotificationPassword) =

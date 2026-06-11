@@ -14,7 +14,7 @@ import kotlinx.parcelize.Parcelize
 @Entity(
     tableName = "sms_password",
     indices = [
-        Index(value = ["password"], unique = true),
+        Index(value = ["password_hash"], unique = true),
     ],
 )
 data class SmsPassword(
@@ -22,7 +22,7 @@ data class SmsPassword(
 
     @ColumnInfo("label") val label: String,
 
-    @ColumnInfo("password") val password: String,
+    @ColumnInfo("password_hash") val passwordHash: String,
 
     @ColumnInfo("permissions") val permission: Long = FmdPermission.DEFAULT,
 ) : AccessItem, Parcelable {

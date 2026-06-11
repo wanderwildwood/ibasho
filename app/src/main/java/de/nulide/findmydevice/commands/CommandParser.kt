@@ -6,8 +6,8 @@ sealed class ParserResult {
     data class Success(
         // fmd
         val triggerWord: String,
-        // mypin
-        val pin: String?,
+        // mypass -> hashed
+        val passwordHash: String?,
         // locate
         val command: Command,
         // gps
@@ -32,9 +32,10 @@ class CommandParser(
     val expectedTriggerWord: String,
     val helpCommand: Command,
     val availableCommands: List<Command>,
+    val hashPassword: suspend (String) -> String,
 ) {
 
-    fun parse(raw: String): ParserResult {
+    suspend fun parse(raw: String): ParserResult {
         val tokens = splitBySpaceWithQuotes(raw)
         val iter = tokens.iterator()
 
@@ -53,7 +54,7 @@ class CommandParser(
         if (!iter.hasNext()) {
             return ParserResult.Success(
                 triggerWord = expectedTriggerWord,
-                pin = null,
+                passwordHash = null,
                 command = helpCommand,
                 args = emptyList(),
             )
@@ -64,20 +65,21 @@ class CommandParser(
         val matchesKnownCommand = availableCommands.any {
             it.keyword.lowercase() == secondToken.lowercase()
         }
-        var pin: String? = null
+        var passwordHash: String? = null
         if (!matchesKnownCommand) {
             // If the second token does not match any known command,
             // then we assume that it is the access password.
-            pin = secondToken
+            val password = secondToken
+            passwordHash = hashPassword(password)
         }
 
         val commandKeyword: String
-        if (pin != null) {
+        if (passwordHash != null) {
             // Pin but no command ==> show help
             if (!iter.hasNext()) {
                 return ParserResult.Success(
                     triggerWord = expectedTriggerWord,
-                    pin,
+                    passwordHash,
                     command = helpCommand,
                     args = emptyList(),
                 )
@@ -97,7 +99,7 @@ class CommandParser(
             if (command.keyword.lowercase() == commandKeyword.lowercase()) {
                 return ParserResult.Success(
                     triggerWord = expectedTriggerWord,
-                    pin,
+                    passwordHash,
                     command,
                     args,
                 )
@@ -107,7 +109,7 @@ class CommandParser(
         // Show the help if the user sent an invalid command
         return ParserResult.Success(
             triggerWord = expectedTriggerWord,
-            pin,
+            passwordHash,
             helpCommand,
             emptyList(),
         )

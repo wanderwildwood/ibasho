@@ -61,8 +61,12 @@ class CommandHandler<T>
         val fmdTriggerWord = settings.get(Settings.SET_FMD_COMMAND) as String
 
         val cmds = availableCommands(context)
-        val parser =
-            CommandParser(fmdTriggerWord, HelpCommand(cmds, context), cmds)
+        val parser = CommandParser(
+            fmdTriggerWord,
+            HelpCommand(cmds, context),
+            cmds,
+            { settings.hashLocalPassword(it) },
+        )
         val parsed = parser.parse(rawCommand)
 
         when (parsed) {

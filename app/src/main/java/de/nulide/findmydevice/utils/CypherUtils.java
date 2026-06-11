@@ -62,26 +62,41 @@ public class CypherUtils {
     private static final int ARGON2_T = 1;
     private static final int ARGON2_P = 4;
     private static final int ARGON2_M = 131072;
+    private static final int ARGON2_M_LOCAL = 32768;
     private static final int ARGON2_HASH_LENGTH = 32; // byte = 256 bit
     private static final int ARGON2_SALT_LENGTH = 16; // byte = 128 bit
 
     // Contextualise all usages of Argon2 to provide some hacky key separation
     private static final String CONTEXT_STRING_ASYM_KEY_WRAP = "context:asymmetricKeyWrap";
-    private static final String CONTEXT_STRING_FMD_PIN = "context:fmdPin";
+    private static final String CONTEXT_STRING_LOCAL_ACCESS = "context:localAccess";
     private static final String CONTEXT_STRING_LOGIN = "context:loginAuthentication";
     private static final String CONTEXT_PREFIX = "context:";
 
     // ------ Section: Password and hashing ------
 
-    public static String hashPasswordForFmdPin(String password) {
-        password = CONTEXT_STRING_FMD_PIN + password;
-        byte[] salt = generateSecureRandom(ARGON2_SALT_LENGTH);
-        Argon2Result result = hashPasswordArgon2(password, salt);
+    public static byte[] generateArgon2Salt() {
+        return generateSecureRandom(ARGON2_SALT_LENGTH);
+    }
+
+    public static String generateArgon2SaltB64() {
+        byte[] salt = generateArgon2Salt();
+        return Base64.encodeToString(salt, Argon2EncodingUtils.BASE64_FLAGS);
+    }
+
+    public static String hashPasswordForLocalAccess(String password, String saltBase64) {
+        password = CONTEXT_STRING_LOCAL_ACCESS + password;
+        byte[] salt = Base64.decode(saltBase64, Argon2EncodingUtils.BASE64_FLAGS);
+
+        // For passwords that are purely local to the device, we choose a lower value for M.
+        // Performance-wise: Hashing is run on every password-based access (such as notifications).
+        // Security-wise: The hashes are only stored in the app-local database.
+        // They only leave the device if the user exports the app data (which can be ZIP-encrypted).
+        Argon2Result result = hashPasswordArgon2(password, salt, ARGON2_M_LOCAL);
         return Argon2EncodingUtils.encode(result.hash, result.params);
     }
 
     public static String hashPasswordForLogin(String password) {
-        byte[] salt = generateSecureRandom(ARGON2_SALT_LENGTH);
+        byte[] salt = generateArgon2Salt();
         return hashPasswordForLogin(password, salt);
     }
 
@@ -99,7 +114,7 @@ public class CypherUtils {
     }
 
     public static Argon2Result hashPasswordForKeyWrap(String password) {
-        byte[] salt = generateSecureRandom(ARGON2_SALT_LENGTH);
+        byte[] salt = generateArgon2Salt();
         return hashPasswordForKeyWrap(password, salt);
     }
 
@@ -109,6 +124,10 @@ public class CypherUtils {
     }
 
     private static Argon2Result hashPasswordArgon2(String password, byte[] salt) {
+        return hashPasswordArgon2(password, salt, ARGON2_M);
+    }
+
+    private static Argon2Result hashPasswordArgon2(String password, byte[] salt, int M) {
         // Inspired by https://github.com/spring-projects/spring-security/blob/6.1.0/crypto/src/main/java/org/springframework/security/crypto/argon2/Argon2PasswordEncoder.java
         // and https://www.baeldung.com/java-argon2-hashing#2-implement-argon2-hashing-with-bouncy-castle
         if (!password.startsWith(CONTEXT_PREFIX)) {
@@ -123,7 +142,7 @@ public class CypherUtils {
                 .withVersion(Argon2Parameters.ARGON2_VERSION_13)
                 .withIterations(ARGON2_T)
                 .withParallelism(ARGON2_P)
-                .withMemoryAsKB(ARGON2_M)
+                .withMemoryAsKB(M)
                 .withSalt(salt)
                 .build();
 
@@ -135,7 +154,7 @@ public class CypherUtils {
     }
 
     public static boolean checkPasswordForFmdPin(String expectedHash, String password) {
-        return checkPassword(expectedHash, CONTEXT_STRING_FMD_PIN + password);
+        return checkPassword(expectedHash, CONTEXT_STRING_LOCAL_ACCESS + password);
     }
 
     public static boolean checkPasswordForLogin(String expectedHash, String password) {

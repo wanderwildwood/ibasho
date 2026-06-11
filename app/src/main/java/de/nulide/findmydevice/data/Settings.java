@@ -71,6 +71,8 @@ public class Settings extends HashMap<Integer, Object> {
     public static final String VAL_THEME_DARK = "dark";
     public static final int SET_DYNAMIC_COLORS = 602;
 
+    public static final int SET_LOCAL_PASSWORD_SALT_B64 = 702;
+
     public Settings() {
     }
 
@@ -148,6 +150,8 @@ public class Settings extends HashMap<Integer, Object> {
                      SET_LAST_KNOWN_LOCATION_BEARING,
                      SET_LAST_KNOWN_LOCATION_SPEED:
                     return Double.NaN;
+                case SET_LOCAL_PASSWORD_SALT_B64:
+                    return "";
             }
         }
         return "";

@@ -16,7 +16,9 @@ import de.nulide.findmydevice.utils.CypherUtils
 import de.nulide.findmydevice.utils.SingletonHolder
 import de.nulide.findmydevice.utils.Utils
 import de.nulide.findmydevice.utils.log
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileReader
 import java.io.FileWriter
@@ -160,22 +162,43 @@ class SettingsRepository private constructor(private val context: Context) {
         val pin = encSettings.getFmdPin()
         if (pin.isNotBlank()) {
             context.log().i(TAG, "Migrating FMD PIN to database")
+            val hash = hashLocalPassword(pin)
+
             val accessRepo = AccessRepository.getInstance(context)
             accessRepo.insertSmsPassword(
-                SmsPassword(0, label = "FMD PIN", password = pin, permission = FmdPermission.ALL)
+                SmsPassword(
+                    0,
+                    label = "FMD PIN",
+                    passwordHash = hash,
+                    permission = FmdPermission.ALL
+                )
             )
             accessRepo.insertNotificationPassword(
                 NotificationPassword(
                     0,
                     label = "FMD PIN",
-                    password = pin,
+                    passwordHash = hash,
                     permission = FmdPermission.ALL
                 )
             )
         }
     }
 
-// ---------- Convenience helpers ----------
+    // ---------- Convenience helpers ----------
+
+    // Run this on the compute-dispatcher (to avoid blocking the main thread)
+    suspend fun hashLocalPassword(password: String): String = withContext(Dispatchers.Default) {
+        // Use the same salt for all local passwords.
+        // This is necessary so that we can hash once and then compare against all passwords in the database.
+        // This (in turn) is necessary because a priori we don't know which password entry the user intended to use.
+        // Security: hashes are stored in the local database and don't leave the device (exception: ZIP export).
+        var saltBase64 = get(Settings.SET_LOCAL_PASSWORD_SALT_B64) as String
+        if (saltBase64.isBlank()) {
+            saltBase64 = CypherUtils.generateArgon2SaltB64()
+            set(Settings.SET_LOCAL_PASSWORD_SALT_B64, saltBase64)
+        }
+        return@withContext CypherUtils.hashPasswordForLocalAccess(password, saltBase64)
+    }
 
     fun serverAccountExists(): Boolean {
         // The SET_FMDSERVER_ID is remembered during logout.

@@ -176,7 +176,7 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
 
     private fun showAddPasswordDialog(
         @StringRes title: Int,
-        onSaveClicked: suspend (label: String, password: String) -> Unit,
+        onSaveClicked: suspend (label: String, passwordHash: String) -> Unit,
     ) {
         val context = this
         val layout = layoutInflater.inflate(R.layout.dialog_password_labelled, null)
@@ -195,7 +195,8 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
 
                     validatePassword(context, password, forceMinLength = true, allowEmpty = false) {
                         lifecycleScope.launch {
-                            onSaveClicked(label, password)
+                            val passwordHash = settings.hashLocalPassword(password)
+                            onSaveClicked(label, passwordHash)
                         }
                     }
                 })
@@ -204,37 +205,41 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
     }
 
     override fun onAddSmsPasswordClicked() {
-        showAddPasswordDialog(R.string.access_sms_password_add, { label, password ->
-            onSubmitSmsPassword(SmsPassword(0, label, password))
+        showAddPasswordDialog(R.string.access_sms_password_add, { label, passwordHash ->
+            onSubmitSmsPassword(label, passwordHash)
         })
     }
 
-    private suspend fun onSubmitSmsPassword(password: SmsPassword) {
-        val old = accessRepo.getSmsPassword(password.password)
+    private suspend fun onSubmitSmsPassword(label: String, passwordHash: String) {
+        val old = accessRepo.getSmsPassword(passwordHash)
         if (old != null) {
             val msg = getString(R.string.access_password_exists, old.label)
             Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
             return
         }
-        accessRepo.insertSmsPassword(password)
+
+        val entry = SmsPassword(0, label, passwordHash)
+        accessRepo.insertSmsPassword(entry)
     }
 
     /* ------- Notification Passwords ------- */
 
     override fun onAddNotificationPasswordClicked() {
-        showAddPasswordDialog(R.string.access_notification_password_add, { label, password ->
-            onSubmitNotificationPassword(NotificationPassword(0, label, password))
+        showAddPasswordDialog(R.string.access_notification_password_add, { label, passwordHash ->
+            onSubmitNotificationPassword(label, passwordHash)
         })
     }
 
-    private suspend fun onSubmitNotificationPassword(password: NotificationPassword) {
-        val old = accessRepo.getNotificationPassword(password.password)
+    private suspend fun onSubmitNotificationPassword(label: String, passwordHash: String) {
+        val old = accessRepo.getNotificationPassword(passwordHash)
         if (old != null) {
             val msg = getString(R.string.access_password_exists, old.label)
             Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
             return
         }
-        accessRepo.insertNotificationPassword(password)
+
+        val entry = NotificationPassword(0, label, passwordHash)
+        accessRepo.insertNotificationPassword(entry)
     }
 
 }

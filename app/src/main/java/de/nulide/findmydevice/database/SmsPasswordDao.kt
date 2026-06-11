@@ -14,8 +14,8 @@ interface SmsPasswordDao {
     @Query("SELECT * FROM sms_password")
     fun getAll(): Flow<List<SmsPasswordWithTempPhoneNumbers>>
 
-    @Query("SELECT * FROM sms_password WHERE password = :password LIMIT 1")
-    suspend fun get(password: String): SmsPassword?
+    @Query("SELECT * FROM sms_password WHERE password_hash = :passwordHash LIMIT 1")
+    suspend fun get(passwordHash: String): SmsPassword?
 
     @Insert
     suspend fun insert(password: SmsPassword)
