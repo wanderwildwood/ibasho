@@ -169,7 +169,7 @@
     <string name="grant_write_secure_settings_title">Schrijftoegang verlenen tot beveiligde instellingen</string>
     <string name="grant_write_secure_settings_description">Deze machtiging kan alleen worden verleend met de Android opdrachtregel \"pm grant\". Je kunt deze opdracht handmatig uitvoeren via de Android Debug Bridge (ADB) met behulp van een computer. Je kunt het ook rechtstreeks op je apparaat uitvoeren met root of Shizuku.\n\nGebruikers-ID: %d</string>
     <string name="Toast_Duplicate_contact">Dit contact bestaat al.</string>
-    <string name="temporary_allowlist_expired">Je tijdelijke toegang tot FMD is verlopen. Om FMD te blijven gebruiken, moet je de pincode opnieuw sturen.</string>
+    <string name="temporary_allowlist_expired">Uw tijdelijke toegang tot FMD is verlopen. Om FMD te blijven gebruiken, moet u het wachtwoord opnieuw sturen.</string>
     <string name="OpenCellId_help">FMD kan de OpenCelliD-service gebruiken om een geschatte locatie te krijgen op basis van de zendmast waarmee het apparaat is verbonden. Voor elke locatiezoekopdracht is een internetverbinding vereist. Je moet ook een account aanmaken bij OpenCelliD en je eigen API Access Token krijgen.</string>
     <string name="OpenCellId_tower_collector_info">Je kunt bijdragen aan OpenCelliD door informatie over zendmasten te verzamelen en te uploaden. Hiervoor heb je een speciale app nodig, zoals bv. Tower Collector.</string>
     <string name="OpenCellId_tower_collector_download">Tower Collector downloaden</string>
@@ -183,16 +183,16 @@
     <string name="perm_shizuku_failed">Toestemming via Shizuku mislukt</string>
     <string name="transport_sms_title">SMS</string>
     <string name="transport_sms_description">Stuur opdrachten naar je apparaat via sms. Sms bijvoorbeeld \"%s help\" naar je apparaat en FMD zal reageren met een SMS.</string>
-    <string name="transport_sms_description_auth">Alleen telefoonnummers die op de toelatingslijst staan, kunnen opdrachten sturen. Als je opdrachten wilt sturen vanaf een telefoonnummer dat niet op de toelatingslijst staat, moet je de pincode \"%s mypin help\" opnemen. Voor het gemak, zodat je de pincode niet elke keer opnieuw hoeft in te voeren, wordt dit nieuwe telefoonnummer de komende 10 minuten toegevoegd aan een tijdelijke toelatingslijst.</string>
-    <string name="transport_notification_reply_description">Je kunt FMD meldingen laten lezen om te speuren naar opdrachten. FMD kan dan antwoorden via de ingebouwde meldingsfunctie van Android. Op deze manier kun je FMD aansturen vanuit elke berichtentoepassing, zolang deze meldingen plaatst waarop kan worden gereageerd. Zo kun je bijvoorbeeld een Signal-bericht \"%s mypin help\" naar je telefoon sturen.</string>
-    <string name="transport_notification_reply_description_auth">Voor het besturen van FMD via Antwoorden op meldingen moet de FMD-pincode worden ingesteld. Elk bericht moet de juiste pincode bevatten.</string>
+    <string name="transport_sms_description_auth">Alleen telefoonnummers die in de toegelaten lijst staan, kunnen opdrachten verzenden. Om opdrachten te verzenden vanaf een telefoonnummer dat niet in de allowlist staat, kunt u een wachtwoord definiëren en opnemen: \"%s mypassword help\". Voor het gemak, zodat u het wachtwoord niet elke keer opnieuw hoeft te typen, wordt dit nieuwe telefoonnummer toegevoegd aan een tijdelijke toegelaten lijst voor de komende 10 minuten.</string>
+    <string name="transport_notification_reply_description">U kunt FMD uw meldingen laten lezen om naar opdrachten te luisteren. FMD kan vervolgens antwoorden via de ingebouwde antwoordfunctie voor meldingen van Android. Hiermee kunt u MKZ bedienen met behulp van een berichtentoepassing naar keuze, zolang er meldingen worden geplaatst waarop kan worden gereageerd. U kunt bijvoorbeeld een signaalbericht \"%s mypassword help\" naar uw telefoon sturen.</string>
+    <string name="transport_notification_reply_description_auth">Voor het besturen van FMD via Antwoorden op meldingen moet en wachtwoord worden ingesteld. Elk bericht moet het juiste wachtwoord bevatten.</string>
     <string name="Notification_FAIL">Mislukkingen</string>
     <string name="transport_fmd_server_description">FMD Server biedt een webinterface om jouw apparaat te bedienen, de locatie te bekijken en de verzonden foto\'s te bekijken. Je kunt FMD Server zelf hosten of de standaardinstantie gebruiken. Gegevens worden versleuteld opgeslagen op de server, beveiligd met jouw wachtwoord.</string>
     <string name="transport_inapp_send_command_command_placeholder">Opdracht</string>
     <string name="transport_inapp_send_command_button_send">Sturen</string>
-    <string name="Pin_Usage">Gebruik van pincodes</string>
+    <string name="Pin_Usage">Wachtwoordgebruik</string>
     <string name="Notification_Usage">Gebruik</string>
-    <string name="Notification_Pin_Usage_Description">Meldingen wanneer FMD benaderd is via de pincode</string>
+    <string name="Notification_Pin_Usage_Description">Meldingen wanneer FMD benaderd is via en wachtwoord</string>
     <string name="Notification_Server_Description">Meldingen met betrekking tot FMD Server</string>
     <string name="Notification_Security_Description">Meldingen over beveiligingsupdates</string>
     <string name="Notification_Security">Beveiliging</string>
@@ -278,7 +278,7 @@
     <string name="export_password_message_empty_warning">Als u het wachtwoord leeg laat, wordt de back-up niet gecodeerd. Hierdoor bestaat het risico dat gevoelige instellingenb gelezen kunnen worden.</string>
     <string name="import_password_message">Voer het wachtwoord in dat is gebruikt om de back-up te versleutelen.</string>
     <string name="import_success_message">De instellingen zijn succesvol geïmporteerd.</string>
-    <string name="import_success_message_warning">LET OP: Gevoelige waarden zijn niet opgenomen in het back-upbestand. Als u de volgende functies gebruikt, stel deze dan handmatig opnieuw in:\n\n1. Stel de FMD-pincode in.\n2. Stel het verwijderwachtwoord in.</string>
+    <string name="import_success_message_warning">LET OP: Gevoelige waarden zijn niet opgenomen in het back-upbestand. Als u de volgende functies gebruikt, stel deze dan handmatig opnieuw in:\n\n1. Stel het verwijderwachtwoord in.</string>
     <string name="import_failed_message">De import is mislukt of was slechts gedeeltelijk succesvol. Controleer de logboeken voor details.</string>
     <string name="push_registration_failed_title">Push-registratie mislukt</string>
     <string name="push_registration_upload_failed_text">De push-URL kon niet naar FMD Server worden verzonden. Daarom kunt u geen opdrachten ontvangen van FMD Server. Om dit op te lossen, opent u de instellingen van de FMD Server en klikt u op \"Opnieuw registreren\" om de push-registratie handmatig te verlengen.</string>
@@ -311,4 +311,9 @@
     <string name="access_password_exists">Dit wachtwoord bestaat al: %s</string>
     <string name="access_add_password_label_message">Kies een label zodat u het wachtwoord kunt identificeren. Het wachtwoord wordt niet meer getoond nadat u dit item hebt opgeslagen.</string>
     <string name="allowlist_delete_title_password">Wachtwoord verwijderen?</string>
+    <string name="access_sms_password_used_by">Gebruikt door</string>
+    <string name="access_sms_password_expiry">Vervaltijd</string>
+    <string name="access_sms_password_granted_info">Toegang verleend! U kunt nu 10 minuten FMD gebruiken zonder het wachtwoord in uw berichten op te nemen. Elk nieuw wachtwoord dat u verzendt voordat uw huidige toegang afloopt, wordt genegeerd.</string>
+    <string name="export_authenticate_title">Authenticeren om de back-up te exporteren</string>
+    <string name="access_permission_hint">Voor elke invoer kunt u kiezen welke opdrachten zijn toegestaan. Standaard zijn nieuwe vermeldingen beperkt tot de meest elementaire opdrachten.</string>
 </resources>
