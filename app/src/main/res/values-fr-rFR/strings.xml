@@ -12,7 +12,7 @@
     <string name="Enable">Activer</string>
     <string name="Locked_Lock_Screen">FMD \nCet appareil est verrouillé ! \nMessage du propriétaire :</string>
     <string name="Notification_Usage_Description">Notifications lorsque FMD reçoit des commandes</string>
-    <string name="Notification_Pin_Usage_Description">Notifications lorsque FMD est utilisé avec le code PIN</string>
+    <string name="Notification_Pin_Usage_Description">Notifications lorsque FMD est utilisé avec un mot de passe</string>
     <string name="LockScreen_Usage_detectd">LockScreenMessage : Usage detecté.</string>
     <string name="LockScreen_Backbutton_pressed">LockScreenMessage : Bouton retour pressé.</string>
     <string name="Settings_Ringer_Tone_Description">Sélectionnez une sonnerie pour la commande \"ring\".</string>
@@ -21,7 +21,7 @@
     <string name="accept">Accepter</string>
     <string name="Settings_FMDServer_Location_Type_Description">La ou les sources à partir desquelles les données de localisation sont envoyées à intervalles réguliers en arrière-plan. \nSi aucune n\'est sélectionnée, aucune localisation n\'est envoyée régulièrement. (Vous pouvez toujours utiliser l\'interface web pour forcer un envoi. Cela nécessite les notifications push.)</string>
     <string name="Settings_Settings">Paramètres</string>
-    <string name="Pin_Usage">Utilisation du code PIN</string>
+    <string name="Pin_Usage">Utilisation du mot de passe</string>
     <string name="loading">Chargement…</string>
     <string name="Edit">Modifier</string>
     <string name="GPS">GPS</string>
@@ -130,7 +130,7 @@
     <string name="cmd_locate_response_location_off">Impossible de localiser : la localisation est désactivée.</string>
     <string name="perm_unused_app_description">Android met en pause les applications qui sont inutilisées pendant quelques mois et supprime leurs autorisations. Cependant, FMD est censé fonctionner en arrière-plan. Après l\'avoir configuré, vous avez rarement besoin de l\'ouvrir. Vous devez donc l\'exonérer, sinon il pourrait ne pas fonctionner dans quelques mois.</string>
     <string name="transport_sms_title">SMS</string>
-    <string name="transport_sms_description_auth">Seuls les numéros de téléphone qui sont dans la liste peuvent envoyer des commandes. Pour envoyer des commandes à partir d\'un numéro de téléphone qui n\'est pas dans la liste blanche, vous devez inclure le code PIN : \"%s monpin help\". Pour plus de commodité, afin que vous n\'ayez pas à réécrire le code PIN à chaque fois, ce nouveau numéro de téléphone est ajouté à une liste blanche temporaire pour les 10 prochaines minutes.</string>
+    <string name="transport_sms_description_auth">Seuls les numéros de téléphone qui sont dans la liste peuvent envoyer des commandes. Pour envoyer des commandes à partir d\'un numéro de téléphone qui n\'est pas dans la liste blanche, vous pouvez définir et inclure un mot de passe : \"%s monmotdepasse help\". Pour plus de commodité, afin que vous n\'ayez pas à réécrire le mot de passe à chaque fois, ce nouveau numéro de téléphone est ajouté à une liste blanche temporaire pour les 10 prochaines minutes.</string>
     <string name="perm_do_not_disturb_access_name">Accès à « Ne pas déranger »</string>
     <string name="perm_location_name">Lieu</string>
     <string name="perm_notification_access_name">Accès aux notifications</string>
@@ -158,8 +158,8 @@
     <string name="perm_root_denied">Accès root refusé</string>
     <string name="perm_shizuku_failed">L\'autorisation par Shizuku a échoué</string>
     <string name="transport_sms_description_note">Les SMS peuvent engager des frais pour vous et la personne vous l’envoi. La réception des SMS exige que votre carte SIM soit déverrouillée (par exemple, après un redémarrage).</string>
-    <string name="transport_notification_reply_description">Vous pouvez autoriser FMD à lire vos notifications pour écouter les commandes. FMD peut ensuite répondre par la fonction de réponse intégrée d\'Android. Cela vous permet de contrôler FMD en utilisant une application de messagerie de votre choix, tant qu\'elle affiche des notifications qui peuvent être répondues. Par exemple, vous pouvez envoyer un message par Signal \"%s monpin help\" à votre téléphone.</string>
-    <string name="transport_notification_reply_description_auth">Contrôler FMD par la réponse aux notifications exige que le code PIN de FMD soit défini. Chaque message doit contenir le bon code PIN.</string>
+    <string name="transport_notification_reply_description">Vous pouvez autoriser FMD à lire vos notifications pour écouter les commandes. FMD peut ensuite répondre par la fonction de réponse intégrée d\'Android. Cela vous permet de contrôler FMD en utilisant une application de messagerie de votre choix, tant qu\'elle affiche des notifications qui peuvent être répondues. Par exemple, vous pouvez envoyer un message par Signal \"%s monmotdepasse help\" à votre téléphone.</string>
+    <string name="transport_notification_reply_description_auth">Contrôler FMD par la réponse aux notifications nécessite qu\'un mot de passe soit défini. Chaque message doit contenir un mot de passe valide.</string>
     <string name="setup_warnings_title">Avertissements de configuration</string>
     <string name="missing_permissions_title">Permissions manquantes</string>
     <string name="missing_permissions_description">Les autorisations suivantes sont nécessaires pour que FMD puisse fonctionner.</string>
@@ -191,7 +191,7 @@
     <string name="Settings_FMD_Server_Connection_Status">État de la connexion :</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Succès</string>
     <string name="server_version_upgrade_required_title">Mise à jour du Serveur FMD requise</string>
-    <string name="temporary_allowlist_expired">Votre accès temporaire à FMD a expiré. Pour continuer à utiliser FMD, renvoyez le code PIN.</string>
+    <string name="temporary_allowlist_expired">Votre accès temporaire à FMD a expiré. Pour continuer à utiliser FMD, renvoyez le mot de passe.</string>
     <string name="server_version_upgrade_required_text">Le Serveur FMD que vous utilisez est en version {CURRENT}, mais cette application nécessite au moins {VERSION}. Le contrôle de cet appareil via le Serveur FMD risque de ne plus fonctionner. Merci de mettre à jour le serveur.</string>
     <string name="appearance_language_system_default">Valeur du système</string>
     <string name="appearance_language_choose">Choisissez la langue</string>
@@ -278,7 +278,7 @@
     <string name="export_password_message_empty_warning">Si vous laissez le mot de passe vide, la sauvegarde ne sera pas chiffrée. Cela risque d\'exposer des paramètres sensibles.</string>
     <string name="import_password_message">Saisissez le mot de passe utilisé pour chiffrer la sauvegarde.</string>
     <string name="import_success_message">Les paramètres ont été exportés avec succès.</string>
-    <string name="import_success_message_warning">ATTENTION : les valeurs sensibles ne sont pas inclues dans le fichier de sauvegarde. De ce fait, si vous utilisez les fonctionnalités suivantes, veuillez les définir manuellement à nouveau :\n\n1. Saisissez le PIN de FMD.\n2. Saisissez le mot de passe de suppression.</string>
+    <string name="import_success_message_warning">ATTENTION : les valeurs sensibles ne sont pas inclues dans le fichier de sauvegarde. De ce fait, si vous utilisez les fonctionnalités suivantes, veuillez les définir manuellement à nouveau :\n\n1. Définir un mot de passe de suppression.</string>
     <string name="import_failed_message">L\'import a échoué ou n\'a que partiellement réussi. Veuillez vérifier les journaux pour plus de détails.</string>
     <string name="multiple_unified_push_distributors_title">Plusieurs application de distribution UnifiedPush</string>
     <string name="multiple_unified_push_distributors_description">Vous avez plusieurs applications de distribution UnifiedPush installées. Veuillez sélectionner laquelle vous voulez utiliser pour FMD.</string>
@@ -311,4 +311,9 @@
     <string name="label">Libellé</string>
     <string name="access_tab_notification_password">Mots de passe de notification</string>
     <string name="access_tab_sms_password">Mots de passe de SMS</string>
+    <string name="access_permission_hint">Pour chaque entrée, vous pouvez sélectionner quelles commandes sont autorisées. Par défaut, les nouvelles entrées sont limitées aux commandes les plus basiques.</string>
+    <string name="access_sms_password_used_by">Utilisé par</string>
+    <string name="access_sms_password_expiry">Expiration</string>
+    <string name="access_sms_password_granted_info">Accès autorisé ! Vous pouvez maintenant utiliser FMD pendant 10 minutes sans inclure le mot de passe dans vos messages. Tout nouveau mot de passe envoyé avant que votre accès actuel n\'expire sera ignoré.</string>
+    <string name="export_authenticate_title">Authentifiez-vous pour exporter la sauvegarde</string>
 </resources>
