@@ -56,7 +56,7 @@
     <string name="notify_crypto_update_text">Potrebno je posodobiti nekatere nastavitve, če želite še naprej uporabljati aplikacijo FMD. Kliknite, da jih odprete.</string>
     <string name="server_unregister_dont_continue">Ne nadaljuj</string>
     <string name="Notification_Usage">Uporaba</string>
-    <string name="Notification_Pin_Usage_Description">Obvestila o dostopu do FMD aplikacije s pomočjo PIN kode</string>
+    <string name="Notification_Pin_Usage_Description">Obvestila o dostopu do FMD aplikacije s pomočjo gesla</string>
     <string name="Notification_Security">Varnost</string>
     <string name="Notification_Security_Description">Obvestila o varnostnih posodobitvah</string>
     <string name="Notification_FAIL">Napake</string>
@@ -83,7 +83,7 @@
     <string name="Notification_Usage_Description">Obvestilo, ko FMD prejema ukaze</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Ta aplikacija naj bi delovala v ozadju. Če želite zagotoviti, da deluje tudi, ko je vaša naprava v stanju pripravljenosti, morate za to aplikacijo izklopiti optimizacijo baterije.</string>
     <string name="Delete">Izbriši</string>
-    <string name="Pin_Usage">Uporaba PIN kode</string>
+    <string name="Pin_Usage">Uporaba gesla</string>
     <string name="Notification_Server_Description">Obvestila povezana s FMD strežnikom</string>
     <string name="Settings_FMDServer_Server_Url">URL strežnika</string>
     <string name="crashed_open_issuetracker">Odpri sledilnik težav</string>
@@ -169,13 +169,13 @@
     <string name="grant">Dovoli</string>
     <string name="transport_sms_description">Pošljite ukaze na svojo napravo prek SMS sporočil. Na primer, pošljite besedilo \"%s help\" na svojo napravo, aplikacija FMD pa bo odgovorila s SMS sporočilom.</string>
     <string name="grant_write_secure_settings_description">To dovoljenje je mogoče podeliti samo preko ukazne vrstice z Android ukazom \"pm grant\". Ta ukaz lahko izvedete prek Android Debug Bridge (ADB) z uporabo računalnika. Izvedete ga lahko tudi neposredno na svoji napravi z uporabo korenskega dostopa (tim. root) ali Shizuku..\n\nID uporabnika: %d</string>
-    <string name="transport_sms_description_auth">Ukaze lahko pošiljajo samo telefonske številke, ki so na seznamu zaupanja vrednih. Za pošiljanje ukazov s telefonske številke, ki ni na seznamu zaupanja vrednih, morate vključiti PIN: \"%s mypin help\". Ta številka potem lahko pošilja ukaze s pomočjo PIN kode. Da vam ni treba vsakič znova vnašati kode PIN, bo ta nova telefonska številka dodana na začasni seznam zaupanja vrednih številk za naslednjih 10 minut.</string>
+    <string name="transport_sms_description_auth">Ukaze lahko pošiljajo samo telefonske številke, ki so na seznamu zaupanja vrednih. Za pošiljanje ukazov s telefonske številke, ki ni na seznamu zaupanja vrednih, lahko nastavite geslo: \"%s mypassword help\". Ta številka potem lahko pošilja ukaze s pomočjo gesla. Da vam ni treba vsakič znova vnašati gesla, bo ta nova telefonska številka dodana na začasni seznam zaupanja vrednih številk za naslednjih 10 minut.</string>
     <string name="crashed_send_log">Pošlji dnevniški zapis</string>
-    <string name="transport_notification_reply_description">Aplikaciji FMD lahko dovolite, da bere obvestila drugih aplikacij in preko njih prejema ukaze. FMD lahko nato na te ukaze odgovori prek Androidove vgrajene funkcije za odgovor na obvestila. To vam omogoča komunikacijo s FMD s pomočjo aplikacije za sporočanje po vaši izbiri - če seveda le-ta objavlja obvestila, na katera je mogoče odgovoriti. V svojo napravo tako lahko na primer pošljete sporočilo \"%s mypin help\" kar preko aplikacije Signal.</string>
+    <string name="transport_notification_reply_description">Aplikaciji FMD lahko dovolite, da bere obvestila drugih aplikacij in preko njih prejema ukaze. FMD lahko nato na te ukaze odgovori prek Androidove vgrajene funkcije za odgovor na obvestila. To vam omogoča komunikacijo s FMD s pomočjo aplikacije za sporočanje po vaši izbiri - če seveda le-ta objavlja obvestila, na katera je mogoče odgovoriti. V svojo napravo tako lahko na primer pošljete sporočilo \"%s mypassword help\" kar preko aplikacije Signal.</string>
     <string name="transport_fmd_server_description">FMD strežnik ponuja spletni vmesnik za nadzor vaše naprave, ogled njene lokacije in ogled fotografij, ki jih je poslala. Uporabite lahko uradni FMD strežnik, ali pa si postavite svojega. Podatki, ki so shranjeni na strežniku so šifrirani in zaščiteni z vašim geslom.</string>
     <string name="crashed_text">FMD se je zrušil! Tukaj je dnevniški zapis:</string>
     <string name="transport_sms_description_note">SMS lahko povzroči stroške tako vam kot osebi, ki vam pošilja sporočilo. SMS zahteva, da je vaša SIM kartica odklenjena (npr. po ponovnem zagonu naprave).</string>
-    <string name="transport_notification_reply_description_auth">Upravljanje FMD preko odgovora na obvestilo zahteva nastavitev kode PIN. Vsako sporočilo mora vsebovati pravilen PIN.</string>
+    <string name="transport_notification_reply_description_auth">Upravljanje FMD preko odgovora na obvestilo zahteva nastavitev gesla. Vsako sporočilo mora vsebovati pravilno geslo.</string>
     <string name="crashed_copy_log">Kopiraj dnevniški zapis</string>
     <string name="transport_fmd_server_description_note">Uporaba FMD strežnika zahteva internetno povezavo. Ta je lahko vzpostavljena preko mobilnega omrežja (zato mora biti SIM kartica odklenjena) ali preko WiFi.</string>
     <string name="Settings_FMD_Server_Connection_Status">Stanje povezave:</string>
@@ -190,7 +190,7 @@
     <string name="cmd_bluetooth_description_short">Vključi ali izključi Bluetooth</string>
     <string name="export_success">Izvoz uspešen</string>
     <string name="export_failed">Izvoz ni uspel</string>
-    <string name="temporary_allowlist_expired">Vaš začasni dostop do FMD je potekel. Če želite še naprej uporabljati FMD, znova pošljite PIN.</string>
+    <string name="temporary_allowlist_expired">Vaš začasni dostop do FMD je potekel. Če želite še naprej uporabljati FMD, znova pošljite geslo.</string>
     <string name="log_view_export">Izvozi dnevniške zapise</string>
     <string name="appearance_language">Jezik</string>
     <string name="appearance_language_choose">Izberi jezik</string>
@@ -278,7 +278,7 @@
     <string name="export_password_message_empty_warning">Če geslo pustite prazno, varnostna kopija ne bo šifrirana. S tem tvegate razkritje občutljivih nastavitev.</string>
     <string name="import_password_message">Vnesite geslo, ki je bilo uporabljeno za šifriranje varnostne kopije.</string>
     <string name="import_success_message">Nastavitve so bile uspešno uvožene.</string>
-    <string name="import_success_message_warning">POZOR: Občutljive vrednosti niso vključene v datoteko varnostne kopije. Če torej uporabljate naslednje funkcije, jih ponovno ročno nastavite:\n\n1. Nastavite PIN za FMD.\n2. Nastavite geslo za brisanje.</string>
+    <string name="import_success_message_warning">POZOR: Občutljive vrednosti niso vključene v datoteko varnostne kopije. Če torej uporabljate naslednje funkcije, jih ponovno ročno nastavite:\n\n1. Nastavite geslo za brisanje.</string>
     <string name="import_failed_message">Uvoz ni uspel ali je bil le delno uspešen. Za podrobnosti preverite dnevniške zapise.</string>
     <string name="push_registration_failed_title">Potisna registracija ni uspela</string>
     <string name="push_registration_upload_failed_text">URL-ja za potisne sporočila ni bilo mogoče poslati strežniku FMD. Zato ne morete prejemati ukazov s strežnika FMD. Če želite to odpraviti, odprite nastavitve strežnika FMD in kliknite »Registriraj se znova«, da ročno obnovite registracijo za potisna sporočila.</string>
@@ -311,4 +311,9 @@
     <string name="access_password_empty">Ni gesel. Kliknite spodnji gumb, da jih dodate!</string>
     <string name="access_password_exists">To geslo že obstaja: %s</string>
     <string name="access_add_password_label_message">Izberite oznako, da boste lahko prepoznali geslo. Geslo se po shranjevanju tega vnosa ne bo več prikazalo.</string>
+    <string name="access_sms_password_expiry">Čas poteka veljavnosti</string>
+    <string name="access_sms_password_granted_info">Dostop odobren! Zdaj lahko FMD uporabljate 10 minut, ne da bi v sporočila vključili geslo. Vsako novo geslo, ki ga pošljete pred potekom trenutnega dostopa, bo prezrto.</string>
+    <string name="export_authenticate_title">Preverjanje pristnosti za izvoz varnostne kopije</string>
+    <string name="access_sms_password_used_by">Uporabil ga je</string>
+    <string name="access_permission_hint">Za vsak vnos lahko izberete, kateri ukazi so jim dovoljeni. Novi vnosi so privzeto omejeni na najosnovnejše ukaze.</string>
 </resources>
