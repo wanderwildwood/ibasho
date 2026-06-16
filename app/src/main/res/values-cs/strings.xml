@@ -14,7 +14,7 @@
     <string name="server_unregister_dont_continue">Nepokračovat</string>
     <string name="Notification_Usage">Využití</string>
     <string name="Notification_Usage_Description">Oznámení, když FMD přijímá příkazy</string>
-    <string name="Notification_Pin_Usage_Description">Oznámení při přístupu k FMD pomocí PINu</string>
+    <string name="Notification_Pin_Usage_Description">Oznámení při přístupu k FMD pomocí hesla</string>
     <string name="Permission_POST_NOTIFICATIONS">FMD vám bude čas od času posílat oznámení, například jako varování, že někdo vyhledává vaše zařízení.</string>
     <string name="Locked_Lock_Screen">FMD\nToto zařízení je uzamčeno!\nZpráva od majitele:</string>
     <string name="Delete">Odstranit</string>
@@ -49,7 +49,7 @@
     <string name="OpenCellId_test_opencellid">Vyzkoušet připojení k OpenCelliD</string>
     <string name="OpenCellId_test_no_connection">Žádné mobilní připojení</string>
     <string name="server_unregister_continue_anyway">Přesto pokračovat</string>
-    <string name="Pin_Usage">Využití PINu</string>
+    <string name="Pin_Usage">Využití hesla</string>
     <string name="Notification_Security">Zabezpečení</string>
     <string name="Notification_Security_Description">Oznámení o aktualizacích zabezpečení</string>
     <string name="Notification_FAIL">Chyby</string>
@@ -153,7 +153,7 @@
     <string name="transport_fmd_server_description_auth">Kdokoli, kdo zná vaše uživatelské jméno a heslo, se může přihlásit do FMD Serveru a ovládat vaše zařízení.</string>
     <string name="add">Přidat</string>
     <string name="Settings_Import_Success">Úspěšně importováno</string>
-    <string name="transport_sms_description_auth">Příkazy lze odesílat pouze z telefonních čísel, která jsou v seznamu povolených. Chcete-li odeslat příkaz z telefonního čísla, které není v seznamu povolených, musíte zadat i PIN: „%s mypin help“. Abyste nemuseli pokaždé znovu zadávat kód PIN, bylo toto nové telefonní číslo pro pohodlí přidáno do dočasného seznamu povolených čísel na následujících 10 minut.</string>
+    <string name="transport_sms_description_auth">Příkazy lze odesílat pouze z telefonních čísel, která jsou v seznamu povolených. Chcete-li odeslat příkaz z telefonního čísla, které není v seznamu povolených, můžete nastavit a přidat heslo: „%s mojeheslo help“. Abyste nemuseli pokaždé znovu zadávat heslo, bylo toto nové telefonní číslo pro pohodlí přidáno do dočasného seznamu povolených čísel na následujících 10 minut.</string>
     <string name="transport_notification_reply_title">Odpověď na oznámení</string>
     <string name="setup_warnings_title">Varování nastavení</string>
     <string name="missing_permissions_title">Chybějící oprávnění</string>
@@ -161,8 +161,8 @@
     <string name="perm_unused_app_description">Systém Android pozastavuje aplikace, které nebyly několik měsíců otevřeny, a odebírá jim oprávnění. Aplikace FMD byla ale vytvořena pro práci na pozadí. Po jejím nastavení ji budete otevírat jen zřídka. Z tohoto důvodu je nutné udělit FMD výjimku z pozastavení, jinak může za několik měsíců přestat fungovat.</string>
     <string name="transport_sms_title">SMS</string>
     <string name="transport_sms_description_note">SMS mohou způsobit náklady vám i osobě, která vám píše. Použití SMS vyžaduje odblokování vaší SIM karty (např. po restartu).</string>
-    <string name="transport_notification_reply_description">Můžete povolit, aby aplikace FMD četla oznámení a vyhledávala v nich příkazy. FMD pak může odpovídat prostřednictvím vestavěné funkce odpovědi na oznámení systému Android. To vám umožní ovládat FMD pomocí vámi zvolené aplikace pro zasílání zpráv, pokud odesílá oznámení, na která lze odpovědět. Např. můžete do telefonu odeslat zprávu „%s mypin help“ pomocí aplikace Signal.</string>
-    <string name="transport_notification_reply_description_auth">Ovládání FMD prostřednictvím odpovědí na oznámení vyžaduje nastavení kódu PIN FMD. Každá zpráva musí obsahovat správný PIN.</string>
+    <string name="transport_notification_reply_description">Můžete povolit, aby aplikace FMD četla oznámení a vyhledávala v nich příkazy. FMD pak může odpovídat prostřednictvím vestavěné funkce odpovědi na oznámení systému Android. To vám umožní ovládat FMD pomocí vámi zvolené aplikace pro zasílání zpráv, pokud odesílá oznámení, na která lze odpovědět. Například můžete do telefonu odeslat zprávu „%s mojeheslo help“ pomocí aplikace Signal.</string>
+    <string name="transport_notification_reply_description_auth">Ovládání FMD prostřednictvím odpovědí na oznámení vyžaduje nastavení hesla. Každá zpráva musí obsahovat správné heslo.</string>
     <string name="transport_fmd_server_description_note">FMD Server vyžaduje internetové připojení. To může být internetová síť (je nutné mít odemčenou SIM kartu) nebo Wi-Fi.</string>
     <string name="crashed_send_log">Poslat protokol</string>
     <string name="crashed_copy_log">Kopírovat protokol</string>
@@ -185,7 +185,7 @@
     <string name="server_login_attempts_title">Nezdařené pokusy o přihlášení k FMD Serveru</string>
     <string name="server_login_attempts_text">Někdo se pokusil přihlásit do vašeho účtu „%s“ na FMD Serveru. Z důvodu několika nezdařených pokusů o zadání hesla je účet nyní na 10 minut uzamčen.</string>
     <string name="cmd_locate_response_gps_fail">Nepodařilo se získat aktuální polohu z GPS. Možná vypršel čas.</string>
-    <string name="temporary_allowlist_expired">Váš dočasný přístup k FMD vypršel. Pro pokračování v používání FMD zadejte znovu svůj PIN.</string>
+    <string name="temporary_allowlist_expired">Váš dočasný přístup k FMD vypršel. Pro pokračování v používání FMD zadejte znovu své heslo.</string>
     <string name="Settings_no_ringtone_picker">Výběrové menu pro vyzvánění nenalezeno!</string>
     <string name="Settings_FMDServer_Delete_Account">Smazat účet</string>
     <string name="Settings_FMDServer_Unregister_Success">Smazání účtu a všech dat proběhlo úspěšně!</string>
@@ -274,7 +274,7 @@
     <string name="tip_first_contact_added">Gratulujeme, přidali jste svůj první kontakt! Nyní můžete komunikovat s FMD odesláním SMS, která začíná textem „%1$s“, z povoleného telefonního čísla. Můžete odeslat například „%2$s help“ nebo „%3$s flash“. Pokud vše funguje správně, aplikace odpoví.</string>
     <string name="select">Vybrat</string>
     <string name="import_success_message">Nastavení byla úspěšně importována.</string>
-    <string name="import_success_message_warning">UPOZORNĚNÍ: Soubor zálohy neobsahuje citlivé hodnoty. Pokud používáte následující funkce, nastavte si je prosím znovu ručně:\n\n1. Nastavte si FMD PIN.\n2. Nastavte si heslo pro smazání.</string>
+    <string name="import_success_message_warning">UPOZORNĚNÍ: Soubor zálohy neobsahuje citlivé hodnoty. Pokud používáte následující funkce, nastavte si je prosím znovu ručně:\n\n1. Nastavte si heslo pro smazání.</string>
     <string name="import_failed_message">Import selhal nebo byl pouze částečně úspěšný. Pro více informací se podívejte do protokolů.</string>
     <string name="push_registration_failed_title">Registrace push selhala</string>
     <string name="push_registration_upload_failed_text">Adresu push se nepodařilo odeslat serveru FMD. Kvůli tomu nemůžete dostávat příkazy z FMD Serveru. Tento problém můžete opravit otevřením nastavení FMD Serveru a klepnutím na „Znovu registrovat“ pro ruční obnovení registrace do služby push.</string>
@@ -311,4 +311,9 @@
     <string name="access_password_exists">Toto heslo již existuje: %s</string>
     <string name="access_add_password_label_message">Zvolte si popisek, abyste mohli heslo identifikovat. Po uložení tohoto záznamu již heslo nebude znovu zobrazeno.</string>
     <string name="allowlist_delete_title_password">Odstranit heslo?</string>
+    <string name="access_permission_hint">U každé položky si můžete vybrat, které příkazy budou povoleny. Ve výchozím nastavení jsou nové položky omezeny na nejzákladnější příkazy.</string>
+    <string name="access_sms_password_used_by">Používá</string>
+    <string name="access_sms_password_expiry">Čas expirace</string>
+    <string name="access_sms_password_granted_info">Přístup udělen! Nyní můžete používat FMD po dobu 10 minut bez zasílání hesla ve zprávách. Jakékoli nové heslo, které pošlete před vypršením vašeho aktuálního přístupu, bude ignorováno.</string>
+    <string name="export_authenticate_title">Pro exportování zálohy se autentifikujte</string>
 </resources>
