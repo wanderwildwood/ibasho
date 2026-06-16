@@ -70,8 +70,8 @@
     <!-- Notification Channels -->
     <string name="Notification_Usage">Nutzung</string>
     <string name="Notification_Usage_Description">Benachrichtigungen, wenn FMD Befehle erhält</string>
-    <string name="Pin_Usage">PIN-Nutzung</string>
-    <string name="Notification_Pin_Usage_Description">Benachrichtigungen, wenn mit der PIN auf FMD zugegriffen wird</string>
+    <string name="Pin_Usage">Passwort-Nutzung</string>
+    <string name="Notification_Pin_Usage_Description">Benachrichtigungen, wenn mit einem Passwort auf FMD zugegriffen wird</string>
     <!-- Varia -->
 
     <!-- Not yet sorted -->
@@ -154,7 +154,7 @@
     <string name="cmd_locate_last_known_location_not_available">Kein letzter bekannter Standort. Frage den aktuellen Standort an, um eine Standortaktualisierung zu erzwingen.</string>
     <string name="transport_sms_description_note">SMS kann Kosten verursachen, sowohl für dich als auch für die Personen, die dir SMS schicken. Für SMS muss deine SIM-Karte entsperrt sein (z. B. nach einem Neustart).</string>
     <string name="transport_notification_reply_title">Antworten auf Benachrichtigungen</string>
-    <string name="transport_notification_reply_description_auth">Um FMD per Antworten auf Benachrichtigungen zu steuern, muss die FMD-PIN gesetzt sein. Jede Nachricht muss die korrekte PIN enthalten.</string>
+    <string name="transport_notification_reply_description_auth">Um FMD per Antworten auf Benachrichtigungen zu steuern muss ein Passwort gesetzt sein. Jede Nachricht muss ein korrektes Passwort enthalten.</string>
     <string name="transport_fmd_server_description">Der FMD-Server bietet eine Webschnittstelle, über die du dein Gerät steuern, seinen Standort abfragen und die von ihm gesendeten Bilder ansehen kannst. Du kannst den FMD-Server selbst hosten oder die bereitgestellte Instanz nutzen. Die Daten werden verschlüsselt auf dem Server gespeichert und sind durch dein Passwort geschützt.</string>
     <string name="transport_fmd_server_description_auth">Jeder, der deinen Benutzernamen und dein Passwort kennt, kann sich beim FMD-Server anmelden und dein Gerät steuern.</string>
     <string name="transport_fmd_server_description_note">Der FMD-Server benötigt eine Internetverbindung. Dies kann Mobilfunk sein (dann muss die SIM-Karte entsperrt sein) oder WLAN.</string>
@@ -164,14 +164,14 @@
     <string name="cmd_locate_last_known_location_text">Letzter bekannter Standort</string>
     <string name="Settings_Import_Success">Import erfolgreich</string>
     <string name="WhiteList_no_contact_picker">Keine Kontakt-Auswahl-App gefunden!</string>
-    <string name="transport_notification_reply_description">Du kannst FMD erlauben, deine Benachrichtigungen zu lesen, um auf Befehle zu warten. FMD kann dann über die in Android integrierte Benachrichtigungsfunktion antworten. So kannst du FMD über eine Messaging-App deiner Wahl steuern, solange diese App Benachrichtigungen sendet, auf die man antworten kann. Du kannst z.B. eine Signal-Nachricht „%s mypin help“ an dein Gerät senden.</string>
+    <string name="transport_notification_reply_description">Du kannst FMD erlauben, deine Benachrichtigungen zu lesen, um auf Befehle zu warten. FMD kann dann über die in Android integrierte Benachrichtigungsfunktion antworten. So kannst du FMD über eine Messaging-App deiner Wahl steuern, solange diese App Benachrichtigungen sendet, auf die man antworten kann. Du kannst zum Beispiel eine Signal-Nachricht „%s mypassword help“ an dein Gerät senden.</string>
     <string name="bottom_nav_settings">Einstellungen</string>
     <string name="missing_permissions_title">Fehlende Berechtigungen</string>
     <string name="transport_sms_title">SMS</string>
     <string name="cmd_lock_description_long">Sperre das Gerät und zeige optional eine Nachricht auf dem Sperrbildschirm an. Danach ist die biometrische Sperre nicht verfügbar und dein Gerät kann nur mit dem Gerätepasswort entsperrt werden.</string>
     <string name="setup_warnings_title">Warnungen einrichten</string>
     <string name="transport_sms_description">Schicke Befehle per SMS an dein Gerät. Schicke z.B. eine SMS mit „%s help“ an dein Gerät. FMD wird per SMS antworten.</string>
-    <string name="transport_sms_description_auth">Nur Telefonnummern, die in der Liste erlaubter Nummern sind, können Befehle senden. Um Befehle von einer Telefonnummer zu senden, die nicht in dieser Liste ist, muss die Nachricht die PIN enthalten: „%s mypin help“. Damit du die PIN nicht jedes Mal neu eingeben musst, wird diese neue Telefonnummer für die nächsten 10 Minuten in eine temporäre Erlaubnisliste aufgenommen.</string>
+    <string name="transport_sms_description_auth">Nur Telefonnummern, die in der Liste erlaubter Nummern sind, können Befehle senden. Um Befehle von einer Telefonnummer zu senden, die nicht in dieser Liste ist, kannst du Passwörter definieren und in die Nachrichten tun: „%s mypassword help“. Damit du das Passwort nicht jedes Mal neu eingeben musst, wird diese neue Telefonnummer für die nächsten 10 Minuten in eine temporäre Erlaubnisliste aufgenommen.</string>
     <string name="add">Hinzufügen</string>
     <string name="crashed_text">FMD ist abgestürzt! Hier ist das Protokoll:</string>
     <string name="crashed_continue_without">Ohne Meldung fortfahren</string>
@@ -212,7 +212,7 @@
     <string name="export_failed">Export fehlgeschlagen</string>
     <string name="log_view_title">Protokoll</string>
     <string name="log_view_export">Protokoll exportieren</string>
-    <string name="temporary_allowlist_expired">Dein temporärer FMD-Zugang ist abgelaufen. Sende die PIN erneut, um FMD weiterzunutzen.</string>
+    <string name="temporary_allowlist_expired">Dein temporärer FMD-Zugang ist abgelaufen. Sende das Passwort erneut, um FMD weiter zu nutzen.</string>
     <string name="Settings_FMDServer_Unregister_Success">Erfolgreich de-registriert und Daten gelöscht!</string>
     <string name="pw_change_network_failed">Passwortänderung aufgrund eines Netzwerkfehlers fehlgeschlagen.</string>
     <string name="cmd_bluetooth_description_short">Bluetooth ein- und ausschalten</string>
@@ -293,7 +293,7 @@
     <string name="export_password_message_empty_warning">Wenn du das Passwort leer lässt, bleibt das Backup unverschlüsselt. Dadurch besteht die Gefahr, dass sensible Einstellungen offengelegt werden.</string>
     <string name="import_password_message">Gib das Passwort ein, mit dem das Backup verschlüsselt wurde.</string>
     <string name="import_success_message">Die Einstellungen wurden erfolgreich importiert.</string>
-    <string name="import_success_message_warning">Achtung: Sensible Werte sind nicht in der Backupdatei enthalten. Falls du die folgenden Features benutzt, konfiguriere sie bitte erneut:\n\n1. Konfiguriere die FMD PIN.\n2. Konfiguriere das Lösch-Passwort.</string>
+    <string name="import_success_message_warning">Achtung: Sensible Werte sind nicht in der Backupdatei enthalten. Falls du die folgenden Features benutzt, konfiguriere sie bitte erneut:\n\n1. Konfiguriere das Lösch-Passwort.</string>
     <string name="import_failed_message">Der Import ist fehlgeschlagen oder war nur teilweise erfolgreich. Weitere Informationen findest du in den Logs.</string>
     <string name="push_registration_failed_title">Push-Registrierung fehlgeschlagen</string>
     <string name="push_registration_upload_failed_text">Die Push-URL konnte nicht an FMD Server geschickt werden. Deshalb wirst du keine Befehle von FMD Server empfangen können. Um dies zu beheben, öffne bitte die FMD-Server-Einstellungen und klicke auf \"Erneut registrieren\" um die Push-Registrierung manuell zu erneuern.</string>
@@ -326,4 +326,9 @@
     <string name="access_password_exists">Dieses Passwort ist bereits vorhanden: %s</string>
     <string name="access_add_password_label_message">Wähle eine Bezeichnung, damit du das Passwort wiedererkennen kannst. Das Passwort wird nach dem Speichern dieses Eintrags nicht mehr angezeigt.</string>
     <string name="allowlist_delete_title_password">Passwort löschen?</string>
+    <string name="access_permission_hint">Für jeden Eintrag kannst du festlegen, welche Befehle erlaubt sind. Standardmäßig sind neue Einträge auf die grundlegendsten Befehle beschränkt.</string>
+    <string name="access_sms_password_used_by">Benutzt von</string>
+    <string name="access_sms_password_expiry">Ablaufzeit</string>
+    <string name="access_sms_password_granted_info">Zugang gewährt! Du kannst FMD nun 10 Minuten lang nutzen, ohne das Passwort in deinen Nachrichten einzufügen. Jedes neue Passwort, das du vor Ablauf des aktuellen Zugriffs sendest, wird ignoriert.</string>
+    <string name="export_authenticate_title">Anmelden, um das Backup zu exportieren</string>
 </resources>
