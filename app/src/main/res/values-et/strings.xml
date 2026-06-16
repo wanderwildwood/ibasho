@@ -210,12 +210,12 @@
     <string name="usage_notification_title">Käsk on käivitatud</string>
     <string name="usage_notification_text">„%s“ käsk on käivitatud.</string>
     <string name="usage_notification_text_source">„%2$s“ käivitas käsu: „%1$s“.</string>
-    <string name="Pin_Usage">PIN-koodi kasutus</string>
-    <string name="Notification_Pin_Usage_Description">Teavitused, kui FMD ligipääs toimub PIN-koodi vehendusel</string>
+    <string name="Pin_Usage">Salasõna kasutus</string>
+    <string name="Notification_Pin_Usage_Description">Teavitused, kui FMD ligipääs toimub salsõna vahendusel</string>
     <string name="Notification_InApp">Rakendusesisene transpordikanal</string>
     <string name="Notification_InApp_Description">Teavitused rakendusesisesest transpordikanalist</string>
     <string name="transport_fmd_server_description">FMD server tagab kasutajaliidese sinu nutiseadme juhtimiseks, asukoha tuvastamiseks ja edastatud piltide vaatamiseks. FMD serveri võid ise püsti panna, kuid saad kasutada ka juba olemasolevat serverit. Sinu andmeid hoitakse serverist krüptituna sinu sisestatud salasõnaga.</string>
-    <string name="transport_notification_reply_description_auth">Kui tahad FMD-d juhtida teavitustega, siis peab olema seadistanud FMD PIN-koodi. Igas sõnumis peab sisalduma selline PIN-kood.</string>
+    <string name="transport_notification_reply_description_auth">Kui tahad FMD-d juhtida teavitustega, siis peab olema seadistanud FMD salasõna. Igas sõnumis peab sisalduma selline korrektne salasõna.</string>
     <string name="cmd_camera_description_long">Pildistab esi- või tagakaameraga ja laadib pildi FMD-serverisse. Hetkel on toetatud vaid üleslaadimine FMD-serverisse. Käsu võid saata ka muudest kanalitest, kuid üleslaadimine toimib vaid FMD-serverisse (kui sele konto on olemas).</string>
     <string name="Settings_FMDServer_Location_Type_Description">Allikas (allikad), mille alusel asukohaandmed laaditakse regulaarselt taustal serverisse.\nKui sa ühtegi ei vali, siis asukoha teavet ei laadita serverisse. (Küll aga saad kasutada veebiliidest üleslaadimise käivitamiseks ja see eeldab tõuketeenuste toimimist.)</string>
     <string name="Settings_FMDServer_AddAccount">FMD server: sisselogimine</string>
@@ -225,7 +225,7 @@
     <string name="server_registration_token_error">Võrgupäring ei toiminud ja vastuseks oli HTTP olekuteade 401. See võib juhtuda, kui server eeldab tunnusloa kasutamist ja sinu sisestatud tunnusluba oli vale.</string>
     <string name="allowlist_reset_title">Lubatud kontaktid on lähtestatud</string>
     <string name="allowlist_reset_text">Rakenduse kokkujooksmise tõttu on lubatud kontaktide loend nullitud. Palun seadista nad uuesti.</string>
-    <string name="temporary_allowlist_expired">Sinu ajutine ligipääs FMD-serverile on aegunud. Jätkamaks teenuse kasutamist saada PIN-kood uuesti.</string>
+    <string name="temporary_allowlist_expired">Sinu ajutine ligipääs FMD-serverile on aegunud. Jätkamaks teenuse kasutamist saada salasõna uuesti.</string>
     <string name="cmd_ringermode_description_long">Palun arvesta, et „vaikne“ režiim lülitab sisse ka „Ära sega“ režiimi. Selline käitumine on eeldatud ja selle määrab Androidi operatsioonisüsteem.</string>
     <string name="cmd_locate_response_beacondb_failed">Viga asukoha tuvastamisel BeaconDB abil. See võib juhtuda, kui antud sidemast ei leidu andmebaasis.\n\n%s</string>
     <string name="cmd_ringermode_response">Heliseja režiim on muudetud: „%1$s“ (vana) → „%2$s“ (uus).</string>
@@ -248,10 +248,10 @@
     <string name="Permission_POST_NOTIFICATIONS">FMD võib sulle saata teavitusi, näiteks siis, kui keegi proovib sinu nutiseadme asukohta tuvastada.</string>
     <string name="perm_unused_app_description">Android peatab selliste rakendust tegevuse, mida pole paar kuud avatud ning lisaks eemaldab nende õigused. FMD aga peaks just töötama taustal. Peale esmast seadistamist pole suurt vajadust teda avada. Seetõtu pead sellise Androidi poolt tegevuse peatamise keelama. Vastasel juhul ta ilmselgelt paari kuu pärast enam ei toimi.</string>
     <string name="transport_sms_description">Võid SMS-i abil oma nutiseadmele saata tekstisõnumeid. Näiteks saada sõnum tekstiga „%s help“ ja vaata, mida ta sulle SMS-iga vastab.</string>
-    <string name="transport_sms_description_auth">Käske on võimalik saata vaid sellistelt telefoninumbritelt, mis on lubatud numbrite loendis. Kui pead saatma käsu numbrilt, mis pole loendis, siis pead lisama PIN-koodi, näiteks „%s minupin help“. Et oleks natukene mugavam jätkusõnumeid koostada, siis lisatakse see telefoninumber lubatud numbrite loendisse järgmiseks kümneks minutiks. Kui kasutasid võõrast telefoni, siis ära unusta hiljem PIN-koodi muuta.</string>
+    <string name="transport_sms_description_auth">Käske on võimalik saata vaid sellistelt telefoninumbritelt, mis on lubatud numbrite loendis. Kui pead saatma käsu numbrilt, mis pole loendis, siis võid määratleda ja lisad salasõna, näiteks „%s minusalasõna help“. Et oleks natukene mugavam jätkusõnumeid koostada, siis lisatakse see telefoninumber lubatud numbrite loendisse järgmiseks kümneks minutiks. Kui kasutasid võõrast telefoni, siis ära unusta hiljem salasõna muuta.</string>
     <string name="transport_sms_description_note">SMS-ide saatmisel võib tekkida kulusid nii sulle, kui saatjale ning lisaks on vaja, et SIM-kaart on tööks avatud (näiteks peale nutiseadme taaskäivitamist).</string>
     <string name="transport_notification_reply_title">Vastus teavitustele</string>
-    <string name="transport_notification_reply_description">Sa võid lubada FMD-rakendusel lugeda sinu teavitusi ja proovida sealt tuvastada käske. Neile saab FMD vastata Androidi sisseehitatud teavitustele vastamise funktsionaalsusega. See võimaldab kontrollida FMD tööd sulle sobiva sõnumirakenduse abil - too peab lihtsalt oskama saata sõnumeid, mille teavitustele on võimalik vastata. Näiteks proovi saata oma telefonile Signali või Matrixi sõnum „%s mypin help“.</string>
+    <string name="transport_notification_reply_description">Sa võid lubada FMD-rakendusel lugeda sinu teavitusi ja proovida sealt tuvastada käske. Neile saab FMD vastata Androidi sisseehitatud teavitustele vastamise funktsionaalsusega. See võimaldab kontrollida FMD tööd sulle sobiva sõnumirakenduse abil - too peab lihtsalt oskama saata sõnumeid, mille teavitustele on võimalik vastata. Näiteks proovi saata oma telefonile Signali või Matrixi sõnum „%s minusalasõna help“.</string>
     <string name="cmd_flash_description_short">Vilguta kaamera välklampi</string>
     <string name="cmd_locate_provider_disabled">Soovitud asukohateenuse pakkuja „%s“ on lülitatud välja.</string>
     <string name="Notification_ExecutionService">Käsu täitmine</string>
@@ -278,7 +278,7 @@
     <string name="export_password_message_empty_warning">Kui jätad salasõna sisestamata, siis varukoopia salvestub krüptimata kujul. Seetõttu on võimalik, et delikaatsed seadistused võivad saada teatavaks välistele osapooltele.</string>
     <string name="import_password_message">Sisesta varukoopia krüptimisel kasutatud salasõna.</string>
     <string name="import_success_message">Seadistuste importimine õnnestus.</string>
-    <string name="import_success_message_warning">HOIATUS: Selles varukoopias ei leidu delikaatseid andmeid. Seega, kui kasutad järgnevaid funktsionaalsusi, siis palun seadista nad uuesti:\n\n1. Lisa FMD PIN-kood.\n2. Lisa kustutamise salasõna.</string>
+    <string name="import_success_message_warning">HOIATUS: Selles varukoopias ei leidu delikaatseid andmeid. Seega, kui kasutad järgnevaid funktsionaalsusi, siis palun seadista uuesti:\n\n1. Lisa kustutamise salasõna.</string>
     <string name="import_failed_message">Importimine ei õnnestunud või õnnestus osaliselt. Üksikasjalikku teavet leidad logidest.</string>
     <string name="push_registration_failed_title">Tõuketeenuse registreerimine ei õnnestunud</string>
     <string name="push_registration_upload_failed_text">Tõuketeenuse võrguaadressi saatmine FMD Serverile polnud võimalik. Seetõttu sinu nutiseade ei saa ka FMD Serverist käske vastu võtta. Vea parandamiseks ava FMD Serveri seadistused, klõpsa „Registreeri uuesti“ ja siis uuendatakse tõuketeenuse registreerimine käsitsi.</string>
@@ -305,4 +305,15 @@
     <string name="access_phone_number_empty">Ühtegi telefoninumbrit pole. Mõne lisamiseks klõpsa allpool olevat nuppu!</string>
     <string name="access_sms_password_hint">Siin loendis olevatel telefoninumbritel on ligipääs FMD teenusele SMS-iga saadetavate salasõnadega käskude abil, näiteks „%s salasõna käsk“.</string>
     <string name="access_sms_password_add">Lisa SMS-i salasõna</string>
+    <string name="access_sms_password_used_by">Seda kasutab</string>
+    <string name="access_sms_password_expiry">Aegumine</string>
+    <string name="access_sms_password_granted_info">Ligipääs on lubatud! Nüüd saad kasutada FMD-d 10 minutit ilma, et peaksid sõnumitesse salasõna lisama. Kõik uued salasõnad, mille saadad enne praeguse juurdepääsu aegumist, jäetakse tähelepanuta.</string>
+    <string name="access_notification_password_hint">Selles loendis olevaid salasõnu saad kasutada FMD-le juurdepääsuks mis tahes rakendusest, mis kuvab teate koos kiirtoiminguga „vasta“ (näiteks sõnumirakendused). Teate sisu peaks olema „%s salasõna käsk“.</string>
+    <string name="access_notification_password_add">Lisa teavituse salasõna</string>
+    <string name="access_password_empty">Salasõnu veel pole. Mõne lisamiseks klõpsa järgnevat nuppu!</string>
+    <string name="access_password_exists">Selline salasõna on juba olemas: %s</string>
+    <string name="access_add_password_label_message">Sisesta silt, mille abil saad salasõna ära tunda. Pärast selle kirje salvestamist salasõna enam ei kuvata.</string>
+    <string name="allowlist_delete_title_password">Kas kustutad salasõna?</string>
+    <string name="export_authenticate_title">Varukoopia eksportimiseks pead ennast tuvastama</string>
+    <string name="access_permission_hint">Iga kirje kohta saad määrata lubatud käsud. Vaikimisi on uutel kirjetel lubatud vaid väga lihtsate käskude kasutamine.</string>
 </resources>
