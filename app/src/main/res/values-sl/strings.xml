@@ -8,7 +8,7 @@
     <string name="GPS">GPS</string>
     <string name="Settings_Import">Uvozi nastavitve</string>
     <string name="Settings_About">O aplikaciji</string>
-    <string name="Settings_FMDCommand_Description">Ukaz, ki se uporablja za komunikacijo s FMD aplikacijo.</string>
+    <string name="Settings_FMDCommand_Description">Ukaz, ki se uporablja za komunikacijo s FMD.</string>
     <string name="Settings_Select_Ringtone">Izberi melodijo zvonjenja</string>
     <string name="Settings_Ringer_Tone_Description">Izberi melodijo zvonjenja za predvajanje ob ukazu \"ring\".</string>
     <string name="Settings_Lockscreenmessage_Description">Sporočilo na zaklenjenem zaslonu: \nKo boste napravo zaklenili, se bo na zaklenjenem zaslonu pokazalo to sporočilo.</string>
@@ -312,4 +312,10 @@
     <string name="export_authenticate_title">Preverjanje pristnosti za izvoz varnostne kopije</string>
     <string name="access_sms_password_used_by">Uporabil ga je</string>
     <string name="access_permission_hint">Za vsak vnos lahko izberete, kateri ukazi so jim dovoljeni. Novi vnosi so privzeto omejeni na najosnovnejše ukaze.</string>
+    <string name="network_info_general">FMD lahko uporablja storitve BeaconDB in OpenCelliD za oceno lokacije na podlagi okoliških baznih postaj (obe) in omrežij Wi-Fi (samo BeaconDB). Za vsako poizvedbo o lokaciji je potrebna internetna povezava.</string>
+    <string name="network_info_privacy">Zasebnost: Upoštevajte, da BeaconDB in OpenCelliD z vsakim poizvedovanjem ugotovita vašo lokacijo. Za podrobnosti si oglejte njune pravilnike o zasebnosti.</string>
+    <string name="beacondb_open_website">Odpri BeaconDB spletno stran</string>
+    <string name="network_crowdsourcing_description">K bazam BeaconDB in OpenCelliD lahko prispevate z zbiranjem in nalaganjem podatkov o baznih postajah in Wi-Fi-jih. Za več informacij glejte dokumentacijo.</string>
+    <string name="network_crowdsourcing_button">Odpri dokumentacijo</string>
+    <string name="opencellid_api_key_description">Za OpenCelliD morate ustvariti račun na spletni strani OpenCelliD in pridobiti žeton za dostop do API-ja.</string>
 </resources>
