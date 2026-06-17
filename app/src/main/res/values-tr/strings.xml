@@ -127,7 +127,6 @@
     <string name="server_registration_token_error">Ağ isteği HTTP 401 ile başarısız oldu. Bu eğer sunucu kayıt tokeni gerektiriyorsa ve sağladığınız token yanlışsa yaşanabilir.</string>
     <string name="cmd_help_description_short">Yardımı göster</string>
     <string name="cmd_help_message_start">FindMyDevice Komutları:</string>
-    <string name="OpenCellId_help">FMD, cihazın bağlı olduğu baz istasyonundan OpenCelliD hizmetini kullanarak yaklaşık bir konum edebilir. Her konum sorgusu için internet bağlantısı gereklidir. Ayrıca OpenCelliD üzerinde bir hesap oluşturup kendi API Erişim Tokeninizi almanız gereklidir.</string>
     <string name="OpenCellId_open_website">OpenCelliD Websitesini Aç</string>
     <string name="OpenCellId_test_no_connection">Hücre bağlantısı yok</string>
     <string name="cmd_camera_response_no_fmd_server">Resim çekilemez: FMD Sunucusu hesabı yok.</string>
@@ -137,8 +136,6 @@
     <string name="cmd_locate_description_long">Bir ya da daha fazla konum sağlayıcısı kullanarak cihazın konumunu bul. İşletim sistemi sağlayıcısı, bazen diğer kaynakların birleşimiyle, genellikle GPStir. İkincil bir sağlayıcı ise baz istasyonu konumlarının bir veri tabanını kullanan OpenCelliD.</string>
     <string name="cmd_locate_response_location_off">Konum bulunamadı: konum kapalı.</string>
     <string name="cmd_locate_response_opencellid_failed">OpenCelliD\'den konum elde etmek başarısız. Baz istasyonu veritabanında mevcut değilse bu yaşanabilir.\n\nLütfen şu bağlantıyı deneyin: %1$s\n\n%2$s</string>
-    <string name="OpenCellId_privacy">Gizlilik: her API sorgusu ile OpenCelliD\'nin mevcut baz istasyonunuzu ve dolayısıyla konumunuzu öğrendiğini akılda bulundurun.</string>
-    <string name="OpenCellId_tower_collector_download">Tower Collector İndir</string>
     <string name="cmd_camera_description_long">Ön/arka kamerayla bir fotoğraf çeker ve FMD Sunucusuna yükler. An itibariyle yalnızca FMD sunucusuna yüklemek destekli. Bu komutu öbür ulaşım kanalları ile de gönderebilirsiniz ve resim FMD Sunucusuna yüklenecektir (eğer bir hesap varsa).</string>
     <string name="cmd_delete_description_long">Bu bütün verileri siler. Bundan sonra cihazla artık iletişim kuramazsınız. Kötü niyetli ve yanlışlıkla kullanımı önlemek için, bu komut şifre gerektirmektedir ve ayarlarda etkinleştirilmesi gerekmektedir.</string>
     <string name="cmd_gps_description_short">GPS\'i aç ve kapat</string>
@@ -147,7 +144,6 @@
     <string name="cmd_locate_description_short">Cihazın konumunu bul</string>
     <string name="cmd_locate_last_known_location_text">Son bilinen konum</string>
     <string name="perm_location_name">Konum</string>
-    <string name="OpenCellId_tower_collector_info">OpenCelliD\'ye baz istasyonu bilgisi toplayarak ve yükleyerek katkıda bulunabilirsiniz. Bunun için ayrı bir uygulama gerekmektedir. Bu uygulamalardan birisi Tower Collector.</string>
     <string name="OpenCellId_test_opencellid">OpenCelliD Bağlantısını Sına</string>
     <string name="perm_device_admin_name">Cihaz Yöneticisi</string>
     <string name="cmd_delete_response_disabled">Silinemedi: ayarlarda sil komutu etkin değil.</string>

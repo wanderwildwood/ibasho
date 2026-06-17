@@ -48,9 +48,6 @@
     <string name="registration_token">Registrierungstoken</string>
     <string name="registration_token_hint">Private Instanzen können ein geheimes Token erfordern. Lass dieses Feld leer, wenn die Instanz öffentlich ist.</string>
     <string name="WhiteList_Add_Contact">Kontakt hinzufügen</string>
-    <!-- Settings: OpenCelliD -->
-    <string name="OpenCellId_help">FMD kann den Dienst OpenCelliD benutzen, um den ungefähren Standort zu bestimmen, basierend auf der Mobilfunkzelle, mit der das Gerät verbunden ist. Eine Internetverbindung wird für jede Standortanfrage benötigt. Außerdem musst du ein OpenCelliD-Konto anlegen, um ein eigenes API-Access-Token zu bekommen.</string>
-    <string name="OpenCellId_privacy">Privatsphäre: Bedenke, dass OpenCelliD mit jeder API-Anfrage deine aktuelle Mobilfunkzelle und somit auch deinen Standort erfährt.</string>
     <string name="OpenCellId_open_website">OpenCelliD-Webseite öffnen</string>
     <string name="OpenCellId_test_opencellid">OpenCelliD-Verbindung testen</string>
     <string name="OpenCellId_test_no_connection">Keine Mobilfunkverbindung</string>
@@ -182,8 +179,6 @@
     <string name="perm_unused_app_description">Android pausiert Apps, die einige Monate lang nicht geöffnet werden und entfernt ihre Berechtigungen. Allerdings soll FMD im Hintergrund arbeiten. Nach der initialen Einrichtung öffnet man FMD nur selten. Daher musst du FMD von dieser Pausierung ausnehmen, sonst kann es passieren, dass FMD in ein paar Monaten nicht mehr funktioniert.</string>
     <string name="crashed_send_log">Protokoll senden</string>
     <string name="crashed_copy_log">Protokoll kopieren</string>
-    <string name="OpenCellId_tower_collector_download">Tower Collector herunterladen</string>
-    <string name="OpenCellId_tower_collector_info">Du kannst zu OpenCelliD beitragen, indem du Mobilfunkmast-Daten sammelst und hochlädst. Dazu benötigst du eine extra App. Eine solche App ist Tower Collector.</string>
     <string name="crashed_open_issuetracker">Issue-Tracker öffnen</string>
     <string name="transport_inapp_title">In-App</string>
     <string name="transport_inapp_send_command_title">In-App-Befehl senden</string>

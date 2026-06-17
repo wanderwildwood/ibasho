@@ -11,7 +11,6 @@
     <string name="Toast_Duplicate_contact">Questo contatto esiste già.</string>
     <string name="cmd_locate_response_gps_will_follow">Le coordinate GPS verranno inviate a breve.</string>
     <string name="cmd_help_message_start">Comandi FMD:</string>
-    <string name="OpenCellId_help">FMD può utilizzare il servizio OpenCelliD per ottenere una posizione approssimativa basata sulla torre cellulare a cui il dispositivo è collegato. Per ogni richiesta di localizzazione è necessaria una connessione a Internet. È inoltre necessario creare un account su OpenCelliD e ottenere il proprio token di accesso all\'API.</string>
     <string name="OpenCellId_open_website">Apri sito OpenCellId</string>
     <string name="Settings_FMD_Server_General">Generale</string>
     <string name="Settings_FMD_Server_Server_URL">Server URL:</string>
@@ -67,7 +66,6 @@
     <string name="Settings_FMDServer_AddAccount">Server FMD: Accedi</string>
     <string name="password">Password</string>
     <string name="registration_token_hint">Le istanze private possono richiedere un token segreto. Lascia vuoto se l\'istanza è pubblica.</string>
-    <string name="OpenCellId_privacy">Privacy: tieni presente che OpenCelliD apprende la tua cella telefonica attuale e quindi la tua posizione con ogni query API.</string>
     <string name="app_description">FMD (Find My Device) consente di localizzare da remoto il dispositivo. È possibile comunicare con FMD tramite SMS, messaggistica istantanea, o utilizzando Server FMD. Individua il dispositivo, fallo suonare, bloccalo o ripristinalo - tutto da remoto.</string>
     <string name="OpenCellId_test_no_connection">Nessuna connessione cellulare</string>
     <string name="registration_token">Token di registrazione</string>
@@ -117,8 +115,6 @@
     <string name="server_login_attempts_title">Tentativi di accesso falliti al server FMD</string>
     <string name="server_login_attempts_text">Qualcuno ha tentato di accedere all\'account \"%s\" del server FMD. A causa di più password errate, l\'account è ora bloccato per 10 minuti.</string>
     <string name="server_registration_token_error">Richiesta di rete fallita con HTTP 401. Questo può accadere se il server richiede un token di registrazione e il token fornito è sbagliato.</string>
-    <string name="OpenCellId_tower_collector_info">Potete contribuire a OpenCelliD raccogliendo e caricando informazioni sui ripetitori. A tale scopo è necessaria una app dedicata. Una di queste è Tower Collector.</string>
-    <string name="OpenCellId_tower_collector_download">Scarica Tower Collector</string>
     <string name="cmd_camera_description_long">Scatta una foto con la fotocamera anteriore/posteriore e la carica sul Server FMD. Al momento è supportato solo il caricamento sui Server FMD. Potete inviare questo comando anche tramite altri canali di invio e l\'immagine verrà caricata sul Server FMD (se disponibile un account).</string>
     <string name="cmd_locate_description_short">Localizza il dispositivo</string>
     <string name="cmd_locate_description_long">Individua il dispositivo utilizzando uno o più provider di localizzazione. Il GPS offre la massima precisione, ma potrebbe non funzionare sempre. Il provider “Combinato” è definito da Android e utilizza una combinazione di fonti (spesso Wi-Fi o ripetitori di rete mobile). Il provider “Cella” interroga i servizi pubblici OpenCelliD e BeaconDB per individuare la posizione dei ripetitori di rete mobile nelle vicinanze.</string>

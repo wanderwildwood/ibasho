@@ -65,10 +65,8 @@
     <string name="password_old">Старый пароль</string>
     <string name="password_new">Новый пароль</string>
     <string name="Settings_FMDServer_Register">Зарегистрироваться</string>
-    <string name="OpenCellId_privacy">Приватность: имейте ввиду, что при каждом запросе к API, сервис OpenCelliD узнаёт вашу текущую сотовую вышку, а соответственно и ваше местоположение.</string>
     <string name="OpenCellId_open_website">Открыть вебсайт OpenCelliD</string>
     <string name="OpenCellId_test_opencellid">Проверить соединение с OpenCelliD</string>
-    <string name="OpenCellId_help">FMD может использовать сервис OpenCelliD чтобы получать примерное местоположение устройства, основываясь на сотовой вышке, к которой оно подключено. Подключение к интернету необходимо для каждого запроса местоположения. Вам также необходимо создать аккаунт на OpenCelliD и получить ваш собственный токен доступа к API.</string>
     <string name="about_source_code">Исходный код</string>
     <string name="about_wiki">Вики</string>
     <string name="notify_crypto_update_title">Необходимо совершить действие</string>
@@ -167,8 +165,6 @@
     <string name="grant_write_secure_settings_description">Это разрешение может быть выдано только через консольную команду \"pm grant\" в Android. Вы можете выполнить её вручную через Android Debug Bridge (ADB) с помощью компьютера. Вы также можете выполнить её прямо на вашем устройстве через Root или Shizuku.\n\nИдентификатор (ID) пользователя: %d</string>
     <string name="transport_notification_reply_description_auth">Взаимодействие с FMD через ответ на уведомление требует установки ПИН-кода. Каждая команда должна будет содержать верный ПИН-код.</string>
     <string name="transport_fmd_server_description_note">Сервер FMD требует наличия соединения с интернетом. Это может быть как мобильный интернет (а значит SIM-карта должна быть разблокирована), так и Wi-Fi сеть.</string>
-    <string name="OpenCellId_tower_collector_info">Вы можете совершать вклад в проект OpenCelliD собирая и загружая информацию о сотовых вышках. Для этого, вам необходимо использовать отдельное приложение. Например, одним из них является Tower Collector.</string>
-    <string name="OpenCellId_tower_collector_download">Загрузить Tower Collector</string>
     <string name="crashed_open_issuetracker">Открыть трекер проблем</string>
     <string name="usage_notification_text_source">Команда \"%1$s\" была выполнена через \"%2$s\".</string>
     <string name="transport_inapp_title">В приложении</string>

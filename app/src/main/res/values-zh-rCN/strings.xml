@@ -34,7 +34,6 @@
     <string name="password">密码</string>
     <string name="registration_token">注册密钥</string>
     <string name="registration_token_hint">私有实例可能需要一个私有密钥。如果为公有实例请留空。</string>
-    <string name="OpenCellId_privacy">隐私：请记住 OpenCelliD 了解您现在链接的信号塔，因此您的位置会随着每次 API 查询更新。</string>
     <string name="OpenCellId_open_website">打开 OpenCelliD 网站</string>
     <string name="OpenCellId_test_opencellid">测试 OpenCelliD 链接</string>
     <string name="accept">允许</string>
@@ -48,7 +47,6 @@
     <string name="Settings_FMDServer_open_website">打开 FMD 服务端网站</string>
     <string name="Settings_FMDServer_Register">注册</string>
     <string name="WhiteList_Add_Contact">添加联系人</string>
-    <string name="OpenCellId_help">FMD 可以利用 OpenCelliD 服务根据设备连接到的信号塔获得其大致位置。每次位置查询都需要连接互联网。您还需要在 OpenCelliD 创建一个账号并且获取您的 API 访问令牌。</string>
     <string name="OpenCellId_test_no_connection">没有移动网络连接</string>
     <string name="about">关于</string>
     <string name="about_source_code">源代码</string>
@@ -215,8 +213,6 @@
     <string name="perm_shizuku_failed">通过Shizuku授予失败</string>
     <string name="transport_inapp_send_command_command_placeholder">命令</string>
     <string name="cmd_gps_response_on">定位服务已打开。</string>
-    <string name="OpenCellId_tower_collector_info">您可以通过收集和上传信号塔信息为 OpenCelliD 做出贡献。你需要一个专门的应用程序，Tower Collector 是其中之一。</string>
-    <string name="OpenCellId_tower_collector_download">下载 Tower Collector</string>
     <string name="log_view_clear_confirm">您真的要删除所有日志条目吗？</string>
     <string name="cmd_gps_description_short">打开和关闭定位服务</string>
     <string name="transport_sms_description">通过短信向您的设备发送命令。例如，向设备发送文本“%s help”，FMD 将通过短信回复。</string>

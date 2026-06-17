@@ -56,8 +56,6 @@
     <string name="Notification_Usage">Użycie</string>
     <string name="Notification_Security">Bezpieczeństwo</string>
     <string name="Notification_FAIL">Błędy</string>
-    <string name="OpenCellId_tower_collector_info">Możesz pomóc w rozwoju OpenCelliD zbierając i udostępniając dane o nadajnikach sieci komórkowej. Jest do tego potrzebna dedykowana aplikacja, taka jak np. Tower Collector.</string>
-    <string name="OpenCellId_tower_collector_download">Pobierz Tower Collector</string>
     <string name="OpenCellId_open_website">Strona OpenCelliD</string>
     <string name="OpenCellId_test_opencellid">Przetestuj połączenie OpenCelliD</string>
     <string name="OpenCellId_test_no_connection">Brak połączenia</string>

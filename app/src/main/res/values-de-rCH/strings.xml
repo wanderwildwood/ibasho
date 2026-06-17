@@ -38,7 +38,6 @@
     <string name="registration_token">Registrierigstoken</string>
     <string name="registration_token_hint">Privati Instanze bruchet mengisch es gheims Token. Lahns leer falls d Instanz öffentlich isch.</string>
     <string name="WhiteList_Add_Contact">Kontakt dezue tue</string>
-    <string name="OpenCellId_privacy">Privatsphäri: denk dra dass OpenCelliD bi jedere Aafrag dini aktuelli Mobilfunkzelle und demit au din Standort überchunnt.</string>
     <string name="OpenCellId_open_website">OpenCelliD-Websiite öffne</string>
     <string name="OpenCellId_test_opencellid">OpenCelliD-Verbindig teschte</string>
     <string name="OpenCellId_test_no_connection">Kei Mobilfunkverbindig</string>
@@ -110,7 +109,6 @@
     <string name="Settings_FMDServer_Info">Mit FMD Server chasch Befehl übers Internet schicke, vom Server ad App. Du chasch au de Standort vom Gerät ufere Karte gse oder d Bilder wos Gerät gmacht het aaluege. En Self-Hosting-Aaleitig hets uf de Websiite.</string>
     <string name="Settings_FMDServer_Location_Type_Description">D Quell(e) vo wo de Standort regelmässig im Hintergrund ufeglade wird. \nFalls du keini uswählsch wird kein Standort ufeglade. (Du chasch wiiterhin en Upload übers Webinterface erzwinge. Dafür bruchts Push.)</string>
     <string name="server_unregister_failed_body">D De-Registrierig isch fehlgschlage: {ERROR} \n \nDu chasch trotzdem wiiter mache, aber dis Konto isch viellicht nöd vom Server glöscht worde. Wenn du wiiter machsch wird dis Konto lokal vom Gerät glöscht.</string>
-    <string name="OpenCellId_help">FMD chan d OpenCelliD-Dienst bruche zum en ungfähre Standort finde wo uf de Mobilfunkzelle basiert in wellere dis Gerät iigloggt isch. Für jedi Aafrag bruchts en Internetverbindig. Du bruchsch au es Konto bi OpenCelliD zum es API Access Token becho.</string>
     <string name="perm_write_secure_settings_name">Secure Settings verwalte</string>
     <string name="grant_write_secure_settings_description">Die Berechtigung cha nur mit em Kommandozeilebefehl \"pm grant\" vo Android erteilt werde. Du chasch de Befehl manuell über de Android Debug Bridge (ADB) vomene Computer us usführe. Du chasch ihn au direkt uf dim Gerät mit Root oder Shizuku usführe.\n\nNutzer-ID: %d</string>
     <string name="perm_root_denied">Root-Zuegriff abglehnt</string>
@@ -166,8 +164,6 @@
     <string name="crashed_send_log">Log schicke</string>
     <string name="crashed_copy_log">Log kopiere</string>
     <string name="crashed_continue_without">Ohni Melde wiitermache</string>
-    <string name="OpenCellId_tower_collector_download">Tower Collector Abelade</string>
-    <string name="OpenCellId_tower_collector_info">Du chasch OpenCelliD helfe indem du Mobilfunkmast-Datene sammlisch und ufeladsch. Für das bruchts en separati App. Eini isch zum Bispil Tower Collector.</string>
     <string name="crashed_open_issuetracker">Issue Tracker uftue</string>
     <string name="transport_inapp_title">In-App</string>
     <string name="transport_inapp_send_command_title">In-App Befehl schicke</string>

@@ -55,7 +55,6 @@
     <string name="Settings_FMDServer_use_default_server">Käytä Nuliden yleistä palvelinta</string>
     <string name="Settings_FMDServer_Login">Kirjaudu sisään</string>
     <string name="Settings_FMDServer_Register">Rekisteröidy</string>
-    <string name="OpenCellId_help">FMD voi käyttää OpenCelliD-palvelua saadakseen arvioidun sijainnin, joka perustuu puhelintorniin johon laite on yhdistetty. Internetyhteys vaaditaan jokaiseen hakuun. Sinun tulee myös luoda OpenCelliD-tunnus saadaksesi oman API-käyttötunnisteen.</string>
     <string name="Settings_Import">Tuo asetukset</string>
     <string name="Settings_Export">Vie asetukset</string>
     <string name="Settings_FMDServer_Server_Url">Palvelimen URL</string>
@@ -90,7 +89,6 @@
     <string name="server_registration_token_error">Verkkopyyntö epäonnistui tilakoodilla HTTP 401. Tämä voi tapahtua, jos palvelin tarvitsee rekisteröintitunnisteen ja syöttämäsi tunniste oli virheellinen.</string>
     <string name="server_login_attempts_text">Tilillesi \"%s\" on yritetty kirjautua. Useiden virheellisten salasanojen syöttämisen vuoksi tili on lukittu 10 minuutiksi.</string>
     <string name="registration_token_hint">Yksityiset palvelimet saattavat vaatia salaisen tunnisteen. Jätä tyhjäksi, jos palvelin on julkinen.</string>
-    <string name="OpenCellId_tower_collector_download">Lataa Tower Collector</string>
     <string name="appearance_theme_follow_system">Järjestelmän teema</string>
     <string name="appearance_theme_light">Vaalea</string>
     <string name="appearance_theme_dark">Tumma</string>
@@ -102,13 +100,11 @@
     <string name="WhiteList_no_contact_picker">Yhteystietojen valitsinsovellusta ei löytynyt!</string>
     <string name="allowlist_phone_number_name">Nimi</string>
     <string name="allowlist_phone_number">Puhelinnumero</string>
-    <string name="OpenCellId_privacy">Yksityisyys: muista että OpenCellId saa tiedon nykyisestä puhelintornistasi ja sitä kautta sijainnistasi jokaisella API-kutsulla.</string>
     <string name="appearance_language_choose">Valitse kieli</string>
     <string name="Settings_FMDServer_Logout_Text">Haluatko varmasti kirjautua ulos FMD-palvelimelta?</string>
     <string name="registration_token">Rekisteröintitunniste</string>
     <string name="appearance_language">Kieli</string>
     <string name="appearance_language_system_default">Järjestelmän oletus</string>
-    <string name="OpenCellId_tower_collector_info">Voit osallistua OpenCellId:n datan keruuseen erillisellä sovelluksella, kuten Tower Collector.</string>
     <string name="about_source_code">Lähdekoodi</string>
     <string name="bottom_nav_transports">Viestintäkanavat</string>
     <string name="bottom_nav_settings">Asetukset</string>

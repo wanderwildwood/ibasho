@@ -114,10 +114,6 @@
     <string name="allowlist_reset_text">Εξαιτίας ενός σφάλματος, έγινε επαναφορά στις επιτρεπόμενες επαφές. Παρακαλώ διαμορφώστε τις ξανά.</string>
     <string name="allowlist_invalid_number">Αυτός ο αριθμός τηλεφώνου δεν είναι έγκυρος!</string>
     <string name="temporary_allowlist_expired">Η προσωρινή πρόσβασή σας στο FMD έληξε. Για να συνεχίσετε να χρησιμοποιείτε το FMD, στείλτε ξανά τον PIN.</string>
-    <string name="OpenCellId_help">Το FMD μπορεί να χρησιμοποιήσει την υπηρεσία OpenCelliD για να λάβει μια κατά προσέγγιση τοποθεσία με βάση τον πύργο κυψελοειδούς κινητής τηλεφωνίας στον οποίο είναι συνδεδεμένη η συσκευή. Για κάθε αίτημα της τοποθεσίας απαιτείται σύνδεση στο διαδίκτυο. Πρέπει επίσης να δημιουργήσετε έναν λογαριασμό στο OpenCelliD και να λάβετε το δικό σας API Διακριτικό Πρόσβασης.</string>
-    <string name="OpenCellId_privacy">Απόρρητο: λάβετε υπόψη ότι το OpenCelliD μαθαίνει την τρέχουσα κεραία κυψελοειδούς κινητής τηλεφωνίας σας, και συνεπώς την τοποθεσία σας, με κάθε αίτημα API.</string>
-    <string name="OpenCellId_tower_collector_info">Μπορείτε να συνεισφέρετε στο OpenCelliD συλλέγοντας και μεταφορτώνοντας πληροφορίες για κεραίες κινητής τηλεφωνίας. Για αυτό χρειάζεστε μια ειδική εφαρμογή. Μια τέτοια εφαρμογή είναι το Tower Collector.</string>
-    <string name="OpenCellId_tower_collector_download">Λήψη του Tower Collector</string>
     <string name="OpenCellId_open_website">Ανοίξτε τον ιστότοπο OpenCelliD</string>
     <string name="OpenCellId_test_opencellid">Δοκιμή σύνδεσης OpenCelliD</string>
     <string name="OpenCellId_test_no_connection">Δεν υπάρχει κινητής τηλεφωνίας</string>

@@ -170,9 +170,6 @@
     <string name="grant_write_secure_settings_description">Deze machtiging kan alleen worden verleend met de Android opdrachtregel \"pm grant\". Je kunt deze opdracht handmatig uitvoeren via de Android Debug Bridge (ADB) met behulp van een computer. Je kunt het ook rechtstreeks op je apparaat uitvoeren met root of Shizuku.\n\nGebruikers-ID: %d</string>
     <string name="Toast_Duplicate_contact">Dit contact bestaat al.</string>
     <string name="temporary_allowlist_expired">Uw tijdelijke toegang tot FMD is verlopen. Om FMD te blijven gebruiken, moet u het wachtwoord opnieuw sturen.</string>
-    <string name="OpenCellId_help">FMD kan de OpenCelliD-service gebruiken om een geschatte locatie te krijgen op basis van de zendmast waarmee het apparaat is verbonden. Voor elke locatiezoekopdracht is een internetverbinding vereist. Je moet ook een account aanmaken bij OpenCelliD en je eigen API Access Token krijgen.</string>
-    <string name="OpenCellId_tower_collector_info">Je kunt bijdragen aan OpenCelliD door informatie over zendmasten te verzamelen en te uploaden. Hiervoor heb je een speciale app nodig, zoals bv. Tower Collector.</string>
-    <string name="OpenCellId_tower_collector_download">Tower Collector downloaden</string>
     <string name="OpenCellId_open_website">OpenCelliD-website openen</string>
     <string name="about_source_code">Broncode</string>
     <string name="appearance_theme_dark">Donker</string>
@@ -213,7 +210,6 @@
     <string name="crashed_copy_log">Logboek kopiëren</string>
     <string name="Settings_Lockscreenmessage_Description">Boodschap op het vergrendelingsscherm:\nBij vergrendeling van het apparaat, wordt deze boodschap getoond op het vergrendelingsscherm.</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Upload de locatie van dit apparaat wanneer het batterijniveau laag wordt.</string>
-    <string name="OpenCellId_privacy">Privacy: houd er rekening mee dat OpenCelliD bij elke API-query je huidige zendmast en daarmee je locatie leest.</string>
     <string name="Settings_FMDServer_Logout_Text">Wil je echt uitloggen van je FMD Server-account?</string>
     <string name="crashed_title">Foutrapportage</string>
     <string name="server_version_upgrade_required_text">De FMD Server die je gebruikt heeft versie {CURRENT}, maar deze app vereist minimaal {MIN}. Het opvragen van jouw apparaat via FMD Server werkt mogelijk niet meer. Jouw server heeft een upgrade nodig.</string>

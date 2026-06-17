@@ -171,10 +171,6 @@
     <string name="allowlist_reset_text">Egy összeomlás miatt az engedélyezett névjegyek visszaállításra kerültek. Kérlek állítsd be őket újra.</string>
     <string name="allowlist_invalid_number">Érvénytelen telefonszám!</string>
     <string name="temporary_allowlist_expired">Az ideiglenes FMD hozzáférés lejárt. A további használathoz használd a jelszót.</string>
-    <string name="OpenCellId_help">Az FMD képes az OpenCelliD szolgáltatást használni a hozzávetőleges helyzet meghatározásához a cellainformációk alapján. Internetkapcsolat szükséges minden helyzet lekérdezéshez. Továbbá egy OpenCelliD API hozzáférési tokenre szükség van, amihez egy fiókot is regisztrálnod kell.</string>
-    <string name="OpenCellId_privacy">Adatvédelem: tartsd észben, hogy az OpenCelliD megtudja, hogy mely cellákhoz kapcsolódik az eszköz minden egy API lekérés esetén.</string>
-    <string name="OpenCellId_tower_collector_info">Hozzájárulhatsz az OpenCelliD szolgáltatáshoz azzal, ha cellainformációkat gyűjtesz és feltöltöd ezeket. Ehhez egy külön alkalmazásra van szükség. Ilyen például a Tower Collector.</string>
-    <string name="OpenCellId_tower_collector_download">Tower Collector letöltése</string>
     <string name="OpenCellId_open_website">OpenCelliD weboldal megnyitása</string>
     <string name="OpenCellId_test_opencellid">OpenCelliD kapcsolat tesztelése</string>
     <string name="OpenCellId_test_no_connection">Nincs mobilhálózat-kapcsolat</string>

@@ -50,7 +50,6 @@
     <string name="server_version_error_low_version">مطلوب إصدار الخادم {MIN} على الأقل، ولكن الخادم المحدد لديه إصدار {CURRENT}. تابع على مسؤوليتك الخاصة.</string>
     <string name="Settings_FMDServer_AddAccount">خادم FMD: تسجيل الدخول</string>
     <string name="Settings_FMDServer_use_default_server">استخدم خادم Nulide العام</string>
-    <string name="OpenCellId_privacy">الخصوصية: ضع في اعتبارك أن OpenCelliD يتعرف على برجك الخلوي الحالي وبالتالي موقعك مع كل استعلام API.</string>
     <string name="notify_crypto_update_title">الإجراء مطلوب</string>
     <string name="OpenCellId_open_website">فتح موقع OpenCelliD</string>
     <string name="OpenCellId_test_opencellid">اختبار الإتصال مع OpenCelliD</string>
@@ -68,7 +67,6 @@
     <string name="Toast_Duplicate_contact">جهة الاتصال هذه موجودة بالفعل.</string>
     <string name="Delete">حذف</string>
     <string name="cmd_help_message_start">أوامر FMD:</string>
-    <string name="OpenCellId_help">يمكن لـ FMD استخدام خدمة OpenCelliD للحصول على موقع تقريبي بناءً على البرج الخلوي الذي يتصل به الجهاز. مطلوب اتصال بالإنترنت لكل استعلام عن الموقع. تحتاج أيضًا إلى إنشاء حساب في OpenCelliD والحصول على Token للوصول إلى API الخاص بك.</string>
     <string name="Enable">تفعيل</string>
     <string name="Settings_FMDServer_Server_Url">رابط الخادم</string>
     <string name="request_failed_title">فشل طلب الشبكة</string>
@@ -102,7 +100,6 @@
     <string name="WhiteList_no_contact_picker">فشل العثور على تطبيق إختيار جهات الإتصال!</string>
     <string name="allowlist_add_phone_number">أضف رقم هاتف</string>
     <string name="allowlist_phone_number">رقم هاتف</string>
-    <string name="OpenCellId_tower_collector_download">حمل \"Tower Collector\"</string>
     <string name="server_login_attempts_text">حاول أحدهم تسجيل الدخول لحساب خادم FMD الخاص بك \"%s\". بسبب تعدّد محاولات تسجيل الدخول الفاشلة، سيتم إغلاق حسابك لعشر دقائق.</string>
     <string name="server_login_attempts_title">فشل تسجيل الدخول لخادم FMD</string>
     <string name="appearance_theme">سمة</string>
@@ -119,7 +116,6 @@
     <string name="Settings_FMDServer_Location_Type_Description">المصدر أو المصادر التي يتم رفع بيانات الموقع إليها بانتظام في الخلفية.\nإن لم يتم إختيار أحدها، لن يتم رفع بيانات الموقع بانتظام. (بإمكانك استعمال واجهة الويب للقيام برفع إجباري، ما يتطلب إشعارات دفع مفعلة.)</string>
     <string name="temporary_allowlist_expired">انتهت صلاحية وصولك المؤقت إلى FMD. لمواصلة استخدام FMD، أرسل الرقم السري مرة أخرى.</string>
     <string name="allowlist_phone_number_name">إسم</string>
-    <string name="OpenCellId_tower_collector_info">يمكنك المساهمة إلى OpenCelliD بتجميع ورفع معلومات الأبراج الخلوية. تحتاج تطبيقا خاصا لذلك، مثل \"Tower Collector\".</string>
     <string name="appearance_theme_light">فاتح</string>
     <string name="appearance_theme_dark">داكن</string>
     <string name="Settings_Import_Failed">فشل الاستيراد</string>

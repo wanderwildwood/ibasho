@@ -100,10 +100,6 @@
     <string name="allowlist_reset_title">Resetează lista contactelor permise</string>
     <string name="allowlist_reset_text">Din cauza unei erori, lista contactelor permise a fost resetată. Te rugăm să le configurezi din nou.</string>
     <string name="temporary_allowlist_expired">Accesul tău temporar la FMD a expirat. Pentru a continua să folosești FMD, trimite din nou PIN-ul.</string>
-    <string name="OpenCellId_help">FMD poate folosi serviciul OpenCelliD pentru a obține o locație aproximativă bazată pe turnul celular la care este conectat dispozitivul. Este necesară o conexiune la internet pentru fiecare interogare a locației. De asemenea, trebuie să creezi un cont la OpenCelliD și să obții propriul token de acces API.</string>
-    <string name="OpenCellId_privacy">Confidențialitate: ține cont că OpenCelliD află turnul celular la care ești conectat și, implicit, locația ta, la fiecare interogare API.</string>
-    <string name="OpenCellId_tower_collector_info">Poți contribui la OpenCelliD colectând și încărcând informații despre turnurile celulare. Ai nevoie de o aplicație dedicată pentru asta. O astfel de aplicație este Tower Collector.</string>
-    <string name="OpenCellId_tower_collector_download">Descarcă Tower Collector</string>
     <string name="OpenCellId_open_website">Deschide site-ul OpenCelliD</string>
     <string name="OpenCellId_test_opencellid">Testează conexiunea OpenCelliD</string>
     <string name="OpenCellId_test_no_connection">Fără conexiune celulară</string>

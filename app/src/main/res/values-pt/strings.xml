@@ -98,10 +98,6 @@
     <string name="allowlist_reset_title">Redefinição dos contatos permitidos</string>
     <string name="allowlist_reset_text">Devido à uma falha, os contatos permitidos foram redefinidos. Por favor, os configure novamente.</string>
     <string name="temporary_allowlist_expired">O seu acesso temporário ao FMD acabou. Para continuar usando o FMD, envie o PIN novamente.</string>
-    <string name="OpenCellId_help">O FMD usa o serviço OpenCelliD para obter uma localização aproximada baseada na rede móvel que o seu dispositivo está conectado. Uma conexão à internet é necessária para cada consulta de localização. Também precisará criar uma conta no OpenCelliD e obter o seu próprio API Access Token.</string>
-    <string name="OpenCellId_privacy">Privacidade: tenha em mente que o OpenCelliD aprende sobre a sua rede móvel atual e portanto a sua localização com cada consulta na API.</string>
-    <string name="OpenCellId_tower_collector_info">Pode contribuir ao OpenCelliD coletando e enviando informações de redes móveis. Precisa de uma app dedicado para isto. Um tal app é o Tower Collector.</string>
-    <string name="OpenCellId_tower_collector_download">Descarregar o Tower Collector</string>
     <string name="OpenCellId_open_website">Abrir site do OpenCelliD</string>
     <string name="OpenCellId_test_opencellid">Testar conexão ao OpenCelliD</string>
     <string name="OpenCellId_test_no_connection">Sem conexão à redes móveis</string>

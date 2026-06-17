@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="OpenCellId_help">FMD může použít službu OpenCelliD pro získání přibližné polohy založené na mobilních věžích, ke kterým je zařízení připojeno. Pro každé dotázání se na polohu je vyžadován přístup k internetu. Také si budete muset vytvořit účet na OpenCelliD a získat svůj vlastní přístupový token k API.</string>
     <string name="OpenCellId_open_website">Otevřít web OpenCelliD</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Tato aplikace potřebuje pracovat na pozadí. Abyste zajistili, že bude fungovat i v pohotovostním režimu zařízení, musíte vypnout optimalizace baterie pro tuto aplikaci.</string>
     <string name="about">O aplikaci</string>
@@ -45,7 +44,6 @@
     <string name="password">Heslo</string>
     <string name="registration_token">Registrační token</string>
     <string name="WhiteList_Add_Contact">Přidat kontakt</string>
-    <string name="OpenCellId_privacy">Soukromí: vezměte prosím v potaz, že se OpenCelliD dozví vaše aktuální mobilní věže a tím pádem vaší polohu při každém dotazu na API.</string>
     <string name="OpenCellId_test_opencellid">Vyzkoušet připojení k OpenCelliD</string>
     <string name="OpenCellId_test_no_connection">Žádné mobilní připojení</string>
     <string name="server_unregister_continue_anyway">Přesto pokračovat</string>
@@ -168,8 +166,6 @@
     <string name="crashed_copy_log">Kopírovat protokol</string>
     <string name="crashed_text">Aplikace FMD havarovala! Zde je protokol:</string>
     <string name="crashed_continue_without">Pokračovat bez hlášení</string>
-    <string name="OpenCellId_tower_collector_download">Stáhnout Tower Collector</string>
-    <string name="OpenCellId_tower_collector_info">Do OpenCelliD můžete přispět sbíráním a nahráváním informací o mobilních věžích. Pro takovou akci potřebujete vlastní aplikaci. Takovou aplikací je například Tower Collector.</string>
     <string name="crashed_open_issuetracker">Otevřít seznam problémů</string>
     <string name="transport_inapp_title">V aplikaci</string>
     <string name="transport_inapp_description">Posílejte příkazy lokálně v FMD do vašeho zařízení. Užitečné pro testování. FMD odpoví oznámením.</string>

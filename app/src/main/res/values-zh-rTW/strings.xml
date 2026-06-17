@@ -129,10 +129,6 @@
     <string name="allowlist_reset_text">由於發生崩潰，允許的聯絡人已被重設。請重新設定。</string>
     <string name="allowlist_invalid_number">此手機號碼無效！</string>
     <string name="temporary_allowlist_expired">您的臨時 FMD 存取權限已過期。若要繼續使用 FMD，請再次傳送 PIN。</string>
-    <string name="OpenCellId_help">FMD 可使用 OpenCelliD 服務，根據裝置目前連線的基地台取得大致位置。每次查詢位置都需要網際網路連線。您也需要在 OpenCelliD 建立帳號，並取得您自己的 API 存取權杖（API Access Token）。</string>
-    <string name="OpenCellId_privacy">隱私提醒：請注意，每次進行 API 查詢時，OpenCelliD 都會得知您目前所連線的基地台，進而推測您的位置。</string>
-    <string name="OpenCellId_tower_collector_info">您可以透過收集並上傳基地台資訊來協助 OpenCelliD。此操作需要使用專用的應用程式，其中一個例子是 Tower Collector。</string>
-    <string name="OpenCellId_tower_collector_download">下載 Tower Collector</string>
     <string name="OpenCellId_test_no_connection">沒有行動網路連接</string>
     <string name="appearance_language">語言</string>
     <string name="appearance_language_choose">選擇語言</string>

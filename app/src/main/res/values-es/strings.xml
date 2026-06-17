@@ -56,9 +56,7 @@
     <string name="password">Contraseña</string>
     <string name="registration_token">Token de registro</string>
     <string name="registration_token_hint">Las instancias privadas pueden requerir un token secreto. Déjelo vacío si la instancia es pública.</string>
-    <string name="OpenCellId_help">FMD puede utilizar el servicio OpenCelliD para obtener una ubicación aproximada basada en la torre de telefonía móvil a la que está conectado al dispositivo. Se requiere una conexión a Internet para cada consulta de ubicación. También es necesario crear una cuenta en OpenCelliD y obtener su propio token de acceso a la API.</string>
     <string name="OpenCellId_open_website">Abrir la página web de OpenCelliD</string>
-    <string name="OpenCellId_privacy">Privacidad: recuerde que OpenCelliD aprende su torre de telefonía actual y por lo tanto su ubicación con cada solicitud de API.</string>
     <string name="about">Acerca de</string>
     <string name="about_source_code">Código fuente</string>
     <string name="about_wiki">Wiki</string>
@@ -168,8 +166,6 @@
     <string name="crashed_copy_log">Copiar el registro</string>
     <string name="crashed_continue_without">Continuar sin reportar</string>
     <string name="perm_unused_app_description">Android pone en pausa las aplicaciones que no se abren durante unos meses y elimina sus permisos. FMD, sin embargo, se supone que funciona en segundo plano. Después de configurarlo, rara vez necesitarás abrirlo. Por lo tanto, es necesario eximir a FMD de la pausa, de lo contrario puede que no funcione en unos meses.</string>
-    <string name="OpenCellId_tower_collector_download">Descargar Tower Collector</string>
-    <string name="OpenCellId_tower_collector_info">Puedes contribuir a OpenCelliD recopilando y cargando información sobre antenas de telefonía móvil. Para ello, necesitas una aplicación dedicada. Una de estas aplicaciones es Tower Collector.</string>
     <string name="crashed_open_issuetracker">Abrir rastreador de problemas</string>
     <string name="transport_inapp_title">En la aplicación</string>
     <string name="transport_inapp_send_command_title">Enviar comando desde la aplicación</string>

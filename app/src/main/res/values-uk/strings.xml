@@ -58,10 +58,7 @@
     <string name="registration_token_hint">Для приватних екземплярів може знадобитися секретний токен. Залиште це поле порожнім, якщо екземпляр публічний.</string>
     <string name="WhiteList_no_contact_picker">Не знайдено додаток для вибору контакту!</string>
     <string name="allowlist_phone_number_name">Імʼя</string>
-    <string name="OpenCellId_help">FMD може використовувати сервіс OpenCelliD, щоб отримати приблизне місцезнаходження на основі вежі стільникового зв\'язку, до якої підключено пристрій. Для кожного запиту на визначення місцезнаходження потрібне підключення до Інтернету. Вам також потрібно створити обліковий запис на OpenCelliD і отримати власний токен доступу до API.</string>
-    <string name="OpenCellId_privacy">Конфіденційність: майте на увазі, що OpenCelliD дізнається вашу поточну вежу стільникового зв\'язку і, таким чином, ваше місцезнаходження з кожним запитом до API.</string>
     <string name="OpenCellId_test_no_connection">Немає мобільного зв\'язку</string>
-    <string name="OpenCellId_tower_collector_info">Ви можете зробити свій внесок в OpenCelliD, збираючи та завантажуючи інформацію про вежі стільникового зв\'язку. Для цього вам потрібен спеціальний додаток. Одним з таких додатків є Tower Collector.</string>
     <string name="OpenCellId_open_website">Відкрити веб-сайт OpenCelliD</string>
     <string name="OpenCellId_test_opencellid">Перевірка з\'єднання OpenCelliD</string>
     <string name="about">Про</string>
@@ -69,7 +66,6 @@
     <string name="WhiteList_Add_Contact">Додати контакт</string>
     <string name="Toast_Duplicate_contact">Цей контакт вже існує.</string>
     <string name="allowlist_add_phone_number">Додати номер телефону</string>
-    <string name="OpenCellId_tower_collector_download">Завантажити Tower Collector</string>
     <string name="about_wiki">Вікі</string>
     <string name="allowlist_phone_number">Номер телефону</string>
     <string name="Cell">Мобільне зʼєднання</string>

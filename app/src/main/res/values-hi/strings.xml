@@ -60,7 +60,6 @@
     <string name="accept">स्वीकारें</string>
     <string name="Settings_FMDConfig">FMD-विन्यास</string>
     <string name="registration_token_hint">निजी इंस्टैंस के लिए गुप्त टोकन की आवश्यकता हो सकती है। यदि इंस्टैंस सार्वजनिक है तो इसे खाली छोड़ दें।</string>
-    <string name="OpenCellId_privacy">गोपनीयता: ध्यान रखें कि OpenCeliD आपके वर्तमान सेल टॉवर और इस प्रकार प्रत्येक API क्वेरी के साथ आपके लोकेशन को जानता है।</string>
     <string name="OpenCellId_open_website">OpenCeliD वेबसाइट खोलें</string>
     <string name="OpenCellId_test_opencellid">OpenCeliD कनेक्शन का परीक्षण करें</string>
     <string name="about_wiki">विकि</string>
@@ -79,7 +78,6 @@
     <string name="Cell">सेल</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">इससे सर्वर से सारा डेटा मिट जाएगा! क्या आप निश्चित हैं?</string>
     <string name="Settings_FMDServer_Location_Type_Description">वह स्रोत जिससे पृष्ठभूमि में नियमित अंतराल पर स्थान डेटा अपलोड किया जाता है। \nयदि कोई भी चयनित नहीं है, तो कोई भी स्थान नियमित रूप से अपलोड नहीं किया जाता है। (आप किसी अपलोड को बाध्य करने के लिए अभी भी वेब इंटरफ़ेस का उपयोग कर सकते हैं। इसके लिए पुश की आवश्यकता होती है।)</string>
-    <string name="OpenCellId_help">डिवाइस जिस सेल टावर से जुड़ा है, उसके आधार पर अनुमानित स्थान प्राप्त करने के लिए FMD OpenCeliD सेवा का उपयोग कर सकता है। प्रत्येक स्थान क्वेरी के लिए इंटरनेट कनेक्शन आवश्यक है। आपको OpenCeliD पर एक खाता बनाना होगा और अपना स्वयं का API एक्सेस टोकन प्राप्त करना होगा।</string>
     <string name="cmd_locate_last_known_location_text">अंतिम ज्ञात स्थान</string>
     <string name="cmd_locate_last_known_location_not_available">कोई अंतिम ज्ञात स्थान नहीं है। स्थान अपडेट करने के लिए नवीनतम स्थान का अनुरोध करें।</string>
     <string name="request_failed_title">नेटवर्क अनुरोध विफल</string>
@@ -166,7 +164,5 @@
     <string name="allowlist_phone_number">फोन नंबर</string>
     <string name="transport_sms_description_note">SMS भेजने के लिए आपको और आपको संदेश भेजने वाले व्यक्ति दोनों को ही पैसे देने पड़ सकते हैं। SMS भेजने के लिए आपके सिम कार्ड का अनलॉक होना ज़रूरी है (उदाहरण के लिए, रीबूट के बाद)।</string>
     <string name="perm_unused_app_name">अप्रयुक्त ऐप प्रतिबंध</string>
-    <string name="OpenCellId_tower_collector_download">Tower Collector डाउनलोड करें</string>
-    <string name="OpenCellId_tower_collector_info">आप सेल टावर की जानकारी एकत्र करके और अपलोड करके OpenCelliD में योगदान दे सकते हैं। इसके लिए आपको एक समर्पित ऐप की आवश्यकता होगी। ऐसा ही एक ऐप है Tower Collector।</string>
     <string name="crashed_open_issuetracker">समस्या ट्रैकर खोलें</string>
 </resources>

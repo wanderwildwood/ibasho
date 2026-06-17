@@ -28,7 +28,6 @@
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Política de privacidade</string>
     <string name="password">Senha</string>
     <string name="registration_token">Token de cadastro</string>
-    <string name="OpenCellId_help">O FMD usa o serviço OpenCelliD para obter uma localização aproximada baseada na rede móvel que seu dispositivo está conectado. Uma conexão à internet é necessária para cada consulta de localização. Você também precisará criar uma conta no OpenCelliD e obter seu próprio API Access Token.</string>
     <string name="OpenCellId_open_website">Abrir site do OpenCelliD</string>
     <string name="OpenCellId_test_no_connection">Sem conexão à redes móveis</string>
     <string name="about">Sobre</string>
@@ -73,7 +72,6 @@
     <string name="WhiteList_Add_Contact">Adicionar contato</string>
     <string name="Settings_FMD_Server_User_ID">Nome do usuário:</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Isto apagará todos os seus dados do servidor! Você tem certeza?</string>
-    <string name="OpenCellId_privacy">Privacidade: tenha em mente que o OpenCelliD aprende sobre a sua rede móvel atual e portanto sua localização com cada consulta na API.</string>
     <string name="about_source_code">Código-fonte</string>
     <string name="about_wiki">Wiki</string>
     <string name="OpenCellId_test_opencellid">Testar conexão ao OpenCelliD</string>
@@ -168,8 +166,6 @@
     <string name="allowlist_add_phone_number">Adicionar número de telefone</string>
     <string name="allowlist_phone_number">Número de telefone</string>
     <string name="perm_unused_app_description">O Android pausa apps que não são abertos por alguns meses e remove suas permissões. O FMD, entretanto, é feito para ser executado em segundo plano. Após configurá-lo, raramente precisará abri-lo. Por causa disso, é importante adicionar uma exceção ao FMD de ser pausado, caso contrário, pode parar de funcionar em alguns meses.</string>
-    <string name="OpenCellId_tower_collector_download">Baixar o Tower Collector</string>
-    <string name="OpenCellId_tower_collector_info">Você pode contribuir ao OpenCelliD coletando e enviando informações de redes móveis. Você precisa de um app dedicado para isto. Um tal app é o Tower Collector.</string>
     <string name="crashed_open_issuetracker">Abrir o rastreador de problemas</string>
     <string name="transport_inapp_send_command_title">Enviar comando pelo app</string>
     <string name="transport_inapp_send_command_command_placeholder">Comando</string>
