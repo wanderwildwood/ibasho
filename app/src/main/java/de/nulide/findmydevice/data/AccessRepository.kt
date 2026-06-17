@@ -1,7 +1,9 @@
 package de.nulide.findmydevice.data
 
 import android.content.Context
+import android.database.sqlite.SQLiteDatabase
 import androidx.room.Room
+import androidx.sqlite.db.SimpleSQLiteQuery
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.commands.FmdPermission
 import de.nulide.findmydevice.database.ACCESS_DB_FILENAME
@@ -51,8 +53,9 @@ class AccessRepository private constructor(private val context: Context) {
      * See https://sqlite.org/wal.html.
      */
     fun forceWriteToDisk() {
-        db.openHelper.setWriteAheadLoggingEnabled(false)
-        db.openHelper.setWriteAheadLoggingEnabled(true)
+        db.query(SimpleSQLiteQuery("pragma wal_checkpoint(full)"))
+        closeDb()
+        openDb()
     }
 
     /*
