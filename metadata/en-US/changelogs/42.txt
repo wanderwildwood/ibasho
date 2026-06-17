@@ -1,0 +1,9 @@
+0.16.0:
+- Rework access control (#277):
+    - Ability to add multiple passwords, and separate for SMS and Notification Reply. Your FMD PIN is automatically migrated to the new format.
+    - Ability to define which commands a given phone number/password/server is allowed to execute.
+    - Show the phone numbers that are temporarily allowed via password access (#360).
+- Send Wi-Fi networks to BeaconDB (#406, #407).
+- Require device biometrics/pin/password before backup export (!484)
+- Return help when an unknown command is received (!486)
+- Bug fixes
