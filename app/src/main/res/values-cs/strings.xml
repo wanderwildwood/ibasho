@@ -312,4 +312,10 @@
     <string name="access_sms_password_expiry">Čas expirace</string>
     <string name="access_sms_password_granted_info">Přístup udělen! Nyní můžete používat FMD po dobu 10 minut bez zasílání hesla ve zprávách. Jakékoli nové heslo, které pošlete před vypršením vašeho aktuálního přístupu, bude ignorováno.</string>
     <string name="export_authenticate_title">Pro exportování zálohy se autentifikujte</string>
+    <string name="network_info_general">FMD může použít služby BeaconDB a OpenCelliD k získání přibližné polohy v závislosti na okolních mobilních věžích (obě) a sítích Wi-Fi (pouze BeaconDB). Pro každý dotaz na polohu je vyžadováno připojení k internetu.</string>
+    <string name="network_info_privacy">Soukromí: upozorňujeme, že BeaconDB a OpenCelliD zjistí vaší polohu s každým dotazem. Pro více informací si přečtěte jejich zásady ochrany osobních údajů.</string>
+    <string name="beacondb_open_website">Otevřít web BeaconDB</string>
+    <string name="network_crowdsourcing_description">Do BeaconDB a OpenCelliD můžete přispět sbíráním a nahráváním dat o mobilních věžích a sítích Wi-Fi. Více informací naleznete v dokumentaci.</string>
+    <string name="network_crowdsourcing_button">Otevřít dokumentaci</string>
+    <string name="opencellid_api_key_description">U OpenCelliD si musíte vytvořit účet na webu služby a získat vlastní přístupový token k API.</string>
 </resources>
