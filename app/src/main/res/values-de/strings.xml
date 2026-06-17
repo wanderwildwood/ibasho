@@ -326,4 +326,9 @@
     <string name="access_sms_password_expiry">Ablaufzeit</string>
     <string name="access_sms_password_granted_info">Zugang gewährt! Du kannst FMD nun 10 Minuten lang nutzen, ohne das Passwort in deinen Nachrichten einzufügen. Jedes neue Passwort, das du vor Ablauf des aktuellen Zugriffs sendest, wird ignoriert.</string>
     <string name="export_authenticate_title">Anmelden, um das Backup zu exportieren</string>
+    <string name="network_info_general">FMD kann die Dienste BeaconDB und OpenCelliD nutzen, um den Standort basierend auf den umliegenden Mobilfunkmasten (beide) und WLAN-Netzwerken (nur BeaconDB) zu schätzen. Für jede Standortabfrage ist eine Internetverbindung erforderlich.</string>
+    <string name="network_info_privacy">Datenschutz: Beachte, dass BeaconDB und OpenCelliD bei jeder Abfrage deinen Standort erhalten. Siehe ihre jeweiligen Datenschutzerklärungen.</string>
+    <string name="beacondb_open_website">BeaconDB-Webseite öffnen</string>
+    <string name="network_crowdsourcing_description">Du kannst zu BeaconDB und OpenCelliD beitragen, indem du Mobilfunk- und WLAN-Daten erfasst und hochlädst. Weitere Informationen findest du in der Dokumentation.</string>
+    <string name="network_crowdsourcing_button">Dokumentation öffnen</string>
 </resources>
