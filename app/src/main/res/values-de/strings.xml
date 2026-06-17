@@ -331,4 +331,5 @@
     <string name="beacondb_open_website">BeaconDB-Webseite öffnen</string>
     <string name="network_crowdsourcing_description">Du kannst zu BeaconDB und OpenCelliD beitragen, indem du Mobilfunk- und WLAN-Daten erfasst und hochlädst. Weitere Informationen findest du in der Dokumentation.</string>
     <string name="network_crowdsourcing_button">Dokumentation öffnen</string>
+    <string name="opencellid_api_key_description">Für OpenCelliD musst du ein Konto auf der OpenCelliD-Webseite erstellen und dir ein eigenes API-Access-Token holen.</string>
 </resources>
