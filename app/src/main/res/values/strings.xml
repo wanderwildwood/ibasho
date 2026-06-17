@@ -49,7 +49,7 @@
     <string name="Settings_About">About</string>
 
     <!-- Settings: General -->
-    <string name="Settings_FMDCommand_Description">The command used to communicate with the FMD.</string>
+    <string name="Settings_FMDCommand_Description">The command used to communicate with FMD.</string>
     <string name="Toast_Empty_FMDCommand">Empty command not allowed, using default.</string>
     <string name="Settings_Ringer_Tone_Description">Select a ringtone for the \"ring\" command.</string>
     <string name="Settings_Select_Ringtone">Select ringtone</string>
