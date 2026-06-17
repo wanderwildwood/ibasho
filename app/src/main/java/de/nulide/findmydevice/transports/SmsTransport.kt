@@ -24,7 +24,7 @@ import de.nulide.findmydevice.utils.normalizePhoneNumber
 class SmsTransport(
     private val context: Context,
     private val phoneNumber: String,
-    private val subscriptionId: Int
+    private val subscriptionId: Int,
 ) : Transport<String>(phoneNumber) {
 
     companion object {
@@ -101,22 +101,20 @@ class SmsTransport(
         if (parsed.passwordHash != null) {
             val smsPass = accessRepo.getSmsPassword(parsed.passwordHash)
             if (smsPass != null) {
+                context.log().i(TAG, "$phoneNumber used FMD via SMS password '${smsPass.label}'")
+
+                // Whatever the command is: add this phone number to the temporary list
+                accessRepo.insertTempPhoneNumber(phoneNumber, subscriptionId, smsPass)
+
+                send(context, context.getString(R.string.access_sms_password_granted_info))
+
+                TempContactExpiredService.scheduleJob(context, TEMP_USAGE_VALIDITY_MILLIS + 1000)
+
+                // Return based on whether this command is allowed
                 val hasPermission = smsPass.permission.hasPermission(parsed.command.permission)
-                if (hasPermission) {
-                    context.log()
-                        .i(TAG, "$phoneNumber used FMD via SMS password '${smsPass.label}'")
-
-                    accessRepo.insertTempPhoneNumber(phoneNumber, subscriptionId, smsPass)
-
-                    send(context, context.getString(R.string.access_sms_password_granted_info))
-
-                    TempContactExpiredService.scheduleJob(
-                        context,
-                        TEMP_USAGE_VALIDITY_MILLIS + 1000
-                    )
-
-                    return AccessResponse.ALLOWED
-                }
+                return if (hasPermission) AccessResponse.ALLOWED else AccessResponse.DENIED_EXISTS
+            } else {
+                context.log().i(TAG, "Received unknown SMS password")
             }
         }
 
