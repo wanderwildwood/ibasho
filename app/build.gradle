@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id "org.jetbrains.kotlin.plugin.compose"
     id 'com.mikepenz.aboutlibraries.plugin.android'
-    id "org.sonarqube" version "6.2.0.5505"
+    id "org.sonarqube" version "7.3.1.8318"
 
     // https://kotlinlang.org/docs/ksp-quickstart.html
     id 'com.google.devtools.ksp' version '2.3.6'
