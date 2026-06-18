@@ -142,19 +142,13 @@ public class MainActivity extends FmdActivity {
     }
 
     private final NavigationBarView.OnItemSelectedListener navListener = (item) -> {
-        switch (item.getItemId()) {
-            case R.id.nav_commands: {
-                activeFragment = commandsFragment;
-                break;
-            }
-            case R.id.nav_transports: {
-                activeFragment = transportFragment;
-                break;
-            }
-            case R.id.nav_settings: {
-                activeFragment = settingsFragment;
-                break;
-            }
+        int itemId = item.getItemId();
+        if (itemId == R.id.nav_commands) {
+            activeFragment = commandsFragment;
+        } else if (itemId == R.id.nav_transports) {
+            activeFragment = transportFragment;
+        } else if (itemId == R.id.nav_settings) {
+            activeFragment = settingsFragment;
         }
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, activeFragment)
