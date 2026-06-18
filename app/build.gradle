@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
     id "org.jetbrains.kotlin.plugin.compose"
     id 'com.mikepenz.aboutlibraries.plugin.android'
     id "org.sonarqube" version "6.2.0.5505"
@@ -53,13 +52,8 @@ android {
             // This is because minification may strip things that are not explicitly referenced
             // but are actually needed (e.g., objects being serialised by Gson).
             // https://stackoverflow.com/questions/35853593/minify-android-app-but-do-not-obfuscate-it
-            // minifyEnabled true
-            postprocessing {
-                removeUnusedCode true
-                removeUnusedResources true
-                optimizeCode true
-                obfuscate false
-            }
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {

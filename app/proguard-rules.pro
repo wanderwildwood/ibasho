@@ -19,3 +19,7 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# https://developer.android.com/topic/performance/app-optimization/global-options
+-dontobfuscate
+-dontrepackage
