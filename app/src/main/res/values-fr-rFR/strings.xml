@@ -208,7 +208,7 @@
     <string name="log_view_title">Journaux</string>
     <string name="log_view_clear">Supprimer les journaux</string>
     <string name="log_view_clear_confirm">Voulez-vous vraiment supprimer toutes les entrées des journaux ?</string>
-    <string name="cmd_locate_response_opencellid_failed">Impossible d’obtenir la localisation depuis OpenCelliD. Cela peut arriver si l’antenne-relai n’est pas dans la base de données.\n\nVeuillez essayez de suivre le lien suivant : %1$s\n\n%2$s</string>
+    <string name="cmd_locate_response_opencellid_failed">Impossible d’obtenir la localisation depuis OpenCelliD. Cela peut arriver si l’antenne relais n’est pas dans la base de données.\n\nVeuillez essayez de suivre le lien suivant : %1$s\n\n%2$s</string>
     <string name="cmd_locate_response_gps_fail">Impossible de récupérer une nouvelle localisation GPS. Peut-être à cause d’un délai d’expiration.</string>
     <string name="Notification_InApp_Description">Notifications intégrées à l’application</string>
     <string name="Settings_FMDServer_Logout_Text">Voulez-vous vraiment vous déconnecter de cotre compte Serveur FMD ?</string>
@@ -234,7 +234,7 @@
     <string name="cmd_ringermode_description_short">Changer le mode de sonnerie</string>
     <string name="cmd_ringermode_response_empty">Le mode de sonnerie actuelle est \"%s\".</string>
     <string name="cmd_ringermode_response">Le mode de sonnerie a été modifié de \"%1$s\" (ancien) vers \"%2$s\" (nouveau).</string>
-    <string name="cmd_locate_response_beacondb_failed">Erreur de récupération de la localisation depuis BeaconDB. Cela peut arriver si l\'antenne mobile n\'est pas dans la base de données.\n\n%s</string>
+    <string name="cmd_locate_response_beacondb_failed">Erreur de récupération de la localisation depuis BeaconDB. Cela peut arriver si l\'antenne relais n\'est pas dans la base de données.\n\n%s</string>
     <string name="cmd_ringermode_description_long">A noter que \"Silencieux\" active aussi le mode Ne Pas Déranger. C\'est un comportement normal, défini par Android.</string>
     <string name="server_connectivity_check_not_enabled_title">Activer la vérification de la connectivité du serveur</string>
     <string name="server_connectivity_check_not_enabled_text">FMD peut vérifier régulièrement si le serveur FMD est toujours joignable. Pour des raisons de clé privée, cela est désactivé par défaut. Pour des raisons de disponibilité, nous recommandons de l\'activer.</string>
@@ -312,4 +312,10 @@
     <string name="access_sms_password_expiry">Expiration</string>
     <string name="access_sms_password_granted_info">Accès autorisé ! Vous pouvez maintenant utiliser FMD pendant 10 minutes sans inclure le mot de passe dans vos messages. Tout nouveau mot de passe envoyé avant que votre accès actuel n\'expire sera ignoré.</string>
     <string name="export_authenticate_title">Authentifiez-vous pour exporter la sauvegarde</string>
+    <string name="network_info_general">FMD peut utiliser les services BeaconDB et OpenCelliD pour obtenir une estimation de localisation basée sur les antennes relais (pour les 2) et les réseaux Wi-Fi (pour BeaconDB). Une connexion internet est nécessaire pour chaque demande de localisation.</string>
+    <string name="network_crowdsourcing_button">Ouvrir la documentation</string>
+    <string name="opencellid_api_key_description">Pour OpenCelliD, vous devez créer un compte sur le site web d\'OpenCelliD et récupérer votre propre jeton d\'accès à l\'API.</string>
+    <string name="network_info_privacy">Vie privée : gardez en tête que BeaconDB et OpenCelliD obtienny votre localisation avec chaque requête. Veuillez vous référer à leur politique de vie privée pour plus de détails.</string>
+    <string name="beacondb_open_website">Ouvrir le site web de BeaconDB</string>
+    <string name="network_crowdsourcing_description">Vous pouvez contribuer à BeaconDB et OpenCelliD en collectant et téléversant les données des antennes relais et du Wi-Fi. Voir la documentation pour plus d\'informations.</string>
 </resources>
