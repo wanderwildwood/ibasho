@@ -36,8 +36,8 @@
     <string name="server_unregister_dont_continue">Não continuar</string>
     <string name="Notification_Usage">Uso</string>
     <string name="Notification_Usage_Description">Notificações de quando o FMD está recebendo comandos</string>
-    <string name="Pin_Usage">Uso do PIN</string>
-    <string name="Notification_Pin_Usage_Description">Notificações de quando o FMD é acessado pelo PIN</string>
+    <string name="Pin_Usage">Uso de senhas</string>
+    <string name="Notification_Pin_Usage_Description">Notificações de quando o FMD é acessado por uma senha</string>
     <string name="Notification_Server_Description">Notificações relacionadas ao FMD Server</string>
     <string name="Notification_Security">Segurança</string>
     <string name="Notification_Security_Description">Notificações sobre atualizações de segurança</string>
@@ -146,11 +146,11 @@
     <string name="transport_fmd_server_description">O FMD Server fornece uma interface web para controlar seu dispositivo, ver sua localização, e ver as imagens que mandou. Você pode auto-hospedar o FMD Server, ou usar o servidor fornecido. Os dados são armazenamentos com criptografia no servidor, protegidos pela sua senha.</string>
     <string name="cmd_lock_description_long">Bloqueie o dispositivo e opcionalmente mostre uma mensagem na tela de bloqueio. Após isso, o desbloqueio biométrico fica indisponível e a senha do seu dispositivo é necessária para desbloquear o dispositivo.</string>
     <string name="transport_sms_description">Envie comandos para o seu dispositivo via SMS. Ex: envie uma mensagem contendo \"%s help\" para o seu dispositivo. O FMD responderá com um SMS.</string>
-    <string name="transport_sms_description_auth">Somente números de telefone que estão na lista de permitidos podem enviar comandos. Para enviar comandos de um número de telefone que não está nela, você deve incluir o PIN: \"%s meuPIN help\". Para conveniência, para que você não precise digitar o PIN toda hora, este novo número de telefone será adicionado à uma lista de permitidos temporária pelos próximos 10 minutos.</string>
+    <string name="transport_sms_description_auth">Somente números de telefone que estão na lista de permitidos podem enviar comandos. Para enviar comandos de um número de telefone que não está nela, você deve configurar e incluir uma senha: \"%s minhaSenha help\". Para conveniência, para que você não precise digitar a senha toda hora, este novo número de telefone será adicionado à uma lista de permitidos temporária pelos próximos 10 minutos.</string>
     <string name="setup_warnings_title">Alertas de configuração</string>
     <string name="missing_permissions_title">Permissões ausentes</string>
-    <string name="transport_notification_reply_description">Você pode permitir que o FMD leia suas notificações para a escuta de comandos. O FMD pode responder via a função de responder notificações do Android. Isto permite que você controle o FMD usando um aplicativo de mensagens de sua escolha, contanto que ele envie notificações que podem ser respondidas. Ex: você pode enviar uma mensagem pelo Signal como \"%s meuPIN help\" para o seu dispositivo.</string>
-    <string name="transport_notification_reply_description_auth">Para controlar o FMD respondendo notificações, é necessário que o PIN do FMD esteja configurado. Cada mensagem deve conter o PIN correto.</string>
+    <string name="transport_notification_reply_description">Você pode permitir que o FMD leia suas notificações para a escuta de comandos. O FMD pode responder via a função de responder notificações do Android. Isto permite que você controle o FMD usando um aplicativo de mensagens de sua escolha, contanto que ele envie notificações que podem ser respondidas. Por exemplo, você pode enviar uma mensagem pelo Signal como \"%s minhaSenha help\" para o seu dispositivo.</string>
+    <string name="transport_notification_reply_description_auth">Para controlar o FMD respondendo notificações, é necessário que uma senha seja configurada. Cada mensagem deve conter a senha correto.</string>
     <string name="missing_permissions_description">As seguintes permissões são necessárias para o funcionamento do FMD.</string>
     <string name="WhiteList_no_contact_picker">Nenhum aplicativo selecionador de contato encontrado!</string>
     <string name="cmd_locate_response_opencellid_failed">Um erro ocorreu ao obter localização do OpenCelliD. Isto pode acontecer se a rede móvel não está no banco de dados.\n\nTente o seguinte link: %1$s\n\n%2$s</string>
@@ -189,7 +189,7 @@
     <string name="Settings_FMDServer_Delete_Account">Apagar conta</string>
     <string name="pw_change_network_failed">A alteração de senha falhou por causa de um erro de rede.</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">O nome de usuário e a senha não podem estar vazios.</string>
-    <string name="temporary_allowlist_expired">Seu acesso temporário ao FMD acabou. Para continuar usando o FMD, envie o PIN novamente.</string>
+    <string name="temporary_allowlist_expired">Seu acesso temporário ao FMD acabou. Para continuar usando o FMD, envie a senha novamente.</string>
     <string name="cmd_bluetooth_description_short">Habilitar o Bluetooth</string>
     <string name="cmd_bluetooth_response_no_bluetooth">O dispositivo não parece ter Bluetooth.</string>
     <string name="cmd_bluetooth_response_on">Bluetooth ativado.</string>
@@ -274,7 +274,7 @@
     <string name="export_password_message_empty_warning">Se você deixar a senha vazia, o backup não será criptografado. Há o risco de expor configurações sensíveis.</string>
     <string name="import_password_message">Digite a senha que foi usada para criptografar o backup.</string>
     <string name="import_success_message">As configurações foram importadas com sucesso.</string>
-    <string name="import_success_message_warning">CUIDADO: Valores sensíveis não são inclusos no arquivo de backup. Então, se você usa um dos seguintes recursos, configure-os manualmente novamente:\n\n1. Configure o PIN do FMD.\n2. Configure a senha de apagar.</string>
+    <string name="import_success_message_warning">CUIDADO: Valores sensíveis não são inclusos no arquivo de backup. Então, se você usa um dos seguintes recursos, configure-os manualmente novamente:\n\n1. Configure a senha de apagar.</string>
     <string name="import_failed_message">A importação falhou ou foi apenas parcialmente bem-sucedida. Confira os registros para mais detalhes.</string>
     <string name="push_registration_failed_title">Falha de cadastro no push</string>
     <string name="push_registration_upload_failed_text">A URL push não pôde ser enviada ao FMD Server. Então, você não poderá receber comandos pelo FMD Server. Para resolver isso, abra as configurações do FMD Server e clique em \"Cadastrar novamente\" para renovar o cadastro push manualmente.</string>
@@ -307,4 +307,15 @@
     <string name="access_add_password_label_message">Escolha um rótulo para que possa identificar a senha. A senha não será mostrada novamente depois de salvar essa entrada.</string>
     <string name="allowlist_delete_title_password">Apagar senha?</string>
     <string name="label">Rótulo</string>
+    <string name="access_permission_hint">Para cada entrada, você pode escolher quais comandos são permitidos. Por padrão, as entradas novas são restritas aos comandos mais básicos.</string>
+    <string name="network_info_general">O FMD pode usar os serviços do BeaconDB e do OpenCelliD para receber uma estimativa de localização baseado em torres móveis (ambos) e redes Wi-Fi (apenas BeaconDB) próximas. Uma conexão à internet é necessária para cada consulta de localização.</string>
+    <string name="network_info_privacy">Privacidade: Fique ciente que o BeaconDB e o OpenCelliD aprendem sua localização com cada consulta. Veja suas respectivas políticas de privacidade para mais detalhes.</string>
+    <string name="beacondb_open_website">Abrir site do BeaconDB</string>
+    <string name="network_crowdsourcing_description">Você pode contribuir para o BeaconDB e o OpenCelliD coletando e enviando dados de torres móveis e redes Wi-Fi. Veja a documentação para mais informações.</string>
+    <string name="network_crowdsourcing_button">Abrir documentação</string>
+    <string name="opencellid_api_key_description">Para o OpenCelliD, você precisa criar uma conta no site do OpenCelliD e obter seu próprio token de acesso à API.</string>
+    <string name="export_authenticate_title">Autentique-se para exportar o backup</string>
+    <string name="access_sms_password_used_by">Usado por</string>
+    <string name="access_sms_password_expiry">Tempo de validade</string>
+    <string name="access_sms_password_granted_info">Acesso concedido! Agora você pode usar o FMD por 10 minutos sem incluir a senha nas suas mensagens. Qualquer senha nova que mandar antes que seu acesso atual expire será ignorada.</string>
 </resources>
