@@ -312,4 +312,10 @@
     <string name="access_sms_password_granted_info">Toegang verleend! U kunt nu 10 minuten FMD gebruiken zonder het wachtwoord in uw berichten op te nemen. Elk nieuw wachtwoord dat u verzendt voordat uw huidige toegang afloopt, wordt genegeerd.</string>
     <string name="export_authenticate_title">Authenticeren om de back-up te exporteren</string>
     <string name="access_permission_hint">Voor elke invoer kunt u kiezen welke opdrachten zijn toegestaan. Standaard zijn nieuwe vermeldingen beperkt tot de meest elementaire opdrachten.</string>
+    <string name="network_info_general">FMD kan de BeaconDB- en OpenCelliD-services gebruiken om een locatieschatting te krijgen op basis van de omliggende zendmasten (beide) en Wi-Fi-netwerken (alleen BeaconDB). Voor elke locatieaanvraag is een internetverbinding vereist.</string>
+    <string name="network_info_privacy">Privacy: Houd er rekening mee dat BeaconDB en OpenCelliD bij elke aanvraag uw locatie leren kennen. Raadpleeg hun respectieve privacybeleid voor meer informatie.</string>
+    <string name="beacondb_open_website">BeaconDB website openen</string>
+    <string name="network_crowdsourcing_description">U kunt bijdragen aan BeaconDB en OpenCelliD door het verzamelen en uploaden van zendmast - en wifi-gegevens. Zie de documentatie voor meer informatie.</string>
+    <string name="network_crowdsourcing_button">Documentatie openen</string>
+    <string name="opencellid_api_key_description">Voor OpenCelliD moet u een account aanmaken op de OpenCelliD-website en uw eigen API Access Token krijgen.</string>
 </resources>
