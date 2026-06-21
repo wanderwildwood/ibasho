@@ -142,7 +142,7 @@
     <string name="Notification_Usage">Utilisation</string>
     <string name="Notification_Server_Description">Notifications liées au serveur FMD</string>
     <string name="transport_fmd_server_description_auth">Quiconque connaît votre nom d\'utilisateur et votre mot de passe peut se connecter au serveur FMD et contrôler votre appareil.</string>
-    <string name="transport_fmd_server_description">Le serveur FMD fournit une interface web pour contrôler votre appareil, voir son emplacement et afficher les images qu\'il a envoyées. Vous pouvez auto-héberger le serveur FMD ou utiliser l\'instance fournie. Les données sont cryptées sur le serveur, protégées par votre mot de passe.</string>
+    <string name="transport_fmd_server_description">Le serveur FMD fournit une interface web pour contrôler votre appareil, voir son emplacement et afficher les images qu\'il a envoyées. Vous pouvez auto-héberger le serveur FMD ou utiliser l\'instance fournie. Les données sont chiffrées sur le serveur, protégées par votre mot de passe.</string>
     <string name="transport_fmd_server_description_note">Le serveur FMD nécessite une connexion Internet. Il peut s\'agir d\'un réseau mobile (il faut donc déverrouiller la SIM) ou d\'une connexion Wi-Fi.</string>
     <string name="bottom_nav_transports">Voies de transmission</string>
     <string name="request_failed_exception">Erreur</string>
