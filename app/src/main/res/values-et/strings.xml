@@ -312,4 +312,10 @@
     <string name="allowlist_delete_title_password">Kas kustutad salasõna?</string>
     <string name="export_authenticate_title">Varukoopia eksportimiseks pead ennast tuvastama</string>
     <string name="access_permission_hint">Iga kirje kohta saad määrata lubatud käsud. Vaikimisi on uutel kirjetel lubatud vaid väga lihtsate käskude kasutamine.</string>
+    <string name="network_info_general">FMD asukoha tuvastamiseks kasutada BeaconDB ja OpenCelliD teenuseid. Esimesel juhul on kasutusel mobiilivõrk ja WiFi-võrgud ning teisel juhul vaid mobiilivõrk. Iga asukohatuvastuspäring eeldab internetiühenduse kasutamist.</string>
+    <string name="network_info_privacy">Privaatsus: Palun arvesta, et BeaconDB ja OpenCelliD saavad iga päringu puhul teada sinu asukoha. Täpsemat teavet leiad kummagi teenuse andmekaitsereeglitest.</string>
+    <string name="beacondb_open_website">Ava BeaconDB veebisait</string>
+    <string name="network_crowdsourcing_button">Ava dokumentatsioon</string>
+    <string name="opencellid_api_key_description">OpenCelliD teenuse jaoks pead nende veebisaidis lisama kasutajakonto ja looma seadistustest API kasutuseks vajaliku tunnusloa (API Access Token).</string>
+    <string name="network_crowdsourcing_description">Kogudes ja üles laadides mobiilimastide ja Wi-Fi andmeid võid osaleda BeaconDB ja OpenCelliD teenuste andmebaaside täiendamises. Lisateavet leiad kummagi teenuse dokumentatsioonist.</string>
 </resources>
