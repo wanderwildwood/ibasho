@@ -20,6 +20,7 @@ import java.util.LinkedList
 
 const val ALLOWLIST_FILENAME = "whitelist.json"
 
+@Keep
 data class Contact(
     val name: String,
     val number: String,
