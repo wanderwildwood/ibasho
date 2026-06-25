@@ -292,4 +292,8 @@
     <string name="allowlist_delete_message">Как только эта строка будет удалена, то он больше не сможет получать доступ к FMD. Вы можете добавить его позже, если измените своё решение.</string>
     <string name="cmd_missing_fmd_permissions">Невозможно выполнить команду \"%s\": Вам не разрешено исполнять эту команду.</string>
     <string name="cmd_missing_android_permissions">Невозможно выполнить команду \"%1$s\": Следующее разрешение(я) не выданы приложению FMD: %2$s.</string>
+    <string name="back">Назад</string>
+    <string name="access_tab_phone_number">Мобильные номера</string>
+    <string name="access_tab_sms_password">SMS пароли</string>
+    <string name="access_tab_notification_password">Пароли уведомлений</string>
 </resources>
