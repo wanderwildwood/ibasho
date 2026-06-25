@@ -93,6 +93,12 @@ class AccessRepository private constructor(private val context: Context) {
 
     suspend fun migratePhoneAllowListToDb(oldList: AllowlistModel) {
         for (old in oldList) {
+            // Due to https://gitlab.com/fmd-foss/fmd-android/-/work_items/426, the migration may
+            // have failed in 0.16.0, then the user added the number again, and then in 0.16.1
+            // this migration runs again. Skip these duplicate numbers.
+            if (getPhoneNumber(old.number) != null) {
+                continue
+            }
             val number = normalizePhoneNumber(context, old.number) ?: continue
             val new = PhoneNumber(0, old.name, number, FmdPermission.ALL)
             db.phoneNumberDao().insert(new)
