@@ -409,6 +409,14 @@ public class CypherUtils {
         return Base64.decode(toDecode, Base64.DEFAULT);
     }
 
+    public static String toHex(byte[] input) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b : input) {
+            sb.append(String.format("%02x", b));
+        }
+        return sb.toString();
+    }
+
     public static byte[] generateSecureRandom(int lengthInBytes) {
         SecureRandom random = new SecureRandom();
         byte[] randomBytes = new byte[lengthInBytes];

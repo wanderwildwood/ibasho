@@ -62,6 +62,7 @@
     <string name="Settings_FMD_Server_General">General</string>
     <string name="Settings_FMD_Server_Server_URL">Server URL:</string>
     <string name="Settings_FMD_Server_User_ID">Username:</string>
+    <string name="Settings_FMD_Server_Fingerprint">Key fingerprint:</string>
     <string name="Settings_FMD_Server_Connection_Status">Connection status:</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Success</string>
     <string name="Settings_FMDServer_Change_Password_Button">Change password</string>

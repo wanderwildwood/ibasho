@@ -1,6 +1,8 @@
 package de.nulide.findmydevice.data;
 
 import java.security.KeyPair;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 
 import de.nulide.findmydevice.utils.CypherUtils;
@@ -45,5 +47,15 @@ public class FmdKeyPair {
 
     public void setEncryptedPrivateKey(String encryptedPrivateKey) {
         this.encryptedPrivateKey = encryptedPrivateKey;
+    }
+
+    public String getFingerprint() {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(publicKey.getEncoded());
+            return CypherUtils.toHex(hash);
+        } catch (NoSuchAlgorithmException e) {
+            return null;
+        }
     }
 }

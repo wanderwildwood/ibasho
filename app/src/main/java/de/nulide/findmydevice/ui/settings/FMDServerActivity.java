@@ -39,6 +39,7 @@ import java.util.Objects;
 import de.nulide.findmydevice.R;
 import de.nulide.findmydevice.data.BackgroundLocationType;
 import de.nulide.findmydevice.data.EncryptedSettingsRepository;
+import de.nulide.findmydevice.data.FmdKeyPair;
 import de.nulide.findmydevice.data.Settings;
 import de.nulide.findmydevice.data.SettingsRepository;
 import de.nulide.findmydevice.net.FmdServerApiService;
@@ -95,9 +96,16 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         textViewServerUrl.setText((String) settings.get(Settings.SET_FMDSERVER_URL));
         textViewUserId.setText((String) settings.get(Settings.SET_FMDSERVER_ID));
 
+        TextView textViewFingerprint = findViewById(R.id.textViewFingerprint);
+        FmdKeyPair keyPair = settings.getKeys();
+        if (keyPair != null) {
+            textViewFingerprint.setText(keyPair.getFingerprint());
+        }
+
         findViewById(R.id.buttonOpenWebClient).setOnClickListener(this::onOpenWebClientClicked);
         findViewById(R.id.buttonCopyServerUrl).setOnClickListener(this::onCopyServerUrlClicked);
         findViewById(R.id.buttonCopyUserId).setOnClickListener(this::onCopyUserIdClicked);
+        findViewById(R.id.buttonCopyFingerprint).setOnClickListener(this::onCopyFingerprintClicked);
 
         findViewById(R.id.buttonChangePermissions).setOnClickListener(this::onChangePermissionsClicked);
         findViewById(R.id.buttonChangePassword).setOnClickListener(this::onChangePasswordClicked);
@@ -262,6 +270,16 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private void onCopyUserIdClicked(View view) {
         String label = getString(R.string.Settings_FMD_Server_User_ID).replace(":", "");
         String text = (String) settings.get(Settings.SET_FMDSERVER_ID);
+        Utils.copyToClipboard(this, label, text);
+    }
+
+    private void onCopyFingerprintClicked(View view) {
+        String label = getString(R.string.Settings_FMD_Server_Fingerprint).replace(":", "");
+        String text = "";
+        FmdKeyPair keyPair = settings.getKeys();
+        if (keyPair != null) {
+            text = keyPair.getFingerprint();
+        }
         Utils.copyToClipboard(this, label, text);
     }
 
