@@ -63,7 +63,7 @@ class CellLocationProvider<T>(
 
             // Still try WiFi networks
             WifiScan(context, { scanResults ->
-                queryBeaconDb(cellParas, scanResults)
+                queryBeaconDb(emptyList(), scanResults)
             }).startWifiScan()
             return
         }
@@ -128,6 +128,9 @@ class CellLocationProvider<T>(
     ) {
         context.log().d(TAG, "Querying BeaconDB")
 
+        // Use the most recent of the timestamps
+        val timeMillis = cellParas.maxOfOrNull { it.timeMillis } ?: System.currentTimeMillis()
+
         val beaconDbRepo = BeaconDbRepository.getInstance(context)
         beaconDbRepo.getCellLocation(
             cellParas,
@@ -141,8 +144,7 @@ class CellLocationProvider<T>(
                     accuracy = beaconDb.accuracy?.toFloat(),
                     provider = "BeaconDB",
                     batteryLevel = Utils.getBatteryLevel(context),
-                    // Use the most recent of the timestamps
-                    timeMillis = cellParas.maxOf { it.timeMillis },
+                    timeMillis = timeMillis,
                 )
 
                 val settings = SettingsRepository.getInstance(context)
