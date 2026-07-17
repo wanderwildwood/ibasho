@@ -1,6 +1,7 @@
 package de.nulide.findmydevice.ui.settings
 
 import android.app.Activity
+import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -235,6 +236,13 @@ class SettingsFragment : TaggedFragment() {
     }
 
     private fun authenticateForBackup(context: Context) {
+        val keyGuard = context.getSystemService(KeyguardManager::class.java)
+        if (!keyGuard.isDeviceSecure) {
+            // No secure lockscreen, proceed immediately
+            exportBackup()
+            return
+        }
+
         val title = context.getString(R.string.export_authenticate_title)
         val promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setAllowedAuthenticators(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
