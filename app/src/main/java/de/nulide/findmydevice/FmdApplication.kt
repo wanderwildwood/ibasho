@@ -14,6 +14,7 @@ import de.nulide.findmydevice.services.ServerConnectivityCheckService
 import de.nulide.findmydevice.services.ServerLocationUploadService
 import de.nulide.findmydevice.services.isRegisteredWithUnifiedPush
 import de.nulide.findmydevice.services.unregisterWithUnifiedPush
+import de.nulide.findmydevice.utils.NetworkUtils.isNetworkAvailable
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
 import de.nulide.findmydevice.warnings.notifyWarnUnifiedPushRequired
@@ -81,10 +82,15 @@ class FmdApplication : Application() {
             ServerConnectivityCheckService.scheduleJob(this)
 
             if (isRegisteredWithUnifiedPush(this)) {
-                // Re-register with the saved distributor, to keep the registration fresh.
-                // Doing this on each Application start is important, because e.g. UP library upgrades
-                // can reset internal state. A re-registration resolves this automatically.
-                UnifiedPush.register(this, INSTANCE_DEFAULT, null, null)
+                if (isNetworkAvailable(this)) {
+                    // Re-register with the saved distributor, to keep the registration fresh.
+                    // Doing this on each Application start is important, because e.g. UP library upgrades
+                    // can reset internal state. A re-registration resolves this automatically.
+                    this.log().i(TAG, "Renewing push registration")
+                    UnifiedPush.register(this, INSTANCE_DEFAULT, null, null)
+                } else {
+                    this.log().i(TAG, "Skipping push renewal (no network)")
+                }
             } else {
                 notifyWarnUnifiedPushRequired(this)
             }
