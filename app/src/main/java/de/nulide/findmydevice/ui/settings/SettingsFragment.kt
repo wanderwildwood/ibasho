@@ -5,6 +5,7 @@ import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -41,6 +42,7 @@ class SettingsFragment : TaggedFragment() {
     companion object {
         private const val EXPORT_REQ_CODE = 30
         private const val IMPORT_REQ_CODE = 40
+        private const val KEYGUARD_REQ_CODE = 50
 
         private const val TEMP_ZIP_NAME = "tmp_backup_import.zip"
 
@@ -136,6 +138,8 @@ class SettingsFragment : TaggedFragment() {
                     context.log().w(TAG, "Cannot export: URI is null!")
                 }
             }
+        } else if (requestCode == KEYGUARD_REQ_CODE && resultCode == Activity.RESULT_OK) {
+            exportBackup()
         }
     }
 
@@ -244,6 +248,15 @@ class SettingsFragment : TaggedFragment() {
         }
 
         val title = context.getString(R.string.export_authenticate_title)
+
+        // setAllowedAuthenticators() does not work on SDK <= 29
+        // https://developer.android.com/reference/androidx/biometric/BiometricPrompt.PromptInfo.Builder#setAllowedAuthenticators(int)
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.Q) {
+            val intent = keyGuard.createConfirmDeviceCredentialIntent(title, "")
+            startActivityForResult(intent, KEYGUARD_REQ_CODE)
+            return
+        }
+
         val promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setAllowedAuthenticators(BIOMETRIC_STRONG or DEVICE_CREDENTIAL)
             .setTitle(title)
