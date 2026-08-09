@@ -10,7 +10,6 @@ import org.bouncycastle.util.Arrays;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemWriter;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigInteger;
@@ -214,7 +213,7 @@ public class CypherUtils {
             cipher.init(Cipher.ENCRYPT_MODE, pub, OAEP_PARAMS); // XXX: should use WRAP_MODE
             byte[] sessionKeyPacket = cipher.doFinal(sessionKey);
 
-            return concatByteArrays(sessionKeyPacket, ivAndAesCiphertext);
+            return Arrays.concatenate(sessionKeyPacket, ivAndAesCiphertext);
         } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException |
                  BadPaddingException | IllegalBlockSizeException |
                  InvalidAlgorithmParameterException e) {
@@ -255,7 +254,7 @@ public class CypherUtils {
         byte[] aesPlaintextBytes = pem.getBytes(StandardCharsets.UTF_8);
         byte[] aesCiphertextBytes = encryptWithAes(aesPlaintextBytes, aesKey);
 
-        byte[] concat = concatByteArrays(result.params.getSalt(), aesCiphertextBytes);
+        byte[] concat = Arrays.concatenate(result.params.getSalt(), aesCiphertextBytes);
         return encodeBase64(concat);
     }
 
@@ -369,7 +368,7 @@ public class CypherUtils {
             cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, gcmSpec);
             byte[] ctBytes = cipher.doFinal(msgBytes);
 
-            return concatByteArrays(ivBytes, ctBytes);
+            return Arrays.concatenate(ivBytes, ctBytes);
 
         } catch (NoSuchAlgorithmException | NoSuchPaddingException |
                  InvalidKeyException | IllegalBlockSizeException | BadPaddingException |
@@ -410,7 +409,7 @@ public class CypherUtils {
     }
 
     public static String toHex(byte[] input) {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(input.length * 2);
         for (byte b : input) {
             sb.append(String.format("%02x", b));
         }
@@ -422,18 +421,6 @@ public class CypherUtils {
         byte[] randomBytes = new byte[lengthInBytes];
         random.nextBytes(randomBytes);
         return randomBytes;
-    }
-
-    public static byte[] concatByteArrays(byte[]... arrays) {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        for (byte[] array : arrays) {
-            try {
-                out.write(array);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return out.toByteArray();
     }
 
     public static class Argon2Result {
