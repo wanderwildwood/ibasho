@@ -318,4 +318,5 @@
     <string name="network_info_privacy">Vie privée : gardez en tête que BeaconDB et OpenCelliD obtienny votre localisation avec chaque requête. Veuillez vous référer à leur politique de vie privée pour plus de détails.</string>
     <string name="beacondb_open_website">Ouvrir le site web de BeaconDB</string>
     <string name="network_crowdsourcing_description">Vous pouvez contribuer à BeaconDB et OpenCelliD en collectant et téléversant les données des antennes relais et du Wi-Fi. Voir la documentation pour plus d\'informations.</string>
+    <string name="Settings_FMD_Server_Fingerprint">Empreinte de clé :</string>
 </resources>
