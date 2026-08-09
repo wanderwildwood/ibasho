@@ -89,7 +89,7 @@
     <string name="transport_inapp_description">Stuur opdrachten lokaal vanuit FMD naar je apparaat. Dit is handig voor het testen. FMD zal antwoorden met een melding.</string>
     <string name="transport_inapp_send_command_title">In-app-opdracht sturen</string>
     <string name="Notification_Usage_Description">Meldingen wanneer FMD opdrachten ontvangt</string>
-    <string name="crashed_text">MKZ is gecrasht! Hier is het logboek:</string>
+    <string name="crashed_text">FMD is gecrasht! Hier is het logboek:</string>
     <string name="crashed_open_issuetracker">Issue tracker openen</string>
     <string name="crashed_continue_without">Doorgaan zonder melding</string>
     <string name="loading">Laden…</string>
@@ -181,7 +181,7 @@
     <string name="transport_sms_title">SMS</string>
     <string name="transport_sms_description">Stuur opdrachten naar je apparaat via sms. Sms bijvoorbeeld \"%s help\" naar je apparaat en FMD zal reageren met een SMS.</string>
     <string name="transport_sms_description_auth">Alleen telefoonnummers die in de toegelaten lijst staan, kunnen opdrachten verzenden. Om opdrachten te verzenden vanaf een telefoonnummer dat niet in de allowlist staat, kunt u een wachtwoord definiëren en opnemen: \"%s mypassword help\". Voor het gemak, zodat u het wachtwoord niet elke keer opnieuw hoeft te typen, wordt dit nieuwe telefoonnummer toegevoegd aan een tijdelijke toegelaten lijst voor de komende 10 minuten.</string>
-    <string name="transport_notification_reply_description">U kunt FMD uw meldingen laten lezen om naar opdrachten te luisteren. FMD kan vervolgens antwoorden via de ingebouwde antwoordfunctie voor meldingen van Android. Hiermee kunt u MKZ bedienen met behulp van een berichtentoepassing naar keuze, zolang er meldingen worden geplaatst waarop kan worden gereageerd. U kunt bijvoorbeeld een signaalbericht \"%s mypassword help\" naar uw telefoon sturen.</string>
+    <string name="transport_notification_reply_description">U kunt FMD uw meldingen laten lezen om naar opdrachten te luisteren. FMD kan vervolgens antwoorden via de ingebouwde antwoordfunctie voor meldingen van Android. Hiermee kunt u FMD bedienen met behulp van een berichtentoepassing naar keuze, zolang er meldingen worden geplaatst waarop kan worden gereageerd. U kunt bijvoorbeeld een signaalbericht \"%s mypassword help\" naar uw telefoon sturen.</string>
     <string name="transport_notification_reply_description_auth">Voor het besturen van FMD via Antwoorden op meldingen moet en wachtwoord worden ingesteld. Elk bericht moet het juiste wachtwoord bevatten.</string>
     <string name="Notification_FAIL">Mislukkingen</string>
     <string name="transport_fmd_server_description">FMD Server biedt een webinterface om jouw apparaat te bedienen, de locatie te bekijken en de verzonden foto\'s te bekijken. Je kunt FMD Server zelf hosten of de standaardinstantie gebruiken. Gegevens worden versleuteld opgeslagen op de server, beveiligd met jouw wachtwoord.</string>
@@ -279,7 +279,7 @@
     <string name="push_registration_failed_title">Push-registratie mislukt</string>
     <string name="push_registration_upload_failed_text">De push-URL kon niet naar FMD Server worden verzonden. Daarom kunt u geen opdrachten ontvangen van FMD Server. Om dit op te lossen, opent u de instellingen van de FMD Server en klikt u op \"Opnieuw registreren\" om de push-registratie handmatig te verlengen.</string>
     <string name="multiple_unified_push_distributors_title">Meerdere UnifiedPush-distributeur-apps</string>
-    <string name="multiple_unified_push_distributors_description">U heeft meerdere UnifiedPush-distributeur-apps geïnstalleerd. Selecteer welke u voor MKZ wilt gebruiken.</string>
+    <string name="multiple_unified_push_distributors_description">U heeft meerdere UnifiedPush-distributeur-apps geïnstalleerd. Selecteer welke u voor FMD wilt gebruiken.</string>
     <string name="server_username">Gebruikersnaam</string>
     <string name="Settings_Debugging">Probleemoplossing</string>
     <string name="server_apparently_deleted_text">FMD kan niet inloggen op uw FMD Server-account \"%s\". Het lijkt erop dat het account van de server is verwijderd.</string>
@@ -318,4 +318,5 @@
     <string name="network_crowdsourcing_description">U kunt bijdragen aan BeaconDB en OpenCelliD door het verzamelen en uploaden van zendmast - en wifi-gegevens. Zie de documentatie voor meer informatie.</string>
     <string name="network_crowdsourcing_button">Documentatie openen</string>
     <string name="opencellid_api_key_description">Voor OpenCelliD moet u een account aanmaken op de OpenCelliD-website en uw eigen API Access Token krijgen.</string>
+    <string name="Settings_FMD_Server_Fingerprint">Sleutelvingerafdruk:</string>
 </resources>
