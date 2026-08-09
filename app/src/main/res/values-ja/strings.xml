@@ -39,7 +39,7 @@
     <string name="Enable">有効にする</string>
     <string name="Delete">削除</string>
     <string name="accept">承諾</string>
-    <string name="Cell">モバイル</string>
+    <string name="Cell">基地局</string>
     <string name="export_success">エクスポートしました</string>
     <string name="Settings_Import_Failed">インポートできませんでした</string>
     <string name="Settings_Settings">設定</string>
@@ -67,7 +67,7 @@
     <string name="cmd_help_description_short">ヘルプを表示</string>
     <string name="perm_notification_access_name">通知へのアクセス</string>
     <string name="perm_root_denied">Rootによるアクセスが拒否されました</string>
-    <string name="transport_sms_title">SMS物理学の</string>
+    <string name="transport_sms_title">SMS</string>
     <string name="Settings_Import_Success">インポートしました</string>
     <string name="optional_permissions_title">オプションの権限</string>
     <string name="request_failed_status_code">ステータスコード</string>
@@ -99,7 +99,7 @@
     <string name="request_failed_title">ネットワークのリクエストに失敗しました</string>
     <string name="Settings_FMDCommand_Description">FMDとの通信に使うコマンド。</string>
     <string name="Settings_FMDServer_Push_Description">FMDのサーバーから端末にコマンドを送信するには、UnifiedPushのディストリビューター用アプリが必要になります。</string>
-    <string name="Settings_FMDServer_Update_Interval_Title">バックグラウンドで位置情報をアップロードする際の時間間隔</string>
+    <string name="Settings_FMDServer_Update_Interval_Title">バックグラウンドで位置情報をアップロードする間隔</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMDが端末の位置情報をアップロードする時間（分）を設定。</string>
     <string name="pw_change_network_failed">ネットワークエラーのためパスワードを変更できませんでした。</string>
     <string name="server_connectivity_lost_title">FMDサーバーへの接続が切れました</string>
@@ -115,4 +115,11 @@
     <string name="appearance_language_choose">言語を選択</string>
     <string name="cmd_bluetooth_response_on">Bluetoothが有効になりました。</string>
     <string name="cmd_bluetooth_response_off">Bluetoothが無効になりました。</string>
+    <string name="perm_device_admin_name">デバイス管理</string>
+    <string name="bottom_nav_transports">通信手段</string>
+    <string name="network_info_general">FMDはBeaconDBおよびOpenCelliDサービスを使用して、周囲の基地局（両サービス）およびWi-Fiネットワーク（BeaconDBのみ）に基づいた位置推定を行うことができます。位置情報の照会には毎回インターネット接続が必要です。</string>
+    <string name="transport_inapp_send_command_title">このアプリ内でコマンドを送る</string>
+    <string name="transport_inapp_title">このアプリ内</string>
+    <string name="transport_inapp_description">FMDアプリからデバイスへローカルでコマンドを送信します。これはテストに便利です。FMDが通知で応答します。</string>
+    <string name="cmd_locate_description_long">1つ以上の位置情報プロバイダーを使用してデバイスの位置を特定します。GPSは最も精度が高いですが、常に利用できるとは限りません。「Fused」プロバイダーはAndroidによって定義されており、複数の情報源（主にWi-Fiや携帯電話基地局）を組み合わせて使用します。「基地局」プロバイダーは、公開されているOpenCelliDおよびBeaconDBサービスに問い合わせて、周辺の基地局位置情報を取得します。</string>
 </resources>
