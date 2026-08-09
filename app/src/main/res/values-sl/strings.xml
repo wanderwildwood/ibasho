@@ -318,4 +318,5 @@
     <string name="network_crowdsourcing_description">K bazam BeaconDB in OpenCelliD lahko prispevate z zbiranjem in nalaganjem podatkov o baznih postajah in Wi-Fi-jih. Za več informacij glejte dokumentacijo.</string>
     <string name="network_crowdsourcing_button">Odpri dokumentacijo</string>
     <string name="opencellid_api_key_description">Za OpenCelliD morate ustvariti račun na spletni strani OpenCelliD in pridobiti žeton za dostop do API-ja.</string>
+    <string name="Settings_FMD_Server_Fingerprint">Digitalni prstni odtis ključa:</string>
 </resources>
