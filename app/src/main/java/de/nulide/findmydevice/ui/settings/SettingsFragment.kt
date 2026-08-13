@@ -19,7 +19,6 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.mikepenz.aboutlibraries.LibsBuilder
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.SettingsRepository
 import de.nulide.findmydevice.ui.TaggedFragment
@@ -102,12 +101,7 @@ class SettingsFragment : TaggedFragment() {
             }
 
             7 -> settingIntent = Intent(context, LogViewActivity::class.java)
-            8 -> {
-                val activityTitle = getString(R.string.Settings_About)
-                settingIntent = LibsBuilder().withActivityTitle(activityTitle)
-                    .withListener(AboutLibsListener.listener).intent(context)
-            }
-
+            8 -> settingIntent = Intent(context, AboutActivity::class.java)
             9 -> settingIntent = Intent(context, DebuggingActivity::class.java)
         }
 
