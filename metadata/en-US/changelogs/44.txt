@@ -1,0 +1,7 @@
+0.16.2:
+- Fix About screen being blank in minified release builds.
+- Migrate About screen to Jetpack Compose.
+- Fix crash in 'locate cell' in airplane mode with Wi-Fi on (#430)
+- Fix settings export failing if no lockscreen is set (#435)
+- Fix settings export device auth not working on Android 10 (and earlier) (#437)
+- After reboots, only renew push registration if network available
