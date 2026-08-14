@@ -423,4 +423,7 @@
     <!-- Varia -->
     <string name="invalid_url">Invalid URL</string>
 
+    <!-- Image Description -->
+    <string name="img_desc_app_icon">App Icon</string>
+
 </resources>

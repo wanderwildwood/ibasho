@@ -64,7 +64,7 @@ class AboutActivity : ComponentActivity() {
                                         Image(
                                             drawable.toBitmap(config = Bitmap.Config.ARGB_8888)
                                                 .asImageBitmap(),
-                                            ""
+                                            getString(R.string.img_desc_app_icon)
                                         )
                                     },
                                     showSearch = false,
