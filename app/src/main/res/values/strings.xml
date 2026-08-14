@@ -228,8 +228,10 @@
 
     <!-- Settings: About -->
     <string name="about">About</string>
+    <string name="about_app_icon_description">App icon</string>
+    <string name="about_documentation">Documentation</string>
+    <string name="about_donate">Donate</string>
     <string name="about_source_code">Source code</string>
-    <string name="about_wiki">Wiki</string>
     <string name="app_description">FMD (Find My Device) allows you to remotely locate your device. You can communicate with FMD over SMS, instant messengers, or using FMD Server. Locate your device, make it ring, lock it, or wipe it - all from remote.</string>
 
     <!-- Crypto update boarding -->
@@ -422,8 +424,5 @@
 
     <!-- Varia -->
     <string name="invalid_url">Invalid URL</string>
-
-    <!-- Image Description -->
-    <string name="img_desc_app_icon">App Icon</string>
 
 </resources>
