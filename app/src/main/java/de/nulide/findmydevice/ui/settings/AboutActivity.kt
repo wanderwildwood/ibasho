@@ -1,9 +1,7 @@
 package de.nulide.findmydevice.ui.settings
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -14,13 +12,13 @@ import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
 import com.mikepenz.aboutlibraries.ui.compose.variant.LibrariesVariant
 import com.mikepenz.aboutlibraries.ui.compose.variant.LibraryBadges
 import de.nulide.findmydevice.R
+import de.nulide.findmydevice.ui.FmdActivity
 import de.nulide.findmydevice.ui.common.FmdTopAppBar
 import de.nulide.findmydevice.ui.theme.AppTheme
 
-class AboutActivity : ComponentActivity() {
+class AboutActivity : FmdActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             AppTheme {
                 Scaffold(
