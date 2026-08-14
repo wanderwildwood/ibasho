@@ -332,4 +332,7 @@
     <string name="network_crowdsourcing_button">Dokumentation öffnen</string>
     <string name="opencellid_api_key_description">Für OpenCelliD musst du ein Konto auf der OpenCelliD-Webseite erstellen und dir ein eigenes API-Access-Token holen.</string>
     <string name="Settings_FMD_Server_Fingerprint">Schlüsselfingerabdruck:</string>
+    <string name="about_app_icon_description">App-Icon</string>
+    <string name="about_documentation">Dokumentation</string>
+    <string name="about_donate">Spenden</string>
 </resources>
