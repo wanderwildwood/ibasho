@@ -37,10 +37,4 @@
         <item name="android:textSize">11sp</item>
     </style>
 
-    <!-- AboutLibraries requires Material3 with NoActionBar. -->
-    <style name="CustomAboutLibrariesStyle" parent="AppTheme">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
 </resources>
