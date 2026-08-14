@@ -49,7 +49,6 @@
     <string name="about_source_code">Izvorna koda</string>
     <string name="OpenCellId_test_opencellid">Preveri OpenCellID povezavo</string>
     <string name="OpenCellId_test_no_connection">Ni povezave</string>
-    <string name="about_wiki">Wiki</string>
     <string name="notify_crypto_update_title">Zahtevano dejanje</string>
     <string name="server_unregister_failed_title">Odjava spodletela</string>
     <string name="server_unregister_continue_anyway">Vseeno nadaljuj</string>

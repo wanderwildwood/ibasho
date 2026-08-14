@@ -77,7 +77,6 @@
     <string name="OpenCellId_test_opencellid">Test connessione OpenCelliD</string>
     <string name="about">Informazioni su</string>
     <string name="about_source_code">Codice sorgente</string>
-    <string name="about_wiki">Wiki</string>
     <string name="Settings_FMDServer_Info">Con il Server FMD è possibile inviare comandi con Internet, dal server all\'app. È anche possibile visualizzare la posizione del dispositivo su una mappa o visualizzare le immagini scattate dal dispositivo. Per le istruzioni di self-hosting, vedere il sito web.</string>
     <string name="request_failed_title">Richiesta di rete non riuscita</string>
     <string name="bottom_nav_commands">Comandi</string>

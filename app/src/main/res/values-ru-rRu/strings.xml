@@ -68,7 +68,6 @@
     <string name="OpenCellId_open_website">Открыть вебсайт OpenCelliD</string>
     <string name="OpenCellId_test_opencellid">Проверить соединение с OpenCelliD</string>
     <string name="about_source_code">Исходный код</string>
-    <string name="about_wiki">Вики</string>
     <string name="notify_crypto_update_title">Необходимо совершить действие</string>
     <string name="OpenCellId_test_no_connection">Нет подключения к сотовой вышке</string>
     <string name="about">О программе</string>

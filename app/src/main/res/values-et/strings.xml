@@ -99,7 +99,6 @@
     <string name="appearance_theme_dark">Tume kujundus</string>
     <string name="log_view_title">Logid</string>
     <string name="about">Rakenduse teave</string>
-    <string name="about_wiki">Viki</string>
     <string name="appearance_dynamic_colors">Dünaamilised värvid</string>
     <string name="log_view_export">Ekspordi logid</string>
     <string name="log_view_clear">Kustuta logid</string>

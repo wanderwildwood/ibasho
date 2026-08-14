@@ -46,7 +46,6 @@
     <string name="OpenCellId_open_website">Отвори ја страницата на OpenCelliD</string>
     <string name="OpenCellId_test_opencellid">Тестирај ја врската до OpenCelliD</string>
     <string name="OpenCellId_test_no_connection">Нема телефонска врска</string>
-    <string name="about_wiki">Вики</string>
     <string name="notify_crypto_update_text">Потребно е да ги промениш некои нагодувања за да продолжиш со користење на FMD. Кликни за да отвориш.</string>
     <string name="server_unregister_failed_title">Дерегистрирањето не успеа</string>
     <string name="server_unregister_continue_anyway">Сепак продолжи</string>

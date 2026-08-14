@@ -119,7 +119,6 @@
     <string name="appearance_theme_light">فاتح</string>
     <string name="appearance_theme_dark">داكن</string>
     <string name="Settings_Import_Failed">فشل الاستيراد</string>
-    <string name="about_wiki">ويكي</string>
     <string name="OpenCellId_test_no_connection">غياب الإتصال الخلوي</string>
     <string name="add">إضافة</string>
     <string name="cmd_camera_description_short">خذ صورة</string>

@@ -175,7 +175,6 @@
     <string name="appearance_theme_dark">Donker</string>
     <string name="log_view_title">Logboeken</string>
     <string name="log_view_export">Logboeken exporteren</string>
-    <string name="about_wiki">Wiki</string>
     <string name="server_unregister_continue_anyway">Toch doorgaan</string>
     <string name="perm_shizuku_failed">Toestemming via Shizuku mislukt</string>
     <string name="transport_sms_title">SMS</string>

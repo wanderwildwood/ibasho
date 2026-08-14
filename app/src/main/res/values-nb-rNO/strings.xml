@@ -33,7 +33,6 @@
     <string name="registration_token">Registreringssymbol</string>
     <string name="about">Om</string>
     <string name="about_source_code">Kildekode</string>
-    <string name="about_wiki">Wiki</string>
     <string name="notify_crypto_update_title">Handling kreves</string>
     <string name="OpenCellId_open_website">Åpne OpenCelliD-nettsiden</string>
     <string name="OpenCellId_test_opencellid">Test OpenCelliD-tilkobling</string>

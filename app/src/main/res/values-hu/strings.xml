@@ -184,7 +184,6 @@
     <string name="appearance_theme_dark">Sötét</string>
     <string name="appearance_dynamic_colors">Dinamikus színek</string>
     <string name="about_source_code">Forráskód</string>
-    <string name="about_wiki">Wiki</string>
     <string name="app_description">Az FMD (Find My Device) lehetővé teszi, hogy távolról meghatározd az eszközöd helyzetét. Az FMD-vel SMS-en, azonnali üzenetküldőkön, vagy egy FMD szerver használatával kommunikálhatsz. Határozd meg az eszköz helyzetét, csörgesd meg, zárd le, vagy töröld adataidat - mindezt távolról.</string>
     <string name="notify_crypto_update_text">Az FMD használatának folytatásával pár beállítást frissíteni kell. Kattints a megnyitáshoz.</string>
     <string name="server_unregister_failed_body">A fiók törlése nem sikerült a következő hiba miatt: {ERROR}\n\nTovább léphetsz, de lehet, hogy a fiókod nem lett törölve a szerverről. Ha folytatod, a fiókod törölve lesz az eszközről.</string>

@@ -56,7 +56,6 @@
     <!-- Settings: About -->
     <string name="about">Über</string>
     <string name="about_source_code">Quellcode</string>
-    <string name="about_wiki">Wiki</string>
     <!-- Crypto Update Boarding -->
     <string name="server_unregister_failed_title">Deregistrierung fehlgeschlagen</string>
     <string name="server_unregister_failed_body">Die Deregistrierung ist mit folgendem Fehler fehlgeschlagen: {ERROR} \n \nDu kannst trotzdem fortsetzen, aber es könnte sein, dass dein Konto nicht vom Server gelöscht wurde. Falls du fortsetzt, wird dein Konto lokal von diesem Gerät gelöscht.</string>

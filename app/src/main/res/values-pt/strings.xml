@@ -116,7 +116,6 @@
     <string name="log_view_clear_confirm">Quer mesmo apagar todos os elementos dos registos?</string>
     <string name="about">Sobre</string>
     <string name="about_source_code">Código-fonte</string>
-    <string name="about_wiki">Wiki</string>
     <string name="app_description">O FMD permite que localize o seu dispositivo remotamente. Pode comunicar com o FMD por SMS, mensageiros, ou usando o FMD Server. Localize o seu dispositivo, faça-o tocar, bloqueie-o, ou apague os dados dele - tudo remotamente.</string>
     <string name="notify_crypto_update_title">Ação necessária</string>
     <string name="notify_crypto_update_text">Precisará atualizar algumas configurações para continuar usando o FMD. Clique para abrir.</string>

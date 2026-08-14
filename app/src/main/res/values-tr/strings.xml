@@ -112,7 +112,6 @@
     <string name="log_view_clear_confirm">Gerçekten bütün günlük girdilerini silmek istiyor musunuz?</string>
     <string name="about">Hakkında</string>
     <string name="about_source_code">Kaynak Kodu</string>
-    <string name="about_wiki">Wiki</string>
     <string name="notify_crypto_update_title">Eylem gerekli</string>
     <string name="notify_crypto_update_text">FMD kullanmaya devam etmek için bazı ayarları güncellemeniz gerekli. Açmak için tıklayın.</string>
     <string name="server_unregister_failed_body">Kaydı geri almak şu hatayla başarısız oldu: {ERROR}\n\nYine de devam edebilirsiniz, ama hesabınız sunucudan silinmemiş olabilir. Eğer devam ederseniz, hesabınız yerel olarak bu cihazdan silinecektir.</string>

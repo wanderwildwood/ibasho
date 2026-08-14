@@ -84,7 +84,6 @@
     <string name="appearance_theme">Teema</string>
     <string name="appearance_theme_choose">Valitse teema</string>
     <string name="log_view_title">Lokit</string>
-    <string name="about_wiki">Wiki</string>
     <string name="server_login_attempts_title">Epäonnistuneita kirjautumisyrityksiä FMD-palvelimelle</string>
     <string name="server_registration_token_error">Verkkopyyntö epäonnistui tilakoodilla HTTP 401. Tämä voi tapahtua, jos palvelin tarvitsee rekisteröintitunnisteen ja syöttämäsi tunniste oli virheellinen.</string>
     <string name="server_login_attempts_text">Tilillesi \"%s\" on yritetty kirjautua. Useiden virheellisten salasanojen syöttämisen vuoksi tili on lukittu 10 minuutiksi.</string>

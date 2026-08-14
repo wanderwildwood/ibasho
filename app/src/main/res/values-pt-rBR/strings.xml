@@ -73,7 +73,6 @@
     <string name="Settings_FMD_Server_User_ID">Nome do usuário:</string>
     <string name="Settings_FMDServer_Alert_DeleteData_Desc">Isto apagará todos os seus dados do servidor! Você tem certeza?</string>
     <string name="about_source_code">Código-fonte</string>
-    <string name="about_wiki">Wiki</string>
     <string name="OpenCellId_test_opencellid">Testar conexão ao OpenCelliD</string>
     <string name="notify_crypto_update_title">Ação necessária</string>
     <string name="notify_crypto_update_text">Você precisará atualizar algumas configurações para continuar usando o FMD. Clique para abrir.</string>

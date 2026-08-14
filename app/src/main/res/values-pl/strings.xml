@@ -42,7 +42,6 @@
     <string name="allowlist_phone_number_name">Nazwa</string>
     <string name="allowlist_phone_number">Numer telefonu</string>
     <string name="about">O aplikacji</string>
-    <string name="about_wiki">Wiki</string>
     <string name="about_source_code">Kod źródłowy</string>
     <string name="notify_crypto_update_title">Wymagane działania</string>
     <string name="server_unregister_continue_anyway">Kontynuuj mimo to</string>

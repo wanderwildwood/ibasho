@@ -149,7 +149,6 @@
     <string name="log_view_export">Xuất nhật ký</string>
     <string name="about">Giới thiệu</string>
     <string name="about_source_code">Mã nguồn</string>
-    <string name="about_wiki">Wiki</string>
     <string name="server_unregister_failed_body">Hủy đăng ký không thành công với lỗi sau: {ERROR}\n\nBạn có thể tiếp tục nhưng tài khoản của bạn có thể chưa được xóa khỏi máy chủ. Nếu bạn tiếp tục, tài khoản của bạn sẽ bị xóa cục bộ khỏi thiết bị này.</string>
     <string name="server_unregister_dont_continue">Không tiếp tục</string>
     <string name="cmd_bluetooth_description_short">Bật và tắt Bluetooth</string>

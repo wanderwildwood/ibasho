@@ -62,7 +62,6 @@
     <string name="appearance_theme_light">ライト</string>
     <string name="log_view_clear">ログを消去</string>
     <string name="about">概要</string>
-    <string name="about_wiki">ウィキ</string>
     <string name="cmd_camera_description_short">画像を撮影</string>
     <string name="cmd_help_description_short">ヘルプを表示</string>
     <string name="perm_notification_access_name">通知へのアクセス</string>

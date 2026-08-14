@@ -132,7 +132,6 @@
     <string name="log_view_clear_confirm">எல்லா பதிவு உள்ளீடுகளையும் நீக்க விரும்புகிறீர்களா?</string>
     <string name="about">பற்றி</string>
     <string name="about_source_code">மூலக் குறியீடு</string>
-    <string name="about_wiki">விக்கி</string>
     <string name="server_unregister_continue_anyway">எப்படியும் தொடரவும்</string>
     <string name="server_unregister_dont_continue">தொடர வேண்டாம்</string>
     <string name="cmd_bluetooth_response_no_bluetooth">சாதனத்தில் ஊடலை இருப்பதாகத் தெரியவில்லை.</string>
