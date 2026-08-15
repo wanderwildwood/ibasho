@@ -72,7 +72,7 @@ interface FmdServerApiService {
     // fun logout(listener: Listener<Unit>, errorListener: ErrorListener)
 
     fun register(
-        requestedUsername: String,
+        username: String,
         password: String,
         registrationToken: String,
         listener: Listener<Unit>,

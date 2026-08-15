@@ -18,7 +18,6 @@ import de.nulide.findmydevice.utils.log
 import org.json.JSONException
 import org.json.JSONObject
 import java.security.KeyPair
-import java.util.Date
 
 data class FmdServerApiV1RepoSpec(
     val context: Context,
@@ -96,7 +95,7 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
      * This MUST be wrapped in a Thread() because it does password hashing.
      */
     override fun register(
-        requestedUsername: String,
+        username: String,
         password: String,
         registrationToken: String,
         listener: Listener<Unit>,
@@ -112,7 +111,7 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
             jsonObject.put("hashedPassword", hashedPW)
             jsonObject.put("pubkey", keys.base64PublicKey)
             jsonObject.put("privkey", keys.encryptedPrivateKey)
-            jsonObject.put("requestedUsername", requestedUsername)
+            jsonObject.put("requestedUsername", username)
             jsonObject.put("registrationToken", registrationToken)
         } catch (e: JSONException) {
             e.printStackTrace()
