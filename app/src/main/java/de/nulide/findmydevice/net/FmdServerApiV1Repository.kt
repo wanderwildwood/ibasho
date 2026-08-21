@@ -364,33 +364,42 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
         errorListener: ErrorListener,
     ) {
         loadBaseUrl()
-
-        getSalt(username, errorListener = errorListener, listener = { salt: String ->
-            val authPassword = CypherUtils.hashPasswordForLogin(password, salt)
-            getAccessToken(
-                username,
-                authPassword,
-                errorListener = errorListener,
-                listener = { accessToken: String ->
-                    encryptedSettingsRepo.setCachedAccessToken(accessToken)
-                    getPrivateKey(
-                        password,
-                        accessToken,
-                        errorListener = errorListener,
-                        listener = { keyPair: KeyPair ->
-                            // Security: don't store the private+public key PEM strings as received from the server.
-                            // Instead, decrypt and parse them to trusted, well-formed objects.
-                            // Then encode them again for storage.
-                            val fmdKeyPair = FmdKeyPair(keyPair, password)
-                            settingsRepo.apply {
-                                set(Settings.SET_FMDSERVER_ID, username)
-                                set(Settings.SET_FMD_CRYPT_HPW, authPassword)
-                                setKeys(fmdKeyPair)
-                            }
-                            listener.onResponse(Unit)
-                        })
-                })
+        getSalt(username, errorListener = errorListener, listener = { saltBase64 ->
+            loginWithSalt(username, password, saltBase64, listener, errorListener)
         })
+    }
+
+    internal fun loginWithSalt(
+        username: String,
+        password: String,
+        saltBase64: String,
+        listener: Listener<Unit>,
+        errorListener: ErrorListener,
+    ) {
+        val authPassword = CypherUtils.hashPasswordForLogin(password, saltBase64)
+        getAccessToken(
+            username,
+            authPassword,
+            errorListener = errorListener,
+            listener = { accessToken: String ->
+                encryptedSettingsRepo.setCachedAccessToken(accessToken)
+                getPrivateKey(
+                    password,
+                    accessToken,
+                    errorListener = errorListener,
+                    listener = { keyPair: KeyPair ->
+                        // Security: don't store the private+public key PEM strings as received from the server.
+                        // Instead, decrypt and parse them to trusted, well-formed objects.
+                        // Then encode them again for storage.
+                        val fmdKeyPair = FmdKeyPair(keyPair, password)
+                        settingsRepo.apply {
+                            set(Settings.SET_FMDSERVER_ID, username)
+                            set(Settings.SET_FMD_CRYPT_HPW, authPassword)
+                            setKeys(fmdKeyPair)
+                        }
+                        listener.onResponse(Unit)
+                    })
+            })
     }
 
     override fun unregister(
