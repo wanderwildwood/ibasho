@@ -318,4 +318,7 @@
     <string name="opencellid_api_key_description">OpenCelliD teenuse jaoks pead nende veebisaidis lisama kasutajakonto ja looma seadistustest API kasutuseks vajaliku tunnusloa (API Access Token).</string>
     <string name="network_crowdsourcing_description">Kogudes ja üles laadides mobiilimastide ja Wi-Fi andmeid võid osaleda BeaconDB ja OpenCelliD teenuste andmebaaside täiendamises. Lisateavet leiad kummagi teenuse dokumentatsioonist.</string>
     <string name="Settings_FMD_Server_Fingerprint">Võtme sõrmejälg:</string>
+    <string name="about_app_icon_description">Rakenduse ikoon</string>
+    <string name="about_documentation">Dokumentatsioon</string>
+    <string name="about_donate">Toeta meid rahaliselt</string>
 </resources>
