@@ -318,4 +318,7 @@
     <string name="cmd_bluetooth_response_is_on">蓝牙已开启。</string>
     <string name="cmd_bluetooth_response_is_off">蓝牙已关闭。</string>
     <string name="access_sms_password_used_by">最后使用号码</string>
+    <string name="about_app_icon_description">应用图标</string>
+    <string name="about_documentation">文档</string>
+    <string name="about_donate">赞助</string>
 </resources>
