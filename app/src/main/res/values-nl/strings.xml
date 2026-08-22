@@ -318,4 +318,7 @@
     <string name="network_crowdsourcing_button">Documentatie openen</string>
     <string name="opencellid_api_key_description">Voor OpenCelliD moet u een account aanmaken op de OpenCelliD-website en uw eigen API Access Token krijgen.</string>
     <string name="Settings_FMD_Server_Fingerprint">Sleutelvingerafdruk:</string>
+    <string name="about_app_icon_description">App-pictogram</string>
+    <string name="about_documentation">Documentatie</string>
+    <string name="about_donate">Doneren</string>
 </resources>
