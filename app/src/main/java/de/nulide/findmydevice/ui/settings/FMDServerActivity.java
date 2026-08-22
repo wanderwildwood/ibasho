@@ -97,7 +97,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         textViewUserId.setText((String) settings.get(Settings.SET_FMDSERVER_ID));
 
         TextView textViewFingerprint = findViewById(R.id.textViewFingerprint);
-        FmdKeyPair keyPair = settings.getKeys();
+        FmdKeyPair keyPair = settings.getKeysV1();
         if (keyPair != null) {
             textViewFingerprint.setText(keyPair.getFingerprint());
         }
@@ -276,7 +276,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private void onCopyFingerprintClicked(View view) {
         String label = getString(R.string.Settings_FMD_Server_Fingerprint).replace(":", "");
         String text = "";
-        FmdKeyPair keyPair = settings.getKeys();
+        FmdKeyPair keyPair = settings.getKeysV1();
         if (keyPair != null) {
             text = keyPair.getFingerprint();
         }

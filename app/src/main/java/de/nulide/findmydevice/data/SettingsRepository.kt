@@ -224,7 +224,7 @@ class SettingsRepository private constructor(private val context: Context) {
         set(Settings.SET_FMD_CRYPT_PUBKEY, CypherUtils.encodeBase64(keys.publicKey.encoded))
     }
 
-    fun getKeys(): FmdKeyPair? {
+    fun getKeysV1(): FmdKeyPair? {
         if (get(Settings.SET_FMD_CRYPT_PUBKEY) == "") {
             return null
         }

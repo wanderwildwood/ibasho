@@ -613,7 +613,7 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
     override fun sendPicture(
         picture: FmdPicture,
     ) {
-        val publicKey = settingsRepo.getKeys()?.publicKey
+        val publicKey = settingsRepo.getKeysV1()?.publicKey
         if (publicKey == null) {
             context.log().e(TAG, "Public key was null")
             return
@@ -663,7 +663,7 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
      */
     override fun sendLocation(location: FmdLocation) {
         // Prepare payload
-        val publicKey = settingsRepo.getKeys()?.publicKey
+        val publicKey = settingsRepo.getKeysV1()?.publicKey
         if (publicKey == null) {
             context.log().e(TAG, "Public key was null")
             return
