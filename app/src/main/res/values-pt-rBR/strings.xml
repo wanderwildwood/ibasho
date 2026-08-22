@@ -318,4 +318,7 @@
     <string name="access_sms_password_expiry">Tempo de validade</string>
     <string name="access_sms_password_granted_info">Acesso concedido! Agora você pode usar o FMD por 10 minutos sem incluir a senha nas suas mensagens. Qualquer senha nova que mandar antes que seu acesso atual expire será ignorada.</string>
     <string name="Settings_FMD_Server_Fingerprint">Biometria da chave:</string>
+    <string name="about_app_icon_description">Ícone do app</string>
+    <string name="about_documentation">Documentação</string>
+    <string name="about_donate">Doar</string>
 </resources>
