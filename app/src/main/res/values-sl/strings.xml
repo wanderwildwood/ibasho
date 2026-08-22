@@ -318,4 +318,7 @@
     <string name="network_crowdsourcing_button">Odpri dokumentacijo</string>
     <string name="opencellid_api_key_description">Za OpenCelliD morate ustvariti račun na spletni strani OpenCelliD in pridobiti žeton za dostop do API-ja.</string>
     <string name="Settings_FMD_Server_Fingerprint">Digitalni prstni odtis ključa:</string>
+    <string name="about_app_icon_description">Ikona aplikacije</string>
+    <string name="about_documentation">Dokumentacija</string>
+    <string name="about_donate">Doniraj</string>
 </resources>
