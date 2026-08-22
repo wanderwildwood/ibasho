@@ -318,4 +318,7 @@
     <string name="network_crowdsourcing_button">Открыть документацию</string>
     <string name="opencellid_api_key_description">Для OpenCelliD вам нужно создать учётную запись на сайте OpenCelliD и получить свой API Access Token.</string>
     <string name="export_authenticate_title">Авторизоваться чтобы экспортировать резервную копию</string>
+    <string name="about_app_icon_description">Иконка приложения</string>
+    <string name="about_documentation">Документация</string>
+    <string name="about_donate">Пожертвовать</string>
 </resources>
