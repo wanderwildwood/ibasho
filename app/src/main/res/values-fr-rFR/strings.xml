@@ -318,4 +318,7 @@
     <string name="beacondb_open_website">Ouvrir le site web de BeaconDB</string>
     <string name="network_crowdsourcing_description">Vous pouvez contribuer à BeaconDB et OpenCelliD en collectant et téléversant les données des antennes relais et du Wi-Fi. Voir la documentation pour plus d\'informations.</string>
     <string name="Settings_FMD_Server_Fingerprint">Empreinte de clé :</string>
+    <string name="about_app_icon_description">Icône d\'appli</string>
+    <string name="about_documentation">Documentation</string>
+    <string name="about_donate">Faire un don</string>
 </resources>
