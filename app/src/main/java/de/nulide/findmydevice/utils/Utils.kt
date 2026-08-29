@@ -11,6 +11,9 @@ import android.util.Base64
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import de.nulide.findmydevice.R
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 
 class Utils {
 
@@ -69,5 +72,16 @@ fun String.decodeBase64(): ByteArray {
 
 fun ByteArray.encodeBase64(): String {
     return Base64.encodeToString(this, Base64.DEFAULT or Base64.NO_WRAP)
+}
+
+fun Long.toIsoDateTimeString(): String {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        Instant.ofEpochMilli(this)
+            .atZone(ZoneId.systemDefault())
+            .toLocalDateTime()
+            .format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)
+    } else {
+        this.toString()
+    }
 }
 

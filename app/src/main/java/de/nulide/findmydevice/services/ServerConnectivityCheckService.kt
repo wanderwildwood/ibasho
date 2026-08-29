@@ -5,7 +5,6 @@ import android.app.job.JobParameters
 import android.app.job.JobScheduler
 import android.content.ComponentName
 import android.content.Context
-import android.os.Build
 import de.nulide.findmydevice.R
 import de.nulide.findmydevice.data.Settings
 import de.nulide.findmydevice.data.Settings.SET_FMDSERVER_ID
@@ -14,9 +13,7 @@ import de.nulide.findmydevice.net.FmdServerRepository
 import de.nulide.findmydevice.ui.settings.FMDServerActivity
 import de.nulide.findmydevice.utils.Notifications
 import de.nulide.findmydevice.utils.log
-import java.time.Instant
-import java.time.ZoneId
-import java.time.format.DateTimeFormatter
+import de.nulide.findmydevice.utils.toIsoDateTimeString
 
 
 /**
@@ -137,15 +134,6 @@ class ServerConnectivityCheckService : FmdJobService() {
 
                 // Notify the user if the last successful connection is too long ago
                 if (lastSuccessMillis + notifyAfterMillis < now) {
-                    val lastSuccessString = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        Instant.ofEpochMilli(lastSuccessMillis)
-                            .atZone(ZoneId.systemDefault())
-                            .toLocalDateTime()
-                            .format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)
-                    } else {
-                        lastSuccessMillis.toString()
-                    }
-
                     val baseUrl = settings.get(Settings.SET_FMDSERVER_URL) as String
                     Notifications.notify(
                         context,
@@ -153,7 +141,7 @@ class ServerConnectivityCheckService : FmdJobService() {
                         context.getString(
                             R.string.server_connectivity_lost_text,
                             baseUrl,
-                            lastSuccessString
+                            lastSuccessMillis.toIsoDateTimeString()
                         ),
                         Notifications.CHANNEL_FAILED
                     )
