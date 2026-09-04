@@ -24,7 +24,7 @@ class CommandParserTest {
         val parser = CommandParser("fmd", helpCommand, availableCommands(appContext), { it })
         val actual = parser.parse("")
 
-        assertTrue(actual is ParserResult.Empty)
+        assertTrue(actual is ParserResult.EmptyInvalid)
     }
 
     @Test

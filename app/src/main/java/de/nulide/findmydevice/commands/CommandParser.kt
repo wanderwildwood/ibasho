@@ -16,7 +16,7 @@ sealed class ParserResult {
 
     // For invalid syntax
 
-    object Empty : ParserResult()
+    object EmptyInvalid : ParserResult()
 
     data class TriggerWordMismatch(
         val actual: String,
@@ -40,7 +40,7 @@ class CommandParser(
         val iter = tokens.iterator()
 
         if (!iter.hasNext()) {
-            return ParserResult.Empty
+            return ParserResult.EmptyInvalid
         }
         val firstToken = iter.next()
 
@@ -60,6 +60,13 @@ class CommandParser(
             )
         }
         val secondToken = iter.next()
+
+        // Catch "help loop": https://gitlab.com/fmd-foss/fmd-android/-/work_items/442
+        // Only check the keyword (not the usage) because the special characters may confuse it.
+        val commandMatches = availableCommands.count { raw.contains(it.keyword) }
+        if (commandMatches >= 3) {
+            return ParserResult.EmptyInvalid
+        }
 
         // Check if correct PIN is present.
         val matchesKnownCommand = availableCommands.any {

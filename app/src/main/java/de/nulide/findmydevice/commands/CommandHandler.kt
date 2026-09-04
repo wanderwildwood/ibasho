@@ -117,8 +117,8 @@ class CommandHandler<T>
                 // Cleanup should be run by the handler above
             }
 
-            is ParserResult.Empty -> {
-                context.log().w(TAG, "Cannot handle: args is empty.")
+            is ParserResult.EmptyInvalid -> {
+                context.log().w(TAG, "Cannot handle: args are empty or invalid.")
             }
 
             is ParserResult.TriggerWordMismatch -> {
