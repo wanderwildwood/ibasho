@@ -257,6 +257,11 @@
     <string name="cmd_bluetooth_response_is_on">Bluetooth is on.</string>
     <string name="cmd_bluetooth_response_is_off">Bluetooth is off.</string>
 
+    <string name="cmd_bluetoothscan_description_short">Scan for Bluetooth devices</string>
+    <string name="cmd_bluetoothscan_description_long">Get a list of Bluetooth devices that are currently nearby.</string>
+    <string name="cmd_bluetoothscan_response">Nearby Bluetooth devices:\n\n%1$s</string>
+    <string name="cmd_bluetoothscan_response_item">Name: %1$s\nAddress: %2$s</string>
+
     <string name="cmd_camera_description_short">Take a picture</string>
     <string name="cmd_camera_description_long">Takes a picture of with the front/back camera and uploads it to FMD Server. Currently only uploading to FMD Server is supported. You can send this command via other transport channels, too, and the picture will be uploaded to FMD Server (if an account exists).</string>
     <string name="cmd_camera_response_no_fmd_server">Cannot take picture: no FMD Server account exists.</string>
@@ -318,6 +323,7 @@
     <!-- Permissions: Names -->
     <string name="perm_battery_optimizations_name">Ignore battery optimizations</string>
     <string name="perm_bluetooth_connect_name">Connect Bluetooth</string>
+    <string name="perm_bluetooth_scan_name">Scan Bluetooth</string>
     <string name="perm_camera_name">Camera</string>
     <string name="perm_device_admin_name">Device admin</string>
     <string name="perm_do_not_disturb_access_name">Do Not Disturb access</string>

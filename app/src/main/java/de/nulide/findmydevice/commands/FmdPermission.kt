@@ -22,6 +22,7 @@ enum class FmdPermission(val bit: Long) {
     RING(1L shl 9),
     RINGER_MODE(1L shl 10),
     STATS(1L shl 11),
+    BLUETOOTH_SCAN(1L shl 12),
     ;
 
     companion object {
