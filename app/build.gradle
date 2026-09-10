@@ -123,6 +123,9 @@ configurations.configureEach {
 }
 
 dependencies {
+    // Mudita's E Ink component library, which themes the Compose half of this app
+    implementation 'com.mudita:MMD:1.0.2'
+
     // AndroidX
     implementation 'androidx.activity:activity-compose:1.13.0'
     implementation 'androidx.activity:activity-ktx:1.13.0'
