@@ -1,0 +1,21 @@
+package com.wanderwildwood.ibasho.data
+
+import android.content.Context
+import com.wanderwildwood.ibasho.utils.SingletonHolder
+
+
+// Only store the registration tokens in the dev flavor
+class RegistrationTokenRepository private constructor(private val context: Context) {
+
+    companion object :
+        SingletonHolder<RegistrationTokenRepository, Context>(::RegistrationTokenRepository) {}
+
+    fun get(serverUrl: String): String {
+        // noop
+        return ""
+    }
+
+    fun set(serverUrl: String, token: String) {
+        // noop
+    }
+}

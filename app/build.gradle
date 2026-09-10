@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id "org.jetbrains.kotlin.plugin.compose"
     id 'com.mikepenz.aboutlibraries.plugin.android'
-    id "org.sonarqube" version "7.3.1.8318"
 
     // https://kotlinlang.org/docs/ksp-quickstart.html
     id 'com.google.devtools.ksp' version '2.3.6'
@@ -12,7 +11,7 @@ plugins {
 
 android {
     compileSdk 37
-    namespace 'de.nulide.findmydevice'
+    namespace 'com.wanderwildwood.ibasho'
     packagingOptions {
         resources {
             excludes += ['META-INF/LICENSE.md', 'META-INF/NOTICE.md', 'META-INF/versions/9/OSGI-INF/MANIFEST.MF']
@@ -30,7 +29,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "de.nulide.findmydevice"
+        applicationId "com.wanderwildwood.ibasho"
         minSdkVersion 24
         // TODO: raise targetSdk again.
         // We supported targetSdk 34 until BluetoothCommand was added, which requires max 32 to work:
@@ -43,6 +42,12 @@ android {
         versionName "0.16.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Upstream carried three release channels; this fork has one.
+        // The server URL is deliberately empty: a self-hosted app should not
+        // point its users at somebody else's server by default.
+        buildConfigField "String", "DEFAULT_FMD_COMMAND", "\"fmd\""
+        buildConfigField "String", "DEFAULT_FMD_SERVER_URL", "\"\""
     }
 
     buildTypes {
@@ -58,27 +63,6 @@ android {
         debug {
             // don't minify (for faster builds)
             minifyEnabled false
-        }
-    }
-
-    flavorDimensions "default"
-    productFlavors {
-        prod {
-            dimension "default"
-            buildConfigField "String", "DEFAULT_FMD_COMMAND", "\"fmd\""
-            buildConfigField "String", "DEFAULT_FMD_SERVER_URL", "\"https://server.fmd-foss.org\""
-        }
-        edge {
-            dimension "default"
-            applicationIdSuffix ".edge"
-            buildConfigField "String", "DEFAULT_FMD_COMMAND", "\"fmde\""
-            buildConfigField "String", "DEFAULT_FMD_SERVER_URL", "\"https://server-edge.fmd-foss.org\""
-        }
-        dev {
-            dimension "default"
-            applicationIdSuffix ".dev"
-            buildConfigField "String", "DEFAULT_FMD_COMMAND", "\"fmdev\""
-            buildConfigField "String", "DEFAULT_FMD_SERVER_URL", "\"https://server-edge.fmd-foss.org\""
         }
     }
 
@@ -193,16 +177,3 @@ room {
     schemaDirectory "$projectDir/schemas"
 }
 
-sonar {
-    androidVariant "devDebug"
-    properties {
-        property "sonar.projectName", "FMD Android" // defaults to "app" (from Gradle)
-        property "sonar.projectKey", "fmd-foss_fmd-android"
-        property "sonar.organization", "fmd-foss"
-
-        // https://gitlab.com/fmd-foss/fmd-android/-/jobs/10666336525
-        // https://community.sonarsource.com/t/execution-failed-for-task-sonar/136857
-        // https://community.sonarsource.com/t/resolved-gradle-plugin-6-0-0-5145-error/132507
-        property "sonar.scanner.skipJreProvisioning", true
-    }
-}
