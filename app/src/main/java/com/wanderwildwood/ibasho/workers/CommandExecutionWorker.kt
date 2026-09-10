@@ -144,10 +144,11 @@ class CommandExecutionWorker(
 
         val notificationId = Random.nextInt(100_000)
 
-        val type = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            // TODO: Can we already distinguish here which type of service we will need?
-            ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION or ServiceInfo.FOREGROUND_SERVICE_TYPE_CAMERA
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        // Location only. Upstream asked for location|camera here; this app has no
+        // camera command and its manifest declares location alone, and Android
+        // enforces that the requested types are a subset of the declared ones --
+        // asking for camera crashes the process the moment a command runs.
+        val type = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION
         } else {
             0
