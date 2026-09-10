@@ -41,7 +41,6 @@
     <string name="allowlist_add_phone_number">Lisa telefoninumber</string>
     <string name="perm_write_secure_settings_name">Turvaseadistuste salvestamine</string>
     <string name="crashed_open_issuetracker">Ava veahaldus</string>
-    <string name="Settings_FMDServer_use_default_server">Kasuta avalikku serverit</string>
     <string name="Settings_FMDServer_Push_Register_Again">Registreeri uuesti</string>
     <string name="appearance_theme_light">Hele kujundus</string>
     <string name="server_version">Serveri versioon</string>

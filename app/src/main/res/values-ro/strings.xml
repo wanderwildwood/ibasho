@@ -78,7 +78,6 @@
     <string name="Settings_FMDServer_AddAccount">Server FMD: Autentificare</string>
     <string name="Settings_FMDServer_Info">Cu serverul FMD poți trimite comenzi prin internet, de la server către aplicație. De asemenea, poți vizualiza locația dispozitivului pe hartă sau poze realizate de dispozitiv. Pentru instrucțiuni de auto-găzduire, vezi site-ul web.</string>
     <string name="Settings_FMDServer_open_website">Deschide site-ul serverului FMD</string>
-    <string name="Settings_FMDServer_use_default_server">Folosește serverul public Nulide</string>
     <string name="Settings_FMDServer_Server_Url">URL server</string>
     <string name="Settings_FMDServer_Login">Autentificare</string>
     <string name="Settings_FMDServer_Register">Înregistrare</string>

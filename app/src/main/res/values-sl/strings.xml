@@ -27,7 +27,6 @@
     <string name="server_version_error">Napaka pri pridobivanju različice strežnika</string>
     <string name="Settings_FMDServer_AddAccount">FMD strežnik: Prijava</string>
     <string name="Settings_FMDServer_open_website">Odpri spletno stran FMD strežnika</string>
-    <string name="Settings_FMDServer_use_default_server">Uporabi javni strežnik</string>
     <string name="Settings_FMDServer_Login">Prijava</string>
     <string name="Settings_FMDServer_Register">Registracija</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Politika zasebnosti</string>

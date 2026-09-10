@@ -52,7 +52,6 @@
     <string name="Notification_Fail_Description">Notifications en cas d\'échec, comme la connexion au serveur FMD</string>
     <string name="notify_crypto_update_title">Action requise</string>
     <string name="Settings_FMD_Server_User_ID">Nom d\'utilisateur :</string>
-    <string name="Settings_FMDServer_use_default_server">Utiliser le serveur public</string>
     <string name="copied">Copié</string>
     <string name="Settings_Logs">Journaux</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Intervalle d’envoi de localisation en arrière-plan</string>

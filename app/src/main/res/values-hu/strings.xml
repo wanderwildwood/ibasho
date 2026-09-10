@@ -130,7 +130,6 @@
     <string name="server_apparently_deleted_text">Az FMD nem tud bejelentkezni a(z) \"%s\" fiókodba az FMD szerveren. Úgy tűnik, hogy a fiók törölve lett a szerverről.</string>
     <string name="Settings_FMDServer_Info">Az FMD szerver segítségével parancsokat küldhetsz az interneten keresztül, a szerverről ennek az alkalmazásban. Megnézheted az eszköz helyzetét térképen, és az eszköz által készített képeket is megtekintheted. Ha saját magad szeretnéd futtatni a szervert, az instrukciókat megtalálod a weboldalon.</string>
     <string name="Settings_FMDServer_open_website">Az FMD szerver weboldal megnyitása</string>
-    <string name="Settings_FMDServer_use_default_server">A nyilvános szerver használata</string>
     <string name="server_password_hint">Válassz egy olyan jelszót, amit nem lehet kitalálni, de emlékezni fogsz rá, ha elveszted az eszközödet. A jelszó hozzáférést ad ahhoz, hogy távolról futtass parancsokat az eszközön. A szerver adminisztrátora nem fér hozzá és nem is tudja megváltoztatni a jelszavadat.</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">A felhasználónév és jelszó nem lehet üres.</string>
     <string name="registration_token">Regisztrációs token</string>

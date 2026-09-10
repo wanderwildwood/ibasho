@@ -110,7 +110,6 @@
     <string name="Settings_FMDServer_Error_id_or_pw_empty">De gebruikersnaam en het wachtwoord mogen niet leeg zijn.</string>
     <string name="server_version_error_low_version">Minimale server-versie {MIN} is vereist, maar de geselecteerde server heeft versie {CURRENT}. Doorgaan is op eigen risico.</string>
     <string name="Settings_FMDServer_open_website">FMD Server-website openen</string>
-    <string name="Settings_FMDServer_use_default_server">De publieke server gebruiken</string>
     <string name="Settings_FMDServer_Login">Inloggen</string>
     <string name="password">Wachtwoord</string>
     <string name="Settings_FMDServer_Register">Registreren</string>

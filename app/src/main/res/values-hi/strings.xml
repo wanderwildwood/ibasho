@@ -50,7 +50,6 @@
     <string name="password_old">पुराना पासवर्ड</string>
     <string name="server_version">सर्वर संस्करण</string>
     <string name="Settings_FMDServer_Info">FMD सर्वर से आप इंटरनेट पर सर्वर से ऐप तक कमांड भेज सकते हैं। आप मानचित्र पर डिवाइस का स्थान भी देख सकते हैं या डिवाइस द्वारा ली गई तस्वीरें भी देख सकते हैं। स्व-होस्टिंग निर्देशों के लिए वेबसाइट देखें।</string>
-    <string name="Settings_FMDServer_use_default_server">Nulide के सार्वजनिक सर्वर का उपयोग करें</string>
     <string name="Settings_FMDServer_Register">रजिस्टर</string>
     <string name="Settings_FMDServer_Login">लॉगिन</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">गोपनीयता नीति</string>

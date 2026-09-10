@@ -28,7 +28,6 @@
     <string name="server_version_error_low_version">Es brucht mindestens Server-Version {MIN}, aber de usgwählti Server het Version {CURRENT}. Mach uf eigeni Gfahr wiiter.</string>
     <string name="Settings_FMDServer_AddAccount">FMD Server: Iilogge</string>
     <string name="Settings_FMDServer_open_website">FMD Server Websiite öffne</string>
-    <string name="Settings_FMDServer_use_default_server">De öffentlich Server bruche</string>
     <string name="Settings_FMDServer_Server_Url">Server-URL</string>
     <string name="Settings_FMDServer_Login">Iilogge</string>
     <string name="Settings_FMDServer_Register">Registriere</string>

@@ -51,7 +51,6 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Lataa laitteen sijainti palvelimelle, kun akun varaus laskee alhaiseksi. Tämä vaatii ilmoitusten käyttöoikeuden.</string>
     <string name="password_old">Vanha salasana</string>
     <string name="server_version_error_low_version">Palvelimen version tulee olle vähintään {MIN}, mutta valitun palvelimen versio on {CURRENT}. Jatka omalla vastuulla.</string>
-    <string name="Settings_FMDServer_use_default_server">Käytä Nuliden yleistä palvelinta</string>
     <string name="Settings_FMDServer_Login">Kirjaudu sisään</string>
     <string name="Settings_FMDServer_Register">Rekisteröidy</string>
     <string name="Settings_Import">Tuo asetukset</string>

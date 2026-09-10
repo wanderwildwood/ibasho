@@ -27,7 +27,6 @@
     <string name="password_new">新密码</string>
     <string name="Settings_FMDServer_AddAccount">FMD 服务器：登录</string>
     <string name="Settings_FMDServer_Info">通过FMD服务器，您可经互联网从服务器向应用程序发送指令，同时支持在地图上查看设备位置或访问设备拍摄的图片。自主托管配置指南详见官方网站。</string>
-    <string name="Settings_FMDServer_use_default_server">使用公共服务器</string>
     <string name="Settings_FMDServer_Login">登录</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">隐私政策</string>
     <string name="password">密码</string>

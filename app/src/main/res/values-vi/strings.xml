@@ -117,7 +117,6 @@
     <string name="server_version_error_low_version">Cần ít nhất phiên bản máy chủ {MIN}, nhưng máy chủ đã chọn có phiên bản {CURRENT}. Tiếp tục với rủi ro của riêng bạn.</string>
     <string name="Settings_FMDServer_AddAccount">Máy chủ FMD: Đăng nhập/Đăng ký</string>
     <string name="Settings_FMDServer_Info">Với máy chủ FMD, bạn có thể gửi lệnh qua internet, từ máy chủ đến ứng dụng. Bạn cũng có thể xem vị trí thiết bị trên bản đồ hoặc xem hình ảnh được chụp bởi thiết bị. Để biết hướng dẫn tự lưu trữ, xem trang web.</string>
-    <string name="Settings_FMDServer_use_default_server">Sử dụng máy chủ công cộng của Nulide</string>
     <string name="password">Mật khẩu</string>
     <string name="registration_token_hint">Các phiên bản riêng tư có thể yêu cầu một mã bí mật. Để trống nếu phiên bản là công khai.</string>
     <string name="server_registration_token_error">Yêu cầu mạng thất bại với HTTP 401. Điều này có thể xảy ra nếu máy chủ yêu cầu một mã đăng ký và mã bạn cung cấp là sai.</string>

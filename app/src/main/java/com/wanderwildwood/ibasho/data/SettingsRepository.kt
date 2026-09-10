@@ -121,7 +121,6 @@ class SettingsRepository private constructor(private val context: Context) {
     suspend fun migrateSettings() {
         val currentVersion = (get(Settings.SET_SET_VERSION) as Number).toInt()
 
-        migrateServerUrl()
         if (currentVersion < 3) {
             migrateDeletePassword()
         }
@@ -133,15 +132,6 @@ class SettingsRepository private constructor(private val context: Context) {
         set(Settings.SET_SET_VERSION, Settings.SETTINGS_VERSION)
     }
 
-    private fun migrateServerUrl() {
-        val oldUrl = get(Settings.SET_FMDSERVER_URL) as String
-        val uri = oldUrl.toUri()
-        if (uri.host == "fmd.nulide.de") {
-            val msg = "Updating server URL: old=$oldUrl new=${BuildConfig.DEFAULT_FMD_SERVER_URL}"
-            context.log().i(TAG, msg)
-            set(Settings.SET_FMDSERVER_URL, BuildConfig.DEFAULT_FMD_SERVER_URL)
-        }
-    }
 
     private fun migrateDeletePassword() {
         // For users that upgrade, initialize the new delete password with the existing FMD PIN

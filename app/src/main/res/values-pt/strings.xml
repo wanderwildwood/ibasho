@@ -76,7 +76,6 @@
     <string name="Settings_FMDServer_AddAccount">FMD Server: Entrar</string>
     <string name="Settings_FMDServer_Info">Com o FMD Server pode enviar comandos pela internet, do servidor para a app. Pode também ver a localização do dispositivo num mapa, ou ver as fotos capturadas pelo dispositivo. Caso queira auto-hospedá-lo, visite o site.</string>
     <string name="Settings_FMDServer_open_website">Abrir site do FMD Server</string>
-    <string name="Settings_FMDServer_use_default_server">Usar o servidor público do Nulide</string>
     <string name="Settings_FMDServer_Server_Url">URL do servidor</string>
     <string name="Settings_FMDServer_Login">Entrar</string>
     <string name="Settings_FMDServer_Register">Registar</string>

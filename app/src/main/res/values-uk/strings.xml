@@ -41,7 +41,6 @@
     <string name="Settings_About">Про</string>
     <string name="Settings_FMDCommand_Description">Команда для зв\'язку з FMD.</string>
     <string name="Settings_Ringer_Tone_Description">Виберіть рингтон для команди \"ring\".</string>
-    <string name="Settings_FMDServer_use_default_server">Використовуйте публічний сервер</string>
     <string name="Settings_FMDServer_Location_Type_Description">Джерело(-а), з якого(-их) дані про місцезнаходження завантажуються у фоновому режимі через певні проміжки часу. \nЯкщо не вибрано жодного, дані про місцезнаходження не будуть регулярно завантажуватися. (Ви все ще можете використовувати вебінтерфейс, щоб примусово завантажувати дані. Для цього потрібно натиснути кнопку.)</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Вивантажувати місцезнаходження цього пристрою при низькому заряді акумулятора.</string>
     <string name="server_version">Версія сервера</string>

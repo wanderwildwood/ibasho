@@ -45,14 +45,6 @@
                 android:layout_marginBottom="@dimen/margin_small"
                 android:text="@string/Settings_FMDServer_open_website" />
 
-            <Button
-                android:id="@+id/buttonUseDefaultServer"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="32dp"
-                android:text="@string/Settings_FMDServer_use_default_server" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

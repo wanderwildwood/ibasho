@@ -73,7 +73,6 @@
     <string name="server_version">Sunucu sürümü</string>
     <string name="server_version_error_low_version">En az sunucu versiyonu {MIN} gerekli, fakat seçili sunucu {CURRENT} sürümüne sahip. Riskin size ait olduğunu bilerek devam edin.</string>
     <string name="Settings_FMDServer_Info">FMD Sunucusuyla internet üzerinden komutlar gönderebilirsiniz, sunucudan uygulamaya. Ayrıca cihaz konumunu bir harita üzerinde görüntüleyebiliriniz ya da cihaz tarafından çekilmiş fotoğrafları görüntüleyebilirsiniz. Self-hosting talimatları için, websiteye bakınız.</string>
-    <string name="Settings_FMDServer_use_default_server">Nulide\'nin Halka Açık Sunucusunu Kullan</string>
     <string name="Settings_FMDServer_Server_Url">Sunucu URLsi</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Gizlilik Politikası</string>
     <string name="server_fmd_id_hint">FMD ID hesabınızın FMD sunucusunda kimliğini belirler. Sunucunun ID üretmesi için bunu boş bırakın. FMD ID\'nin sunucuda düz yazı olarak depolandığını göz önünde bulundurun, örn. sunucu yöneticisi görebilir.</string>

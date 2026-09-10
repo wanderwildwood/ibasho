@@ -14,7 +14,6 @@
     <string name="password">パスワード</string>
     <string name="allowlist_phone_number">電話番号</string>
     <string name="pw_change_success">パスワードを変更しました</string>
-    <string name="Settings_FMDServer_use_default_server">Nulideの公開サーバーを使う</string>
     <string name="appearance_theme_dark">ダーク</string>
     <string name="GPS">GPS</string>
     <string name="OpenCellId_open_website">OpenCelliDのウェブサイトを開く</string>

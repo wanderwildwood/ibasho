@@ -100,7 +100,6 @@
     <string name="Settings_FMDServer_Login">புகுபதிவு</string>
     <string name="registration_token_hint">தனியார் நிகழ்வுகளுக்கு ஒரு ரகசிய கிள்ளாக்கு தேவைப்படலாம். நிகழ்வு பொதுவில் இருந்தால் இதை காலியாக விடுங்கள்.</string>
     <string name="server_registration_token_error">HTTP 401 உடன் பிணையம் கோரிக்கை தோல்வியடைந்தது. சேவையகத்திற்கு பதிவு கிள்ளாக்கு தேவைப்பட்டால் இது நிகழலாம் மற்றும் நீங்கள் வழங்கிய கிள்ளாக்கு தவறு.</string>
-    <string name="Settings_FMDServer_use_default_server">பொது சேவையகத்தைப் பயன்படுத்தவும்</string>
     <string name="Settings_FMDServer_Server_Url">சேவையக முகவரி</string>
     <string name="Toast_Duplicate_contact">இந்த தொடர்பு ஏற்கனவே உள்ளது.</string>
     <string name="WhiteList_no_contact_picker">தொடர்பு பிக்கர் பயன்பாடு இல்லை!</string>

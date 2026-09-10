@@ -22,7 +22,6 @@
     <string name="Settings_FMDServer_AddAccount">FMD Server: Entrar</string>
     <string name="Settings_FMDServer_open_website">Abrir site do FMD Server</string>
     <string name="Settings_FMDServer_Server_Url">URL do servidor</string>
-    <string name="Settings_FMDServer_use_default_server">Usar o servidor público</string>
     <string name="Settings_FMDServer_Login">Entrar</string>
     <string name="Settings_FMDServer_Register">Cadastrar-se</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Política de privacidade</string>

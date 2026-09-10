@@ -49,7 +49,6 @@
     <string name="server_version_error">Error al obtener la versión del servidor</string>
     <string name="Settings_FMDServer_AddAccount">Servidor FMD: Inicio de sesión</string>
     <string name="Settings_FMDServer_open_website">Abrir la página web del Servidor FMD</string>
-    <string name="Settings_FMDServer_use_default_server">Utilizar el servidor público</string>
     <string name="Settings_FMDServer_Login">Iniciar sesión</string>
     <string name="Settings_FMDServer_Register">Registrarse</string>
     <string name="password">Contraseña</string>

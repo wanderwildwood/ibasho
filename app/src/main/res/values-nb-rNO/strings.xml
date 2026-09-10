@@ -24,7 +24,6 @@
     <string name="Settings_FMDServer_Location_Type_Description">Kilden posisjoneringsdataen lastes opp fra. Velg minst én.</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Oppdateringsintervall</string>
     <string name="Settings_FMDServer_AddAccount">FMD-tjener: Logg inn/registrering</string>
-    <string name="Settings_FMDServer_use_default_server">Bruk Nulides offentlige tjener</string>
     <string name="Settings_FMDServer_Login">Logg inn</string>
     <string name="Settings_FMDServer_Register">Registrering</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Personvernspraksis</string>

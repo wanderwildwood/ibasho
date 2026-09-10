@@ -32,7 +32,6 @@
     <string name="server_version_error">Грешка при добивање на серверската верзија</string>
     <string name="Settings_FMDServer_AddAccount">FMD сервер: најави / регистрирај се</string>
     <string name="Settings_FMDServer_open_website">Интернет страница на Open FMD сервер</string>
-    <string name="Settings_FMDServer_use_default_server">Користи го јавниот сервер на Nulide</string>
     <string name="Settings_FMDServer_Server_Url">Серверска Интернет адреса</string>
     <string name="Settings_FMDServer_Login">Најави се</string>
     <string name="registration_token">Симбол (токен) за регистрација</string>

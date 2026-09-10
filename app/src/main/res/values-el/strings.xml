@@ -90,7 +90,6 @@
     <string name="Settings_FMDServer_AddAccount">FMD διακομιστής: Σύνδεση</string>
     <string name="Settings_FMDServer_Info">Με τον διακομιστή FMD μπορείτε να στέλνετε εντολές μέσω του διαδικτύου, από τον διακομιστή στην εφαρμογή. Μπορείτε επίσης να προβάλλετε τη θέση της συσκευής σε χάρτη ή να δείτε φωτογραφίες που έχουν ληφθεί από τη συσκευή. Για οδηγίες ιδιοφιλοξενίας, ανατρέξτε στον ιστότοπο.</string>
     <string name="Settings_FMDServer_open_website">Ανοίξτε τον ιστότοπο του διακομιστή FMD</string>
-    <string name="Settings_FMDServer_use_default_server">Χρησιμοποιήστε τον δημόσιο διακομιστή</string>
     <string name="Settings_FMDServer_Server_Url">Διεύθυνση URL διακομιστή</string>
     <string name="Settings_FMDServer_Login">Σύνδεση</string>
     <string name="Settings_FMDServer_Register">Εγγραφή</string>

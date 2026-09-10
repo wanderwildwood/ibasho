@@ -61,7 +61,6 @@
     <string name="server_version_error">取得伺服器版本時發生錯誤</string>
     <string name="password">密碼</string>
     <string name="registration_token_hint">私人實例可能需要私密權杖。若該實例為公開的，請留空。</string>
-    <string name="Settings_FMDServer_use_default_server">使用公共伺服器</string>
     <string name="Settings_FMDServer_Login">登入</string>
     <string name="Settings_FMDServer_Register">註冊</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">隱私權政策</string>

@@ -39,7 +39,6 @@
     <string name="Settings_FMDServer_AddAccount">FMD Server: Anmelden/Registrieren</string>
     <string name="Settings_FMDServer_Info">Mit FMD Server kannst du Befehle über das Internet vom Server an die App schicken. Außerdem kannst du den Gerätestandort auf der Karte verfolgen oder Bilder, die das Gerät aufgenommen hat, ansehen. Für eine Anleitung zum Selbsthosten siehe Webseite.</string>
     <string name="Settings_FMDServer_open_website">FMD-Server-Webseite öffnen</string>
-    <string name="Settings_FMDServer_use_default_server">Öffentlichen Server benutzen</string>
     <string name="Settings_FMDServer_Login">Einloggen</string>
     <string name="Settings_FMDServer_Register">Registrieren</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Datenschutzbestimmungen</string>
