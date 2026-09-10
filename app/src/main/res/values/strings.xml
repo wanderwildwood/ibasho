@@ -50,11 +50,11 @@
 
     <!-- About. Order fixed by the house style: name and version, what it sends,
          the licence in full, what is bundled and under what, then the source. -->
-    <string name="about_sends">It sends this phone\'s location to the server you set, and nowhere else. The location is encrypted on the phone before it leaves, so the server holds it without being able to read it. Only the password you chose can open it, and it cannot be reset.</string>
-    <string name="about_sends_network">If you switch on the cell and Wi-Fi source, it asks BeaconDB and OpenCelliD where the surrounding towers and networks are. Those services learn roughly where the phone is each time it asks.</string>
+    <string name="about_sends">Sends this phone\'s location to the server you set, encrypted. Only your password can read it, and it cannot be reset.</string>
+    <string name="about_sends_network">Cell and Wi-Fi positioning asks BeaconDB and OpenCelliD, which learn roughly where you are.</string>
     <string name="about_licence">GNU General Public License, version 3 or later.</string>
-    <string name="about_built_on">Built on FindMyDevice by Nulide and its contributors, under the same licence. Most of the code here is theirs.</string>
-    <string name="about_source">Source: %1$s</string>
+    <string name="about_built_on">Built on FindMyDevice by Nulide, under the same licence.</string>
+    <string name="about_source">%1$s</string>
     <string name="about_libraries">Bundled libraries</string>
 
     <!-- Settings: General -->
