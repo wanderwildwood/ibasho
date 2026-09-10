@@ -9,4 +9,11 @@
         android:icon="@drawable/ic_warning"
         app:showAsAction="always"/>
 
+    <!-- About stays rightmost whether or not the warning is showing. -->
+    <item
+        android:id="@+id/menuItemAbout"
+        android:title="@string/Settings_About"
+        android:icon="@drawable/ic_info"
+        app:showAsAction="always"/>
+
 </menu>

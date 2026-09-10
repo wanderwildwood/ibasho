@@ -101,8 +101,8 @@ class SettingsFragment : TaggedFragment() {
             }
 
             7 -> settingIntent = Intent(context, LogViewActivity::class.java)
-            8 -> settingIntent = Intent(context, AboutActivity::class.java)
-            9 -> settingIntent = Intent(context, DebuggingActivity::class.java)
+            // About is no longer a row here; it is the "i" on the main screen.
+            8 -> settingIntent = Intent(context, DebuggingActivity::class.java)
         }
 
         if (settingIntent != null) {

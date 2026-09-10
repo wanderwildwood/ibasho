@@ -159,6 +159,8 @@ public class MainActivity extends FmdActivity {
         if (item.getItemId() == R.id.menuItemSetupWarnings) {
             Intent intent = new Intent(this, SetupWarningsActivity.class);
             startActivity(intent);
+        } else if (item.getItemId() == R.id.menuItemAbout) {
+            AboutDialogKt.showAboutDialog(this);
         }
         return super.onOptionsItemSelected(item);
     }
