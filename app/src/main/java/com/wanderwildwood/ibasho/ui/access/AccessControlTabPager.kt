@@ -74,7 +74,9 @@ fun AccessControlTabsScreen(
                             selected = pagerState.currentPage == index,
                             onClick = {
                                 coroutineScope.launch {
-                                    pagerState.animateScrollToPage(index)
+                                    // Jump rather than animate: a slide costs a
+                                    // full panel repaint on e-ink and reads as a smear.
+                                    pagerState.scrollToPage(index)
                                 }
                             },
                             text = { Text(stringResource(item.title)) },

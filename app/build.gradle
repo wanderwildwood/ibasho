@@ -38,8 +38,9 @@ android {
         // https://gitlab.com/Nulide/findmydevice/-/issues/220
         // noinspection ExpiredTargetSdkVersion
         targetSdkVersion 32
-        versionCode 44
-        versionName "0.16.2"
+        // Own versioning from here; upstream was at 0.16.2 when this forked.
+        versionCode 1
+        versionName "0.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
