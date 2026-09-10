@@ -1,87 +1,71 @@
-# FMD Android
+# Whereabouts (居場所, ibasho)
 
-Find your device via SMS, instant messengers, or a web interface
-([FMD Server](https://gitlab.com/fmd-foss/fmd-server)).
+Find your own phone, and see where the people who agreed to share are.
 
-FMD allows you to locate, ring, wipe and issue other commands to your device when it's lost.
-It aims to be a secure open source alternative to Google's Find My Device.
+Whereabouts sends a phone's location to a server you run yourself. The location
+is encrypted on the phone before it leaves, so the server holds it without being
+able to read it: only the password chosen on the device can open it, and it
+cannot be reset. Commands can also be sent by SMS, with no server involved at
+all.
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
-     alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/de.nulide.findmydevice/)
+Built for a 4.3" e-ink phone, so: no animation, no colour, one screen where one
+screen will do.
 
-## Why?
+## What it does not do
 
-I lost my brand new phone last week.
-If I would have used Google Services I would have had a better chance of finding it.
-Why has nobody created an open source application to find a lost device without giving up your privacy?
+**It cannot wipe the device.** The wipe command is gone, and `wipe-data` is
+absent from the device-admin policy, so Android will refuse it even if something
+asked. A remote wipe means whoever learns the server password can factory-reset
+the phone, which is the wrong trade for a phone somebody carries by agreement.
 
-If you like FMD and want to support it, spread the word or donate.
+**It cannot take a photograph.** The camera command is gone, along with the
+camera permission. A silent photo is something the person holding the phone
+cannot tell has happened.
 
-## Documentation
+Both are reasonable in a stolen-phone tool. Neither belongs here.
 
-The documentation can be found [on the website](https://fmd-foss.org/docs/overview).
+## Locating
 
-## Contribute
+Location comes from whatever the phone can offer: GPS, the Android fused
+provider, and optionally cell towers and Wi-Fi networks looked up through
+[BeaconDB](https://beacondb.net/) and [OpenCelliD](https://opencellid.org/).
+Those two services learn roughly where the phone is each time they are asked;
+that is the trade for working indoors, and it is off unless you turn it on.
 
-For translations instructions and other ways to contribute,
-see the [contribution guide](https://fmd-foss.org/docs/contribute/overview).
+On a degoogled phone with no network location provider, expect GPS only —
+sparse, and outdoors.
 
-## Building
+## Server
 
-Building FMD Android requires Java and the Android SDK.
-The easiest way is to open the repository in [Android Studio](https://developer.android.com/studio) and click "Run".
+It talks to [FMD Server](https://gitlab.com/fmd-foss/fmd-server), self-hosted.
+There is no public instance behind this app and no default server: you enter
+your own.
 
-Alternatively, build it from the command line:
+## Credit
 
-```sh
-./gradlew assembleDevDebug
-```
+Whereabouts is a fork of [FindMyDevice](https://gitlab.com/Nulide/findmydevice)
+by Nulide and its contributors. **Most of the code here is theirs**, and the
+parts worth thanking somebody for — the protocol, the encryption design, the
+transports — are all upstream's work. What is different here is what has been
+taken out and how it reads on a small grey screen.
 
-The resulting APK should be at `app/build/outputs/apk/dev/debug/app-dev-debug.apk`.
+## Licence
 
-This will build the "dev" flavour of FMD Android, which can be installed in parallel with the prod app.
-The command keyword is "fmdev" (for example, "fmdev locate").
+GNU General Public License, version 3 or later — the same as upstream, whose
+terms this inherits and keeps. See [LICENSE](LICENSE).
 
-## Community
+    Copyright (C) 2022-2026  Nulide and FindMyDevice contributors
+    Copyright (C) 2026  wander wildwood
 
-There is a matrix space for discussions: https://matrix.to/#/#fmd:matrix.org.
+    This program is free software: you can redistribute it and/or modify it
+    under the terms of the GNU General Public License as published by the Free
+    Software Foundation, either version 3 of the License, or (at your option)
+    any later version.
 
-You can join the "Community" room for general discussions and the "Announcement" room to get project news.
+    This program is distributed in the hope that it will be useful, but WITHOUT
+    ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+    FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+    more details.
 
-## Donate
-
-<script src="https://liberapay.com/FMD/widgets/button.js"></script>
-<noscript><a href="https://liberapay.com/FMD/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
-
-<a href='https://ko-fi.com/H2H35JLOY' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi4.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a> 
-
-## Funding
-
-<div style="display: inline-flex; align-items: center;">
-    <a href="https://nlnet.nl/" target="_blank">
-        <img src="https://nlnet.nl/logo/banner.svg" alt="nlnet" height="50">
-    </a>
-    <a href="https://nlnet.nl/taler" target="_blank">
-        <img src="https://nlnet.nl/image/logos/NGI_Mobifree_tag.svg" alt="NextGenerationInternet" height="50">
-    </a>
-</div>
-
-This project was funded through the NGI Mobifree Fund.
-For more details, visit our [project page](https://nlnet.nl/project/FMD/).
-
-## Why is it taking that long to fix x?
-
-I am working full-time.
-This project is my free-time and I have spent a lot of time in this and still will.
-If there are bugs I will try to fix them as soon as possible, but my full-time job has priority.
-If it takes too long to fix something you can of course try to fix it by yourself and contribute to this project.
-
-Thanks,
-
-Nulide
-
-## License
-
-FMD Android is published under [GPLv3-or-later](LICENSE).
-
+    You should have received a copy of the GNU General Public License along
+    with this program.  If not, see <https://www.gnu.org/licenses/>.
