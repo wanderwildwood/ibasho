@@ -214,7 +214,6 @@
     <string name="Settings_FMDServer_Push_Distributor">Distribuidor: %s</string>
     <string name="Settings_FMDServer_Push_Url">Inserte URL: %s</string>
     <string name="Settings_FMDServer_Push_Register_Again">Volver a registrarse</string>
-    <string name="server_fmd_id_hint">El ID de FMD identifica su cuenta en el servidor FMD. Déjelo vacío para permitir que el servidor genere un ID. El administrador del servidor pude ver el ID de FMD.</string>
     <string name="Fused">Fusionado</string>
     <string name="dont_show_again">No mostrar más</string>
     <string name="Settings_FMDServer_Push_Install_Sunup">Instalar Sunup</string>
@@ -228,7 +227,6 @@
     <string name="password_match_command_keyword">¡La contraseña no debe ser igual a uno de los comandos!</string>
     <string name="server_connectivity_check_not_enabled_title">Habilitar las verificaciones de conectividad al servidor</string>
     <string name="server_connectivity_check_not_enabled_text">FMD puede verificar regularmente si el Servidor FMD sigue siendo accesible. Por razones de privacidad, esta función está desactivada de forma predeterminada. Sin embargo, por razones de disponibilidad, recomendamos habilitarla.</string>
-    <string name="server_password_hint">Elige una contraseña que no se pueda adivinar, pero que puedas recuperar cuando pierdes tu dispositivo. La contraseña permite ejecutar comandos de forma remota en tu dispositivo. El administrador del servidor no puede acceder ni restablecer tu contraseña.</string>
     <string name="tip_first_contact_added">¡Felicitaciones, has añadido tu primer contacto! Ahora puedes comunicarte con FMD enviando un SMS que comienza con \"%1$s\" desde el numero de teléfono permitido. Por ejemplo, enviar \"%2$s help\" o \"%3$s flash\". Si todo funciona, la aplicación responderá.</string>
     <string name="allowlist_invalid_number">¡Este número de teléfono no es válido!</string>
     <string name="cmd_bluetooth_response_is_on">Bluetooth encendido.</string>

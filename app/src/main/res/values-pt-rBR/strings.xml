@@ -207,7 +207,6 @@
     <string name="server_connectivity_lost_title">Conexão ao FMD Server perdida</string>
     <string name="Settings_FMDServer_Check_Interval_Description">O FMD testa sua conexão ao FMD Server a cada X horas. Configure isto pra 0 para desativar o teste de conectividade.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">O FMD irá te notificar se a última conexão ao FMD Server foi a mais de X horas atrás. Isto não tem efeito se o teste de conectividade está desativado.</string>
-    <string name="server_fmd_id_hint">O nome de usuário identifica sua conta no FMD Server. O administrador do servidor pode vê-lo.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distribuidor: %s</string>
     <string name="Settings_FMDServer_Push_Url">URL do Push: %s</string>
     <string name="Settings_FMDServer_Push_Register">Cadastrar</string>
@@ -224,7 +223,6 @@
     <string name="cmd_ringermode_description_long">Observe que o \"silencioso\" também ativa o modo Não Perturbe. Isto é comportamento esperado e é configurado pelo Android.</string>
     <string name="setup_recommendations_title">Recomendações</string>
     <string name="Settings_FMDServer_Push_Open_Help">Mais informações sobre o push</string>
-    <string name="server_password_hint">Escolha uma senha que não pode ser adivinhada, mas que você consiga recuperar ao perder seu dispositivo. A senha dá acesso ao envio remoto de comandos no seu dispositivo. O administrador do servidor não consegue acessar ou reconfigurar sua senha.</string>
     <string name="allowlist_invalid_number">Este número de telefone é invalido!</string>
     <string name="password_min_length">A senha tem que ter pelo menos 8 caracteres. São recomendados 16 ou mais.</string>
     <string name="Settings_FMDServer_Push_Install_Sunup">Instalar Sunup</string>

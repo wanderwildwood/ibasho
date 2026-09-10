@@ -211,7 +211,6 @@
     <string name="Settings_FMDServer_Push_Url">Пуш ссылка: %s</string>
     <string name="Settings_FMDServer_Push_Register">Зарегистрировать</string>
     <string name="Settings_FMDServer_Push_Description">Для отправки команд с Сервера FMD на ваше устройство, требуется приложение распространителя UnifiedPush.</string>
-    <string name="server_fmd_id_hint">Имя пользователя идентифицирует ваш аккаунт на FMD Сервере. Администратор сервера может видеть ваше имя пользователя.</string>
     <string name="Settings_FMDServer_Push_Register_Again">Зарегистрировать повторно</string>
     <string name="allowlist_reset_title">Сброс разрешённых контактов</string>
     <string name="allowlist_reset_text">В связи со сбоем, разрешённые контакты были сброшены. Пожалуйста, настройте их снова.</string>
@@ -228,7 +227,6 @@
     <string name="Settings_FMDServer_Push_Info_Sunup">Рекомендованное приложение распространителя UnifiedPush это Sunup. Sunup легко настроить и он использует пуш-сервера от Mozilla.</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Значения ниже 15 минут не рекомендованы.</string>
     <string name="password_min_length">Пароль должен состоять как минимум из 8 символов. Рекомендуется 16 или более.</string>
-    <string name="server_password_hint">Выберите пароль, который нельзя угадать, но который вы можете восстановить когда вы потеряете ваше устройство. Пароль предоставляет доступ к удалённо запускаемым командам на вашем устройстве. Администратор сервера не может получить доступ к паролю или сбросить его.</string>
     <string name="allowlist_invalid_number">Этот мобильный номер неверный!</string>
     <string name="cmd_flash_description_short">Зажечь вспышку камеры</string>
     <string name="cmd_locate_provider_disabled">Запрошенный провайдер местоположения \"%s\" отключён.</string>

@@ -193,7 +193,6 @@
     <string name="server_connectivity_lost_title">إنقطع الإتصال بخادم FMD</string>
     <string name="server_connectivity_check_not_enabled_title">قم بتفعيل فحص إتصال الخادم</string>
     <string name="server_connectivity_check_not_enabled_text">يمكن لـ FMD التحقق بانتظام من إمكانية الوصول إلى خادم FMD. هذه الميزة معطلة إفتراضيًا لأسباب تتعلق بالخصوصية، ولكننا نوصي بتفعيلها لأسباب تتعلق بتوفر الخدمة.</string>
-    <string name="server_password_hint">إختر كلمة مرور يصعب تخمينها، ولكن يمكنك إستعادتها في حال فقدان جهازك. تمنحك هذه الكلمة إمكانية الوصول إلى الأوامر التي تُنفذ عن بُعد على جهازك. لا يستطيع مسؤول الخادم الوصول إلى كلمة مرورك أو إعادة تعيينها.</string>
     <string name="allowlist_invalid_number">رقم الهاتف هذا غير صالح!</string>
     <string name="label">تسمية</string>
     <string name="save">حفظ</string>

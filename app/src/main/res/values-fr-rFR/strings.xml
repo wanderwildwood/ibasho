@@ -214,7 +214,6 @@
     <string name="Settings_FMDServer_Push_Url">URL de publication : %s</string>
     <string name="Settings_FMDServer_Push_Register">S\'enregistrer</string>
     <string name="Settings_FMDServer_Push_Register_Again">Enregistrer à nouveau</string>
-    <string name="server_fmd_id_hint">Le nom d\'utilisateur permet d\'identifier votre compte sur le serveur FMD. L\'administrateur du serveur peut voir le nom d\'utilisateur.</string>
     <string name="cmd_ringermode_description_short">Changer le mode de sonnerie</string>
     <string name="cmd_ringermode_response_empty">Le mode de sonnerie actuelle est \"%s\".</string>
     <string name="cmd_ringermode_response">Le mode de sonnerie a été modifié de \"%1$s\" (ancien) vers \"%2$s\" (nouveau).</string>
@@ -224,7 +223,6 @@
     <string name="server_connectivity_check_not_enabled_text">FMD peut vérifier régulièrement si le serveur FMD est toujours joignable. Pour des raisons de clé privée, cela est désactivé par défaut. Pour des raisons de disponibilité, nous recommandons de l\'activer.</string>
     <string name="setup_recommendations_title">Recommandations</string>
     <string name="Settings_FMDServer_Push_Open_Help">Plus d\'informations sur les publications</string>
-    <string name="server_password_hint">Choisissez un mot de passe qui ne puisse pas être deviné mais dont vous pourrez vous rappeler si vous perdez votre téléphone. Le mot de passe donne accès au lancement de commande à distance sur votre appareil. L\'administrateur du serveur ne peut pas accéder à votre mot de passe ou le réinitialiser.</string>
     <string name="allowlist_invalid_number">Ce numéro de téléphone est invalide !</string>
     <string name="password_min_length">Le mot de passe doit faire au moins 8 caractères. Il est recommandé d\'en avoir 16 ou plus.</string>
     <string name="Settings_FMDServer_Push_Info_Sunup">L\'application de distribution UnifiedPush recommandée est Sunup. Sunup se paramètre facilement et utilise les serveurs de notification de Mozilla.</string>

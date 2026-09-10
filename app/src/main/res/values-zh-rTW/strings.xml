@@ -118,8 +118,6 @@
     <string name="server_connectivity_lost_text">位於 %1$s 的 FMD 伺服器已無法連線。上次成功連線的時間為 %2$s。</string>
     <string name="server_connectivity_check_not_enabled_title">啟用伺服器連線檢查</string>
     <string name="server_connectivity_check_not_enabled_text">FMD 可定期檢查 FMD 伺服器是否仍可連線。基於隱私考量，此功能預設為關閉，但基於可用性考量，建議您啟用此功能。</string>
-    <string name="server_fmd_id_hint">FMD ID 用於識別您在 FMD 伺服器上的帳號。若留空，將由伺服器自動產生 ID。伺服器管理員可以看到此 FMD ID。</string>
-    <string name="server_password_hint">請選擇一個不易被猜到、但在遺失裝置時仍可自行回復的密碼。此密碼可用於遠端在您的裝置上執行指令。伺服器管理員無法存取或重設您的密碼。</string>
     <string name="server_registration_token_error">網路請求因 HTTP 401 而失敗。若伺服器需要註冊權杖，且您提供的權杖不正確，就可能會發生此情況。</string>
     <string name="WhiteList_no_contact_picker">找不到聯絡人選取器應用程式！</string>
     <string name="allowlist_reset_text">由於發生崩潰，允許的聯絡人已被重設。請重新設定。</string>

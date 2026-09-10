@@ -214,14 +214,12 @@
     <string name="Settings_FMDServer_Push_Register">Registra</string>
     <string name="Settings_FMDServer_Push_Register_Again">Registra Nuovamente</string>
     <string name="Settings_FMDServer_Push_Url">URL Push: %s</string>
-    <string name="server_fmd_id_hint">Il nome utente identifica l\'account su Server FMD. L\'amministratore del server può vedere il nome utente.</string>
     <string name="cmd_ringermode_description_short">Cambia la modalità della suoneria</string>
     <string name="cmd_ringermode_response_empty">La modalità della suoneria corrente è \"%s\".</string>
     <string name="cmd_ringermode_response">La modalità della suoneria è cambiata da \"%1$s\" (vecchia) to \"%2$s\" (nuova).</string>
     <string name="Settings_FMDServer_Push_Open_Help">Maggiori informazioni su push</string>
     <string name="server_connectivity_check_not_enabled_title">Abilita monitoraggio connettività server</string>
     <string name="server_connectivity_check_not_enabled_text">FMD può verificare regolarmente se il server FMD è ancora raggiungibile. Per motivi di privacy, questa funzione è disattivata per impostazione predefinita. Tuttavia, per motivi di disponibilità, consigliamo di attivarla.</string>
-    <string name="server_password_hint">Scegli una password che non possa essere indovinata, ma che tu possa recuperare in caso di smarrimento del dispositivo. La password consente di eseguire comandi in remoto sul tuo dispositivo. L\'amministratore del server non può accedere alla tua password né reimpostarla.</string>
     <string name="cmd_locate_response_beacondb_failed">Errore durante il recupero della posizione da BeaconDB. Ciò può verificarsi se la torre cellulare non è presente nel database.\n\n%s</string>
     <string name="cmd_ringermode_description_long">Si noti che “silenzioso” attiva anche la modalità Non disturbare. Si tratta di un comportamento previsto e definito da Android.</string>
     <string name="setup_recommendations_title">Raccomandazioni</string>

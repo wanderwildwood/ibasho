@@ -107,7 +107,8 @@
     <string name="password_enter">Enter password</string>
     <string name="password_old">Old password</string>
     <string name="password_new">New password</string>
-    <string name="password_min_length">The password must be at least 8 characters. 16 or more are recommended.</string>
+    <string name="server_password_hint">This password cannot be reset, and it is the only thing that can read your locations.</string>
+    <string name="password_min_length">At least 8 characters. It cannot be reset, and it is the only thing that can read your locations.</string>
     <string name="password_match_command_keyword">The password must not equal one of the commands!</string>
     <string name="pw_change_success">Password changed</string>
     <string name="pw_change_empty">Password must not be empty.</string>
@@ -135,12 +136,10 @@
     <string name="Settings_FMDServer_Register">Register</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Privacy policy</string>
     <string name="server_username">Username</string>
-    <string name="server_fmd_id_hint">The username identifies your account on FMD Server. The server administrator can see the username.</string>
     <string name="password">Password</string>
-    <string name="server_password_hint">Choose a password that cannot be guessed, but that you can recover when you lose your device. The password grants access to remotely running commands on your device. The server administrator cannot access or reset your password.</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">The username and password must not be empty.</string>
     <string name="registration_token">Registration token</string>
-    <string name="registration_token_hint">Private instances may require a secret token. Leave this empty if the instance is public.</string>
+    <string name="registration_token_hint">Only if the server asks for one.</string>
     <string name="server_registration_token_error">Network request failed with HTTP 401. This can happen if the server requires a registration token and the token you provided was wrong.</string>
 
     <!-- Settings: Access control -->

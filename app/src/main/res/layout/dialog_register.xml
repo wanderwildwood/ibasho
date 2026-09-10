@@ -24,12 +24,6 @@
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_small"
-            android:text="@string/server_fmd_id_hint" />
-
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,12 +44,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_small"
             android:text="@string/password_min_length" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_small"
-            android:text="@string/server_password_hint" />
 
         <View
             android:layout_width="match_parent"

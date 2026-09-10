@@ -83,7 +83,6 @@
     <string name="Settings_FMDServer_Register">Regisztráció</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Adatvédelmi tájékoztató</string>
     <string name="server_username">Felhasználónév</string>
-    <string name="server_fmd_id_hint">A felhasználónév azonosítja a fiókodat az FMD szerveren. A szerver adminisztrátora láthatja a felhasználónevet.</string>
     <string name="password">Jelszó</string>
     <string name="server_unregister_continue_anyway">Folytatás mindenképpen</string>
     <string name="server_unregister_dont_continue">Ne folytasd</string>
@@ -130,7 +129,6 @@
     <string name="server_apparently_deleted_text">Az FMD nem tud bejelentkezni a(z) \"%s\" fiókodba az FMD szerveren. Úgy tűnik, hogy a fiók törölve lett a szerverről.</string>
     <string name="Settings_FMDServer_Info">Az FMD szerver segítségével parancsokat küldhetsz az interneten keresztül, a szerverről ennek az alkalmazásban. Megnézheted az eszköz helyzetét térképen, és az eszköz által készített képeket is megtekintheted. Ha saját magad szeretnéd futtatni a szervert, az instrukciókat megtalálod a weboldalon.</string>
     <string name="Settings_FMDServer_open_website">Az FMD szerver weboldal megnyitása</string>
-    <string name="server_password_hint">Válassz egy olyan jelszót, amit nem lehet kitalálni, de emlékezni fogsz rá, ha elveszted az eszközödet. A jelszó hozzáférést ad ahhoz, hogy távolról futtass parancsokat az eszközön. A szerver adminisztrátora nem fér hozzá és nem is tudja megváltoztatni a jelszavadat.</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">A felhasználónév és jelszó nem lehet üres.</string>
     <string name="registration_token">Regisztrációs token</string>
     <string name="registration_token_hint">Privát szervereken szükség lehet egy titkos tokenre. Hagyd üresen, ha a szerver publikus.</string>

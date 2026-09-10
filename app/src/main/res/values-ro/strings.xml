@@ -82,7 +82,6 @@
     <string name="Settings_FMDServer_Login">Autentificare</string>
     <string name="Settings_FMDServer_Register">Înregistrare</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Politica de confidențialitate</string>
-    <string name="server_fmd_id_hint">ID-ul FMD identifică contul tău pe serverul FMD. Lasă acest câmp gol pentru a permite serverului să genereze un ID. Reține că ID-ul FMD este stocat în clar pe server, adică administratorul serverului îl poate vedea.</string>
     <string name="password">Parolă</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">ID-ul FMD și parola nu trebuie să fie goale.</string>
     <string name="registration_token">Token de înregistrare</string>

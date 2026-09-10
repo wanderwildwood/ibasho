@@ -207,7 +207,6 @@
     <string name="server_connectivity_lost_text">FMD Server na %1$s již není dostupný. Poslední úspěšné spojení proběhlo %2$s.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD kontroluje spojení s FMD Serverem každých X hodin. Nastavte na 0 pro zakázání kontroly spojení.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Interval kontroly spojení</string>
-    <string name="server_fmd_id_hint">Uživatelské jméno identifikuje váš účet na FMD Serveru. Správce serveru může vaše jméno vidět.</string>
     <string name="Settings_FMDServer_Push_Description">Odesílání příkazů z FMD Serveru do vašeho zařízení vyžaduje distribuční aplikaci služby UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributor: %s</string>
     <string name="Settings_FMDServer_Push_Register">Registrovat</string>
@@ -224,7 +223,6 @@
     <string name="cmd_ringermode_description_long">Upozorňujeme, že „tichý“ režim také povolí režim Nerušit. Toto je očekávané chování a je definované systémem Android.</string>
     <string name="setup_recommendations_title">Doporučení</string>
     <string name="Settings_FMDServer_Push_Open_Help">Další informace o zprávách push</string>
-    <string name="server_password_hint">Zvolte si heslo, které nelze uhodnout, ale které můžete obnovit, pokud zařízení ztratíte. Heslo umožňuje vzdálený přístup k příkazům spouštěným na vašem zařízení. Správce serveru nemá přístup k vašemu heslu ani jej nemůže resetovat.</string>
     <string name="allowlist_invalid_number">Toto telefonní číslo je neplatné!</string>
     <string name="password_min_length">Heslo musí mít alespoň 8 znaků. Je doporučeno 16 nebo více.</string>
     <string name="Settings_FMDServer_Push_Install_Sunup">Nainstalovat Sunup</string>

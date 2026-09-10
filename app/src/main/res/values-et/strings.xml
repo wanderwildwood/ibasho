@@ -188,7 +188,6 @@
     <string name="missing_push_description">Kui UnifiedPushi tõuketeadete levitaja on paigaldamata, siis siin nutiseadmes ei saa vastu võtta käske FMD serverist.</string>
     <string name="missing_push_title">UnifiedPush on puudu</string>
     <string name="allowlist_invalid_number">See telefoninumber on vigane!</string>
-    <string name="server_password_hint">Sisesta selline salasõna, mida poleks kerge ära arvata, kuid mis oleks sul teada ja kasutatav, kui peaksid oma nutiseadme kaotama. Seda salasõna saab kasutada eemalt käskude käivitamiseks sinu nutiseadmes. Serveri peakasutajal pole võimalik sinu salasõnale ligi pääseda ega seda lähtestada.</string>
     <string name="setup_recommendations_title">Soovitused</string>
     <string name="server_connectivity_check_not_enabled_text">FMD võib vahetevahel kontrollida, kas FMD server on leitav. Privaatsuskaalutlustel on see võimalus vaikimisi lülitatud välja. Parema käideldavuse ja saadavuse nimel soovitame, et lülitad ta sisse.</string>
     <string name="server_connectivity_check_not_enabled_title">Kasuta serveri ühenduse toimimise kontrolli</string>
@@ -204,7 +203,6 @@
     <string name="Settings_FMDServer_Location_Type_Description">Allikas (allikad), mille alusel asukohaandmed laaditakse regulaarselt taustal serverisse.\nKui sa ühtegi ei vali, siis asukoha teavet ei laadita serverisse. (Küll aga saad kasutada veebiliidest üleslaadimise käivitamiseks ja see eeldab tõuketeenuste toimimist.)</string>
     <string name="Settings_FMDServer_AddAccount">FMD server: sisselogimine</string>
     <string name="Settings_FMDServer_Info">FMD serveri abil võid nutiseadmele saata käske, näha tema asukohta kaardil või vaadata üleslaaditud pilte. Kui tahad kasutada oma enda serverit, siis juhend leidub meie veebisaidis.</string>
-    <string name="server_fmd_id_hint">FMD kasutajanimi tuvastab sinu kasutajakonto FMD serveris. Serveri peakasutajal on võimalik näha FMD kasutajanime.</string>
     <string name="registration_token_hint">Privaatsed FMD-serverid võivad eeldada tunnusloa kasutamist. Kui server on avalik, siis jäta see väli tühjaks.</string>
     <string name="server_registration_token_error">Võrgupäring ei toiminud ja vastuseks oli HTTP olekuteade 401. See võib juhtuda, kui server eeldab tunnusloa kasutamist ja sinu sisestatud tunnusluba oli vale.</string>
     <string name="allowlist_reset_title">Lubatud kontaktid on lähtestatud</string>

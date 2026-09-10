@@ -207,7 +207,6 @@
     <string name="missing_permissions_title">缺少权限</string>
     <string name="crashed_text">FMD 崩溃了！以下是日志：</string>
     <string name="crashed_copy_log">复制日志</string>
-    <string name="server_fmd_id_hint">FMD 用户名 用于标识您在 FMD 服务器上的账户。服务器管理员可查看 FMD 用户名。</string>
     <string name="Settings_FMDServer_Push_Distributor">分发服务器：%s</string>
     <string name="Settings_FMDServer_Push_Url">推送 URL: %s</string>
     <string name="Settings_FMDServer_Push_Register">注册</string>
@@ -222,7 +221,6 @@
     <string name="password_match_command_keyword">密码不能与任何命令相同！</string>
     <string name="server_connectivity_check_not_enabled_title">启用服务器连接检查</string>
     <string name="server_connectivity_check_not_enabled_text">FMD 可以定期检查 FMD 服务器是否可访问。出于隐私考虑，此功能默认关闭。但出于可用性考虑，我们建议启用此功能。</string>
-    <string name="server_password_hint">请选择一个无法被猜出，但在设备丢失后可以恢复的密码。该密码会授予您在设备上远程运行命令的权限。服务器管理员无法访问或重置你的密码。</string>
     <string name="allowlist_invalid_number">此手机号不可用！</string>
     <string name="cmd_flash_description_short">开启闪光灯</string>
     <string name="cmd_locate_response_beacondb_failed">BeaconDB 定位失败。可能由于基站未录入数据库。\n\n%s</string>

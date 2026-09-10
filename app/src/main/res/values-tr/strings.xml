@@ -75,7 +75,6 @@
     <string name="Settings_FMDServer_Info">FMD Sunucusuyla internet üzerinden komutlar gönderebilirsiniz, sunucudan uygulamaya. Ayrıca cihaz konumunu bir harita üzerinde görüntüleyebiliriniz ya da cihaz tarafından çekilmiş fotoğrafları görüntüleyebilirsiniz. Self-hosting talimatları için, websiteye bakınız.</string>
     <string name="Settings_FMDServer_Server_Url">Sunucu URLsi</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Gizlilik Politikası</string>
-    <string name="server_fmd_id_hint">FMD ID hesabınızın FMD sunucusunda kimliğini belirler. Sunucunun ID üretmesi için bunu boş bırakın. FMD ID\'nin sunucuda düz yazı olarak depolandığını göz önünde bulundurun, örn. sunucu yöneticisi görebilir.</string>
     <string name="registration_token_hint">Özel instancelar gizli bir token gerektirebilir. Eğer instance halka açıksa bunu boş bırakın.</string>
     <string name="WhiteList_no_contact_picker">Rehber uygulaması bulunamadı!</string>
     <string name="allowlist_add_phone_number">Telefon Numarası Ekle</string>

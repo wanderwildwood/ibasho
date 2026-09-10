@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.WindowManager
 import android.webkit.URLUtil
 import android.webkit.WebView
 import android.widget.Button
@@ -224,7 +225,17 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         MaterialAlertDialogBuilder(context)
             .setTitle(getString(R.string.Settings_FMDServer_Alert_PrivacyPolicy_Title))
             .setView(webView)
-            .setPositiveButton(getString(R.string.accept)) { _, _ -> dialogToShowAfterAccepting.show() }
+            .setPositiveButton(getString(R.string.accept)) { _, _ ->
+                val shown = dialogToShowAfterAccepting.show()
+                // Pan the dialog so the focused field stays visible when the keyboard
+                // is up. ADJUST_RESIZE collapses the dialog to a sliver here; without
+                // either, the registration token sits under the keyboard and the
+                // dialog will not scroll far enough to bring it out.
+                @Suppress("DEPRECATION")
+                shown.window?.setSoftInputMode(
+                    WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN
+                )
+            }
             .setNegativeButton(getString(R.string.cancel), null)
             .setCancelable(false)
             .show()

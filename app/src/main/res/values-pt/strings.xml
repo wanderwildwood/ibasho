@@ -80,7 +80,6 @@
     <string name="Settings_FMDServer_Login">Entrar</string>
     <string name="Settings_FMDServer_Register">Registar</string>
     <string name="Settings_FMDServer_Alert_PrivacyPolicy_Title">Política de privacidade</string>
-    <string name="server_fmd_id_hint">O FMD ID identifica a sua conta no FMD Server. Deixe isto vazio para deixar que o servidor gere um ID. Observe que o FMD ID é armazenado em texto simples no servidor, ou seja, o administrador do servidor pode vê-lo.</string>
     <string name="password">Palavra-passe</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">O FMD ID e a palavra-passe não podem estar vazios.</string>
     <string name="registration_token">Token de registo</string>
