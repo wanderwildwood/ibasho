@@ -51,8 +51,28 @@ android {
         buildConfigField "String", "DEFAULT_FMD_SERVER_URL", "\"\""
     }
 
+    // A real keystore in signing/ signs every build type when it is present, so the
+    // very first install is already release-signed and a later update can never hit
+    // INSTALL_FAILED_UPDATE_INCOMPATIBLE. It is gitignored, and there is no fallback:
+    // a fresh clone builds an unsigned release APK, which will not install anywhere.
+    // A keystore committed to a public repo is not a signing key, it is a formality,
+    // and a missing one should stop you rather than produce something installable.
+    def signingPropertiesFile = rootProject.file("signing/signing.properties")
+    def realSigningConfig = null
+    if (signingPropertiesFile.isFile()) {
+        def signingProperties = new Properties()
+        signingPropertiesFile.withInputStream { signingProperties.load(it) }
+        realSigningConfig = signingConfigs.create("real") {
+            storeFile rootProject.file("signing/signing.keystore")
+            storePassword signingProperties.getProperty("STORE_PASSWORD")
+            keyAlias signingProperties.getProperty("KEY_ALIAS")
+            keyPassword signingProperties.getProperty("KEY_PASSWORD")
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig realSigningConfig
             // WARNING: Compile and test the release flavor before publishing!!!
             // This is because minification may strip things that are not explicitly referenced
             // but are actually needed (e.g., objects being serialised by Gson).
@@ -62,6 +82,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
+            signingConfig realSigningConfig
             // don't minify (for faster builds)
             minifyEnabled false
         }

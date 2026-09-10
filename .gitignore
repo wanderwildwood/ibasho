@@ -71,3 +71,8 @@ app/lint/
 
 # Kotlin
 .kotlin/
+
+# The signing key never goes in the repo. There is no fallback: without
+# signing/, a release build comes out unsigned.
+signing/signing.properties
+signing/signing.keystore
