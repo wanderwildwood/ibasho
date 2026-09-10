@@ -97,12 +97,6 @@
     <string name="request_failed_status_code">Statuscode</string>
     <string name="Notification_Server_Description">Benachrichtigungen bzgl. FMD-Server</string>
     <string name="Settings_FMDServer_Server_Url">Server-URL</string>
-    <string name="cmd_camera_description_short">Bild aufnehmen</string>
-    <string name="cmd_delete_description_short">Gerät auf Werkseinstellungen zurücksetzen</string>
-    <string name="cmd_delete_description_long">Alle Daten werden gelöscht. Danach kannst Du nicht mehr mit dem Gerät kommunizieren. Um versehentliche und böswillige Nutzung zu verhindern, erfordert dieser Befehl ein Kennwort und er muss in den Einstellungen ausdrücklich aktiviert werden.</string>
-    <string name="cmd_delete_response_disabled">Löschen nicht möglich: Der „delete“-Befehl ist nicht in den Einstellungen aktiviert.</string>
-    <string name="cmd_delete_response_pwd_missing">Löschen nicht möglich: Passwort fehlt. Syntax: %s.</string>
-    <string name="cmd_delete_response_success">Das Gerät sollte nun gelöscht werden. Auf Wiedersehen!</string>
     <string name="cmd_gps_response_on">Die Standortdienste wurden eingeschaltet.</string>
     <string name="cmd_gps_response_off">Die Standortdienste wurden ausgeschaltet.</string>
     <string name="cmd_help_description_short">Hilfe anzeigen</string>
@@ -128,10 +122,6 @@
     <string name="perm_shizuku_failed">Zulassen via Shizuku fehlgeschlagen</string>
     <string name="usage_notification_title">Befehl ausgeführt</string>
     <string name="cmd_stats_description_short">Netzwerkstatistiken abrufen</string>
-    <string name="cmd_camera_description_long">Nimmt ein Bild mit der Front-/Rückkamera auf und lädt es auf den FMD-Server hoch. Derzeit wird nur Hochladen auf den FMD-Server unterstützt. Du kannst diesen Befehl auch über andere Transportkanäle senden, und das Bild wird dann auf den FMD-Server hochgeladen (sofern ein Konto existiert).</string>
-    <string name="cmd_camera_response_no_fmd_server">Bild kann nicht aufgenommen werden: Ein FMD-Server-Konto fehlt.</string>
-    <string name="cmd_camera_response_success">Das Gerät nimmt gerade ein Bild auf und wird es auf den FMD-Server hochladen. Du kannst es gleich hier anschauen: %s</string>
-    <string name="cmd_delete_response_pwd_wrong">Löschen nicht möglich: falsches Passwort.</string>
     <string name="cmd_locate_description_short">Gerät orten</string>
     <string name="cmd_gps_description_short">Standortdienste ein- und ausschalten</string>
     <string name="cmd_ring_response">Das Gerät sollte nun klingeln.</string>
@@ -215,7 +205,6 @@
     <string name="Settings_Appearance">Erscheinungsbild</string>
     <string name="appearance_language">Sprache</string>
     <string name="appearance_language_choose">Sprache auswählen</string>
-    <string name="cmd_delete_response_failed">Das Löschen des Geräts ist fehlgeschlagen aufgrund eines Ausnahmefehlers.</string>
     <string name="appearance_theme_follow_system">Systemstandard</string>
     <string name="appearance_theme_dark">Dunkel</string>
     <string name="appearance_theme">Designstil</string>
@@ -234,7 +223,6 @@
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD wird dich benachrichtigen, wenn die letzte erfolgreiche Verbindung zu FMD Server mehr als X Stunden zurückliegt. Dies hat keine Auswirkungen, wenn die Verbindungsprüfung deaktiviert ist.</string>
     <string name="server_connectivity_lost_title">FMD-Server-Verbindung verloren</string>
     <string name="server_connectivity_lost_text">Der FMD Server bei %1$s kann nicht mehr erreicht werden. Die letzte erfolgreiche Verbindung war am %2$s.</string>
-    <string name="cmd_delete_response_dry_run">Testlauf erfolgreich, die eigentliche Gerätelöschung wird übersprungen.</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Intervall des Standortuploads im Hintergrund</string>
     <string name="server_fmd_id_hint">Der Benutzername identifiziert dein Konto auf FMD Server. Der Server-Administrator kann den Benutzernamen sehen.</string>
     <string name="Settings_FMDServer_Push_Url">Push-URL: %s</string>
@@ -268,13 +256,10 @@
     <string name="cmd_locate_provider_disabled">Der angefragte Standort-Anbieter „%s“ ist deaktiviert.</string>
     <string name="cmd_flash_description_short">Kamerablitz blitzen lassen</string>
     <string name="dont_show_again">Nicht mehr anzeigen</string>
-    <string name="delete_pw_warning_no_backup">Achtung: Das Passwort ist nicht im App-Backup enthalten.</string>
-    <string name="delete_pw_warning_empty">Achtung: Löschen wird nicht funktionieren, da das Lösch-Passwort leer ist. Du musst sowohl die Funktion aktivieren als auch ein Passwort setzen.</string>
     <string name="password_set">Passwort setzen</string>
     <string name="password_change">Passwort ändern</string>
     <string name="password_enter">Passwort eingeben</string>
     <string name="password_match_command_keyword">Das Passwort darf nicht mit einem der Befehle übereinstimmen!</string>
-    <string name="fmd_edge_info_message">Dies ist die Edge-Variante von FMD. Hier lautet das Standard-Befehlswort „fmde“ (anstelle von „fmd“). Um beispielsweise den „locate“-Befehl zu senden, verwende „fmde locate“. Auf diese Weise können sowohl Edge als auch Prod auf demselben Gerät installiert sein und Befehle an eines der beiden gerichtet werden.</string>
     <string name="Fused">Zusammengefasst</string>
     <string name="tip_first_contact_added">Glückwunsch, du hast deinen ersten Kontakt hinzugefügt! Du kannst nun mit FMD kommunizieren, indem du von einer erlaubten Telefonnummer aus eine SMS schickst, die mit „%1$s“ anfängt. Schick zum Beispiel „%2$s help“ oder „%3$s flash“. Falls alles klappt, wird die App antworten.</string>
     <string name="cmd_bluetooth_response_is_on">Bluetooth ist an.</string>

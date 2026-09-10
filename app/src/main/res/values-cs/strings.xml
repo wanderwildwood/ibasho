@@ -87,12 +87,6 @@
     <string name="registration_token_hint">Soukromé instance mohou vyžadovat tajný token. Ponechte prázdné, pokud se jedná o veřejnou instanci.</string>
     <string name="Notification_Server_Description">Oznámení týkající se FMD Serveru</string>
     <string name="Settings_FMDServer_Server_Url">Adresa serveru</string>
-    <string name="cmd_camera_response_no_fmd_server">Nepodařilo se pořídit obrázek: neexistuje účet na FMD Serveru.</string>
-    <string name="cmd_delete_description_short">Tovární reset zařízení</string>
-    <string name="cmd_delete_description_long">Toto vymaže všechna data. Po této akci již nebudete moci komunikovat se zařízením. Pro zabránění nechtěnému a škodlivému použití vyžaduje tento příkaz heslo a je třeba jej explicitně povolit v nastavení.</string>
-    <string name="cmd_delete_response_disabled">Nepodařilo se odstranit: příkaz k odstranění není povolen v nastavení.</string>
-    <string name="cmd_delete_response_pwd_missing">Nepodařilo se odstranit: chybějící heslo. Použití: %s.</string>
-    <string name="cmd_delete_response_success">Zařízení by nyní mělo být vymazáno. Na shledanou!</string>
     <string name="cmd_gps_description_short">Zapnout nebo vypnout polohové služby</string>
     <string name="cmd_gps_response_off">Polohové služby vypnuty.</string>
     <string name="cmd_lock_description_short">Uzamknout zařízení</string>
@@ -117,10 +111,6 @@
     <string name="grant_write_secure_settings_description">Toto oprávnění lze udělit pouze pomocí příkazu „pm grant“ s nástrojem pro příkazovou řádku systému Android. Tento příkaz můžete ručně vykonat pomocí nástroje Android Debug Bridge (ADB) s počítačem. Můžete jej také vykonat přímo na vašem zařízení pomocí rootu nebo aplikace Shizuku.\n\nUživatelské ID: %d</string>
     <string name="grant_via_adb">Udělit pomocí ADB</string>
     <string name="perm_root_denied">Root přístup zamítnut</string>
-    <string name="cmd_camera_description_long">Pořídí obrázek s předním/zadním fotoaparátem a nahraje jej na FMD Server. Momentálně je podporováno pouze nahrání na FMD Server. Tento příkaz můžete poslat také ostatními kanály a obrázek bude nahrán na FMD Server (pokud existuje účet).</string>
-    <string name="cmd_camera_description_short">Pořídit obrázek</string>
-    <string name="cmd_camera_response_success">Zařízení pořizuje obrázek a nahraje jej na FMD Server. Brzy si jej budete moci prohlédnout zde: %s</string>
-    <string name="cmd_delete_response_pwd_wrong">Nepodařilo se odstranit: nesprávné heslo.</string>
     <string name="grant_write_secure_settings_title">Udělit přístup k zápisu zabezpečených nastavení</string>
     <string name="cmd_gps_response_on">Polohové služby zapnuty.</string>
     <string name="cmd_help_description_short">Zobrazit nápovědu</string>
@@ -202,7 +192,6 @@
     <string name="appearance_language">Jazyk</string>
     <string name="appearance_language_choose">Vybrat jazyk</string>
     <string name="appearance_language_system_default">Podle systému</string>
-    <string name="cmd_delete_response_failed">Nepodařilo se odstranit zařízení z důvodu chyby.</string>
     <string name="appearance_theme_light">Světlý</string>
     <string name="appearance_dynamic_colors">Dynamické barvy</string>
     <string name="appearance_theme">Motiv</string>
@@ -221,7 +210,6 @@
     <string name="server_connectivity_lost_text">FMD Server na %1$s již není dostupný. Poslední úspěšné spojení proběhlo %2$s.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD kontroluje spojení s FMD Serverem každých X hodin. Nastavte na 0 pro zakázání kontroly spojení.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Interval kontroly spojení</string>
-    <string name="cmd_delete_response_dry_run">Zkušební běh proběhl úspěšně, překakování skutečného odstranění zařízení.</string>
     <string name="server_fmd_id_hint">Uživatelské jméno identifikuje váš účet na FMD Serveru. Správce serveru může vaše jméno vidět.</string>
     <string name="Settings_FMDServer_Push_Description">Odesílání příkazů z FMD Serveru do vašeho zařízení vyžaduje distribuční aplikaci služby UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributor: %s</string>
@@ -254,13 +242,10 @@
     <string name="executing_title">Vykonávání příkazu</string>
     <string name="executing_text">Příkaz „%1$s“ je vykonáván uživatelem „%2$s“.</string>
     <string name="dont_show_again">Již nezobrazovat</string>
-    <string name="delete_pw_warning_no_backup">Varování: Záloha aplikace neobsahuje heslo.</string>
-    <string name="delete_pw_warning_empty">Varování: Mazání nebude fungovat, protože heslo pro smazání je prázdné. Musíte povolit funkci a nastavit heslo.</string>
     <string name="password_set">Nastavit heslo</string>
     <string name="password_change">Změnit heslo</string>
     <string name="password_enter">Zadejte heslo</string>
     <string name="password_match_command_keyword">Heslo se nesmí rovnat jednomu z příkazů!</string>
-    <string name="fmd_edge_info_message">Toto je vývojová varianta FMD. Zde je výchozí klíčové slovo příkazu „fmde“ (namísto „fmd“). Chcete-li například odeslat příkaz locate, použijte „fmde locate“. To umožňuje mít nainstalovanou jak vývojovou, tak produkční verzi na stejném zařízení a směrovat příkazy na jedno z nich.</string>
     <string name="Fused">Sloučené</string>
     <string name="cmd_bluetooth_response_is_on">Bluetooth je zapnutý.</string>
     <string name="cmd_bluetooth_response_is_off">Bluetooth je vypnutý.</string>

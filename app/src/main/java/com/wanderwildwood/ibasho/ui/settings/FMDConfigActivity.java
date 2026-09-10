@@ -13,7 +13,6 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,21 +26,14 @@ import com.wanderwildwood.ibasho.ui.FmdActivity;
 import com.wanderwildwood.ibasho.ui.common.PasswordSetDialog;
 import kotlin.Unit;
 
-public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnCheckedChangeListener, TextWatcher {
+public class FMDConfigActivity extends FmdActivity implements TextWatcher {
 
     private SettingsRepository settings;
     private EncryptedSettingsRepository encSettings;
 
-    private CheckBox checkBoxDeviceWipe;
     private Button buttonSelectRingtone;
-    private Button buttonDeletePassword;
     private EditText editTextLockScreenMessage;
     private EditText editTextFmdCommand;
-
-    int colorEnabled;
-    int colorDisabled;
-    int textColorEnabled;
-    int textColorDisabled;
 
     private static final int REQUEST_CODE_RINGTONE = 5;
 
@@ -56,18 +48,9 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
         settings = SettingsRepository.Companion.getInstance(this);
         encSettings = EncryptedSettingsRepository.Companion.getInstance(this);
 
-        checkBoxDeviceWipe = findViewById(R.id.checkBoxWipeData);
-        checkBoxDeviceWipe.setChecked((Boolean) settings.get(Settings.SET_WIPE_ENABLED));
-        checkBoxDeviceWipe.setOnCheckedChangeListener(this);
-
         editTextLockScreenMessage = findViewById(R.id.editTextTextLockScreenMessage);
         editTextLockScreenMessage.setText((String) settings.get(Settings.SET_LOCKSCREEN_MESSAGE));
         editTextLockScreenMessage.addTextChangedListener(this);
-
-        colorEnabled = getColor(R.color.md_theme_primary);
-        colorDisabled = getColor(R.color.md_theme_error);
-        textColorEnabled = getColor(R.color.md_theme_onPrimary);
-        textColorDisabled = getColor(R.color.md_theme_onError);
 
         buttonSelectRingtone = findViewById(R.id.buttonSelectRingTone);
         buttonSelectRingtone.setOnClickListener(this::onSelectRingtoneClicked);
@@ -76,17 +59,6 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
         editTextFmdCommand.setText((String) settings.get(Settings.SET_FMD_COMMAND));
         editTextFmdCommand.addTextChangedListener(this);
 
-        buttonDeletePassword = findViewById(R.id.buttonDeletePassword);
-        buttonDeletePassword.setOnClickListener(this::onEnterDeletePasswordClicked);
-        updateDeletePasswordButton();
-    }
-
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if (buttonView == checkBoxDeviceWipe) {
-            settings.set(Settings.SET_WIPE_ENABLED, isChecked);
-            updateDeletePasswordButton();
-        }
     }
 
     @Override
@@ -113,14 +85,6 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
         }
     }
 
-    private void onEnterDeletePasswordClicked(View v) {
-        new PasswordSetDialog(v.getContext(), (newPassword) -> {
-            encSettings.setDeletePassword(newPassword);
-            updateDeletePasswordButton();
-            return Unit.INSTANCE;
-        }, R.string.password_enter, null, true, true).show();
-    }
-
     private void onSelectRingtoneClicked(View v) {
         Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
         intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_ALARM);
@@ -142,28 +106,5 @@ public class FMDConfigActivity extends FmdActivity implements CompoundButton.OnC
         }
     }
 
-    private void updateDeletePasswordButton() {
-        boolean enabled = (boolean) settings.get(Settings.SET_WIPE_ENABLED);
-        String password = encSettings.getDeletePassword();
-        boolean isPasswordEmpty = password == null || password.isBlank();
-
-        TextView textViewDeletePasswordWarning = findViewById(R.id.textViewDeletePasswordWarning);
-
-        if (isPasswordEmpty) {
-            buttonDeletePassword.setBackgroundColor(colorDisabled);
-            buttonDeletePassword.setTextColor(textColorDisabled);
-            buttonDeletePassword.setText(R.string.password_set);
-        } else {
-            buttonDeletePassword.setBackgroundColor(colorEnabled);
-            buttonDeletePassword.setTextColor(textColorEnabled);
-            buttonDeletePassword.setText(R.string.password_change);
-        }
-
-        if (enabled && isPasswordEmpty) {
-            textViewDeletePasswordWarning.setVisibility(View.VISIBLE);
-        } else {
-            textViewDeletePasswordWarning.setVisibility(View.GONE);
-        }
-    }
 
 }

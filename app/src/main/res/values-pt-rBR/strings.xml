@@ -84,8 +84,6 @@
     <string name="cmd_locate_response_location_off">Não foi possível executar o comando locate: a localização está desativada.</string>
     <string name="ringer_stop_ringing">PARAR DE TOCAR</string>
     <string name="Toast_Empty_FMDCommand">Comando vazio não permitido, usando o padrão.</string>
-    <string name="cmd_camera_description_long">Tira uma foto da câmera frontal/traseira e a envia para o FMD Server. Atualmente só é possível enviar para o FMD Server. Você pode enviar este comando através de outros canais de transporte, também, e a foto será enviada ao FMD Server (se uma conta existe).</string>
-    <string name="cmd_delete_description_short">Apagar os dados do dispositivo</string>
     <string name="cmd_gps_description_short">Habilitar os serviços de localização</string>
     <string name="cmd_lock_response">O dispositivo deve estar bloqueado agora.</string>
     <string name="cmd_ring_description_short">Fazer o dispositivo tocar</string>
@@ -96,14 +94,6 @@
     <string name="perm_write_secure_settings_name">Modificar configurações seguras</string>
     <string name="grant_write_secure_settings_title">Permitir modificação das configurações seguras</string>
     <string name="grant_write_secure_settings_description">Esta permissão só pode ser concedida com a ferramenta \"pm grant\" de terminal do Android. Você pode executar este comando manualmente através do Android Debug Bridge (ADB) usando um computador. Você também pode executá-lo diretamente no seu dispositivo usando root ou o Shizuku.\n\nID do usuário: %d</string>
-    <string name="cmd_camera_description_short">Tirar uma foto</string>
-    <string name="cmd_delete_response_pwd_wrong">Não foi possível executar o delete: senha errada.</string>
-    <string name="cmd_camera_response_no_fmd_server">Não foi possível tirar foto: nenhum conta do FMD Server existe.</string>
-    <string name="cmd_camera_response_success">O dispositivo está tirando uma foto e enviará ao FMD Server. Você poderá logo ver ela aqui: %s</string>
-    <string name="cmd_delete_description_long">Apaga todos os dados. Depois, não será mais possível se comunicar com o dispositivo. Para prevenir uso malicioso ou acidental, este comando requer uma senha e precisa estar ativado explicitamente nas configurações.</string>
-    <string name="cmd_delete_response_disabled">Não foi possível executar o delete: não está ativado nas configurações.</string>
-    <string name="cmd_delete_response_pwd_missing">Não foi possível executar o delete: nenhuma senha. Uso: %s.</string>
-    <string name="cmd_delete_response_success">Seu dispositivo agora deve ter sido apagado. Adeus!</string>
     <string name="cmd_gps_response_on">Serviços de localização foram ativados.</string>
     <string name="cmd_gps_response_off">Serviços de localização foram desativados.</string>
     <string name="cmd_help_description_short">Mostrar a ajuda</string>
@@ -202,7 +192,6 @@
     <string name="appearance_language">Idioma</string>
     <string name="appearance_language_choose">Selecionar idioma</string>
     <string name="appearance_language_system_default">Padrão do sistema</string>
-    <string name="cmd_delete_response_failed">Falha ao apagar o dispositivo devido à uma exceção.</string>
     <string name="appearance_theme_dark">Escuro</string>
     <string name="appearance_theme">Tema</string>
     <string name="appearance_theme_follow_system">Seguir o sistema</string>
@@ -219,7 +208,6 @@
     <string name="Settings_FMDServer_Check_Interval_Title">Intervalo do teste de conectividade</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Tempo máximo permitido sem conexão</string>
     <string name="server_connectivity_lost_title">Conexão ao FMD Server perdida</string>
-    <string name="cmd_delete_response_dry_run">Execução seca bem-sucedida, pulando o apagamento real do dispositivo.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">O FMD testa sua conexão ao FMD Server a cada X horas. Configure isto pra 0 para desativar o teste de conectividade.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">O FMD irá te notificar se a última conexão ao FMD Server foi a mais de X horas atrás. Isto não tem efeito se o teste de conectividade está desativado.</string>
     <string name="server_fmd_id_hint">O nome de usuário identifica sua conta no FMD Server. O administrador do servidor pode vê-lo.</string>
@@ -254,13 +242,10 @@
     <string name="executing_title">Executando comando</string>
     <string name="executing_text">O comando \"%1$s\" está sendo executado por \"%2$s\".</string>
     <string name="dont_show_again">Não mostrar de novo</string>
-    <string name="delete_pw_warning_no_backup">Atenção: A senha não é inclusa no backup de apps.</string>
-    <string name="delete_pw_warning_empty">Atenção: Apagar não funcionará pois a senha de apagar está vazia. Você deve tanto ativar o recurso como configurar uma senha.</string>
     <string name="password_set">Configurar senha</string>
     <string name="password_change">Alterar senha</string>
     <string name="password_enter">Digite a senha</string>
     <string name="password_match_command_keyword">A senha não pode ser igual aos comandos!</string>
-    <string name="fmd_edge_info_message">Essa é a variante edge do FMD. Aqui, o comando padrão é \"fmde\" (em vez de \"fmd\"). Por exemplo, para enviar um comando de localizar, use \"fmde locate\". Isso permite ter tanto o edge quanto o prod instalados no mesmo dispositivo, e especificar para qual vão os comandos.</string>
     <string name="Fused">Combinado</string>
     <string name="tip_first_contact_added">Parabéns, você adicionou o seu primeiro contato! Agora você pode comunicar com o FMD enviando um SMS que começa com \"%1$s\" pelo número de telefone permitido. Por exemplo, envie \"%2$s help\" ou \"%3$s flash\". Se tudo funciona, o app irá responder.</string>
     <string name="cmd_bluetooth_response_is_on">O Bluetooth está ativado.</string>

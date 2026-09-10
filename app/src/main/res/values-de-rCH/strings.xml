@@ -47,15 +47,6 @@
     <string name="server_unregister_failed_title">De-Registrierig fehlgschlage</string>
     <string name="server_unregister_continue_anyway">Trotzdem wiiter mache</string>
     <string name="server_unregister_dont_continue">Nöd wiiter mache</string>
-    <string name="cmd_camera_description_short">Bild ufnäh</string>
-    <string name="cmd_camera_response_no_fmd_server">S Bild chan nöd ufgno werde: es FMD Server-Konto fehlt.</string>
-    <string name="cmd_camera_response_success">S Gerät nimmt gerad s Bild uf und wirds zu FMD Server ufelade. Du chasch es glii da aaluege: %s</string>
-    <string name="cmd_delete_description_short">Gerät uf Werksiistellige zruggsetze</string>
-    <string name="cmd_delete_description_long">Alli Date werdet glöscht. Nachher chasch nümme mitem Gerät kommuniziere. Um versehentlichi und böswilligi Nutzig z verhindere, brucht de Befehl es Kennwort und er muess ide Iistellige usdrücklich aktiviert werde.</string>
-    <string name="cmd_delete_response_disabled">Lösche nöd möglich: De delete-Befehl isch nöd ide Iistellige aktiviert.</string>
-    <string name="cmd_delete_response_pwd_missing">Lösche nöd möglich: Passwort fehlt. Syntax: %s.</string>
-    <string name="cmd_delete_response_pwd_wrong">Lösche nöd möglich: falsches Passwort.</string>
-    <string name="cmd_delete_response_success">S Gerät sett jetzt glöscht werde. Uf Wiederluege!</string>
     <string name="cmd_gps_description_short">Standortdienst aa- und abstelle</string>
     <string name="perm_battery_optimizations_name">Akku-Optimierige ignoriere</string>
     <string name="perm_camera_name">Kamera</string>
@@ -114,7 +105,6 @@
     <string name="perm_shizuku_failed">Erlaube via Shizuku fehlgschlage</string>
     <string name="Notification_Pin_Usage_Description">Benachrichtigunge wenn mitemne Passwort uf FMD zuegriffe wird</string>
     <string name="usage_notification_text">De Befehlt \"%s\" isch usgfüehrt worde.</string>
-    <string name="cmd_camera_description_long">Nimmt es Bild mit de Front-/Rückkamera uf und ladets zu FMD Server ufe. Derziit wird nur Ufelade zu FMD Server unterstützt. Du chasch de Befehl au über anderi Transportkanäl sende, unds Bild wird denn zu FMD Server ufeglade (soferns es Konto het).</string>
     <string name="cmd_locate_description_long">Ort s Gerät mithilf vo eim oder mehrerne Standortabieter. S GPS het die höchscht Genauigkeit, aber funktioniert nöd immer. De \"fused\"-Abieter isch vo Android definiert, und brucht en Kombination vo Quellene (oft WLAN und Mobilfunkmaste). De \"cell\"-Abieter frögt die öffentlich OpenCelliD und BeaconDB Dienst nach de Mobilfunkmaststandört.</string>
     <string name="cmd_stats_description_long">Rüef d Netzwerkstatistike vom Gerät ab. Zum Biispiel sini IP-Adresse und en Lischte vo de umliegende WLAN-Netzwerk.</string>
     <string name="cmd_stats_response">Netzwerk-Statistike: \n \nGeräte-IPs: \n%1$s \n \nWLAN-Netzwerke: \n%2$s</string>
@@ -200,7 +190,6 @@
     <string name="appearance_language">Sprach</string>
     <string name="appearance_language_system_default">Systemsprach</string>
     <string name="appearance_language_choose">Sprach uswähle</string>
-    <string name="cmd_delete_response_failed">S Lösche vom Gerät isch fehlglschage ufgrund vomne Usnahmefehler.</string>
     <string name="notify_crypto_update_title">Aktion nötig</string>
     <string name="notify_crypto_update_text">Du musch paar Iistellige update zum FMD wiiter bruche. Klick zum d App öffne.</string>
     <string name="appearance_theme_follow_system">Systemstandard</string>
@@ -221,7 +210,6 @@
     <string name="server_connectivity_lost_title">FMD-Server-Verbindig verlore</string>
     <string name="server_connectivity_lost_text">De FMD-Server bi %1$s chan nüme erreicht werde. Di letscht erfolgriich Verbindig isch am %2$s gsi.</string>
     <string name="log_view_clear_confirm">Wotscht würkli alli Protokolliiträg lösche?</string>
-    <string name="cmd_delete_response_dry_run">Testlauf erfolgriich, die eigentlichi Gerätlöschig wird übersprunge.</string>
     <string name="Settings_FMDServer_Push_Distributor">Verteiler: %s</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
     <string name="Settings_FMDServer_Push_Register">Registriere</string>
@@ -249,8 +237,6 @@
     <string name="missing_push_description">Ohni en UnifiedPush-Verteiler-App chasch kei Befehl vo FMD Server empfange.</string>
     <string name="Fused">Zsemmegfasst</string>
     <string name="dont_show_again">Nüme zeige</string>
-    <string name="delete_pw_warning_no_backup">Achtung: S Passwort isch nöd im App-Backup enthalte.</string>
-    <string name="delete_pw_warning_empty">Achtung: S Zruggsetze goht nöd wills Löschpasswort leer isch. Du muesch sowohl d Funktion aktiviere als au es Passwort setze.</string>
     <string name="password_set">Passwort setze</string>
     <string name="password_change">Passwort ändere</string>
     <string name="password_enter">Passwort iigäh</string>
@@ -310,7 +296,6 @@
     <string name="import_success_message">D Iistellige sind erfolgrich importiert worde.</string>
     <string name="import_success_message_warning">Achtung: Sensible Wert sind nöd i de Backupdatei enthalte. Falls du folgendi Features bruchsch, konfigurier sie bitte nomal:\n\n1. Konfigurier s Lösch-Passwort.</string>
     <string name="import_failed_message">De Import isch fehlgschlage oder isch nur teilwiis erfolgriich gsi. Wiiteri Informatione findsch i de Logs.</string>
-    <string name="fmd_edge_info_message">Das isch d Edge-Variante vo FMD. Da luutet s Standard-Befehlswort „fmde“ (anstelle vo „fmd“). Zum biispielswiis de „locate“-Befehl z senden, bruch „fmde locate“. Uf die Art chasch sowohl Edge als auch Prod ufem gliiche Grät installiere und Befehle a eis vo beidne richte.</string>
     <string name="cmd_missing_fmd_permissions">Kann Befehl \"%s\" nöd usführe: Du bisch nöd berechtigt, de Befehl uszführe.</string>
     <string name="cmd_missing_android_permissions">Kann Befehl \"%1$s\" nöd usführe: die folgende Android-Berechtigungen sind nöd gewährt: %2$s.</string>
     <string name="push_registration_failed_title">Push-Registrierig fehlschlage</string>

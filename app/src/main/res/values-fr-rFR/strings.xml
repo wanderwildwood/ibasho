@@ -80,14 +80,6 @@
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Cette application est censée fonctionner en arrière-plan. Pour garantir son fonctionnement même lorsque votre appareil est en veille, vous devez désactiver l\'optimisation de la batterie pour cette application.</string>
     <string name="Toast_Empty_FMDCommand">Commande vide non autorisée, utilisation de la valeur par défaut.</string>
     <string name="Settings_FMDServer_Server_Url">URL du serveur</string>
-    <string name="cmd_camera_description_short">Prendre une photo</string>
-    <string name="cmd_camera_response_no_fmd_server">Impossible de prendre une photo : aucun compte FMD n\'existe.</string>
-    <string name="cmd_camera_response_success">L\'appareil prend une photo et l\'enverra au serveur FMD. Vous pourrez bientôt la voir ici : %s</string>
-    <string name="cmd_delete_description_short">Réinitialiser l\'appareil aux paramètres d\'usine</string>
-    <string name="cmd_delete_response_disabled">Réinitialisation impossible : la commande de réinitialisation n\'est pas activée dans les paramètres.</string>
-    <string name="cmd_delete_response_pwd_missing">Réinitialisation impossible : mot de passe manquant. Utilisation : %s.</string>
-    <string name="cmd_delete_response_pwd_wrong">Réinitialisation impossible : mot de passe incorrect.</string>
-    <string name="cmd_delete_response_success">L\'appareil devrait maintenant avoir été réinitialisé aux paramètres d\'usine. Au revoir !</string>
     <string name="cmd_gps_description_short">Activer ou désactiver le GPS</string>
     <string name="cmd_gps_response_on">GPS activé.</string>
     <string name="cmd_gps_response_off">GPS désactivé.</string>
@@ -97,8 +89,6 @@
     <string name="cmd_stats_description_short">Obtenir les statistiques réseau</string>
     <string name="cmd_stats_description_long">Obtient les statistiques réseau à partir de l\'appareil. Par exemple, son adresse IP et une liste des réseaux Wifi environnants.</string>
     <string name="cmd_stats_response">Statistiques réseau : \n \nAdresses IP de l\'appareil : \n%1$s \n \nRéseaux Wifi : \n%2$s</string>
-    <string name="cmd_camera_description_long">Prend une photo avec la caméra avant/arrière et l\'envoie vers le serveur FMD. Actuellement, seul le transfert vers le serveur FMD est pris en charge. Vous pouvez également envoyer cette commande via d\'autres canaux de communication, et la photo sera téléversée vers le serveur FMD (si un compte existe).</string>
-    <string name="cmd_delete_description_long">Cela efface toutes les données. Par la suite, vous ne pourrez plus communiquer avec l\'appareil. Pour prévenir une utilisation accidentelle et malveillante, cette commande requiert un mot de passe et doit être explicitement activée dans les paramètres.</string>
     <string name="cmd_locate_description_short">Localiser l\'appareil</string>
     <string name="cmd_locate_description_long">Localise l\'appareil en utilisant un ou plusieurs fournisseurs de localisation. Le GPS dispose DD la meilleure précision, mais peut ne pas fonctionner. Le fournisseur \"fused\" (fusionné) est défini par Android, et utilise une combinaison de sources (souvent des antennes relais ou les bornes WiFi). Le fournisseur \"cell\" (cellulaire) appelle les services OpenCelliD et BeaconDB, fournis publiquement, qui utilisent une base de données des emplacements d\'antenne relais.</string>
     <string name="cmd_nodisturb_description_short">Activer ou désactiver le mode Ne pas déranger</string>
@@ -196,7 +186,6 @@
     <string name="crashed_title">Rapport de plantage</string>
     <string name="crashed_open_issuetracker">Ouvrir le gestionnaire d’incidents</string>
     <string name="appearance_dynamic_colors">Couleurs dynamiques</string>
-    <string name="cmd_delete_response_failed">Impossible de réinitialiser l’appareil à cause d’une erreur.</string>
     <string name="perm_bluetooth_connect_name">Se connecter au Bluetooth</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Intervalle de vérification de connectivité</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD vérifie la connectivité au Serveur FMD toutes les X heures. Le réglage à 0 désactive la vérification de la connectivité.</string>
@@ -217,7 +206,6 @@
     <string name="appearance_theme_dark">Sombre</string>
     <string name="appearance_theme">Thème</string>
     <string name="appearance_theme_choose">Choisir le thème</string>
-    <string name="cmd_delete_response_dry_run">Essai réussi, on passe la vraie réinitialisation de l’appareil.</string>
     <string name="server_login_attempts_title">Tentatives échouées de connexion au Serveur FMD</string>
     <string name="server_login_attempts_text">Quelqu’un a essayé de se connecter à votre compte Serveur FMD « %s ». À cause de plusieurs mauvais mots de passe, le compte est maintenant bloqué pour 10 minutes.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth désactivé.</string>
@@ -254,13 +242,10 @@
     <string name="executing_title">Commande en cours d\'exécution</string>
     <string name="executing_text">La commande \"%1$s\" est actuellement en train d\'être exécutée par \"%2$s\".</string>
     <string name="dont_show_again">Ne plus afficher</string>
-    <string name="delete_pw_warning_no_backup">Avertissement : le mot de passe n\'est pas inclus dans la sauvegarde de l\'application.</string>
-    <string name="delete_pw_warning_empty">Avertissement : la réinitialisation ne fonctionnera pas, car le mot de passe de réinitialisation est vide.</string>
     <string name="password_set">Définir le mot de passe</string>
     <string name="password_change">Modifier le mot de passe</string>
     <string name="password_enter">Entrer le mot de passe</string>
     <string name="password_match_command_keyword">Le mot de passe ne peut pas être identique à une des commandes !</string>
-    <string name="fmd_edge_info_message">Ceci est la variante \"expérimental\" de FMD. Ici, le mot-clé par défaut pour les commandes est \"fmde\" (au lieu de \"fmd\"). Par exemple, pour envoyer la commande de localisation, utilisez \" fmde locate\". Cela permet d\'avoir à la fois la variante expérimentale et de production sur le même appareil, et de cibler les commandes pour l\'une des deux.</string>
     <string name="Fused">Fusionné</string>
     <string name="cmd_bluetooth_response_is_on">Le Bluetooth est activé.</string>
     <string name="cmd_bluetooth_response_is_off">Le Bluetooth est désactivé.</string>

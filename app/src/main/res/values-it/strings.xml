@@ -81,7 +81,6 @@
     <string name="request_failed_title">Richiesta di rete non riuscita</string>
     <string name="bottom_nav_commands">Comandi</string>
     <string name="bottom_nav_transports">Canali di invio</string>
-    <string name="cmd_camera_description_short">Fai una foto</string>
     <string name="add">Aggiungi</string>
     <string name="request_failed_status_code">Codice Stato</string>
     <string name="request_failed_response_body">Corpo della risposta</string>
@@ -93,7 +92,6 @@
     <string name="allowlist_add_phone_number">Aggiungi numero di telefono</string>
     <string name="allowlist_phone_number_name">nome</string>
     <string name="allowlist_phone_number">Numero di telefono</string>
-    <string name="cmd_camera_response_no_fmd_server">Impossibile fare foto: non esistono account dell\'FMD server.</string>
     <string name="Notification_Server_Description">Notifiche relative al server FMD</string>
     <string name="Settings_FMD_Server_Connection_Status">Stato della connessione:</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Riuscita</string>
@@ -114,7 +112,6 @@
     <string name="server_login_attempts_title">Tentativi di accesso falliti al server FMD</string>
     <string name="server_login_attempts_text">Qualcuno ha tentato di accedere all\'account \"%s\" del server FMD. A causa di più password errate, l\'account è ora bloccato per 10 minuti.</string>
     <string name="server_registration_token_error">Richiesta di rete fallita con HTTP 401. Questo può accadere se il server richiede un token di registrazione e il token fornito è sbagliato.</string>
-    <string name="cmd_camera_description_long">Scatta una foto con la fotocamera anteriore/posteriore e la carica sul Server FMD. Al momento è supportato solo il caricamento sui Server FMD. Potete inviare questo comando anche tramite altri canali di invio e l\'immagine verrà caricata sul Server FMD (se disponibile un account).</string>
     <string name="cmd_locate_description_short">Localizza il dispositivo</string>
     <string name="cmd_locate_description_long">Individua il dispositivo utilizzando uno o più provider di localizzazione. Il GPS offre la massima precisione, ma potrebbe non funzionare sempre. Il provider “Combinato” è definito da Android e utilizza una combinazione di fonti (spesso Wi-Fi o ripetitori di rete mobile). Il provider “Cella” interroga i servizi pubblici OpenCelliD e BeaconDB per individuare la posizione dei ripetitori di rete mobile nelle vicinanze.</string>
     <string name="cmd_locate_last_known_location_text">Ultima posizione nota</string>
@@ -152,13 +149,6 @@
     <string name="transport_fmd_server_description">Il Server FMD fornisce una interfaccia web per controllare il dispositivo, visualizzare la sua posizione e le immagini inviate. Potete ospitare Server FMD autonomamente o utilizzare l\'istanza fornita. I dati sono memorizzati in modo criptato sul server, protetti dalla vostra password.</string>
     <string name="transport_inapp_title">In - app</string>
     <string name="WhiteList_no_contact_picker">Nessuna app per selezionare contatti trovata!</string>
-    <string name="cmd_delete_description_long">Si cancelleranno tutti i dati. In seguito non sarà più possibile comunicare con il dispositivo. Per evitare l\'utilizzo accidentale e doloso, questo comando richiede una password e deve essere esplicitamente abilitato nelle impostazioni.</string>
-    <string name="cmd_camera_response_success">Il dispositivo sta scattando una foto e la invierà al server FMD. Presto sarà possibile visualizzarla qui: %s</string>
-    <string name="cmd_delete_description_short">Ripristino di fabbrica del dispositivo</string>
-    <string name="cmd_delete_response_disabled">Impossibile Cancellare: il comando Cancella non è abilitato nelle impostazioni.</string>
-    <string name="cmd_delete_response_pwd_missing">Impossibile cancellare: password mancante. Utilizzo: %s.</string>
-    <string name="cmd_delete_response_pwd_wrong">Impossibile cancellare: password errata.</string>
-    <string name="cmd_delete_response_success">A questo punto il dispositivo dovrebbe essere stato cancellato. Addio!</string>
     <string name="perm_post_notification_name">Mostra notifiche</string>
     <string name="perm_sms_name">SMS</string>
     <string name="perm_write_secure_settings_name">Scrivi nelle impostazioni di sicurezza</string>
@@ -202,7 +192,6 @@
     <string name="appearance_language">Lingua</string>
     <string name="appearance_language_choose">Scegli lingua</string>
     <string name="appearance_language_system_default">Predefinita di sistema</string>
-    <string name="cmd_delete_response_failed">Cancellazione del dispositivo fallita a causa di una eccezione.</string>
     <string name="appearance_theme">Tema</string>
     <string name="appearance_theme_dark">Scuro</string>
     <string name="appearance_dynamic_colors">Colori dinamici</string>
@@ -221,7 +210,6 @@
     <string name="server_connectivity_lost_title">Connettività Server FMD persa</string>
     <string name="server_connectivity_lost_text">Il Server FMD su %1$s non può più essere raggiunto. Ultima connessione riuscita in data %2$s.</string>
     <string name="log_view_clear_confirm">Vuoi veramente eliminare tutte le voci di registro?</string>
-    <string name="cmd_delete_response_dry_run">Prova riuscita, evitando l\'effettiva cancellazione del dispositivo.</string>
     <string name="allowlist_reset_title">Rimuovi contatti fidati</string>
     <string name="allowlist_reset_text">A causa di un arresto anomalo, i contatti fidati sono stati ripristinati. Si prega di configurarli nuovamente.</string>
     <string name="Settings_FMDServer_Push_Description">L\'invio di comandi dal server FMD al dispositivo richiede un\'applicazione del distributore UnifiedPush.</string>
@@ -246,8 +234,6 @@
     <string name="dont_show_again">Non mostrare nuovamente</string>
     <string name="Settings_Access_Control">Controllo accesso</string>
     <string name="Settings_Debugging">Risoluzione problemi</string>
-    <string name="delete_pw_warning_no_backup">Attenzione: la password non è inclusa nel backup dell\'app.</string>
-    <string name="delete_pw_warning_empty">Attenzione: l\'eliminazione non andrà a buon fine perché la password di cancellazione è vuota. È necessario sia abilitare la funzione sia impostare una password.</string>
     <string name="Settings_FMDServer_Push_Install_Sunup">Installa Sunup</string>
     <string name="Settings_FMDServer_Push_Info_Sunup">L\'app distributrice consigliata per UnifiedPush è Sunup. Sunup è facile da configurare e utilizza i server push di Mozilla.</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Non si consigliano valori inferiori a 15 minuti.</string>
@@ -271,7 +257,6 @@
     <string name="import_success_message">Le impostazioni sono state importate correttamente.</string>
     <string name="import_success_message_warning">ATTENZIONE: i valori sensibili non vengono inclusi nel file di backup. Pertanto, se si utilizzano le seguenti funzioni, è necessario configurarle nuovamente a mano:\n\n1. Impostare il PIN FMD.\n2. Impostare la password di cancellazione.</string>
     <string name="import_failed_message">L\'importazione non è andata a buon fine o è stata completata solo in parte. Si prega di consultare i registri per ulteriori dettagli.</string>
-    <string name="fmd_edge_info_message">Questa è la variante edge di FMD. In questo caso, la parola chiave predefinita del comando è “fmde” (anziché “fmd”). Ad esempio, per inviare il comando ‘locate’, utilizzare “fmde locate”. Ciò consente di avere sia edge che prod installati sullo stesso dispositivo e di indirizzare i comandi a uno dei due.</string>
     <string name="cmd_bluetooth_response_is_on">Il bluetooth è acceso.</string>
     <string name="cmd_bluetooth_response_is_off">Il bluetooth è spento.</string>
     <string name="cmd_flash_description_short">Attiva il flash della fotocamera</string>

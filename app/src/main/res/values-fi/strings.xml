@@ -128,9 +128,7 @@
     <string name="transport_sms_description_auth">Vain valkoisella listalla olevista numeroista voidaan lähettää komentoja. Lähettääksesi komentoija muista numeroista, tulee viestiin sisällyttää PIN-koodi: \"%s mypin help\". Käytettävyyden edistämiseksi puhelinnumero lisätään väliaikaisten numeroiden valkoiselle listalle 10 minuutiksi.</string>
     <string name="cmd_stats_response">Verkon tilastot:\n\nLaitteen IP-osoitteet:\n%1$s\n\nWifi-verkot:\n%2$s</string>
     <string name="perm_overlay_name">Näy muiden sovellusten päällä</string>
-    <string name="cmd_camera_response_success">Laite ottaa valokuvan ja lähettää sen FMD-palvelimelle. Näet sen pian täällä: %s</string>
     <string name="cmd_bluetooth_description_short">Kytke Bluetooth päälle tai pois päältä</string>
-    <string name="cmd_delete_response_success">Laite poistetaan. Hyvästi!</string>
     <string name="perm_notification_access_name">Ilmoitusten käyttöoikeus</string>
     <string name="perm_post_notification_name">Ilmoitusten lähettäminen</string>
     <string name="perm_unused_app_name">Käyttämättömien sovellusten rajoitukset</string>
@@ -138,8 +136,6 @@
     <string name="notify_crypto_update_text">Sinun tulee päivittää joitain asetuksia jatkaaksesi FMD:n käyttöä. Napauta jatkaaksesi.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth on kytketty pois päältä.</string>
     <string name="cmd_bluetooth_response_on">Bluetooth on kytketty päälle.</string>
-    <string name="cmd_camera_description_short">Ota valokuva</string>
-    <string name="cmd_camera_description_long">Ottaa kuvan etu- tai takakameralla ja lähettää sen FMD-palvelimelle. Kuvan lähetys vain palvelimelle on tuettu. Voit lähettää komennon muiden viestintäkanavien kautta, ja kuva lähetetään FMD-palvelimelle (jos tili ok olemassa).</string>
     <string name="cmd_gps_description_short">Kytke GPS päälle tai pois päältä</string>
     <string name="cmd_locate_description_short">Paikanna laite</string>
     <string name="cmd_stats_description_short">Hae verkon tilastot</string>
@@ -155,10 +151,8 @@
     <string name="grant_via_shizuku">Myönnä Shizukun kautta</string>
     <string name="perm_shizuku_failed">Käyttöoikeuden myöntäminen Shizukun kautta epäonnistui</string>
     <string name="transport_sms_title">SMS</string>
-    <string name="cmd_camera_response_no_fmd_server">Kuvaa ei voitu ottaa: ei tiliä FMD-palvelimella.</string>
     <string name="app_description">FMD (Find My Device) sallii sinun etäpaikantaa laitteesi. Voit kommunikoida FMD:n kanssa tekstiviestillä, pikaviestimillä tai FMD-palvelimen kautta. Paikanna laitteesi, laita se soimaan tai tyhjennä se - kaikki etänä.</string>
     <string name="cmd_bluetooth_response_no_bluetooth">Laitteellasi ei ole Bluetoothia.</string>
-    <string name="cmd_delete_response_failed">Laitetta ei voitu poistaa poikkeaman vuoksi.</string>
     <string name="cmd_help_description_short">Näytä ohje</string>
     <string name="cmd_gps_response_off">GPS kytketty pois päältä.</string>
     <string name="cmd_lock_response">Laite on nyt lukittu.</string>
@@ -172,7 +166,6 @@
     <string name="grant">Myönnä</string>
     <string name="grant_write_secure_settings_title">Myönnä suojattujen asetusten kirjoitusoikeus</string>
     <string name="perm_root_denied">Root-oikeus evätty</string>
-    <string name="cmd_delete_description_short">Palauta laitteen tehdasasetukset</string>
     <string name="cmd_stats_description_long">Hae verkon tilastot laitteelta (esimerkiksi IP-osoite, lista ympäröivistä Wifi-verkoista).</string>
     <string name="cmd_locate_description_long">Paikanna laite käyttäen yhtä tai useampaa sijainnin tarjoajaa. Käyttöjärjestelmä tarjoaa usein GPS:n, joskus yhdistelmänä muiden lähteiden kanssa. Toinen tarjoaja on OpenCelliD, joka käyttää puhelintornien sijaintien tietokantaa.</string>
     <string name="cmd_lock_description_long">Lukitse laite ja näytä viesti näytöllä (vapaavalintainen). Biometrinen tunnistautuminen ei ole käytettävissä, laitteesi salasana vaaditaan lukituksen avaamiseen.</string>
@@ -183,10 +176,6 @@
     <string name="transport_notification_reply_description">Voit sallia FMD:n lukea sovellusten ilmoitukset komentojen lukemista varten. FMD voi silloin vastata Androidin sisäänrakennetun ilmoitusvastaustoiminnon kautta ja voit ohjata FMD:tä haluamallasi viestintäsovelluksella (kunhan se näyttää ilmoituksia, joihin voidaan vastata). Voit esimerkiksi lähettää Signal-viestin \"%s mypin help\" laitteeseesi.</string>
     <string name="cmd_lock_description_short">Lukits laite</string>
     <string name="cmd_locate_last_known_location_not_available">Ei viimeisintä sijaintia tiedossa. Pyydä viimeisin sijainti pakottaaksesi sijainnin päivityksen.</string>
-    <string name="cmd_delete_description_long">Pyyhkii kaikki tiedot laitteelta. Et pysty jälkikäteen enää saamaan yhteyttä laitteeseen. Salasana vaaditaan ilkeämielisen tai vahingossa suoritetun komennon haitan ehkäisemiseksi. Toiminto pitää olla erikseen otettu käyttöön asetuksissa.</string>
-    <string name="cmd_delete_response_disabled">Ei voida poistaa: poistokomentoa ei ole otettu käyttöön asetuksissa.</string>
-    <string name="cmd_delete_response_pwd_missing">Ei voitu poistaa: puuttuva salasana. Käyttöohje: %s.</string>
-    <string name="cmd_delete_response_pwd_wrong">Ei voitu poistaa: virheellinen salasana.</string>
     <string name="cmd_gps_response_on">GPS kytketty päälle.</string>
     <string name="cmd_locate_last_known_location_text">Viimeisin tiedetty sijainti</string>
     <string name="cmd_nodisturb_description_short">Kytke Älä häiritse-tila päälle tai pois päältä</string>
@@ -219,6 +208,5 @@
     <string name="Settings_FMDServer_Check_Notify_After_Title">Pisin sallittu aika ilman yhteyttä</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD ilmoittaa, jos viimeisimmästä onnistuneesta yhteyden tarkistuksesta on kulunut pidempään kuin määrittämäsi tuntimäärä ja tarkistus on käytössä.</string>
     <string name="server_connectivity_lost_title">Yhteys FMD-palvelimeen on katkennut</string>
-    <string name="cmd_delete_response_dry_run">Testiajo suoritettu, ohitetaan todellinen laitteen poisto.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD tarkistaa yhteyden FMD-palvelimelle määrittämäsi tuntimäärän välein. Aseta nollaksi poistaaksesi tarkistus käytöstä.</string>
 </resources>

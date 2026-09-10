@@ -64,8 +64,6 @@
     <string name="Settings_Select_Ringtone">Select ringtone</string>
     <string name="Settings_no_ringtone_picker">No ringtone picker found!</string>
     <string name="Settings_Lockscreenmessage_Description">Lock screen message:\nWhen locking the device, this message will appear on the lock screen.</string>
-    <string name="delete_pw_warning_no_backup">Warning: The password is not included in the app backup.</string>
-    <string name="delete_pw_warning_empty">Warning: Deleting won\'t work because the delete password is empty. You must both enable the feature and set a password.</string>
 
     <!-- Settings: FMD Server -->
     <string name="Settings_FMD_Server_General">General</string>
@@ -252,7 +250,6 @@
     <string name="server_unregister_dont_continue">Don\'t continue</string>
 
     <!-- FMD Edge launch info -->
-    <string name="fmd_edge_info_message">This is the edge variant of FMD. Here, the default command keyword is \"fmde\" (instead of \"fmd\"). For example, to send the locate command, use \"fmde locate\". This allows having both edge and prod installed on the same device, and targeting commands to one of the two.</string>
 
     <!-- Commands -->
 
@@ -271,19 +268,7 @@
     <string name="cmd_bluetoothscan_response">Nearby Bluetooth devices:\n\n%1$s</string>
     <string name="cmd_bluetoothscan_response_item">Name: %1$s\nAddress: %2$s</string>
 
-    <string name="cmd_camera_description_short">Take a picture</string>
-    <string name="cmd_camera_description_long">Takes a picture of with the front/back camera and uploads it to FMD Server. Currently only uploading to FMD Server is supported. You can send this command via other transport channels, too, and the picture will be uploaded to FMD Server (if an account exists).</string>
-    <string name="cmd_camera_response_no_fmd_server">Cannot take picture: no FMD Server account exists.</string>
-    <string name="cmd_camera_response_success">The device is taking a picture and will send it to FMD Server. You can view it here soon: %s</string>
 
-    <string name="cmd_delete_description_short">Factory-reset the device</string>
-    <string name="cmd_delete_description_long">This wipes all data. Afterwards you will no longer be able to communicate with the device. To prevent accidental and malicious usage, this command requires a password and it needs to be explicitly enabled in the settings.</string>
-    <string name="cmd_delete_response_disabled">Cannot delete: delete command is not enabled in settings.</string>
-    <string name="cmd_delete_response_pwd_missing">Cannot delete: missing password. Usage: %s.</string>
-    <string name="cmd_delete_response_pwd_wrong">Cannot delete: wrong password.</string>
-    <string name="cmd_delete_response_dry_run">Dry run successful, skipping the actual device deletion.</string>
-    <string name="cmd_delete_response_failed">Failed to delete device due to an exception.</string>
-    <string name="cmd_delete_response_success">The device should now be deleted. Goodbye!</string>
 
     <string name="cmd_flash_description_short">Flash the camera light</string>
 

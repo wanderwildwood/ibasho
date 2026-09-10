@@ -71,8 +71,6 @@
     <string name="Settings_FMDConfig">Загальне</string>
     <string name="notify_crypto_update_title">Потрібна дія</string>
     <string name="server_unregister_dont_continue">Не продовжувати</string>
-    <string name="cmd_camera_description_short">Зробити фото</string>
-    <string name="cmd_delete_response_disabled">Неможливо видалити: команда видалення не ввімкнена в налаштуваннях.</string>
     <string name="cmd_gps_description_short">Увімкнення та вимкнення Сервісів Визначення Місцезнаходження</string>
     <string name="cmd_help_message_start">Команди FMD:</string>
     <string name="cmd_locate_description_short">Знайти пристрій</string>
@@ -87,17 +85,9 @@
     <string name="server_unregister_failed_title">Не вдалося скасувати реєстрацію</string>
     <string name="server_unregister_continue_anyway">Все одно продовжити</string>
     <string name="server_unregister_failed_body">Скасування реєстрації завершилося невдало з наступною помилкою: {ERROR} \n \nВи можете продовжити в будь-якому випадку, але ваш обліковий запис не було видалено з сервера. Якщо ви продовжите, ваш обліковий запис буде видалено локально на цьому пристрої.</string>
-    <string name="cmd_delete_response_success">Тепер пристрій слід видалити. До побачення!</string>
     <string name="cmd_gps_response_on">Сервіси Визначення Місцезнаходження увімкнені.</string>
     <string name="cmd_gps_response_off">Сервіси Визначення Місцезнаходження вимкнені.</string>
     <string name="cmd_help_description_short">Показати допомогу</string>
-    <string name="cmd_camera_response_no_fmd_server">Неможливо зробити знімок: не існує облікового запису на FMD сервері.</string>
-    <string name="cmd_camera_description_long">Робить знімок за допомогою передньої/задньої камери та завантажує його на FMD сервер. Наразі підтримується лише завантаження на сервер FMD. Ви також можете надіслати цю команду через інші канали звʼязку, і зображення буде завантажено на сервер FMD (якщо обліковий запис існує).</string>
-    <string name="cmd_camera_response_success">Пристрій робить знімок і надсилає його на сервер FMD. Незабаром ви зможете переглянути його тут: %s</string>
-    <string name="cmd_delete_description_short">Скидання до заводських налаштувань</string>
-    <string name="cmd_delete_description_long">Це призведе до видалення всіх даних. Після цього ви більше не зможете спілкуватися з пристроєм. Щоб запобігти випадковому або зловмисному використанню, ця команда вимагає пароля, і її потрібно явно ввімкнути в налаштуваннях.</string>
-    <string name="cmd_delete_response_pwd_wrong">Неможливо видалити: неправильний пароль.</string>
-    <string name="cmd_delete_response_pwd_missing">Неможливо видалити: відсутній пароль. Використання: %s.</string>
     <string name="cmd_locate_response_location_off">Неможливо знайти: місцеперебування вимкнено.</string>
     <string name="cmd_locate_description_long">Визначте місцезнаходження пристрою за допомогою одного або кількох постачальників геолокації. GPS має найвищу точність, але може працювати не завжди. «Об’єднаний» постачальник визначається Android і використовує комбінацію джерел (часто Wi-Fi або вежі стільникового зв’язку). «Стільниковий» постачальник запитує у публічних сервісів OpenCelliD та BeaconDB розташування навколишніх веж стільникового зв’язку.</string>
     <string name="cmd_locate_response_gps_will_follow">GPS координати будуть надіслані найближчим часом.</string>
@@ -180,7 +170,6 @@
     <string name="Settings_no_ringtone_picker">Не знайдено жодного вибирача мелодій!</string>
     <string name="pw_change_empty">Пароль не може бути порожнім.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth вимкнено.</string>
-    <string name="cmd_delete_response_dry_run">Пробний запуск успішно завершено, фактичне видалення пристрою пропущено.</string>
     <string name="server_fmd_id_hint">Ідентифікатор FMD ідентифікує ваш обліковий запис на сервері FMD. Залиште це поле порожнім, щоб сервер міг згенерувати ідентифікатор. Адміністратор сервера може бачити ідентифікатор FMD.</string>
     <string name="allowlist_reset_text">Через збій дозволені контакти було скинуто. Будь ласка, налаштуйте їх ще раз.</string>
     <string name="allowlist_reset_title">Скидання дозволених контактів</string>
@@ -191,7 +180,6 @@
     <string name="appearance_theme_dark">Темна</string>
     <string name="appearance_theme_follow_system">Слідкуйте за системою</string>
     <string name="appearance_theme_light">Світла</string>
-    <string name="cmd_delete_response_failed">Не вдалося видалити пристрій через виняток.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Інтервал перевірки підключення</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD перевіряє підключення до сервера FMD кожні X годин. Встановіть значення 0, щоб вимкнути перевірку підключення.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD сповістить вас, якщо останнє успішне з\'єднання з сервером FMD відбулося більше X годин тому. Це не має ніякого ефекту, якщо перевірка підключення вимкнена.</string>
@@ -255,14 +243,11 @@
     <string name="executing_text">Команду \"%1$s\" виконує \"%2$s\".</string>
     <string name="Fused">Комбінований</string>
     <string name="dont_show_again">Не показувати знову</string>
-    <string name="delete_pw_warning_no_backup">Увага: Пароль не включений в резервну копію застосунку.</string>
-    <string name="delete_pw_warning_empty">Увага: Видалення не спрацює, тому що пароль видалення порожній. Ви повинні увімкнути функцію і встановити пароль.</string>
     <string name="password_set">Встановити пароль</string>
     <string name="password_change">Змінити пароль</string>
     <string name="password_enter">Введіть пароль</string>
     <string name="password_match_command_keyword">Пароль не повинен співпадати з жодною з команд!</string>
     <string name="tip_first_contact_added">Вітаємо, ви додали свій перший контакт! Тепер ви можете взаємодіяти з FMD шляхом надсилання SMS з дозволеного мобільного номера, які починаються з \"%1$s\". Наприклад, надішліть \"%2$s help\" або \"%3$s flash\". Коли все спрацює, застосунок надішле відповідь.</string>
-    <string name="fmd_edge_info_message">Це Edge варіант FMD. Тут стандартне ключове слово команди це \"fmde\" (замість \"fmd\"). Наприклад, щоб надіслати команду locate, використовуйте \"fmde locate\". Це дозволяє одночасно мати і основну і Edge версію на одному пристрої, направляючи команди в одну з них.</string>
     <string name="cmd_bluetooth_response_is_on">Bluetooth увімкнено.</string>
     <string name="cmd_bluetooth_response_is_off">Bluetooth вимкнено.</string>
     <string name="cmd_gps_response_is_on">Сервіси Визначення Місцезнаходження увімкнені.</string>
