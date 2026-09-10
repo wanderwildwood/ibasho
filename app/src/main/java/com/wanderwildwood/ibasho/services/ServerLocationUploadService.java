@@ -29,7 +29,8 @@ public class ServerLocationUploadService extends FmdJobService {
     private static final String TAG = ServerLocationUploadService.class.getSimpleName();
     public static final String SOURCE_REGULAR_BACKGROUND_UPLOAD = "Regular Background Upload";
 
-    private static final int JOB_ID = 108; // for recurring jobs only
+    // Package-visible so the battery-low job can check this one is still armed.
+    public static final int JOB_ID = 108; // for recurring jobs only
 
     private SettingsRepository settings;
 

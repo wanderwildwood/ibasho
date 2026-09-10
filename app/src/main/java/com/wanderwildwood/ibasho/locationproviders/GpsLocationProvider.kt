@@ -5,6 +5,8 @@ import android.content.Context
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.location.LocationRequest
+import android.os.Build
 import android.os.Bundle
 import android.os.Looper
 import com.wanderwildwood.ibasho.R
@@ -108,13 +110,28 @@ class GpsLocationProvider<T>(
 
         context.log()
             .d(TAG, "Requesting location from $requestedProvider with accuracy $requestedAccuracy")
-        locationManager.requestLocationUpdates(
-            requestedProvider,
-            UPDATE_INTERVAL_MILLIS,
-            0f,
-            this,
-            Looper.getMainLooper(),
-        )
+        // Ask for a real fix. The legacy overload leaves the quality unset and the
+        // system settles on LOW_POWER, which on a degoogled phone -- where there is
+        // no network location provider and GPS is the only source -- is close to
+        // asking for nothing. Locating a lost phone is worth the radio.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            locationManager.requestLocationUpdates(
+                requestedProvider,
+                LocationRequest.Builder(UPDATE_INTERVAL_MILLIS)
+                    .setQuality(LocationRequest.QUALITY_HIGH_ACCURACY)
+                    .build(),
+                context.mainExecutor,
+                this,
+            )
+        } else {
+            locationManager.requestLocationUpdates(
+                requestedProvider,
+                UPDATE_INTERVAL_MILLIS,
+                0f,
+                this,
+                Looper.getMainLooper(),
+            )
+        }
 
         transport.send(context, context.getString(R.string.cmd_locate_response_gps_will_follow))
         return def

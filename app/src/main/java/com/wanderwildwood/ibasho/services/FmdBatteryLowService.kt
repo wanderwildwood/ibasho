@@ -3,6 +3,7 @@ package com.wanderwildwood.ibasho.services
 import android.app.job.JobInfo
 import android.app.job.JobParameters
 import android.app.job.JobScheduler
+import com.wanderwildwood.ibasho.data.BackgroundLocationType
 import android.content.ComponentName
 import android.content.Context
 import androidx.work.OneTimeWorkRequestBuilder
@@ -65,6 +66,13 @@ class FmdBatteryLowService : FmdJobService() {
             return false
         }
 
+        // Watchdog: the location upload job is one-shot and re-arms itself, so if
+        // the process is killed mid-run it is lost silently and uploads stop for
+        // good -- the only symptom being that locations quietly stop arriving.
+        // This job is setPeriodic and therefore survives, so it is the right place
+        // to notice and put the other one back.
+        ensureLocationUploadScheduled(this)
+
         val batteryLevel = Utils.getBatteryLevel(this)
         if (batteryLevel < THRESHOLD_PERCENTAGE_LOW) {
             handleLowBatteryUpload(this)
@@ -76,6 +84,22 @@ class FmdBatteryLowService : FmdJobService() {
     override fun onStopJob(params: JobParameters?): Boolean {
         super.onStopJob(params)
         return false // let it be rescheduled using the normal period
+    }
+
+    private fun ensureLocationUploadScheduled(context: Context) {
+        val settings = SettingsRepository.getInstance(context)
+        if (!settings.serverAccountExists()) return
+
+        val locType = BackgroundLocationType(
+            (settings.get(Settings.SET_FMDSERVER_LOCATION_TYPE) as Number).toInt()
+        )
+        if (locType.isEmpty()) return
+
+        val scheduler = context.getSystemService(JobScheduler::class.java)
+        if (scheduler.getPendingJob(ServerLocationUploadService.JOB_ID) == null) {
+            context.log().w(TAG, "Location upload job was missing; rescheduling it.")
+            ServerLocationUploadService.scheduleRecurring(context)
+        }
     }
 
     private fun handleLowBatteryUpload(context: Context) {
