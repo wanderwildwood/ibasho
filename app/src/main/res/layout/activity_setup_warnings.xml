@@ -47,6 +47,10 @@
                 android:id="@+id/connectivity"
                 layout="@layout/warning_connectivity_check" />
 
+            <include
+                android:id="@+id/background_restricted"
+                layout="@layout/warning_background_restricted" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"

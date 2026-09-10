@@ -11,6 +11,8 @@ import com.wanderwildwood.ibasho.services.ServerConnectivityCheckService
 import com.wanderwildwood.ibasho.ui.UiUtil.Companion.setupEdgeToEdgeAppBar
 import com.wanderwildwood.ibasho.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
 import com.wanderwildwood.ibasho.ui.settings.FMDServerActivity
+import com.wanderwildwood.ibasho.warnings.isBackgroundRestricted
+import com.wanderwildwood.ibasho.warnings.openAppSettings
 import com.wanderwildwood.ibasho.warnings.shouldWarnUnifiedPushRequired
 
 
@@ -36,6 +38,7 @@ class SetupWarningsActivity : FmdActivity() {
         // more transparent for users (why did this suddenly disappear?).
         setupRecommPush(this)
         setupRecommConnectivity(this)
+        setupWarnBackgroundRestricted(this)
         setupPermissionsList(
             this,
             viewBinding.permissionsRequiredTitle,
@@ -56,6 +59,17 @@ class SetupWarningsActivity : FmdActivity() {
         }
     }
 
+    private fun setupWarnBackgroundRestricted(context: Context) {
+        val shouldNudge = isBackgroundRestricted(context)
+
+        viewBinding.backgroundRestricted.icCheck.isVisible = !shouldNudge
+        viewBinding.backgroundRestricted.backgroundRestrictedButton.isVisible = shouldNudge
+
+        viewBinding.backgroundRestricted.backgroundRestrictedButton.setOnClickListener {
+            openAppSettings(context)
+        }
+    }
+
     private fun setupRecommConnectivity(context: Context) {
         val shouldNudge =
             ServerConnectivityCheckService.shouldNudgeAboutConnectivityCheck(context)
@@ -73,4 +87,6 @@ class SetupWarningsActivity : FmdActivity() {
 fun shouldShowSetupWarnings(context: Context): Boolean {
     return ServerConnectivityCheckService.shouldNudgeAboutConnectivityCheck(context)
             || isMissingGlobalAppPermission(context)
+            // Nothing works at all in this state, so it earns the warning triangle.
+            || isBackgroundRestricted(context)
 }

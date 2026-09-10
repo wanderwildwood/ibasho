@@ -48,6 +48,12 @@
     <string name="Settings_Debugging">Troubleshooting</string>
     <string name="Settings_About">About</string>
 
+    <!-- Says what it cannot do, not that something went wrong, and names the
+         other setting people will reasonably think already covers this. -->
+    <string name="background_restricted_title">Background use is restricted</string>
+    <string name="background_restricted_text">Android will not let this app run in the background, so it cannot report where the phone is. Allowing battery use in the background is a separate setting and does not cover this.</string>
+    <string name="background_restricted_button">Open settings</string>
+
     <!-- About. Order fixed by the house style: name and version, what it sends,
          the licence in full, what is bundled and under what, then the source. -->
     <string name="about_sends">Sends this phone\'s location to the server you set, encrypted. Only your password can read it, and it cannot be reset.</string>
