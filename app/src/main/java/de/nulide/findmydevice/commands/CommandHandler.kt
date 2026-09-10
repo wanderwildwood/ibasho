@@ -16,8 +16,6 @@ fun availableCommandsWithoutHelp(context: Context): List<Command> {
     return mutableListOf(
         BluetoothCommand(context),
         BluetoothScanCommand(context),
-        CameraCommand(context),
-        DeleteCommand(context),
         FlashCommand(context),
         GpsCommand(context),
         // HelpCommand(context),
