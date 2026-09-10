@@ -19,7 +19,6 @@
     <string name="server_version">Tjenerversjon</string>
     <string name="Settings_Lockscreenmessage_Description">Låseskjermsmelding. \nVises når enheten er låst.</string>
     <string name="Settings_FMDServer_Change_Password_Button">Endre passord</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Fortsett med sletting av all data fra tjeneren?</string>
     <string name="Settings_FMDServer_Location_Type_Title">Posisjoneringstjeneste</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD laster opp enheten hvert n minutt.</string>
     <string name="Settings_FMDServer_Location_Type_Description">Kilden posisjoneringsdataen lastes opp fra. Velg minst én.</string>

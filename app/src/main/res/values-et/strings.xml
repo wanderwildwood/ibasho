@@ -37,7 +37,6 @@
     <string name="appearance_theme_follow_system">Järgi süsteemi kujundust</string>
     <string name="notify_crypto_update_title">Vajalik on kasutaja sekkumine</string>
     <string name="Settings_Lockscreenmessage_Description">Lukustusvaate sõnum:\nSeadme lukustamisel kuvatakse see sõnum kõigile nähtavalt ka lukustuse ajal.</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Järgnevaga kustutakse kõik selle serveriga seotud andmed! Kas sa oled kindel?</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Taustal toimiva asukoha üleslaadimise välp</string>
     <string name="allowlist_add_phone_number">Lisa telefoninumber</string>
     <string name="perm_write_secure_settings_name">Turvaseadistuste salvestamine</string>
@@ -61,7 +60,6 @@
     <string name="Settings_FMD_Server_General">Üldseadistused</string>
     <string name="Settings_FMD_Server_Server_URL">Serveri võrguaadress:</string>
     <string name="Settings_FMD_Server_User_ID">Kasutajanimi:</string>
-    <string name="Settings_FMDServer_Logout_Text">Kas sa kindlasti soovid oma FMD serveri kasutajakonto siit seadmest välja logida?</string>
     <string name="Settings_FMDServer_Unregister_Success">Registreerimise eemaldamine ja andmete kustutamine õnnestus!</string>
     <string name="Settings_FMDServer_Push_Url">Tõuketeenuse võrguaadress: %s</string>
     <string name="Settings_FMDServer_Push_Register">Registreeri</string>

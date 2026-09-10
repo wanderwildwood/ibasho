@@ -44,9 +44,7 @@
     <string name="Settings_FMD_Server_Connection_Status_Success">Επιτυχία</string>
     <string name="Settings_FMDServer_Change_Password_Button">Αλλαγή κωδικού</string>
     <string name="Settings_FMDServer_Logout_Button">Αποσύνδεση</string>
-    <string name="Settings_FMDServer_Logout_Text">Θέλετε πραγματικά να αποσυνδεθείτε από τον λογαριασμό σας στον διακομιστή FMD;</string>
     <string name="Settings_FMDServer_Delete_Account">Διαγραφή λογαριασμού</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Αυτό θα διαγράψει όλα τα δεδομένα από τον διακομιστή! Είστε σίγουροι;</string>
     <string name="Settings_FMDServer_Unregister_Success">Η απεγγραφή από τον διακομιστή και η διαγραφή των δεδομένων ολοκληρώθηκαν με επιτυχία!</string>
     <string name="Settings_FMDServer_Push_Description">Για την αποστολή εντολών από τον διακομιστή FMD στη συσκευή σας απαιτείται μια εφαρμογή διανομής UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Φορέας διανομής: %s</string>

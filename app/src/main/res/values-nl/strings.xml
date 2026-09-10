@@ -33,7 +33,6 @@
     <string name="Settings_FMDServer_Change_Password_Button">Wachtwoord wijzigen</string>
     <string name="Settings_FMDServer_Logout_Button">Uitloggen</string>
     <string name="Settings_FMDServer_Delete_Account">Account verwijderen</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Hiermee worden alle gegevens van de server verwijderd! Doorgaan?</string>
     <string name="Settings_FMDServer_Unregister_Success">Registratie en gegevens met succes verwijderd!</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD uploadt elke x minuten de locatie van het apparaat.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Locatiebron</string>
@@ -198,7 +197,6 @@
     <string name="crashed_copy_log">Logboek kopiëren</string>
     <string name="Settings_Lockscreenmessage_Description">Boodschap op het vergrendelingsscherm:\nBij vergrendeling van het apparaat, wordt deze boodschap getoond op het vergrendelingsscherm.</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Upload de locatie van dit apparaat wanneer het batterijniveau laag wordt.</string>
-    <string name="Settings_FMDServer_Logout_Text">Wil je echt uitloggen van je FMD Server-account?</string>
     <string name="crashed_title">Foutrapportage</string>
     <string name="server_version_upgrade_required_text">De FMD Server die je gebruikt heeft versie {CURRENT}, maar deze app vereist minimaal {MIN}. Het opvragen van jouw apparaat via FMD Server werkt mogelijk niet meer. Jouw server heeft een upgrade nodig.</string>
     <string name="server_version_upgrade_required_title">Upgrade van FMD Server vereist</string>

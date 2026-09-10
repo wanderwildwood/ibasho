@@ -45,9 +45,7 @@
     <string name="Settings_FMD_Server_Connection_Status_Success">Sikeres</string>
     <string name="Settings_FMDServer_Change_Password_Button">Jelszóváltoztatás</string>
     <string name="Settings_FMDServer_Logout_Button">Kijelentkezés</string>
-    <string name="Settings_FMDServer_Logout_Text">Biztosan ki akarsz jelentkezni az FMD szerver fiókodból?</string>
     <string name="Settings_FMDServer_Delete_Account">Fiók törlése</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Ez a művelet az összes adatot törli a szerverről! Biztos vagy benne?</string>
     <string name="Settings_FMDServer_Unregister_Success">Fiók és adatok törlése sikeres!</string>
     <string name="Settings_FMDServer_Push_Description">Az FMD szerverről történő parancsküldéshez szükség van egy UnifiedPush distributor alkalmazásra az eszközön.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributor: %s</string>

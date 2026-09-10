@@ -16,7 +16,6 @@
     <string name="Settings_Ringer_Tone_Description">Wähl en Klingelton für de \"ring\"-Befehl.</string>
     <string name="Settings_Select_Ringtone">Klingelton uswähle</string>
     <string name="Settings_FMDServer_Change_Password_Button">Password ändere</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Alli Date werded vom Server glöscht. Bisch sicher?</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Intervall vom Standortupload im Hintergrund</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD ladet din Standort alli X Minute ufe.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Standort-Quelle</string>
@@ -198,7 +197,6 @@
     <string name="appearance_theme_choose">Designstil uswähle</string>
     <string name="appearance_dynamic_colors">Dynamische Farbe</string>
     <string name="appearance_theme_dark">Dunkel</string>
-    <string name="Settings_FMDServer_Logout_Text">Wotscht du dich würklich us dinem FMD Server-Account uslogge?</string>
     <string name="log_view_clear">Protokoll lösche</string>
     <string name="server_version_upgrade_required_title">FMD Server muss updated werde</string>
     <string name="server_version_upgrade_required_text">De genutzti FMD Server isch Version {CURRENT}, aber d App brucht mindestens {MIN}. Di Stürig vom Gerät mit dem Server chönnti beiiträchtigt si. Bitte de Server update.</string>

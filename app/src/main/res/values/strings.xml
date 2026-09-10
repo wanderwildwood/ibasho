@@ -74,9 +74,13 @@
     <string name="Settings_FMD_Server_Connection_Status_Success">Success</string>
     <string name="Settings_FMDServer_Change_Password_Button">Change password</string>
     <string name="Settings_FMDServer_Logout_Button">Log out</string>
-    <string name="Settings_FMDServer_Logout_Text">Do you really want to log out from your FMD Server account?</string>
     <string name="Settings_FMDServer_Delete_Account">Delete account</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">This will delete all data from the server! Are you sure?</string>
+    <!-- Armed labels. The words are "<the action> — tap again": the button has
+         just changed under the reader\'s thumb, so restating what a second tap is
+         would be three syllables to pare. Where a warning cannot fit the label it
+         takes the dash and the question follows a semicolon. -->
+    <string name="Settings_FMDServer_Delete_Account_Armed">Delete — the locations go too; tap again</string>
+    <string name="Settings_FMDServer_Logout_Armed">Log out — tap again</string>
     <string name="Settings_FMDServer_Unregister_Success">Unregistering and data deletion successful!</string>
     <string name="Settings_FMDServer_Push_Title" translatable="false">Push</string>
     <string name="Settings_FMDServer_Push_Description">Sending commands from FMD Server to your device requires a UnifiedPush distributor app.</string>

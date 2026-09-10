@@ -102,7 +102,6 @@
     <string name="Settings_FMD_Server_User_ID">ID người dùng:</string>
     <string name="Settings_FMD_Server_Connection_Status">Trạng thái kết nối:</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Thành công</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Điều này sẽ xóa tất cả dữ liệu từ máy chủ! Bạn có chắc không?</string>
     <string name="Settings_FMDServer_Unregister_Success">Hủy đăng ký và xóa dữ liệu thành công!</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD tải lên vị trí của thiết bị mỗi X phút.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Nguồn vị trí</string>
@@ -202,7 +201,6 @@
     <string name="Settings_FMD_Server_General">Chung</string>
     <string name="Settings_FMDServer_Change_Password_Button">Đổi mật khẩu</string>
     <string name="Settings_FMDServer_Logout_Button">Đăng xuất</string>
-    <string name="Settings_FMDServer_Logout_Text">Bạn có thực sự muốn đăng xuất khỏi tài khoản máy chủ FMD của mình không?</string>
     <string name="Settings_FMDServer_Delete_Account">Xóa tài khoản</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Khoảng thời gian tải lên vị trí nền</string>
     <string name="Settings_FMDServer_Location_Type_Description">Nguồn dữ liệu vị trí được tải lên định kỳ trong nền.\nNếu không có nguồn nào được chọn, không có vị trí nào được tải lên định kỳ. (Bạn vẫn có thể sử dụng giao diện web để ép buộc tải lên. Điều này yêu cầu có thông báo.)</string>

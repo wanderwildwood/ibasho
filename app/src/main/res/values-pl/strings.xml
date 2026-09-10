@@ -86,7 +86,6 @@
     <string name="Toast_Empty_FMDCommand">Pusta komenda niedozwolona, użyto wartości domyślnej.</string>
     <string name="Settings_Lockscreenmessage_Description">Wiadomość na ekranie blokady:\nPo zablokowaniu urządzenia, ta wiadomość będzie widoczna na ekranie blokady.</string>
     <string name="Settings_Ringer_Tone_Description">Wybierz dzwonek używany do komendy fmd ring.</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">To usunie wszystkie dane z serwera! Jesteś pewien?</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD przesyłą lokalizację urządzenia co X minut.</string>
     <string name="Settings_Appearance">Wygląd</string>
     <string name="appearance_language_choose">Wybierz język</string>
@@ -96,7 +95,6 @@
     <string name="crashed_send_log">Wyślij log</string>
     <string name="crashed_copy_log">Skopiuj log</string>
     <string name="Settings_FMDServer_Unregister_Success">Wyrejestrowanie i usunięcie danych powiodło się!</string>
-    <string name="Settings_FMDServer_Logout_Text">Czy na pewno chcesz wylogować się ze swojego konta na Serwerze FMD?</string>
     <string name="pw_change_success">Zmieniono Hasło</string>
     <string name="pw_change_wrong_password">Złe hasło</string>
     <string name="appearance_theme_light">Jasny</string>

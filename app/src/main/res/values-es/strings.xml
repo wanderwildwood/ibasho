@@ -31,7 +31,6 @@
     <string name="Settings_FMDServer_Location_Type_Description">La(s) fuente(s) desde la(s) que se carga(n) los datos de localización a intervalos regulares en segundo plano. \nSi no se selecciona ninguna, no se cargarán localizaciones regularmente. (Puede seguir utilizando la interfaz web para forzar una carga. Esto requiere notificaciones push.)</string>
     <string name="GPS">GPS</string>
     <string name="Cell">Celular</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">¡Esto eliminará todos los datos del servidor! ¿Está seguro?</string>
     <string name="Settings_Import">Importar ajustes</string>
     <string name="Settings_Export">Exportar ajustes</string>
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Enviar la ubicación de este dispositivo cuando el nivel de la batería sea bajo.</string>
@@ -198,7 +197,6 @@
     <string name="appearance_theme_follow_system">Seguir al sistema</string>
     <string name="appearance_theme_light">Claro</string>
     <string name="appearance_theme_dark">Oscuro</string>
-    <string name="Settings_FMDServer_Logout_Text">¿Está seguro de que desea cerrar sesión en su cuenta de FMD Server?</string>
     <string name="crashed_title">Reportar de fallos</string>
     <string name="server_version_upgrade_required_title">Se requiere actualización del servidor FMD</string>
     <string name="server_version_upgrade_required_text">El servidor FMD que estás usando tiene la versión {CURRENT}, pero esta aplicación requiere al menos {MIN}. Es posible que el control de tu dispositivo a través del servidor FMD ya no funcione. Actualiza tu servidor.</string>

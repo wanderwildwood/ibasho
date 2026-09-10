@@ -71,7 +71,6 @@
     <string name="registration_token_hint">Instâncias privadas podem solicitar um token secreto. Deixe em branco se a instância é pública.</string>
     <string name="WhiteList_Add_Contact">Adicionar contato</string>
     <string name="Settings_FMD_Server_User_ID">Nome do usuário:</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Isto apagará todos os seus dados do servidor! Você tem certeza?</string>
     <string name="about_source_code">Código-fonte</string>
     <string name="OpenCellId_test_opencellid">Testar conexão ao OpenCelliD</string>
     <string name="notify_crypto_update_title">Ação necessária</string>
@@ -198,7 +197,6 @@
     <string name="appearance_dynamic_colors">Cores dinâmicas</string>
     <string name="appearance_theme_choose">Selecionar tema</string>
     <string name="appearance_theme_light">Claro</string>
-    <string name="Settings_FMDServer_Logout_Text">Você quer realmente sair da sua conta do FMD Server?</string>
     <string name="server_version_upgrade_required_title">Atualização do FMD Server necessária</string>
     <string name="server_version_upgrade_required_text">O FMD Server que você está usando está na versão {CURRENT}, mas o app requer que esteja no mínimo na {MIN}. Pode ser que controlar seu dispositivo pelo FMD Server não funcione mais. Atualize seu servidor.</string>
     <string name="crashed_title">Relatório de falha</string>

@@ -37,7 +37,6 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">قم بتحميل موقع هذا الجهاز عندما ينخفض مستوى البطارية.</string>
     <string name="Settings_Lockscreenmessage_Description">رسالة شاشة القُفل:\nعند قَفل الجهاز، ستظهر هذه الرسالة على شاشة القُفل.</string>
     <string name="Settings_FMDServer_Change_Password_Button">تغيير كلمة المرور</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">سيؤدي هذا إلى حذف جميع البيانات من الملقّم! هل أنت متأكد؟</string>
     <string name="password">كلمة المرور</string>
     <string name="WhiteList_Add_Contact">إضافة جهة اتصال</string>
     <string name="about">نبذة عن</string>
@@ -134,7 +133,6 @@
     <string name="cmd_gps_description_short">تشغيل وإيقاف خدمات تحديد الموقع</string>
     <string name="usage_notification_text">تم تنفيذ الامر \"%s\".</string>
     <string name="server_version_upgrade_required_text">تستخدم خادم FMD اصدار {CURRENT} ، لكن يتطلب التطبيق بالحد الادنى {MIN}. قد لا تستطيع التحكم بجهازك عن طريق خادم FMD بعد الان. رجاءا تحديث الخادم.</string>
-    <string name="Settings_FMDServer_Logout_Text">هل تريد حقًّا تسجيل الخروج من حسابك على ملقّم FMD؟</string>
     <string name="cmd_gps_response_on">تم تفعيل خدمات الموقع.</string>
     <string name="crashed_send_log">ارسال السجل</string>
     <string name="crashed_copy_log">نسخ السجل</string>

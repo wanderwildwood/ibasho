@@ -41,9 +41,7 @@
     <string name="Settings_FMD_Server_Connection_Status_Success">Succes</string>
     <string name="Settings_FMDServer_Change_Password_Button">Schimbă parola</string>
     <string name="Settings_FMDServer_Logout_Button">Deconectare</string>
-    <string name="Settings_FMDServer_Logout_Text">Sigur vrei să te deconectezi de la contul tău de server FMD?</string>
     <string name="Settings_FMDServer_Delete_Account">Șterge contul</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Aceasta va șterge toate datele de pe server! Ești sigur?</string>
     <string name="Settings_FMDServer_Unregister_Success">Deînregistrarea și ștergerea datelor au fost realizate cu succes!</string>
     <string name="Settings_FMDServer_Push_Description">Trimiterea comenzilor de la serverul FMD către dispozitivul tău necesită o aplicație distribuitor UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distribuitor: %s</string>

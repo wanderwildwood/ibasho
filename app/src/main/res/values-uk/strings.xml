@@ -7,7 +7,6 @@
     <string name="Settings_FMD_Server_User_ID">Ідентифікатор користувача:</string>
     <string name="Settings_FMDServer_Change_Password_Button">Змінити пароль</string>
     <string name="Settings_FMDServer_Logout_Button">Вийти</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Це видалить усі дані із сервера! Ви впевнені?</string>
     <string name="accept">Прийняти</string>
     <string name="request_failed_status_code">Код статусу</string>
     <string name="bottom_nav_commands">Команди</string>
@@ -206,7 +205,6 @@
     <string name="cmd_bluetooth_response_on">Bluetooth увімкнено.</string>
     <string name="Settings_FMDServer_Delete_Account">Видалити обліковий запис</string>
     <string name="Settings_FMDServer_Unregister_Success">Скасування реєстрації та видалення даних успішно завершено!</string>
-    <string name="Settings_FMDServer_Logout_Text">Ви дійсно хочете вийти зі свого облікового запису сервера FMD?</string>
     <string name="log_view_clear_confirm">Ви впевнені що хочете видалити всі записи журналу?</string>
     <string name="cmd_locate_response_gps_fail">Не вдалося отримати нові дані про місцеперебування за GPS. Можливо, через тайм-аут.</string>
     <string name="crashed_title">Звіт про аварійне завершення роботи</string>

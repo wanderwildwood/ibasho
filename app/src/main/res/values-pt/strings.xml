@@ -41,9 +41,7 @@
     <string name="Settings_FMD_Server_Connection_Status_Success">Bem-sucedida</string>
     <string name="Settings_FMDServer_Change_Password_Button">Alterar palavra-passe</string>
     <string name="Settings_FMDServer_Logout_Button">Sair</string>
-    <string name="Settings_FMDServer_Logout_Text">Quer realmente sair da sua conta do FMD Server?</string>
     <string name="Settings_FMDServer_Delete_Account">Apagar conta</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Isto apagará todos os seus dados do servidor! Tem certeza?</string>
     <string name="Settings_FMDServer_Unregister_Success">O seu registo foi removido e os seus dados apagados com sucesso!</string>
     <string name="Settings_FMDServer_Push_Description">Para poder enviar comandos do FMD Server, o seu dispositivo precisa de uma app distribuidor UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distribuidor: %s</string>

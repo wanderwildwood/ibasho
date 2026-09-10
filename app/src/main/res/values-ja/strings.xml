@@ -17,7 +17,6 @@
     <string name="Settings_FMDServer_use_default_server">Nulideの公開サーバーを使う</string>
     <string name="appearance_theme_dark">ダーク</string>
     <string name="GPS">GPS</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">サーバーからすべてのデータが削除されます！よろしいですか？</string>
     <string name="OpenCellId_open_website">OpenCelliDのウェブサイトを開く</string>
     <string name="Settings_FMDServer_Delete_Account">アカウントを削除</string>
     <string name="server_unregister_continue_anyway">続行する</string>
@@ -48,7 +47,6 @@
     <string name="Settings_Appearance">表示</string>
     <string name="Settings_FMDServer_Change_Password_Button">パスワードを変更</string>
     <string name="Settings_FMD_Server_User_ID">ユーザーID：</string>
-    <string name="Settings_FMDServer_Logout_Text">FMDサーバーのアカウントからログアウトしてよろしいですか？</string>
     <string name="Settings_FMD_Server_Connection_Status">接続状況：</string>
     <string name="Settings_FMDServer_Push_Register_Again">再登録</string>
     <string name="Settings_FMDServer_Push_Distributor">ディストリビューター：%s</string>

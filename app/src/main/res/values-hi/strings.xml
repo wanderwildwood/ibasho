@@ -75,7 +75,6 @@
     <string name="LockScreen_Backbutton_pressed">LockScreenMessage: बैक-बटन दबाया गया।</string>
     <string name="Toast_Empty_FMDCommand">खाली कमांड की अनुमति नहीं है\n डिफ़ॉल्ट पर लौट रहा है।[fmd]</string>
     <string name="Cell">सेल</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">इससे सर्वर से सारा डेटा मिट जाएगा! क्या आप निश्चित हैं?</string>
     <string name="Settings_FMDServer_Location_Type_Description">वह स्रोत जिससे पृष्ठभूमि में नियमित अंतराल पर स्थान डेटा अपलोड किया जाता है। \nयदि कोई भी चयनित नहीं है, तो कोई भी स्थान नियमित रूप से अपलोड नहीं किया जाता है। (आप किसी अपलोड को बाध्य करने के लिए अभी भी वेब इंटरफ़ेस का उपयोग कर सकते हैं। इसके लिए पुश की आवश्यकता होती है।)</string>
     <string name="cmd_locate_last_known_location_text">अंतिम ज्ञात स्थान</string>
     <string name="cmd_locate_last_known_location_not_available">कोई अंतिम ज्ञात स्थान नहीं है। स्थान अपडेट करने के लिए नवीनतम स्थान का अनुरोध करें।</string>

@@ -25,7 +25,6 @@
     <string name="Settings_FMD_Server_User_ID">Benutzername:</string>
     <string name="Settings_FMDServer_Change_Password_Button">Password ändern</string>
     <string name="Settings_FMDServer_Logout_Button">Abmelden</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Dadurch werden alle Daten auf dem Server gelöscht. Bist du sicher?</string>
     <string name="Settings_FMDServer_Update_Interval_Description">FMD lädt den Gerätestandort alle X Minuten hoch.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Standort-Quelle</string>
     <string name="Settings_FMDServer_Location_Type_Description">Die Quelle(n), deren Standort regelmäßig im Hintergrund hochgeladen werden soll. \nFalls keine ausgewählt ist, werden keine Standorte regelmäßig hochgeladen. (Du kannst das Standort-Hochladen weiterhin über das Webinterface erzwingen. Dies benötigt Push.)</string>
@@ -211,7 +210,6 @@
     <string name="appearance_theme_choose">Designstil auswählen</string>
     <string name="appearance_theme_light">Hell</string>
     <string name="appearance_dynamic_colors">Dynamische Farben</string>
-    <string name="Settings_FMDServer_Logout_Text">Möchtest du dich wirklich aus deinem FMD-Server-Konto abmelden?</string>
     <string name="crashed_title">Absturzbericht</string>
     <string name="server_version_upgrade_required_title">FMD Server muss aktualisiert werden</string>
     <string name="server_version_upgrade_required_text">Der genutzte FMD Server ist Version {CURRENT}, aber diese App benötigt mindestens {MIN}. Die Steuerung dieses Geräts mit diesem Server könnte beeinträchtigt sein. Bitte den Server updaten.</string>

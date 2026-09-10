@@ -3,7 +3,6 @@
     <string name="Settings_Select_Ringtone">Zil sesi seçin</string>
     <string name="Settings_FMD_Server_User_ID">Kullanıcı ID:</string>
     <string name="Settings_FMDServer_Delete_Account">Hesabı sil</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Bu işlem sunucudan bütün veriyi silecektir! Emin misiniz?</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
     <string name="loading">Yükleniyor…</string>
     <string name="help">Yardım</string>
@@ -43,7 +42,6 @@
     <string name="Settings_FMDServer_Logout_Button">Oturumdan çık</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD, her X saat FMD sunucusuna bağlantı durumunu kontol eder. Bağlantı kontrolünü devre dışı bırakmak için bunu 0\'a ayarlayın.</string>
     <string name="Settings_About">Hakkında</string>
-    <string name="Settings_FMDServer_Logout_Text">FMD Sunucu hesabınızdan gerçekten çıkmak istiyor musunuz?</string>
     <string name="Settings_FMDServer_Unregister_Success">Kaydı silme ve veri silme başarılı!</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Başarılı</string>
     <string name="export_failed">Dışa aktarım başarısız</string>

@@ -77,7 +77,6 @@
     <string name="Settings_FMDServer_Change_Password_Button">Změnit heslo</string>
     <string name="Settings_FMDServer_Logout_Button">Odhlásit se</string>
     <string name="server_version_error">Chyba při získávání verze serveru</string>
-    <string name="Settings_FMDServer_Alert_DeleteData_Desc">Tato akce odstraní všechna data ze serveru! Jste si jisti?</string>
     <string name="server_version_error_low_version">Minimální požadovaná verze serveru je {MIN}, zvolený server ale běží na verzi {CURRENT}. Pokračujte na vlastní nebezpečí.</string>
     <string name="Settings_FMDServer_Info">S FMD Serverem můžete posílat příkazy přes internet, ze serveru do aplikace. Také si můžete zobrazit polohu zařízení na mapě nebo zobrazit fotky pořízené zařízením. Návod, jak hostovat aplikaci na vlastním serveru, se nachází na webu.</string>
     <string name="Settings_FMDServer_open_website">Otevřít web FMD Serveru</string>
@@ -198,7 +197,6 @@
     <string name="appearance_theme_choose">Vybrat motiv</string>
     <string name="appearance_theme_follow_system">Podle systému</string>
     <string name="appearance_theme_dark">Tmavý</string>
-    <string name="Settings_FMDServer_Logout_Text">Opravdu se chcete odhlásit z vašeho účtu na FMD Serveru?</string>
     <string name="crashed_title">Hlášení o pádu</string>
     <string name="server_version_upgrade_required_title">Vyžadována aktualizace FMD Serveru</string>
     <string name="server_version_upgrade_required_text">FMD Server, který používáte, má verzi {CURRENT}, ale tato aplikace vyžaduje alespoň {MIN}. Ovládání zařízení prostřednictvím FMD Serveru již nemusí fungovat. Prosíme, aktualizujte svůj server.</string>

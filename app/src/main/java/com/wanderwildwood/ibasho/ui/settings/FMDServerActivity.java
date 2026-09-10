@@ -51,6 +51,7 @@ import com.wanderwildwood.ibasho.services.ServerLocationUploadService;
 import com.wanderwildwood.ibasho.ui.FmdActivity;
 import com.wanderwildwood.ibasho.ui.access.FmdPermissionDialogFragment;
 import com.wanderwildwood.ibasho.utils.FmdLogKt;
+import com.wanderwildwood.ibasho.ui.common.ArmedButtonKt;
 import com.wanderwildwood.ibasho.utils.UnregisterUtil;
 import com.wanderwildwood.ibasho.utils.Utils;
 import com.wanderwildwood.ibasho.warnings.PushWarningsKt;
@@ -109,8 +110,17 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
         findViewById(R.id.buttonChangePermissions).setOnClickListener(this::onChangePermissionsClicked);
         findViewById(R.id.buttonChangePassword).setOnClickListener(this::onChangePasswordClicked);
-        findViewById(R.id.buttonLogout).setOnClickListener(this::onLogoutClicked);
-        findViewById(R.id.buttonDeleteData).setOnClickListener(this::onDeleteClicked);
+        // Both ask in their own face rather than opening a dialog: a dialog is
+        // two full-panel repaints to ask one question, and the answer belongs
+        // where the button is.
+        ArmedButtonKt.armThenRun(findViewById(R.id.buttonLogout),
+                R.string.Settings_FMDServer_Logout_Button,
+                R.string.Settings_FMDServer_Logout_Armed,
+                this::runLogout);
+        ArmedButtonKt.armThenRun(findViewById(R.id.buttonDeleteData),
+                R.string.Settings_FMDServer_Delete_Account,
+                R.string.Settings_FMDServer_Delete_Account_Armed,
+                this::runDelete);
 
         findViewById(R.id.buttonOpenPushDistributor).setOnClickListener(this::onOpenPushDistributorClicked);
         findViewById(R.id.buttonCopyPushDistributor).setOnClickListener(this::onCopyPushDistributorClicked);
@@ -283,31 +293,15 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         Utils.copyToClipboard(this, label, text);
     }
 
-    private void onDeleteClicked(View view) {
-        new MaterialAlertDialogBuilder(this)
-                .setTitle(getString(R.string.Settings_FMDServer_Delete_Account))
-                .setMessage(R.string.Settings_FMDServer_Alert_DeleteData_Desc)
-                .setPositiveButton(getString(R.string.Ok), (dialog, whichButton) -> runDelete())
-                .setNegativeButton(getString(R.string.cancel), null)
-                .show();
-    }
-
-    private void onLogoutClicked(View view) {
-        new MaterialAlertDialogBuilder(this)
-                .setTitle(getString(R.string.Settings_FMDServer_Logout_Button))
-                .setMessage(R.string.Settings_FMDServer_Logout_Text)
-                .setPositiveButton(getString(R.string.Ok), (dialog, whichButton) -> {
-                    settings.removeServerAccount(false);
-                    // TODO: API to invalidate access tokens. Maybe combine with session management.
-                    EncryptedSettingsRepository encryptedSettingsRepo = EncryptedSettingsRepository.Companion.getInstance(this);
-                    encryptedSettingsRepo.setCachedAccessToken("");
-                    ServerLocationUploadService.cancelJob(this);
-                    ServerConnectivityCheckService.cancelJob(this);
-                    unregisterWithUnifiedPush(this);
-                    finish();
-                })
-                .setNegativeButton(getString(R.string.cancel), null)
-                .show();
+    private void runLogout() {
+        settings.removeServerAccount(false);
+        // TODO: API to invalidate access tokens. Maybe combine with session management.
+        EncryptedSettingsRepository encryptedSettingsRepo = EncryptedSettingsRepository.Companion.getInstance(this);
+        encryptedSettingsRepo.setCachedAccessToken("");
+        ServerLocationUploadService.cancelJob(this);
+        ServerConnectivityCheckService.cancelJob(this);
+        unregisterWithUnifiedPush(this);
+        finish();
     }
 
     private void onChangePermissionsClicked(View view) {
