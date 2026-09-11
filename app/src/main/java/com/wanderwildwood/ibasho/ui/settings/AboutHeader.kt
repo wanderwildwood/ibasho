@@ -66,7 +66,7 @@ fun AboutHeader(
         ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Image(
-                    painterResource(id = R.drawable.fmd_logo),
+                    painterResource(id = R.drawable.ic_launcher_foreground),
                     contentDescription = stringResource(R.string.about_app_icon_description),
                     modifier = Modifier.size(style.dimensions.headerIconSize),
                 )
@@ -129,7 +129,7 @@ fun AboutHeader(
                     }
                 )
                 AssistChip(
-                    onClick = { Utils.openUrl(context, "https://gitlab.com/fmd-foss/fmd-android") },
+                    onClick = { Utils.openUrl(context, "https://github.com/wanderwildwood/ibasho") },
                     label = { Text(stringResource(R.string.about_source_code)) },
                     leadingIcon = {
                         Icon(
