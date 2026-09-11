@@ -60,6 +60,7 @@
     <string name="about_sends_network">Cell and Wi-Fi positioning asks BeaconDB and OpenCelliD, which learn roughly where you are.</string>
     <string name="about_licence">GNU General Public License, version 3 or later.</string>
     <string name="about_built_on">Built on FindMyDevice by Nulide, under the same licence.</string>
+    <string name="about_llama">Feed the llamas</string>
     <string name="about_source">%1$s</string>
     <string name="about_libraries">Bundled libraries</string>
 
