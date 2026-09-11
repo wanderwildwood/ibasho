@@ -64,7 +64,7 @@ fun showAboutDialog(context: Context) {
         addView(
             TextView(context).apply {
                 text = context.getString(R.string.about_llama)
-                val gap = (10 * context.resources.displayMetrics.density).toInt()
+                val gap = (6 * context.resources.displayMetrics.density).toInt()
                 setPadding(gap, 0, 0, 0)
             },
         )
