@@ -8,15 +8,11 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.Checkbox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,6 +27,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import com.mudita.mmd.components.cards.CardMMD
+import com.mudita.mmd.components.checkbox.CheckboxMMD
+import com.mudita.mmd.components.lazy.LazyColumnMMD
+import com.mudita.mmd.components.text.TextMMD
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.commands.Command
 import com.wanderwildwood.ibasho.commands.FmdPermission
@@ -49,7 +49,7 @@ fun FmdPermissionDialog(
 
     // https://m3.material.io/components/dialogs/specs
     Dialog(onCancelClicked) {
-        Card(
+        CardMMD(
             modifier = Modifier
                 .padding(24.dp)
                 .fillMaxWidth(),
@@ -58,13 +58,13 @@ fun FmdPermissionDialog(
             Column(
                 modifier = Modifier.padding(24.dp),
             ) {
-                Text(
+                TextMMD(
                     text = stringResource(R.string.fmd_permission_allowed_commands_title),
                     style = MaterialTheme.typography.headlineSmall,
                 )
 
                 // Column of commands/permissions
-                LazyColumn(
+                LazyColumnMMD(
                     modifier = Modifier.padding(top = 16.dp, bottom = 16.dp)
                 ) {
                     items(commands) { command ->
@@ -84,11 +84,11 @@ fun FmdPermissionDialog(
                     horizontalArrangement = Arrangement.End,
                 ) {
                     TextButton(onClick = onCancelClicked) {
-                        Text(stringResource(R.string.cancel))
+                        TextMMD(stringResource(R.string.cancel))
                     }
                     Spacer(Modifier.padding(4.dp))
                     TextButton(onClick = { onSaveClicked(permission) }) {
-                        Text(stringResource(R.string.save))
+                        TextMMD(stringResource(R.string.save))
                     }
                 }
             }
@@ -108,7 +108,7 @@ private fun CommandRow(
             .padding(vertical = 10.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Checkbox(
+        CheckboxMMD(
             checked,
             onCheckedChange = null, // handled by the row
             modifier = Modifier
@@ -120,7 +120,7 @@ private fun CommandRow(
             contentDescription = null,
             modifier = Modifier.size(24.dp),
         )
-        Text(
+        TextMMD(
             modifier = Modifier
                 .padding(horizontal = 24.dp)
                 .weight(1f),

@@ -10,16 +10,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.AlertDialog
-import androidx.compose.material3.Button
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,11 +27,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.mudita.mmd.components.buttons.ButtonMMD
+import com.mudita.mmd.components.divider.HorizontalDividerMMD
+import com.mudita.mmd.components.lazy.LazyColumnMMD
+import com.mudita.mmd.components.text.TextMMD
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.database.AccessItem
 import com.wanderwildwood.ibasho.database.PhoneNumber
@@ -91,29 +91,29 @@ fun <T : AccessItem> AccessControlTab(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         if (accessItems.isEmpty()) {
-            Text(stringResource(accessType.hintText, commandKeyword))
+            TextMMD(stringResource(accessType.hintText, commandKeyword))
             Spacer(Modifier.height(8.dp))
-            Text(stringResource(R.string.access_permission_hint))
-            HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
+            TextMMD(stringResource(R.string.access_permission_hint))
+            HorizontalDividerMMD(modifier = Modifier.padding(vertical = 16.dp))
             Box(
                 modifier = Modifier.weight(1f),
                 contentAlignment = Alignment.Center,
             ) {
-                Text(
+                TextMMD(
                     text = stringResource(accessType.emptyText),
                     modifier = Modifier.padding(horizontal = 16.dp),
                     textAlign = TextAlign.Center,
                 )
             }
         } else {
-            LazyColumn(
+            LazyColumnMMD(
                 modifier = Modifier.weight(1f),
             ) {
                 item {
-                    Text(stringResource(accessType.hintText, commandKeyword))
+                    TextMMD(stringResource(accessType.hintText, commandKeyword))
                     Spacer(Modifier.height(8.dp))
-                    Text(stringResource(R.string.access_permission_hint))
-                    HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
+                    TextMMD(stringResource(R.string.access_permission_hint))
+                    HorizontalDividerMMD(modifier = Modifier.padding(vertical = 16.dp))
                 }
                 items(accessItems) { item ->
                     ItemElement(
@@ -125,19 +125,19 @@ fun <T : AccessItem> AccessControlTab(
         }
 
         // Bottom buttons
-        Button(
+        ButtonMMD(
             onClick = onAddClicked,
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Text(stringResource(accessType.addText))
+            TextMMD(stringResource(accessType.addText))
         }
 
         if (onAddSecondaryClicked != null && accessType.addSecondaryText != null) {
-            Button(
+            ButtonMMD(
                 onClick = onAddSecondaryClicked,
                 modifier = Modifier.fillMaxWidth(),
             ) {
-                Text(stringResource(accessType.addSecondaryText))
+                TextMMD(stringResource(accessType.addSecondaryText))
             }
         }
     }
@@ -166,20 +166,22 @@ private fun <T : AccessItem> ItemElement(
 
             // Header
             if (item.tempPhoneNumbers.isNotEmpty()) {
+                // Bold, not italic: on sixteen greys a sloped stroke loses its thin end
+                // and reads as a smudge rather than as emphasis.
                 val style = MaterialTheme.typography.bodySmall.copy(
-                    fontStyle = FontStyle.Italic,
+                    fontWeight = FontWeight.Bold,
                 )
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 6.dp)
                 ) {
-                    Text(
+                    TextMMD(
                         modifier = Modifier.weight(1f),
                         text = stringResource(R.string.access_sms_password_used_by),
                         style = style,
                     )
-                    Text(
+                    TextMMD(
                         text = stringResource(R.string.access_sms_password_expiry),
                         style = style,
                     )
@@ -195,7 +197,7 @@ private fun <T : AccessItem> ItemElement(
                         .padding(horizontal = 16.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text(
+                    TextMMD(
                         modifier = Modifier
                             .weight(1f)
                             .combinedClickable(
@@ -207,7 +209,7 @@ private fun <T : AccessItem> ItemElement(
                         text = num.number,
                         style = MaterialTheme.typography.bodySmall
                     )
-                    Text(num.expiryPretty(), style = MaterialTheme.typography.bodySmall)
+                    TextMMD(num.expiryPretty(), style = MaterialTheme.typography.bodySmall)
                 }
             }
         }
@@ -227,7 +229,7 @@ private fun <T : AccessItem> ItemRow(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.padding(vertical = 6.dp)
     ) {
-        Text(
+        TextMMD(
             modifier = Modifier
                 .weight(1f)
                 .combinedClickable(
@@ -271,16 +273,16 @@ private fun <T> DeleteDialog(
                     onDeleteClicked(toDelete)
                 }
             ) {
-                Text(stringResource(R.string.Delete))
+                TextMMD(stringResource(R.string.Delete))
             }
         },
         dismissButton = {
             TextButton(onClick = dismissDialog) {
-                Text(stringResource(R.string.cancel))
+                TextMMD(stringResource(R.string.cancel))
             }
         },
-        title = { Text(stringResource(deleteTitle)) },
-        text = { Text(stringResource(R.string.allowlist_delete_message)) },
+        title = { TextMMD(stringResource(deleteTitle)) },
+        text = { TextMMD(stringResource(R.string.allowlist_delete_message)) },
     )
 }
 

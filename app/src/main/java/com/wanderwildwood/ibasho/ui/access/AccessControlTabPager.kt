@@ -8,10 +8,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.Icon
-import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Tab
-import androidx.compose.material3.Text
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
@@ -20,6 +18,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.mudita.mmd.components.tabs.PrimaryTabRowMMD
+import com.mudita.mmd.components.tabs.TabMMD
+import com.mudita.mmd.components.text.TextMMD
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.ui.common.FmdTopAppBar
 import com.wanderwildwood.ibasho.ui.common.LoadingDialog
@@ -46,6 +47,7 @@ interface AccessControlFuns {
     fun onAddNotificationPasswordClicked()
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AccessControlTabsScreen(
     onBackClicked: () -> Unit,
@@ -68,9 +70,9 @@ fun AccessControlTabsScreen(
                 val pagerState = rememberPagerState(initialPage, pageCount = { TABS.size })
                 val coroutineScope = rememberCoroutineScope()
 
-                PrimaryTabRow(pagerState.currentPage) {
+                PrimaryTabRowMMD(pagerState.currentPage) {
                     TABS.forEachIndexed { index, item ->
-                        Tab(
+                        TabMMD(
                             selected = pagerState.currentPage == index,
                             onClick = {
                                 coroutineScope.launch {
@@ -79,7 +81,7 @@ fun AccessControlTabsScreen(
                                     pagerState.scrollToPage(index)
                                 }
                             },
-                            text = { Text(stringResource(item.title)) },
+                            text = { TextMMD(stringResource(item.title)) },
                             icon = {
                                 Icon(
                                     painterResource(item.icon),

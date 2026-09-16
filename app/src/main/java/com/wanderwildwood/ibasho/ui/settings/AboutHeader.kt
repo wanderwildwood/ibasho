@@ -15,9 +15,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicText
-import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,6 +31,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mikepenz.aboutlibraries.ui.compose.LibraryDefaults
 import com.mikepenz.aboutlibraries.ui.compose.m3.style.m3LibrariesStyle
+import com.mudita.mmd.components.chips.AssistChipMMD
+import com.mudita.mmd.components.text.TextMMD
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.utils.Utils
 
@@ -108,9 +108,9 @@ fun AboutHeader(
                 verticalArrangement = Arrangement.Center,
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
-                AssistChip(
+                AssistChipMMD(
                     onClick = { Utils.openUrl(context, "https://fmd-foss.org/docs/overview") },
-                    label = { Text(stringResource(R.string.about_documentation)) },
+                    label = { TextMMD(stringResource(R.string.about_documentation)) },
                     leadingIcon = {
                         Icon(
                             painterResource(R.drawable.ic_help),
@@ -118,9 +118,9 @@ fun AboutHeader(
                         )
                     }
                 )
-                AssistChip(
+                AssistChipMMD(
                     onClick = { Utils.openUrl(context, "https://fmd-foss.org/donate") },
-                    label = { Text(stringResource(R.string.about_donate)) },
+                    label = { TextMMD(stringResource(R.string.about_donate)) },
                     leadingIcon = {
                         Icon(
                             painterResource(R.drawable.ic_volunteer_activism),
@@ -128,9 +128,9 @@ fun AboutHeader(
                         )
                     }
                 )
-                AssistChip(
+                AssistChipMMD(
                     onClick = { Utils.openUrl(context, "https://github.com/wanderwildwood/ibasho") },
-                    label = { Text(stringResource(R.string.about_source_code)) },
+                    label = { TextMMD(stringResource(R.string.about_source_code)) },
                     leadingIcon = {
                         Icon(
                             painterResource(R.drawable.ic_code),
