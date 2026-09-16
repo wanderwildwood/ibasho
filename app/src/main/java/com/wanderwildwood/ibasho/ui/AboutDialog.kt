@@ -11,6 +11,7 @@ import android.view.Gravity
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 
 // TODO: this repository is not published yet. The link must resolve before release.
 // No scheme: it has to fit one line at 480px, and a reader can type it.
@@ -49,11 +50,21 @@ fun showAboutDialog(context: Context) {
         setPadding(pad, pad / 3, pad, pad / 2)
         isClickable = true
         setOnClickListener {
-            // The Kompakt may have nothing registered for a web address at all.
+            // Straight to the checkout. The Donate button on the site only leads here
+            // anyway, so the page in between is a press the reader does not need. The short
+            // square.link form, not the long checkout.square.site address it redirects to --
+            // the short one is what the site itself links to, so a regenerated checkout
+            // follows it and a published app does not break.
             runCatching {
                 context.startActivity(
-                    Intent(Intent.ACTION_VIEW, Uri.parse("https://hotspringsllamas.org/donate/")),
+                    Intent(Intent.ACTION_VIEW, Uri.parse("https://square.link/u/AGu8oT10")),
                 )
+            }.onFailure {
+                Toast.makeText(
+                    context,
+                    "There is no browser on this phone to open that with.",
+                    Toast.LENGTH_SHORT,
+                ).show()
             }
         }
         val size = (22 * context.resources.displayMetrics.density).toInt()
