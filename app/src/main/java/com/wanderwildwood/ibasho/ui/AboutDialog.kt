@@ -62,7 +62,7 @@ fun showAboutDialog(context: Context) {
             }.onFailure {
                 Toast.makeText(
                     context,
-                    "There is no browser on this phone to open that with.",
+                    R.string.about_no_browser,
                     Toast.LENGTH_SHORT,
                 ).show()
             }
@@ -82,7 +82,7 @@ fun showAboutDialog(context: Context) {
     }
 
     MaterialAlertDialogBuilder(context)
-        .setTitle("${context.getString(R.string.app_name)} ${BuildConfig.VERSION_NAME}")
+        .setTitle(context.getString(R.string.about_title, BuildConfig.VERSION_NAME))
         .setMessage(body)
         .setView(row)
         // The full dependency list is too long for a dialog, but the licences

@@ -29,6 +29,9 @@
     <string name="request_failed_status_code">Status code</string>
     <string name="request_failed_response_body">Response body</string>
     <string name="request_failed_exception">Exception</string>
+    <!-- A label and its value on one line, e.g. "Server version: 0.17.0" or "Status code: 404".
+         %1$s is one of the labels above or below, %2$s is what the server or the app reported -->
+    <string name="label_value">%1$s: %2$s</string>
 
     <!-- MainActivity -->
     <string name="bottom_nav_commands">Commands</string>
@@ -56,11 +59,15 @@
 
     <!-- About. Order fixed by the house style: name and version, what it sends,
          the licence in full, what is bundled and under what, then the source. -->
+    <!-- Title of the About dialog. %1$s is the version number, e.g. 0.1.6. Keep the app's name as it is -->
+    <string name="about_title">Whereabouts %1$s</string>
     <string name="about_sends">Sends this phone\'s location to the server you set, encrypted. Only your password can read it, and it cannot be reset.</string>
     <string name="about_sends_network">Cell and Wi-Fi positioning asks BeaconDB and OpenCelliD, which learn roughly where you are.</string>
     <string name="about_licence">GNU General Public License, version 3 or later.</string>
     <string name="about_built_on">Built on FindMyDevice by Nulide, under the same licence.</string>
     <string name="about_llama">Feed the llamas</string>
+    <!-- Toast when the llama row is pressed and nothing on the phone can open a web page -->
+    <string name="about_no_browser">There is no browser on this phone to open that with.</string>
     <string name="about_source">%1$s</string>
     <string name="about_libraries">Bundled libraries</string>
 
@@ -135,6 +142,8 @@
     <string name="server_version">Server version</string>
     <string name="server_version_error">Error getting server version</string>
     <string name="server_version_error_low_version">At least server version {MIN} is required, but the selected server has version {CURRENT}. Continue at your own risk.</string>
+    <!-- Toast when logging in or registering seemed to work but left no account behind -->
+    <string name="server_login_no_user_id">Failed: no user id</string>
     <string name="Settings_FMDServer_AddAccount">FMD Server: Login</string>
     <string name="Settings_FMDServer_Info">With FMD Server you can send commands over the internet, from the server to the app. You can also view the device location on a map or view pictures taken by the device. For self-hosting instructions, see the website.</string>
     <string name="Settings_FMDServer_open_website">Open FMD Server website</string>
@@ -183,6 +192,8 @@
     <string name="allowlist_add_phone_number">Add phone number</string>
     <string name="allowlist_phone_number_name">Name</string>
     <string name="allowlist_phone_number">Phone number</string>
+    <!-- One allowed contact in the list. %1$s is the name given to it, %2$s its phone number -->
+    <string name="allowlist_entry">%1$s (%2$s)</string>
     <string name="allowlist_delete_title_phone_number">Delete phone number?</string>
     <string name="allowlist_delete_title_password">Delete password?</string>
     <string name="allowlist_delete_message">Once this entry is deleted, it will no longer be able to access FMD. You can re-add it later if you change your mind.</string>
@@ -365,6 +376,8 @@
     <string name="transport_notification_reply_title">Notification reply</string>
     <string name="transport_notification_reply_description">You can allow FMD to read your notifications to listen for commands. FMD can then reply via Android\'s built-in notification reply feature. This allows you to control FMD using a messaging application of your choice, as long as it posts notifications that can be replied to. For example, you can send a Signal message \"%s mypassword help\" to your phone.</string>
     <string name="transport_notification_reply_description_auth">Controlling FMD via notification reply requires a password to be set. Every message must contain a correct password.</string>
+    <!-- Stands in for the app a command came from, in the "was executed by" notification, when that app is not known -->
+    <string name="transport_notification_reply_destination_unknown">Notification Response</string>
 
     <string name="transport_fmd_server_title" translatable="false">FMD Server</string>
     <string name="transport_fmd_server_description">FMD Server provides a web interface to control your device, view its location, and view pictures it sent. You can self-host FMD Server or use the provided instance. Data is stored encrypted on the server, protected by your password.</string>

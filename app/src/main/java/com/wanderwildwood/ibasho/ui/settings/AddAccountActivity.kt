@@ -287,7 +287,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
             loadingDialog?.cancel()
 
             if (!settingsRepo.serverAccountExists()) {
-                Toast.makeText(context, "Failed: no user id", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, R.string.server_login_no_user_id, Toast.LENGTH_LONG).show()
                 return@runOnUiThread
             }
 
@@ -311,11 +311,11 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         runOnUiThread {
             loadingDialog?.cancel()
 
-            var message = """
-                ${getString(R.string.request_failed_status_code)}: ${error.statusCode}
-                ${getString(R.string.request_failed_response_body)}: ${error.body}
-                ${getString(R.string.request_failed_exception)}: ${error.message}
-                """.trimIndent()
+            var message = listOf(
+                getString(R.string.label_value, getString(R.string.request_failed_status_code), "${error.statusCode}"),
+                getString(R.string.label_value, getString(R.string.request_failed_response_body), "${error.body}"),
+                getString(R.string.label_value, getString(R.string.request_failed_exception), "${error.message}"),
+            ).joinToString("\n")
 
             if (error.statusCode == 401) {
                 message = getString(R.string.server_registration_token_error)
@@ -359,8 +359,11 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                 runOnUiThread {
                     when (result) {
                         is MinRequiredVersionResult.Success -> {
-                            textViewServerVersion.text =
-                                "${context.getString(R.string.server_version)}: ${result.actualVersion}"
+                            textViewServerVersion.text = context.getString(
+                                R.string.label_value,
+                                context.getString(R.string.server_version),
+                                result.actualVersion,
+                            )
                         }
 
                         is MinRequiredVersionResult.ServerOutdated -> {
@@ -374,8 +377,11 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                         }
 
                         is MinRequiredVersionResult.Error -> {
-                            textViewServerVersion.text =
-                                "${context.getString(R.string.server_version_error)}: ${result.message}"
+                            textViewServerVersion.text = context.getString(
+                                R.string.label_value,
+                                context.getString(R.string.server_version_error),
+                                result.message,
+                            )
                         }
                     }
                 }

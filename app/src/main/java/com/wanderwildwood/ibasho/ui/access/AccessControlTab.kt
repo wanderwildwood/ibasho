@@ -225,6 +225,10 @@ private fun <T : AccessItem> ItemRow(
     onDeleteClicked: (T) -> Unit,
 ) {
     val context = LocalContext.current
+    val label = when (item) {
+        is PhoneNumber -> stringResource(R.string.allowlist_entry, item.name, item.number)
+        else -> item.toDisplayLabel()
+    }
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.padding(vertical = 6.dp)
@@ -234,11 +238,11 @@ private fun <T : AccessItem> ItemRow(
                 .weight(1f)
                 .combinedClickable(
                     onClick = {},
-                    onLongClick = { Utils.copyToClipboard(context, "", item.toDisplayLabel()) },
+                    onLongClick = { Utils.copyToClipboard(context, "", label) },
                 )
                 // Make click area larger
                 .padding(vertical = 8.dp),
-            text = item.toDisplayLabel(),
+            text = label,
         )
         Spacer(Modifier.width(8.dp))
         OutlinedIconButton({ onEditPermissionsClicked(item) }) {

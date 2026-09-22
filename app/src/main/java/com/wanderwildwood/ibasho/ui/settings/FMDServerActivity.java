@@ -461,7 +461,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         String baseUrl = (String) settings.get(Settings.SET_FMDSERVER_URL);
         new FmdServerRepository(this).getServerVersion(baseUrl, response -> {
             runOnUiThread(() -> {
-                serverVersion.setText(getString(R.string.server_version) + ": " + response);
+                serverVersion.setText(getString(R.string.label_value, getString(R.string.server_version), response));
                 serverVersion.setVisibility(View.VISIBLE);
             });
         }, error -> {

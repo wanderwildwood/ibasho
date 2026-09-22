@@ -57,7 +57,8 @@ class NotificationReplyTransport(
         activity.startActivity(intent)
     })
 
-    override fun getDestinationString() = destination?.packageName ?: "Notification Response"
+    override fun getDestinationString() =
+        destination?.packageName ?: context.getString(R.string.transport_notification_reply_destination_unknown)
 
     override suspend fun isAllowed(parsed: ParserResult.Success): AccessResponse {
         if (parsed.passwordHash == null) {
