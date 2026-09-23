@@ -77,6 +77,12 @@ public class ServerLocationUploadService extends FmdJobService {
 
         JobScheduler jobScheduler = context.getSystemService(JobScheduler.class);
         jobScheduler.schedule(builder.build());
+
+        // Start the clock the first time, so a job that never gets to run still shows up as
+        // stalled rather than as "unknown" forever.
+        if (((Number) settings.get(Settings.SET_FMDSERVER_LAST_UPLOAD_JOB_MILLIS)).longValue() == 0L) {
+            settings.set(Settings.SET_FMDSERVER_LAST_UPLOAD_JOB_MILLIS, System.currentTimeMillis());
+        }
     }
 
     public static void cancelJob(Context context) {
@@ -96,6 +102,8 @@ public class ServerLocationUploadService extends FmdJobService {
             cancelJob(this);
             return false;
         }
+
+        settings.set(Settings.SET_FMDSERVER_LAST_UPLOAD_JOB_MILLIS, System.currentTimeMillis());
 
         if (!NetworkUtils.isNetworkAvailable(this)) {
             FmdLogKt.log(this).i(TAG, "No network connection, stopping job.");

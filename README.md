@@ -48,6 +48,32 @@ if you already use one, such as Sunup or ntfy, choose it under **Push** instead.
 Mozilla's service learns that the phone is connected and when your server wakes
 it — not what the command is, which the phone fetches from your server itself.
 
+## On a Mudita Kompakt
+
+The Kompakt stops installed apps from running in the background, and there is no
+setting on the phone to change that: its App info has no Battery page, and the
+MediaTek service that does it (DuraSpeed) has no screen you can reach. Until it
+is lifted, Whereabouts can answer a text message but cannot upload on its own or
+hear commands from the server. Its **Setup warnings** screen says so when it
+happens.
+
+The fix is a one-time step from a computer with `adb`, with USB debugging turned
+on in the phone's developer options:
+
+    adb shell cmd appops set com.wanderwildwood.ibasho RUN_ANY_IN_BACKGROUND allow
+    adb shell settings put global setting.duraspeed.enabled 0
+    adb shell settings put system setting.duraspeed.enabled 0
+
+The first line lets this app run in the background; the other two switch
+DuraSpeed off, which otherwise takes that back and closes apps a few minutes
+after the screen goes dark. That is phone-wide, not just for this app. To undo
+it, put both settings back to `1`. Check **Setup warnings** again after the
+phone restarts.
+
+Ringing also needs **Display over other apps** and **Do Not Disturb access**.
+Both can be granted on the phone: the app's permission buttons open the right
+screens.
+
 ## Credit
 
 Whereabouts is a fork of [FindMyDevice](https://gitlab.com/Nulide/findmydevice)

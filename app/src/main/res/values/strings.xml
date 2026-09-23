@@ -56,6 +56,14 @@
     <string name="background_restricted_title">Background use is restricted</string>
     <string name="background_restricted_text">Android will not let this app run in the background, so it cannot report where the phone is. Allowing battery use in the background is a separate setting and does not cover this.</string>
     <string name="background_restricted_button">Open settings</string>
+    <string name="background_restricted_text_kompakt">This phone will not let the app run in the background, so it cannot report where the phone is, and there is no setting on the phone to change that. A one-time step from a computer fixes it. Commands sent by text still work.</string>
+    <string name="kompakt_help_button">How to fix</string>
+    <string name="upload_stall_title">Regular uploads</string>
+    <string name="upload_stall_ok">Locations are reaching the server.</string>
+    <string name="upload_stall_off">Not in use.</string>
+    <string name="upload_stall_not_running">Nothing has reached the server since %1$s: the phone has stopped the app running in the background.</string>
+    <string name="upload_stall_not_running_kompakt">Nothing has reached the server since %1$s: this phone stops apps running in the background, and there is no setting on it to change that. A one-time step from a computer fixes it. Commands sent by text still work.</string>
+    <string name="upload_stall_no_fix">The app is running, but no location has reached the server since %1$s: the phone is getting no fix. GPS needs open sky; indoors, turn on a cell or Wi-Fi source.</string>
 
     <!-- About. Order fixed by the house style: name and version, what it sends,
          the licence in full, what is bundled and under what, then the source. -->

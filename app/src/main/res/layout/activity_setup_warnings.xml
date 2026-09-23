@@ -51,6 +51,10 @@
                 android:id="@+id/background_restricted"
                 layout="@layout/warning_background_restricted" />
 
+            <include
+                android:id="@+id/upload_stall"
+                layout="@layout/warning_upload_stall" />
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"

@@ -47,6 +47,9 @@ public class Settings extends HashMap<Integer, Object> {
     public static final int SET_FMDSERVER_PERMISSIONS = 118;
     public static final int SET_FMD_CRYPT_PROTO = 119;
     public static final int SET_FMDSERVER_PUSH_SOURCE = 120; // PushChoice: built_in or another_app
+    // When the regular upload job last started. It says whether Android is still letting the
+    // app run at all, which the last upload cannot: no fix indoors also means no upload.
+    public static final int SET_FMDSERVER_LAST_UPLOAD_JOB_MILLIS = 121;
 
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS = 201;
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS = 202;
@@ -123,6 +126,7 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_FMDSERVER_PUSH_SOURCE:
                     return "";
                 case SET_FMDSERVER_LAST_CMD_MILLIS:
+                case SET_FMDSERVER_LAST_UPLOAD_JOB_MILLIS:
                     return 0L;
                 case SET_FMDSERVER_PERMISSIONS:
                     // Use ALL instead of DEFAULT for FMD Server because
