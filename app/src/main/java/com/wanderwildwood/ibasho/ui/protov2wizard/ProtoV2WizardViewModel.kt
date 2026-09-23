@@ -152,21 +152,25 @@ class ProtoV2WizardViewModel(
         apiV1.getAllLocations(
             keyPair.private,
             { locations ->
+                // Each upload is waited for before the next step. Upstream sent them without
+                // waiting and went straight on to delete the v1 copies, so a failed upload
+                // lost the history. Now a failure stops here with the v1 data still in place.
                 context.log().d(TAG, "Uploading v2 locations")
-                apiV2.sendLocations(locations)
+                apiV2.sendLocations(locations, {
 
-                context.log().d(TAG, "Downloading v1 pictures")
-                apiV1.getAllPictures(
-                    keyPair.private,
-                    { pictures ->
-                        context.log().d(TAG, "Uploading v2 pictures")
-                        apiV2.sendPictures(pictures)
-
-                        // Delete the data
-                        advanceFromStep2DeleteData()
-                    },
-                    { _wizardState.postValue(WizardState.ERROR(it.message)) },
-                )
+                    context.log().d(TAG, "Downloading v1 pictures")
+                    apiV1.getAllPictures(
+                        keyPair.private,
+                        { pictures ->
+                            context.log().d(TAG, "Uploading v2 pictures")
+                            apiV2.sendPictures(pictures, {
+                                // Delete the data
+                                advanceFromStep2DeleteData()
+                            }, { _wizardState.postValue(WizardState.ERROR(it.message)) })
+                        },
+                        { _wizardState.postValue(WizardState.ERROR(it.message)) },
+                    )
+                }, { _wizardState.postValue(WizardState.ERROR(it.message)) })
             },
             { _wizardState.postValue(WizardState.ERROR(it.message)) },
         )

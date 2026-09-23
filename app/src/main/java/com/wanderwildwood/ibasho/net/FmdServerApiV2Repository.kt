@@ -408,21 +408,34 @@ class FmdServerApiV2Repository private constructor(
         sendLocations(listOf(location))
     }
 
-    fun sendLocations(locations: List<FmdLocation>) {
+    fun sendLocations(
+        locations: List<FmdLocation>,
+        listener: Listener<Unit> = Listener {},
+        errorListener: ErrorListener = ErrorListener {},
+    ) {
         val raw = locations.map { it.encodeToJson().encodeToByteArray() }
-        sendData(raw, DataBlobType.Location)
+        sendData(raw, DataBlobType.Location, listener, errorListener)
     }
 
     override fun sendPicture(picture: FmdPicture) {
         sendPictures(listOf(picture))
     }
 
-    fun sendPictures(pictures: List<FmdPicture>) {
+    fun sendPictures(
+        pictures: List<FmdPicture>,
+        listener: Listener<Unit> = Listener {},
+        errorListener: ErrorListener = ErrorListener {},
+    ) {
         val raw = pictures.map { it.encodeToJson().encodeToByteArray() }
-        sendData(raw, DataBlobType.Picture)
+        sendData(raw, DataBlobType.Picture, listener, errorListener)
     }
 
-    private fun sendData(rawItems: List<ByteArray>, type: DataBlobType) {
+    private fun sendData(
+        rawItems: List<ByteArray>,
+        type: DataBlobType,
+        listener: Listener<Unit> = Listener {},
+        errorListener: ErrorListener = ErrorListener {},
+    ) {
         val encItems = rawItems.map { raw ->
             val enc = ltk.encryptDataBlob(raw, type)
             EncryptedItem(
@@ -435,8 +448,8 @@ class FmdServerApiV2Repository private constructor(
         val request = DataRequestResponse(encItems)
         doRequestWithCachedToken(
             { srv -> srv.postData(type.label, request) },
-            listener = {},
-            errorListener = {},
+            listener = listener,
+            errorListener = errorListener,
         )
     }
 
