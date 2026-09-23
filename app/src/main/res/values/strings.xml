@@ -130,6 +130,9 @@
     <string name="pw_change_network_failed">Password change failed due to a network error.</string>
     <string name="server_login_attempts_title">Failed login attempts to FMD Server</string>
     <string name="server_login_attempts_text">Someone tried to log in to your FMD Server account \"%s\". Due to multiple failed passwords, the account is now locked for 10 minutes.</string>
+    <string name="server_login_attempts_text_time">Someone tried to log in to your FMD Server account \"%1$s\" at %2$s. Due to multiple failed attempts, the account is now locked for 10 minutes.</string>
+    <string name="server_message_other_title">FMD Server operator announcement</string>
+    <string name="server_message_other_text">The FMD Server operator has posted the following message:\n\n%s</string>
     <string name="server_version_upgrade_required_title">FMD Server upgrade required</string>
     <string name="server_version_upgrade_required_text">The FMD Server you are using has version {CURRENT}, but this app requires at least {MIN}. Controlling your device via FMD Server may not work anymore. Please upgrade your server.</string>
     <string name="server_connectivity_lost_title">FMD Server connectivity lost</string>

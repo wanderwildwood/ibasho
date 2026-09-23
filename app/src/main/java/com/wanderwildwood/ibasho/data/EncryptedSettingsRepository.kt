@@ -23,6 +23,9 @@ class EncryptedSettingsRepository private constructor(context: Context) {
         private const val FILENAME = "fmd_encrypted_settings"
 
         private const val KEY_SERVER_CACHED_ACCESS_TOKEN = "KEY_SERVER_CACHED_ACCESS_TOKEN"
+        const val KEY_FMDSERVER_V2_PASSWORD_KEY = "KEY_SERVER_V2_PASSWORD_KEY"
+        const val KEY_FMDSERVER_V2_MASTER_KEY = "KEY_SERVER_V2_MASTER_KEY"
+
         private const val KEY_FMD_PIN = "KEY_FMD_PIN"
         private const val KEY_DELETE_PASSWORD = "KEY_DELETE_PASSWORD"
     }

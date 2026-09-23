@@ -1,6 +1,8 @@
 package com.wanderwildwood.ibasho.net
 
 import android.content.Context
+import com.wanderwildwood.ibasho.data.Settings
+import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.net.interceptor.UserAgentInterceptor
 import okhttp3.Call
 import okhttp3.Callback
@@ -8,27 +10,23 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
 
-const val FMD_SERVER_PROTO_V1 = 1
-const val FMD_SERVER_PROTO_V2 = 2
+typealias ProtoVersion = Int
+
+const val FMD_SERVER_PROTO_V1: ProtoVersion = 1
+const val FMD_SERVER_PROTO_V2: ProtoVersion = 2
 
 internal const val ACCESS_TOKEN_VALIDITY_SECS = 7 * 24 * 60 * 60 // 1 week
 
 class FmdServerRepository(
     private val context: Context,
 ) {
-    // private val settingsRepo = SettingsRepository.getInstance(context)
+    private val settingsRepo = SettingsRepository.getInstance(context)
 
     fun getApiService(): FmdServerApiService {
-        val spec = FmdServerApiV1RepoSpec(context)
-        return FmdServerApiV1Repository.getInstance(spec)
-    }
+        val protoVersion =
+            (settingsRepo.get(Settings.SET_FMD_CRYPT_PROTO) as Number).toInt() as ProtoVersion
 
-    /*
-    fun getApiService(): FmdServerApiService {
-        // TODO: Store proto version during register/login
-        val accountProtocolVersion = (settingsRepo.get(Settings.SET_FMD_CRYPT_PROTO) as Number).toLong()
-
-        if (accountProtocolVersion == FMD_SERVER_PROTO_V1) {
+        if (protoVersion == FMD_SERVER_PROTO_V1) {
             val spec = FmdServerApiV1RepoSpec(context)
             return FmdServerApiV1Repository.getInstance(spec)
         } else {
@@ -36,7 +34,6 @@ class FmdServerRepository(
             return FmdServerApiV2Repository.getInstance(spec)
         }
     }
-     */
 
     /**
      * Gets the version of the FMD Server running at the given base URL.

@@ -38,8 +38,6 @@ import java.util.Objects;
 
 import com.wanderwildwood.ibasho.R;
 import com.wanderwildwood.ibasho.data.BackgroundLocationType;
-import com.wanderwildwood.ibasho.data.EncryptedSettingsRepository;
-import com.wanderwildwood.ibasho.data.FmdKeyPair;
 import com.wanderwildwood.ibasho.data.Settings;
 import com.wanderwildwood.ibasho.data.SettingsRepository;
 import com.wanderwildwood.ibasho.net.FmdServerApiService;
@@ -98,10 +96,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         textViewUserId.setText((String) settings.get(Settings.SET_FMDSERVER_ID));
 
         TextView textViewFingerprint = findViewById(R.id.textViewFingerprint);
-        FmdKeyPair keyPair = settings.getKeysV1();
-        if (keyPair != null) {
-            textViewFingerprint.setText(keyPair.getFingerprint());
-        }
+        textViewFingerprint.setText(fmdServerRepo.getKeyFingerprint());
 
         findViewById(R.id.buttonOpenWebClient).setOnClickListener(this::onOpenWebClientClicked);
         findViewById(R.id.buttonCopyServerUrl).setOnClickListener(this::onCopyServerUrlClicked);
@@ -285,19 +280,12 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
     private void onCopyFingerprintClicked(View view) {
         String label = getString(R.string.Settings_FMD_Server_Fingerprint).replace(":", "");
-        String text = "";
-        FmdKeyPair keyPair = settings.getKeysV1();
-        if (keyPair != null) {
-            text = keyPair.getFingerprint();
-        }
-        Utils.copyToClipboard(this, label, text);
+        Utils.copyToClipboard(this, label, fmdServerRepo.getKeyFingerprint());
     }
 
     private void runLogout() {
+        fmdServerRepo.logout();
         settings.removeServerAccount(false);
-        // TODO: API to invalidate access tokens. Maybe combine with session management.
-        EncryptedSettingsRepository encryptedSettingsRepo = EncryptedSettingsRepository.Companion.getInstance(this);
-        encryptedSettingsRepo.setCachedAccessToken("");
         ServerLocationUploadService.cancelJob(this);
         ServerConnectivityCheckService.cancelJob(this);
         unregisterWithUnifiedPush(this);

@@ -71,6 +71,10 @@ class CryptoV2 {
     }
 }
 
+fun ByteArray.toHash(): ByteArray {
+    return MessageDigest.getInstance("SHA-256").digest(this)
+}
+
 fun String.toHash(): ByteArray {
     return MessageDigest.getInstance("SHA-256").digest(this.toByteArray())
 }

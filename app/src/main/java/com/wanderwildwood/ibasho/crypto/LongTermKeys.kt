@@ -60,6 +60,10 @@ class LongTermKeys(
         return CypherUtils.encryptWithAes(masterKey, ad, preMasterKey)
     }
 
+    fun getFingerprint(): String {
+        return masterKey.toHash().toHexString()
+    }
+
     /* ------- Data encryption/decryption ------- */
 
     private fun kekByType(type: DataBlobType): ByteArray {

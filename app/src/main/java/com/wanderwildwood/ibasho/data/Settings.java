@@ -1,6 +1,8 @@
 package com.wanderwildwood.ibasho.data;
 
 
+import static com.wanderwildwood.ibasho.net.FmdServerRepositoryKt.FMD_SERVER_PROTO_V1;
+
 import androidx.annotation.Keep;
 
 import java.util.HashMap;
@@ -43,6 +45,7 @@ public class Settings extends HashMap<Integer, Object> {
     public static final int SET_FMDSERVER_LAST_CMD_MILLIS = 116;
     public static final int SET_FMD_EDGE_INFO_SHOWN = 117;
     public static final int SET_FMDSERVER_PERMISSIONS = 118;
+    public static final int SET_FMD_CRYPT_PROTO = 119;
 
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS = 201;
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS = 202;
@@ -125,6 +128,8 @@ public class Settings extends HashMap<Integer, Object> {
                     // 2) the server is primarily for your own usage, not for giving access to
                     //    your phone to others (unlike SMS/Notification Reply).
                     return FmdPermission.Companion.getALL();
+                case SET_FMD_CRYPT_PROTO:
+                    return FMD_SERVER_PROTO_V1;
                 //case SET_GPS_STATE:
                 //    return 1;
                 case SET_APP_CRASHED_LOG_ENTRY:

@@ -24,8 +24,13 @@ import com.wanderwildwood.ibasho.data.RegistrationTokenRepository
 import com.wanderwildwood.ibasho.data.Settings
 import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.net.FmdServerApiService
+import com.wanderwildwood.ibasho.net.FmdServerApiV1RepoSpec
+import com.wanderwildwood.ibasho.net.FmdServerApiV1Repository
+import com.wanderwildwood.ibasho.net.FmdServerApiV2RepoSpec
+import com.wanderwildwood.ibasho.net.FmdServerApiV2Repository
 import com.wanderwildwood.ibasho.net.FmdServerRepository
 import com.wanderwildwood.ibasho.net.MinRequiredVersionResult
+import com.wanderwildwood.ibasho.net.ProtoVersion
 import com.wanderwildwood.ibasho.net.ServerError
 import com.wanderwildwood.ibasho.net.isMinRequiredVersion
 import com.wanderwildwood.ibasho.services.ServerConnectivityCheckService
@@ -36,13 +41,18 @@ import com.wanderwildwood.ibasho.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
 import com.wanderwildwood.ibasho.utils.CypherUtils.MIN_PASSWORD_LENGTH
 import com.wanderwildwood.ibasho.utils.Utils.Companion.copyToClipboard
 import com.wanderwildwood.ibasho.utils.Utils.Companion.openUrl
+import com.wanderwildwood.ibasho.utils.log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.apache.maven.artifact.versioning.ComparableVersion
 import java.util.Calendar
 import java.util.TimeZone
 
 class AddAccountActivity : FmdActivity(), TextWatcher {
+
+    private val TAG = AddAccountActivity::class.simpleName
+
     private lateinit var editTextServerUrl: EditText
     private lateinit var textViewServerVersion: TextView
     private lateinit var btnLogin: Button
@@ -55,6 +65,8 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
     private var loadingDialog: AlertDialog? = null
 
     private var lastTextChangedMillis: Long = 0
+
+    private var serverVersion = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -153,6 +165,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                     // Key generation and password hashing is expensive-ish, so we don't want
                     // to do it on the UI thread (e.g., it would block the loading indicator).
                     lifecycleScope.launch(Dispatchers.IO) {
+                        val fmdServerRepo = getTemporaryApiService()
                         fmdServerRepo.register(
                             username,
                             password,
@@ -187,6 +200,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
                 if (id.isNotEmpty() && password.isNotEmpty()) {
                     lifecycleScope.launch(Dispatchers.IO) {
+                        val fmdServerRepo = getTemporaryApiService()
                         fmdServerRepo.login(
                             id,
                             password,
@@ -281,7 +295,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         getAndShowServerVersionWithDelay(this, url)
     }
 
-    private fun onRegisterOrLoginSuccess(unit: Unit) {
+    private fun onRegisterOrLoginSuccess(protoVersion: ProtoVersion) {
         runOnUiThread {
             val context = applicationContext
             loadingDialog?.cancel()
@@ -290,6 +304,8 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                 Toast.makeText(context, R.string.server_login_no_user_id, Toast.LENGTH_LONG).show()
                 return@runOnUiThread
             }
+
+            settingsRepo.set(Settings.SET_FMD_CRYPT_PROTO, protoVersion)
 
             settingsRepo.set(
                 Settings.SET_FMD_SERVER_LAST_CONNECTIVITY_UNIX_TIME,
@@ -359,6 +375,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                 runOnUiThread {
                     when (result) {
                         is MinRequiredVersionResult.Success -> {
+                            serverVersion = result.actualVersion
                             textViewServerVersion.text = context.getString(
                                 R.string.label_value,
                                 context.getString(R.string.server_version),
@@ -367,6 +384,8 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                         }
 
                         is MinRequiredVersionResult.ServerOutdated -> {
+                            serverVersion = result.actualVersion
+
                             var warningText =
                                 context.getString(R.string.server_version_error_low_version)
                             warningText = warningText.replace(
@@ -386,6 +405,22 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                     }
                 }
             }
+        }
+    }
+
+    // During registration/login, use the highest possible API version, as indicated by the server version.
+    private fun getTemporaryApiService(): FmdServerApiService {
+        val minRequired = ComparableVersion("0.17.0")
+        val currentVersion = ComparableVersion(serverVersion)
+
+        if (currentVersion >= minRequired) {
+            log().i(TAG, "Server version $currentVersion, using APIv2")
+            val spec = FmdServerApiV2RepoSpec(this@AddAccountActivity)
+            return FmdServerApiV2Repository.getInstance(spec)
+        } else {
+            log().i(TAG, "Server version $currentVersion, using APIv1")
+            val spec = FmdServerApiV1RepoSpec(this@AddAccountActivity)
+            return FmdServerApiV1Repository.getInstance(spec)
         }
     }
 }
