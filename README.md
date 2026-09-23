@@ -39,7 +39,12 @@ sparse, and outdoors.
 
 It talks to [FMD Server](https://gitlab.com/fmd-foss/fmd-server), self-hosted.
 There is no public instance behind this app and no default server: you enter
-your own. With FMD Server 0.17 or later a new account uses the server's protocol
+your own.
+
+[Whereabouts server](https://github.com/wanderwildwood/ibasho-server) is FMD
+Server with a map of the other people who share with you, including an iPhone
+through the Overland app, and the same ink-on-paper look. It speaks the same
+protocol, so this app works with either. With FMD Server 0.17 or later a new account uses the server's protocol
 version 2, and an older account can be moved to it from the FMD Server screen.
 
 Commands from the server reach the phone by push. Whereabouts keeps its own quiet
