@@ -1,6 +1,7 @@
 package com.wanderwildwood.ibasho.ui.settings
 
 import android.app.Activity
+import com.wanderwildwood.ibasho.ui.paging.turnsAPageOnSwipe
 import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
@@ -71,6 +72,7 @@ class SettingsFragment : TaggedFragment() {
         val settingsEntries = SettingsEntry.getSettingsEntries(view.context)
 
         val listSettings = view.findViewById<ListView>(R.id.listSettings)
+        listSettings.turnsAPageOnSwipe()
         listSettings.setAdapter(SettingsViewAdapter(view.context, settingsEntries))
         listSettings.onItemClickListener =
             OnItemClickListener { parent: AdapterView<*>, view: View, position: Int, id: Long ->

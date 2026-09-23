@@ -1,6 +1,7 @@
 package com.wanderwildwood.ibasho.ui.home
 
 import android.os.Bundle
+import com.wanderwildwood.ibasho.ui.paging.turnsAPageOnSwipe
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,7 @@ class CommandListFragment : TaggedFragment() {
 
         val commandListAdapter = CommandListAdapter(activity as AppCompatActivity)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_commands)
+        recyclerView.turnsAPageOnSwipe()
         recyclerView.adapter = commandListAdapter
 
         commandListAdapter.submitList(availableCommands(view.context))

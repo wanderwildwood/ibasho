@@ -1,6 +1,7 @@
 package com.wanderwildwood.ibasho.ui.settings
 
 import android.content.Intent
+import com.wanderwildwood.ibasho.ui.paging.turnsAPageOnSwipe
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -43,6 +44,7 @@ class LogViewActivity : FmdActivity() {
         // TODO: Observe list as LiveData or Flow
         adapter = LogViewAdapter()
         recyclerView = findViewById<RecyclerView>(R.id.recycler_logs)
+        recyclerView.turnsAPageOnSwipe()
         recyclerView.adapter = adapter
 
         synchronized(repo.list) { adapter.submitList(repo.list) }

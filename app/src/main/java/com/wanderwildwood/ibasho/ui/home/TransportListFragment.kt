@@ -1,6 +1,7 @@
 package com.wanderwildwood.ibasho.ui.home
 
 import android.os.Bundle
+import com.wanderwildwood.ibasho.ui.paging.turnsAPageOnSwipe
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,7 @@ class TransportListFragment : TaggedFragment() {
 
         val transportListAdapter = TransportListAdapter(activity as AppCompatActivity)
         val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_transports)
+        recyclerView.turnsAPageOnSwipe()
         recyclerView.adapter = transportListAdapter
 
         transportListAdapter.submitList(availableTransports(view.context))
