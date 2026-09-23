@@ -16,6 +16,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mudita.mmd.components.tabs.PrimaryTabRowMMD
@@ -81,7 +83,15 @@ fun AccessControlTabsScreen(
                                     pagerState.scrollToPage(index)
                                 }
                             },
-                            text = { TextMMD(stringResource(item.title)) },
+                            // A third of 480 px holds one word of body text, so "Notification"
+                            // broke mid-word. The house minimum, centred, wraps between words.
+                            text = {
+                                TextMMD(
+                                    text = stringResource(item.title),
+                                    fontSize = 14.sp,
+                                    textAlign = TextAlign.Center,
+                                )
+                            },
                             icon = {
                                 Icon(
                                     painterResource(item.icon),

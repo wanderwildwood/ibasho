@@ -2,7 +2,6 @@ package com.wanderwildwood.ibasho.ui.access
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -91,37 +90,34 @@ fun <T : AccessItem> AccessControlTab(
             .padding(all = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        if (accessItems.isEmpty()) {
-            TextMMD(stringResource(accessType.hintText, commandKeyword))
-            Spacer(Modifier.height(8.dp))
-            TextMMD(stringResource(R.string.access_permission_hint))
-            HorizontalDividerMMD(modifier = Modifier.padding(vertical = 16.dp))
-            Box(
-                modifier = Modifier.weight(1f),
-                contentAlignment = Alignment.Center,
-            ) {
-                TextMMD(
-                    text = stringResource(accessType.emptyText),
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                    textAlign = TextAlign.Center,
-                )
+        // One paging list whether or not there is anything in it. The empty case used to lay
+        // the two hints out flat and give the "nothing here" line whatever height was left,
+        // which at 480x800 was not enough: it was cut off behind the buttons.
+        LazyColumnMMD(
+            modifier = Modifier.weight(1f),
+        ) {
+            item {
+                TextMMD(stringResource(accessType.hintText, commandKeyword))
+                Spacer(Modifier.height(8.dp))
+                TextMMD(stringResource(R.string.access_permission_hint))
+                HorizontalDividerMMD(modifier = Modifier.padding(vertical = 16.dp))
             }
-        } else {
-            LazyColumnMMD(
-                modifier = Modifier.weight(1f),
-            ) {
+            if (accessItems.isEmpty()) {
                 item {
-                    TextMMD(stringResource(accessType.hintText, commandKeyword))
-                    Spacer(Modifier.height(8.dp))
-                    TextMMD(stringResource(R.string.access_permission_hint))
-                    HorizontalDividerMMD(modifier = Modifier.padding(vertical = 16.dp))
+                    TextMMD(
+                        text = stringResource(accessType.emptyText),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp, vertical = 8.dp),
+                        textAlign = TextAlign.Center,
+                    )
                 }
-                items(accessItems) { item ->
-                    ItemElement(
-                        item,
-                        onEditPermissionsClicked = { permissionToEdit = item },
-                        onDeleteClicked = { itemToDelete = item })
-                }
+            }
+            items(accessItems) { item ->
+                ItemElement(
+                    item,
+                    onEditPermissionsClicked = { permissionToEdit = item },
+                    onDeleteClicked = { itemToDelete = item })
             }
         }
 

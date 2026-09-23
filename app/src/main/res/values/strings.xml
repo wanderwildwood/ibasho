@@ -197,7 +197,7 @@
     <string name="access_permission_hint">For each entry, you can choose which commands are allowed. By default, new entries are restricted to the most basic commands.</string>
 
     <string name="access_phone_number_hint">The phone numbers in this list are allowed to access FMD via SMS, by texting \"%s command\".</string>
-    <string name="access_phone_number_empty">No phone numbers. Click to the button below to add one!</string>
+    <string name="access_phone_number_empty">No phone numbers yet. Add one with a button below.</string>
 
     <string name="access_sms_password_hint">The passwords in this list can be used to access FMD from any phone number via SMS, by texting \"%s password command\".</string>
     <string name="access_sms_password_add">Add SMS password</string>
@@ -208,7 +208,7 @@
     <string name="access_notification_password_hint">The passwords in this list can be used to access FMD from any app that shows a notification with a \"reply\" quick action (such as messenger apps). The notification text should be \"%s password command\".</string>
     <string name="access_notification_password_add">Add notification password</string>
 
-    <string name="access_password_empty">No passwords. Click to the button below to add one!</string>
+    <string name="access_password_empty">No passwords yet. Add one with the button below.</string>
     <string name="access_password_exists">This password already exists: %s</string>
     <string name="access_add_password_label_message">Choose a label so that you can identify the password. The password will not be shown again after you save this entry.</string>
 
