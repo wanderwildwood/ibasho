@@ -138,7 +138,6 @@
     <string name="cmd_nodisturb_response_off">免打扰模式已关闭。</string>
     <string name="grant_write_secure_settings_title">授予写入安全设置</string>
     <string name="grant_write_secure_settings_description">此权限只能通过安卓系统的“pm grant”命令行工具授予。您可以使用计算机通过安卓调试桥（ADB）手动执行此命令，还可以直接在设备上使用 root 或 Shizuku 执行。\n\nUser ID: %d</string>
-    <string name="perm_camera_name">摄像头</string>
     <string name="perm_do_not_disturb_access_name">免打扰访问</string>
     <string name="perm_notification_access_name">通知访问</string>
     <string name="transport_notification_reply_description_auth">通过通知回复控制 FMD 需要设置密码，每条消息都必须包含正确的密码。</string>

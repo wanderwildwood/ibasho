@@ -142,7 +142,6 @@
     <string name="cmd_ring_description_short">Laat het toestel overgaan</string>
     <string name="cmd_nodisturb_description_short">Niet storen aan-/uitzetten</string>
     <string name="perm_battery_optimizations_name">Instellingen voor batterijbesparing negeren</string>
-    <string name="perm_camera_name">Camera</string>
     <string name="appearance_dynamic_colors">Dynamische kleuren</string>
     <string name="perm_location_name">Locatie</string>
     <string name="perm_notification_access_name">Toegang tot meldingen</string>

@@ -100,7 +100,6 @@
     <string name="cmd_locate_last_known_location_text">Последнее известное местоположение</string>
     <string name="cmd_lock_description_short">Заблокировать устройство (с сообщением)</string>
     <string name="cmd_lock_response">Теперь устройство должно быть заблокировано.</string>
-    <string name="perm_camera_name">Камера</string>
     <string name="cmd_ring_description_short">Включить воспроизведение мелодии на устройстве</string>
     <string name="cmd_ring_response">Теперь устройство должно воспроизводить мелодию.</string>
     <string name="cmd_nodisturb_description_short">Включение и выключение режима \"Не беспокоить\"</string>

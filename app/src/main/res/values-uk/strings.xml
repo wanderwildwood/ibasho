@@ -76,7 +76,6 @@
     <string name="cmd_ring_description_short">Дзвінок пристоєм</string>
     <string name="cmd_nodisturb_response_on">Режим «Не турбувати» увімкнено.</string>
     <string name="cmd_stats_response">Статистика мережі: \n \nIP-адреси пристрою: \n%1$s \n \nWi-Fi мережі: \n%2$s</string>
-    <string name="perm_camera_name">Камера</string>
     <string name="perm_location_name">Розташування</string>
     <string name="app_description">FMD (Find My Device) дозволяє віддалено визначити місцезнаходження вашого пристрою. Ви можете спілкуватися з FMD через SMS, месенджери або за допомогою FMD Server. Знайдіть свій пристрій, увімкніть дзвінок, заблокуйте його або витріть всі дані - і все це дистанційно.</string>
     <string name="notify_crypto_update_text">Вам потрібно оновити деякі налаштування, щоб продовжити використання FMD. Натисніть, щоб відкрити.</string>

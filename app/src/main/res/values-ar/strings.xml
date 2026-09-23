@@ -176,7 +176,6 @@
     <string name="transport_fmd_server_description_note">يتطلب خادم FMD اتصالاً بالإنترنت. يمكن أن يكون ذلك عبر شبكة جوال (وبالتالي يجب إلغاء قفل بطاقة SIM) أو شبكة WiFi.</string>
     <string name="required_permissions_title">الأذونات المطلوبة</string>
     <string name="transport_sms_description">أرسل الأوامر إلى جهازك عبر الرسائل القصيرة. على سبيل المثال، أرسل رسالة نصية تحتوي على \"%s help\" إلى جهازك. سيرد FMD برسالة نصية قصيرة.</string>
-    <string name="perm_camera_name">كاميرا</string>
     <string name="grant">منح</string>
     <string name="grant_via_root">منح عبر Root</string>
     <string name="perm_unused_app_name">قيود التطبيق غير المستخدمة</string>

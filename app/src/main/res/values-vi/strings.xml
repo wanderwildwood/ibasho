@@ -21,7 +21,6 @@
     <string name="cmd_stats_response">Thống kê mạng:\n\nĐịa chỉ IP của thiết bị:\n%1$s\n\nMạng Wifi:\n%2$s</string>
     <string name="perm_battery_optimizations_name">Bỏ qua Tối ưu hóa Pin</string>
     <string name="perm_bluetooth_connect_name">Kết nối Bluetooth</string>
-    <string name="perm_camera_name">Máy ảnh</string>
     <string name="perm_device_admin_name">Quản trị viên Thiết bị</string>
     <string name="perm_do_not_disturb_access_name">Truy cập Không làm phiền</string>
     <string name="perm_location_name">Vị trí</string>

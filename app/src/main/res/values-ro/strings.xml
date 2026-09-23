@@ -155,7 +155,6 @@
     <string name="cmd_stats_response">Statistici rețea:\n\nAdrese IP ale dispozitivului:\n%1$s\n\nRețele Wi-Fi:\n%2$s</string>
     <string name="perm_battery_optimizations_name">Ignoră optimizarea bateriei</string>
     <string name="perm_bluetooth_connect_name">Conectează Bluetooth</string>
-    <string name="perm_camera_name">Cameră</string>
     <string name="perm_device_admin_name">Administrator dispozitiv</string>
     <string name="perm_do_not_disturb_access_name">Acces Nu Deranja</string>
     <string name="perm_location_name">Locație</string>

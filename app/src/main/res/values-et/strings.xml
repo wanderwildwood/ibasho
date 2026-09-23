@@ -48,7 +48,6 @@
     <string name="Notification_FAIL">Vead</string>
     <string name="password_new">Uus salasõna</string>
     <string name="password_old">Vana salasõna</string>
-    <string name="perm_camera_name">Kaamera</string>
     <string name="perm_location_name">Asukoht</string>
     <string name="Settings_FMD_Server_Connection_Status_Success">Õnnestus</string>
     <string name="Settings_FMD_Server_Connection_Status">Ühenduse olek:</string>

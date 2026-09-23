@@ -99,7 +99,6 @@
     <string name="cmd_gps_response_off">Die Standortdienste wurden ausgeschaltet.</string>
     <string name="cmd_help_description_short">Hilfe anzeigen</string>
     <string name="cmd_ring_description_short">Gerät klingeln lassen</string>
-    <string name="perm_camera_name">Kamera</string>
     <string name="perm_device_admin_name">Geräteverwaltung</string>
     <string name="perm_do_not_disturb_access_name">„Bitte nicht stören“-Zugriff</string>
     <string name="perm_location_name">Standort</string>

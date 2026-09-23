@@ -117,7 +117,6 @@
     <string name="usage_notification_title">Comando ejecutado</string>
     <string name="cmd_locate_description_long">Localiza el dispositivo usando uno o más proveedores de ubicación. GPS ofrece la mayor precisión, pero puede no funcionar siempre. El proveedor \"fusionado\" está definido por Android y combina múltiples fuentes (normalmente WiFi o torres celulares). El proveedor \"cell\" consulta los servicios públicos OpenCelliD y BeaconDB para las ubicaciones de las torres celulares cercanas.</string>
     <string name="cmd_ring_description_short">Hacer que el dispositivo suene</string>
-    <string name="perm_camera_name">Cámara</string>
     <string name="cmd_ring_response">El dispositivo ahora debería estar sonando.</string>
     <string name="grant_write_secure_settings_description">Este permiso solo se puede conceder con la herramienta de línea de comandos \"pm grant\" de Android. Puedes ejecutar este comando manualmente a través de Android Debug Bridge (ADB) usando una computadora. También puedes ejecutarlo directamente en tu dispositivo usando root o Shizuku.\n\nID de usuario: %d</string>
     <string name="usage_notification_text">El comando \"%s\" fue ejecutado.</string>

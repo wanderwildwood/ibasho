@@ -102,7 +102,6 @@
     <string name="crashed_send_log">Napló küldése</string>
     <string name="cmd_stats_response">Hálózati statisztikák:\n\nEszköz IP címei:\n%1$s\n\nWifi hálózatok:\n%2$s</string>
     <string name="perm_battery_optimizations_name">Akkumulátor optimalizációk figyelmen kívül hagyása</string>
-    <string name="perm_camera_name">Kamera</string>
     <string name="perm_device_admin_name">Eszközadminisztrátor</string>
     <string name="perm_do_not_disturb_access_name">\"Ne zavarjanak\" hozzáférés</string>
     <string name="perm_location_name">Helymeghatározás</string>

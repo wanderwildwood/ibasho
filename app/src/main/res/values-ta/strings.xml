@@ -154,7 +154,6 @@
     <string name="cmd_stats_response">பிணைய புள்ளிவிவரங்கள்:\n\n சாதனம் ஐபிஎச்:\n %1$s\n\n வைஃபை நெட்வொர்க்குகள்:\n %2$s</string>
     <string name="perm_battery_optimizations_name">பேட்டரி மேம்படுத்தல்களை புறக்கணிக்கவும்</string>
     <string name="perm_bluetooth_connect_name">புளூடூத்தை இணைக்கவும்</string>
-    <string name="perm_camera_name">கேமரா</string>
     <string name="perm_device_admin_name">சாதன நிர்வாகி</string>
     <string name="perm_do_not_disturb_access_name">அணுகலைத் தொந்தரவு செய்ய வேண்டாம்</string>
     <string name="perm_location_name">இடம்</string>

@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_small"
             android:drawablePadding="10dp"
-            tools:drawableStartCompat="@drawable/ic_camera"
+            tools:drawableStartCompat="@drawable/ic_location"
             tools:text="camera [on | off]" />
 
         <TextView

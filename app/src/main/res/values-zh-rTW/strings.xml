@@ -26,7 +26,6 @@
     <string name="Settings_FMDServer_open_website">開啟 FMD 伺服器網站</string>
     <string name="Settings_FMDServer_Info">透過 FMD 伺服器，您可以經由網際網路從伺服器向應用程式傳送指令。您也可以在地圖上查看裝置的位置，或檢視裝置所拍攝的照片。若需自行架設，請參閱官方網站的說明。</string>
     <string name="OpenCellId_test_opencellid">測試 OpenCelliD 連接</string>
-    <string name="perm_camera_name">相機</string>
     <string name="perm_location_name">位置</string>
     <string name="perm_sms_name">簡訊</string>
     <string name="grant">授予</string>

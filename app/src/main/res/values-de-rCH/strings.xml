@@ -47,7 +47,6 @@
     <string name="server_unregister_dont_continue">Nöd wiiter mache</string>
     <string name="cmd_gps_description_short">Standortdienst aa- und abstelle</string>
     <string name="perm_battery_optimizations_name">Akku-Optimierige ignoriere</string>
-    <string name="perm_camera_name">Kamera</string>
     <string name="perm_device_admin_name">Grätverwaltig</string>
     <string name="perm_do_not_disturb_access_name">\"Bitte Nöd Störe\"-Zuegriff</string>
     <string name="perm_location_name">Standort</string>

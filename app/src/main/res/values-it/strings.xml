@@ -125,7 +125,6 @@
     <string name="cmd_stats_description_long">Ottenere le statistiche di rete del dispositivo. Ad esempio, il suo indirizzo IP e un elenco delle reti Wifi circostanti.</string>
     <string name="cmd_stats_response">Statistiche di rete:\n\nIP del dispositivo:\n%1$s\n\nReti Wifi:\n%2$s</string>
     <string name="perm_battery_optimizations_name">Ignora ottimizzazione batteria</string>
-    <string name="perm_camera_name">Fotocamera</string>
     <string name="perm_device_admin_name">Amministratore del dispositivo</string>
     <string name="perm_do_not_disturb_access_name">Accesso a Non Disturbare</string>
     <string name="perm_location_name">Posizione</string>

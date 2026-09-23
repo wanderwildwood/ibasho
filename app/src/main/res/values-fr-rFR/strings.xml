@@ -100,7 +100,6 @@
     <string name="Settings_Import_Failed">Importation échouée</string>
     <string name="allowlist_phone_number_name">Nom</string>
     <string name="allowlist_add_phone_number">Ajouter un numéro de téléphone</string>
-    <string name="perm_camera_name">Appareil photo</string>
     <string name="perm_sms_name">SMS</string>
     <string name="WhiteList_no_contact_picker">Aucune application de contacts trouvée !</string>
     <string name="cmd_locate_last_known_location_text">Dernière localisation connue</string>

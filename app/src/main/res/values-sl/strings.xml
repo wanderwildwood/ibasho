@@ -82,7 +82,6 @@
     <string name="Notification_Server_Description">Obvestila povezana s FMD strežnikom</string>
     <string name="Settings_FMDServer_Server_Url">URL strežnika</string>
     <string name="crashed_open_issuetracker">Odpri sledilnik težav</string>
-    <string name="perm_camera_name">Kamera</string>
     <string name="perm_device_admin_name">Skrbnik naprave</string>
     <string name="perm_do_not_disturb_access_name">Dostop \"Ne moti\"</string>
     <string name="perm_location_name">Lokacija</string>

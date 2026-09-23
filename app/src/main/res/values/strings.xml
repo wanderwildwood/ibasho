@@ -159,7 +159,7 @@
     <!-- Toast when logging in or registering seemed to work but left no account behind -->
     <string name="server_login_no_user_id">Failed: no user id</string>
     <string name="Settings_FMDServer_AddAccount">FMD Server: Login</string>
-    <string name="Settings_FMDServer_Info">With FMD Server you can send commands over the internet, from the server to the app. You can also view the device location on a map or view pictures taken by the device. For self-hosting instructions, see the website.</string>
+    <string name="Settings_FMDServer_Info">With FMD Server you can send commands over the internet, from the server to the app. You can also view the device location on a map. For self-hosting instructions, see the website.</string>
     <string name="Settings_FMDServer_open_website">Open FMD Server website</string>
     <string name="Settings_FMDServer_Server_Url">Server URL</string>
     <string name="Settings_FMDServer_Login">Login</string>
@@ -380,7 +380,6 @@
     <string name="perm_battery_optimizations_name">Ignore battery optimizations</string>
     <string name="perm_bluetooth_connect_name">Connect Bluetooth</string>
     <string name="perm_bluetooth_scan_name">Scan Bluetooth</string>
-    <string name="perm_camera_name">Camera</string>
     <string name="perm_device_admin_name">Device admin</string>
     <string name="perm_do_not_disturb_access_name">Do Not Disturb access</string>
     <string name="perm_location_name">Location</string>
@@ -422,7 +421,7 @@
     <string name="transport_notification_reply_destination_unknown">Notification Response</string>
 
     <string name="transport_fmd_server_title" translatable="false">FMD Server</string>
-    <string name="transport_fmd_server_description">FMD Server provides a web interface to control your device, view its location, and view pictures it sent. You can self-host FMD Server or use the provided instance. Data is stored encrypted on the server, protected by your password.</string>
+    <string name="transport_fmd_server_description">FMD Server provides a web interface to control your device, and view its location. You can self-host FMD Server or use the provided instance. Data is stored encrypted on the server, protected by your password.</string>
     <string name="transport_fmd_server_description_auth">Anyone who knows your username and password can log in to FMD Server and control your device.</string>
     <string name="transport_fmd_server_description_note">FMD Server requires an internet connection. This can be a mobile network (thus the SIM needs to be unlocked) or WiFi.</string>
 

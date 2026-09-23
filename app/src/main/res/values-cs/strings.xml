@@ -95,7 +95,6 @@
     <string name="cmd_stats_description_short">Získat síťové statistiky</string>
     <string name="cmd_stats_description_long">Získat síťové statistiky ze zařízení. Zahrnuje například jeho IP adresu a seznam okolních sítí Wi-Fi.</string>
     <string name="perm_battery_optimizations_name">Ignorovat optimalizace baterie</string>
-    <string name="perm_camera_name">Fotoaparát</string>
     <string name="perm_device_admin_name">Správce zařízení</string>
     <string name="perm_do_not_disturb_access_name">Přístup k režimu Nerušit</string>
     <string name="perm_location_name">Poloha</string>

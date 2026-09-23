@@ -155,7 +155,6 @@
     <string name="cmd_lock_response">Laite on nyt lukittu.</string>
     <string name="cmd_ring_description_short">Laita laite soimaan</string>
     <string name="perm_bluetooth_connect_name">Yhdistä Bluetooth</string>
-    <string name="perm_camera_name">Kamera</string>
     <string name="perm_do_not_disturb_access_name">Älä häiritse-tilan käyttöoikeus</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Sovelluksen tulisi olla käynnissä taustalla. Jotta sen toiminta voidaan varmistaa myös laitteen ollessa lepotilassa, akun optimointi sovellukselle tulee kytkeä pois päältä.</string>
     <string name="transport_sms_description">Lähetä komentoja laitteellesi tekstiviestitse. Lähetä esimerkiksi viesti: \"%s help\" laitteellesi. FMD vastaa tekstiviestillä.</string>

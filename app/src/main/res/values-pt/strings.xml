@@ -151,7 +151,6 @@
     <string name="cmd_stats_response">Estatísticas de rede:\n\nEndereços IP do dispositivo:\n%1$s\n\nRedes Wi-Fi:\n%2$s</string>
     <string name="perm_battery_optimizations_name">Ignorar otimizações de pilha</string>
     <string name="perm_bluetooth_connect_name">Conectar ao Bluetooth</string>
-    <string name="perm_camera_name">Câmara</string>
     <string name="perm_device_admin_name">Administrador do dispositivo</string>
     <string name="perm_do_not_disturb_access_name">Acesso ao não perturbar</string>
     <string name="perm_location_name">Localização</string>
