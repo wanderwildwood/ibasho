@@ -62,8 +62,15 @@ is lifted, Whereabouts can answer a text message but cannot upload on its own or
 hear commands from the server. Its **Setup warnings** screen says so when it
 happens.
 
-The fix is a one-time step from a computer with `adb`, with USB debugging turned
-on in the phone's developer options:
+The fix is a one-time step from a computer with `adb` installed. First, on the
+phone:
+
+1. **Settings → About**: tap **Build number** again and again until the phone says
+   developer mode is on.
+2. **Settings → System → Developer options**: turn on **USB debugging**.
+3. Plug the phone into the computer and allow the prompt that appears on it.
+
+Then, on the computer:
 
     adb shell cmd appops set com.wanderwildwood.ibasho RUN_ANY_IN_BACKGROUND allow
     adb shell settings put global setting.duraspeed.enabled 0
