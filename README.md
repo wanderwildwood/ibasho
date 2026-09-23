@@ -39,7 +39,14 @@ sparse, and outdoors.
 
 It talks to [FMD Server](https://gitlab.com/fmd-foss/fmd-server), self-hosted.
 There is no public instance behind this app and no default server: you enter
-your own.
+your own. With FMD Server 0.17 or later a new account uses the server's protocol
+version 2, and an older account can be moved to it from the FMD Server screen.
+
+Commands from the server reach the phone by push. Whereabouts keeps its own quiet
+connection to Mozilla's push service for this, so no separate push app is needed;
+if you already use one, such as Sunup or ntfy, choose it under **Push** instead.
+Mozilla's service learns that the phone is connected and when your server wakes
+it — not what the command is, which the phone fetches from your server itself.
 
 ## Credit
 
@@ -48,6 +55,9 @@ by Nulide and its contributors. **Most of the code here is theirs**, and the
 parts worth thanking somebody for — the protocol, the encryption design, the
 transports — are all upstream's work. What is different here is what has been
 taken out and how it reads on a small grey screen.
+
+The built-in push connection is adapted from [Sunup](https://codeberg.org/Sunup/android)
+and the UnifiedPush Android distributor library, both Apache-2.0; see [NOTICE](NOTICE).
 
 ## Licence
 
