@@ -9,72 +9,6 @@
     </issue>
 
     <issue
-        id="DefaultLocale"
-        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
-        errorLine1="                settings.set(Settings.SET_FMD_COMMAND, edited.toString().toLowerCase());"
-        errorLine2="                                                                         ~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/settings/FMDConfigActivity.java"
-            line="111"
-            column="74"/>
-    </issue>
-
-    <issue
-        id="DefaultLocale"
-        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
-        errorLine1="        msg = msg.toLowerCase();"
-        errorLine2="                  ~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/logic/MessageHandler.java"
-            line="53"
-            column="19"/>
-    </issue>
-
-    <issue
-        id="DefaultLocale"
-        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
-        errorLine1="                String msgLower = msg.toLowerCase();"
-        errorLine2="                                      ~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/services/ThirdPartyAccessService.java"
-            line="68"
-            column="39"/>
-    </issue>
-
-    <issue
-        id="Range"
-        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
-        errorLine1="                        String phoneNumber = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));"
-        errorLine2="                                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/settings/AllowlistActivity.java"
-            line="104"
-            column="58"/>
-    </issue>
-
-    <issue
-        id="Range"
-        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
-        errorLine1="                            String cNumber = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));"
-        errorLine2="                                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/settings/AllowlistActivity.java"
-            line="110"
-            column="58"/>
-    </issue>
-
-    <issue
-        id="Range"
-        message="Value must be ≥ 0 but `getColumnIndex` can be -1"
-        errorLine1="                            String cName = c.getString(c.getColumnIndex(ContactsContract.Data.DISPLAY_NAME));"
-        errorLine2="                                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/settings/AllowlistActivity.java"
-            line="111"
-            column="56"/>
-    </issue>
-
-    <issue
         id="UnusedAttribute"
         message="Attribute `dataExtractionRules` is only used in API level 31 and higher (current min is 24)"
         errorLine1="        android:dataExtractionRules=&quot;@xml/data_extraction_rules&quot;"
@@ -130,17 +64,6 @@
     </issue>
 
     <issue
-        id="InflateParams"
-        message="Avoid passing `null` as the view root (needed to resolve layout parameters on the inflated layout&apos;s root element)"
-        errorLine1="        view = inflater.inflate(R.layout.item_settings, null);"
-        errorLine2="                                                        ~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/helper/SettingsViewAdapter.java"
-            line="42"
-            column="57"/>
-    </issue>
-
-    <issue
         id="LockedOrientationActivity"
         message="Expecting `android:screenOrientation=&quot;unspecified&quot;` or `&quot;fullSensor&quot;` for this activity so the user can use the application in any orientation and provide a great experience on Chrome OS devices"
         errorLine1="            android:screenOrientation=&quot;sensorPortrait&quot;"
@@ -174,28 +97,6 @@
     </issue>
 
     <issue
-        id="StaticFieldLeak"
-        message="Do not place Android context classes in static fields; this is a memory leak"
-        errorLine1="    public static Context context;"
-        errorLine2="           ~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/data/io/IO.java"
-            line="24"
-            column="12"/>
-    </issue>
-
-    <issue
-        id="StaticFieldLeak"
-        message="Do not place Android context classes in static fields; this is a memory leak"
-        errorLine1="    private static Context context;"
-        errorLine2="            ~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/utils/Logger.java"
-            line="27"
-            column="13"/>
-    </issue>
-
-    <issue
         id="UseCompoundDrawables"
         message="This tag and its children can be replaced by one `&lt;TextView/>` and a compound drawable"
         errorLine1="&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
@@ -215,17 +116,6 @@
             file="src/main/res/drawable/ic_settings.xml"
             line="9"
             column="25"/>
-    </issue>
-
-    <issue
-        id="ViewHolder"
-        message="Unconditional layout inflation from view adapter: Should use View Holder pattern (use recycled view passed into this method as the second parameter) for smoother scrolling"
-        errorLine1="        view = inflater.inflate(R.layout.item_settings, null);"
-        errorLine2="               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/helper/SettingsViewAdapter.java"
-            line="42"
-            column="16"/>
     </issue>
 
     <issue
@@ -372,22 +262,6 @@
     </issue>
 
     <issue
-        id="TextFields"
-        message="The view name (`@+id/editTextPin`) suggests this is a password, but it does not include &apos;`numberPassword`&apos; in the `inputType`"
-        errorLine1="                android:inputType=&quot;textPassword&quot; />"
-        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/res/layout/dialog_pin.xml"
-            line="26"
-            column="17"/>
-        <location
-            file="src/main/res/layout/dialog_pin.xml"
-            line="20"
-            column="17"
-            message="id defined here"/>
-    </issue>
-
-    <issue
         id="ContentDescription"
         message="Missing `contentDescription` attribute on image"
         errorLine1="            &lt;ImageView"
@@ -473,116 +347,6 @@
             file="src/main/res/layout/activity_open_cell_id.xml"
             line="38"
             column="18"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        message="Number formatting does not take into account locale settings. Consider using `String.format` instead."
-        errorLine1="        editTextFMDServerUpdateTime.setText(((Integer) settings.get(Settings.SET_FMDSERVER_UPDATE_TIME)).toString());"
-        errorLine2="                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/settings/FMDServerActivity.java"
-            line="98"
-            column="45"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        message="Number formatting does not take into account locale settings. Consider using `String.format` instead."
-        errorLine1="        textViewWhiteListCount.setText(Integer.valueOf(allowlist.size()).toString());"
-        errorLine2="                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/MainActivity.java"
-            line="126"
-            column="40"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
-        errorLine1="                    &quot;Paras: $paras\n\nOpenCelliD: ${it.url}\n${geoURI}\nOpenStreetMap: $osm&quot;"
-        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/settings/OpenCellIdActivity.kt"
-            line="96"
-            column="21"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        message="String literal in `setText` can not be translated. Use Android resources instead."
-        errorLine1="                    &quot;Paras: $paras\n\nOpenCelliD: ${it.url}\n${geoURI}\nOpenStreetMap: $osm&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/settings/OpenCellIdActivity.kt"
-            line="96"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        message="String literal in `setText` can not be translated. Use Android resources instead."
-        errorLine1="                    &quot;Paras: $paras\n\nOpenCelliD: ${it.url}\n${geoURI}\nOpenStreetMap: $osm&quot;"
-        errorLine2="                                      ~~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/settings/OpenCellIdActivity.kt"
-            line="96"
-            column="39"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        message="String literal in `setText` can not be translated. Use Android resources instead."
-        errorLine1="                    &quot;Paras: $paras\n\nOpenCelliD: ${it.url}\n${geoURI}\nOpenStreetMap: $osm&quot;"
-        errorLine2="                                                                        ~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/settings/OpenCellIdActivity.kt"
-            line="96"
-            column="73"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders."
-        errorLine1="                    &quot;Paras: $paras\n\nOpenCelliD: ${it.url}\n\nError: ${it.error}&quot;"
-        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/settings/OpenCellIdActivity.kt"
-            line="100"
-            column="21"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        message="String literal in `setText` can not be translated. Use Android resources instead."
-        errorLine1="                    &quot;Paras: $paras\n\nOpenCelliD: ${it.url}\n\nError: ${it.error}&quot;"
-        errorLine2="                     ~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/settings/OpenCellIdActivity.kt"
-            line="100"
-            column="22"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        message="String literal in `setText` can not be translated. Use Android resources instead."
-        errorLine1="                    &quot;Paras: $paras\n\nOpenCelliD: ${it.url}\n\nError: ${it.error}&quot;"
-        errorLine2="                                      ~~~~~~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/settings/OpenCellIdActivity.kt"
-            line="100"
-            column="39"/>
-    </issue>
-
-    <issue
-        id="SetTextI18n"
-        message="String literal in `setText` can not be translated. Use Android resources instead."
-        errorLine1="                    &quot;Paras: $paras\n\nOpenCelliD: ${it.url}\n\nError: ${it.error}&quot;"
-        errorLine2="                                                               ~~~~~~~">
-        <location
-            file="src/main/java/de/nulide/findmydevice/ui/settings/OpenCellIdActivity.kt"
-            line="100"
-            column="64"/>
     </issue>
 
     <issue
