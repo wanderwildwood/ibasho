@@ -74,7 +74,6 @@
     <string name="OpenCellId_test_opencellid">Testar conexão ao OpenCelliD</string>
     <string name="notify_crypto_update_title">Ação necessária</string>
     <string name="notify_crypto_update_text">Você precisará atualizar algumas configurações para continuar usando o FMD. Clique para abrir.</string>
-    <string name="app_description">O FMD permite que você localize o seu dispositivo remotamente. Você pode se comunicar com o FMD por SMS, mensageiros, ou usando o FMD Server. Localize seu dispositivo, faça-o tocar, bloqueie-o, ou apague os dados dele - tudo remotamente.</string>
     <string name="Enable">Ativar</string>
     <string name="Delete">Apagar</string>
     <string name="cmd_locate_response_gps_will_follow">Coordenadas de GPS serão enviadas em breve.</string>

@@ -301,7 +301,7 @@
     <string name="about_documentation">Documentation</string>
     <string name="about_donate">Donate</string>
     <string name="about_source_code">Source code</string>
-    <string name="app_description">Find your own phone, and see where the people who agreed to share are. Send commands by SMS, or run your own server. It cannot wipe the device and it cannot take a photograph; both were removed. Most of this code is Nulide\'s, from FindMyDevice.</string>
+    <string name="app_description">Find your phone when it is lost: see where it is, make it ring, or lock it, by text message or from an FMD Server web page. It cannot wipe the device and it cannot take a photograph; both were removed. Most of this code is Nulide\'s, from FindMyDevice.</string>
 
     <!-- Crypto update boarding -->
     <string name="notify_crypto_update_title">Action required</string>

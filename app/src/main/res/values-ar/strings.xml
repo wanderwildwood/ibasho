@@ -40,7 +40,6 @@
     <string name="password">كلمة المرور</string>
     <string name="WhiteList_Add_Contact">إضافة جهة اتصال</string>
     <string name="about">نبذة عن</string>
-    <string name="app_description">يسمح لك FMD (Find My Device) بتحديد موقع جهازك عن بعد. يمكنك التواصل مع FMD عبر الرسائل القصيرة أو برامج المراسلة الفورية أو باستخدام خادم FMD. حدد موقع جهازك، أو اجعله يرن، أو اقفله، أو امسح بياناته - كل ذلك من جهاز التحكم عن بُعد.</string>
     <string name="Notification_Security_Description">الإشعارات حول التحديثات الأمنية</string>
     <string name="accept">قبول</string>
     <string name="GPS">GPS</string>

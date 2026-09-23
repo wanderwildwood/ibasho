@@ -8,7 +8,6 @@
     <string name="WhiteList_Add_Contact">தொடர்பைச் சேர்க்கவும்</string>
     <string name="allowlist_phone_number_name">பெயர்</string>
     <string name="appearance_theme_light">ஒளி</string>
-    <string name="app_description">FMD (எனது சாதனத்தைக் கண்டுபிடி) உங்கள் சாதனத்தை தொலைதூரத்தில் கண்டுபிடிக்க உங்களை அனுமதிக்கிறது. எச்எம்எச், உடனடி தூதர்கள் அல்லது எஃப்எம்டி சேவையகத்தைப் பயன்படுத்துவதன் மூலம் நீங்கள் எஃப்எம்டியுடன் தொடர்பு கொள்ளலாம். உங்கள் சாதனத்தைக் கண்டுபிடி, அதை ஒலிக்கவும், பூட்டவும் அல்லது துடைக்கவும் - அனைத்தும் தொலைதூரத்திலிருந்து.</string>
     <string name="notify_crypto_update_title">நடவடிக்கை தேவை</string>
     <string name="notify_crypto_update_text">FMD ஐப் பயன்படுத்த சில அமைப்புகளை நீங்கள் புதுப்பிக்க வேண்டும். திறக்க சொடுக்கு செய்க.</string>
     <string name="server_unregister_failed_title">பதிவு செய்யாதது தோல்வியடைந்தது</string>

@@ -1,6 +1,6 @@
 # Whereabouts (居場所, ibasho)
 
-Find your own phone, and see where the people who agreed to share are.
+Find your phone when it is lost: see where it is, make it ring, or lock it.
 
 Whereabouts sends a phone's location to a server you run yourself. The location
 is encrypted on the phone before it leaves, so the server holds it without being

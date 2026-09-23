@@ -173,7 +173,6 @@
     <string name="Toast_Duplicate_contact">Liên hệ này đã tồn tại.</string>
     <string name="registration_token">Mã đăng ký</string>
     <string name="appearance_language_choose">Chọn ngôn ngữ</string>
-    <string name="app_description">FMD (Tìm Thiết Bị Của Tôi) cho phép bạn định vị thiết bị của mình từ xa. Bạn có thể giao tiếp với FMD qua SMS, ứng dụng nhắn tin tức thì, hoặc sử dụng FMD Server. Định vị thiết bị của bạn, làm cho nó kêu, khóa nó, hoặc xóa nó - tất cả từ xa.</string>
     <string name="notify_crypto_update_text">Bạn cần cập nhật một số cài đặt để tiếp tục sử dụng FMD. Nhấp để mở.</string>
     <string name="server_unregister_continue_anyway">Tiếp tục dù sao</string>
     <string name="cmd_locate_response_gps_will_follow">Tọa độ GPS sẽ được gửi sớm.</string>

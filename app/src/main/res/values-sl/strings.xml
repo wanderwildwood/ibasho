@@ -73,7 +73,6 @@
     <string name="request_failed_exception">Izjema</string>
     <string name="Settings_Logs">Dnevniški zapisi</string>
     <string name="OpenCellId_open_website">Odpri spletno stran OpenCellID</string>
-    <string name="app_description">Aplikacija FMD (Find My Device) vam omogoča oddaljeno lociranje vaše naprave. S FMD lahko komunicirate prek sporočil SMS, hitrih sporočil ali preko FMD strežnika. Poiščite svojo napravo, sprožite zvonjenje, jo zaklenite ali izbrišite - vse to na daljavo.</string>
     <string name="server_unregister_failed_body">Odjava je spodletela zaradi naslednje napake: {ERROR} \n \nVseeno lahko nadaljujete, vendar vaš račun morda ni bil izbrisan iz strežnika. Če nadaljujete, bo vaš račun lokalno izbrisan iz te naprave.</string>
     <string name="Notification_Usage_Description">Obvestilo, ko FMD prejema ukaze</string>
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">Ta aplikacija naj bi delovala v ozadju. Če želite zagotoviti, da deluje tudi, ko je vaša naprava v stanju pripravljenosti, morate za to aplikacijo izklopiti optimizacijo baterije.</string>
