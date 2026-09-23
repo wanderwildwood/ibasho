@@ -87,7 +87,6 @@
     <string name="allowlist_add_phone_number">新增手機號碼</string>
     <string name="pw_change_network_failed">由於網路錯誤，密碼變更失敗。</string>
     <string name="server_connectivity_lost_title">FMD 伺服器連線中斷</string>
-    <string name="Settings_FMDServer_Push_Description">從 FMD 伺服器向您的裝置傳送指令需要 UnifiedPush 分發器應用程式。</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD 會每 X 小時檢查一次與 FMD 伺服器的連線狀態。將此值設為 0 可停用連線檢查。</string>
     <string name="Settings_FMDServer_Push_Url">推送 URL： %s</string>
     <string name="Settings_FMDServer_Push_Register">註冊</string>
@@ -107,8 +106,6 @@
     <string name="bottom_nav_settings">設定</string>
     <string name="Settings_FMDServer_Push_Distributor">分發器：%s</string>
     <string name="Settings_FMDServer_Push_Open_Help">更多有關推送的資訊</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">安裝 Sunup</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">建議使用的 UnifiedPush 分發器應用程式是 Sunup。Sunup 設定簡單，並使用 Mozilla 的推送伺服器。</string>
     <string name="Settings_FMDServer_Check_Interval_Title">連線檢查間隔</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">如果距離上次成功連線至 FMD 伺服器已超過 X 小時，FMD 會通知您。若已停用連線檢查，此設定將不會生效。</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">不建議設定為低於 15 分鐘的數值。</string>

@@ -211,7 +211,6 @@
     <string name="Settings_FMDServer_Push_Url">推送 URL: %s</string>
     <string name="Settings_FMDServer_Push_Register">注册</string>
     <string name="Settings_FMDServer_Push_Register_Again">重新注册</string>
-    <string name="Settings_FMDServer_Push_Description">通过 FMD 服务器向设备发送指令，必须借助 UnifiedPush 分发器应用。</string>
     <string name="allowlist_reset_title">重置授权联系人</string>
     <string name="allowlist_reset_text">由于崩溃，授权联系人被重置。请重新配置。</string>
     <string name="cmd_ringermode_description_short">更改响铃模式</string>
@@ -233,13 +232,11 @@
     <string name="setup_recommendations_title">建议</string>
     <string name="missing_push_title">缺少 UnifiedPush 支持</string>
     <string name="missing_push_description">未安装 UnifiedPush 分发器应用将无法接收 FMD 服务器命令。</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">安装 Sunup</string>
     <string name="password_set">设置密码</string>
     <string name="password_change">更改密码</string>
     <string name="password_enter">输入密码</string>
     <string name="password_min_length">密码至少为 8 个字符，推荐 16 个字符以上。</string>
     <string name="Settings_FMDServer_Push_Open_Help">关于推送服务的补充说明</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">推荐使用 Sunup 作为 UnifiedPush 分发器应用。该应用配置简便，且采用 Mozilla 提供的推送服务器。</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">不推荐将时间参数设置为低于 15 分钟。</string>
     <string name="label">标签</string>
     <string name="save">保存</string>
@@ -289,8 +286,6 @@
     <string name="import_success_message_warning">注意：备份文件中不包含敏感值。因此，如果您使用了以下功能，请手动重新设置：\n\n1. 设置删除密码。</string>
     <string name="push_registration_failed_title">推送服务注册失败</string>
     <string name="push_registration_upload_failed_text">无法将推送注册信息发送至 FMD Server，因此您将无法接收来自服务器的命令。如需修复，请打开 FMD Server 设置，点击‘重新注册’以手动更新推送注册。</string>
-    <string name="multiple_unified_push_distributors_title">多个 UnifiedPush 分发器应用</string>
-    <string name="multiple_unified_push_distributors_description">检测到多个 UnifiedPush 分发应用。请选择用于 FMD 的分发应用。</string>
     <string name="invalid_url">无效 URL</string>
     <string name="import_failed_message">导入失败或部分成功。请查看日志以了解详情。</string>
     <string name="cmd_missing_fmd_permissions">无法执行命令 “%s”：您无权执行此命令。</string>

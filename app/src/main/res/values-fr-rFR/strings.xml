@@ -207,7 +207,6 @@
     <string name="server_login_attempts_text">Quelqu’un a essayé de se connecter à votre compte Serveur FMD « %s ». À cause de plusieurs mauvais mots de passe, le compte est maintenant bloqué pour 10 minutes.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth désactivé.</string>
     <string name="Notification_InApp">Canal d\'envoi intégré à l’application</string>
-    <string name="Settings_FMDServer_Push_Description">Envoyer des commandes depuis le serveur FMD vers votre appareil nécessite une application publiant grâce à UnifiedPush.</string>
     <string name="allowlist_reset_title">Réinitialisation des contacts autorisés</string>
     <string name="allowlist_reset_text">A cause d\'un plantage, les contacts autorisés ont été réinitialisés. Merci de les configurer à nouveau.</string>
     <string name="Settings_FMDServer_Push_Distributor">Publication : %s</string>
@@ -225,8 +224,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Plus d\'informations sur les publications</string>
     <string name="allowlist_invalid_number">Ce numéro de téléphone est invalide !</string>
     <string name="password_min_length">Le mot de passe doit faire au moins 8 caractères. Il est recommandé d\'en avoir 16 ou plus.</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">L\'application de distribution UnifiedPush recommandée est Sunup. Sunup se paramètre facilement et utilise les serveurs de notification de Mozilla.</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">Installer Sunup</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Des valeurs inférieures à 15 minutes ne sont pas recommandées.</string>
     <string name="missing_push_title">UnifiedPush non présent</string>
     <string name="missing_push_description">Sans une application de distribution UnifiedPush, vous ne pouvez pas recevoir de commande depuis FMD Server.</string>
@@ -255,8 +252,6 @@
     <string name="import_success_message">Les paramètres ont été exportés avec succès.</string>
     <string name="import_success_message_warning">ATTENTION : les valeurs sensibles ne sont pas inclues dans le fichier de sauvegarde. De ce fait, si vous utilisez les fonctionnalités suivantes, veuillez les définir manuellement à nouveau :\n\n1. Définir un mot de passe de suppression.</string>
     <string name="import_failed_message">L\'import a échoué ou n\'a que partiellement réussi. Veuillez vérifier les journaux pour plus de détails.</string>
-    <string name="multiple_unified_push_distributors_title">Plusieurs application de distribution UnifiedPush</string>
-    <string name="multiple_unified_push_distributors_description">Vous avez plusieurs applications de distribution UnifiedPush installées. Veuillez sélectionner laquelle vous voulez utiliser pour FMD.</string>
     <string name="push_registration_failed_title">Enregistrement de la publication en échec</string>
     <string name="push_registration_upload_failed_text">L\'URL de publication ne peut pas être envoyée au Serveur FMD. De ce fait, vous ne pouvez pas recevoir de commande depuis le Serveur FMD. Pour corriger cela, veuillez ouvrir les paramètres du Serveur FMD et cliquer sur \"Enregistrer à nouveau\" pour renouveler manuellement l\'enregistrement de la publication.</string>
     <string name="server_username">Nom d\'utilisateur</string>

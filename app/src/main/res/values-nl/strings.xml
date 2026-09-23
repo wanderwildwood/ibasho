@@ -207,7 +207,6 @@
     <string name="Settings_FMDServer_Check_Interval_Title">Interval voor controle van de verbinding</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD controleert elke X uur de verbinding met de FMD Server. Zet deze op 0 om de controle op de verbinding uit te schakelen.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maximaal toegestane tijd zonder verbinding</string>
-    <string name="Settings_FMDServer_Push_Description">Om commando\'s van FMD Server naar je apparaat te sturen, heb je een UnifiedPush-distributeur-app nodig.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributeur: %s</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
     <string name="Settings_FMDServer_Push_Register">Registreren</string>
@@ -227,8 +226,6 @@
     <string name="password_min_length">Het wachtwoord moet minimaal 8 tekens lang zijn. 16 of meer wordt aangeraden.</string>
     <string name="missing_push_description">Zonder UnifiedPush-distributeur-app kun je geen opdrachten van FMD Server ontvangen.</string>
     <string name="missing_push_title">UnifiedPush ontbreekt</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">Sunup installeren</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">De aanbevolen UnifiedPush-distributeur-app is Sunup. Sunup is eenvoudig in te stellen en maakt gebruik van pushservers van Mozilla.</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Waarden onder de 15 minuten worden niet aanbevolen.</string>
     <string name="cmd_flash_description_short">Cameraflitser knipperen</string>
     <string name="cmd_locate_provider_disabled">De gevraagde locatieprovider \"%s\" is uitgeschakeld.</string>
@@ -257,8 +254,6 @@
     <string name="import_failed_message">De import is mislukt of was slechts gedeeltelijk succesvol. Controleer de logboeken voor details.</string>
     <string name="push_registration_failed_title">Push-registratie mislukt</string>
     <string name="push_registration_upload_failed_text">De push-URL kon niet naar FMD Server worden verzonden. Daarom kunt u geen opdrachten ontvangen van FMD Server. Om dit op te lossen, opent u de instellingen van de FMD Server en klikt u op \"Opnieuw registreren\" om de push-registratie handmatig te verlengen.</string>
-    <string name="multiple_unified_push_distributors_title">Meerdere UnifiedPush-distributeur-apps</string>
-    <string name="multiple_unified_push_distributors_description">U heeft meerdere UnifiedPush-distributeur-apps geïnstalleerd. Selecteer welke u voor FMD wilt gebruiken.</string>
     <string name="server_username">Gebruikersnaam</string>
     <string name="Settings_Debugging">Probleemoplossing</string>
     <string name="server_apparently_deleted_text">FMD kan niet inloggen op uw FMD Server-account \"%s\". Het lijkt erop dat het account van de server is verwijderd.</string>

@@ -1,6 +1,5 @@
 package com.wanderwildwood.ibasho.ui.settings;
 
-import static org.unifiedpush.android.connector.ConstantsKt.INSTANCE_DEFAULT;
 import static com.wanderwildwood.ibasho.net.FmdServerRepositoryKt.FMD_SERVER_PROTO_V2;
 import static com.wanderwildwood.ibasho.services.UnifiedPushServiceKt.unregisterWithUnifiedPush;
 import static com.wanderwildwood.ibasho.ui.UiUtil.setupEdgeToEdgeAppBar;
@@ -11,6 +10,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -37,6 +37,7 @@ import org.apache.maven.artifact.versioning.ComparableVersion;
 import org.unifiedpush.android.connector.UnifiedPush;
 import org.unifiedpush.android.connector.data.ResolvedDistributor;
 
+import java.util.List;
 import java.util.Objects;
 
 import com.wanderwildwood.ibasho.R;
@@ -52,11 +53,10 @@ import com.wanderwildwood.ibasho.services.ServerLocationUploadService;
 import com.wanderwildwood.ibasho.ui.FmdActivity;
 import com.wanderwildwood.ibasho.ui.access.FmdPermissionDialogFragment;
 import com.wanderwildwood.ibasho.ui.protov2wizard.ProtoV2WizardActivity;
-import com.wanderwildwood.ibasho.utils.FmdLogKt;
 import com.wanderwildwood.ibasho.ui.common.ArmedButtonKt;
 import com.wanderwildwood.ibasho.utils.UnregisterUtil;
 import com.wanderwildwood.ibasho.utils.Utils;
-import com.wanderwildwood.ibasho.warnings.PushWarningsKt;
+import com.wanderwildwood.ibasho.push.PushChoice;
 import kotlin.Unit;
 
 public class FMDServerActivity extends FmdActivity implements CompoundButton.OnCheckedChangeListener, TextWatcher, FmdPermissionDialogFragment.Listener {
@@ -126,7 +126,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         findViewById(R.id.buttonOpenPushDistributor).setOnClickListener(this::onOpenPushDistributorClicked);
         findViewById(R.id.buttonCopyPushDistributor).setOnClickListener(this::onCopyPushDistributorClicked);
         findViewById(R.id.buttonCopyPushUrl).setOnClickListener(this::onCopyPushUrlClicked);
-        findViewById(R.id.buttonInstallSunup).setOnClickListener(this::onInstallSunupClicked);
+        findViewById(R.id.buttonEditPushSource).setOnClickListener(this::onEditPushSourceClicked);
         findViewById(R.id.buttonRegisterPush).setOnClickListener(this::onRegisterPushClicked);
         findViewById(R.id.buttonOpenUnifiedPush).setOnClickListener(this::onOpenUnifiedPushClicked);
 
@@ -374,10 +374,6 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         Utils.openUrl(this, "https://fmd-foss.org/docs/fmd-android/push");
     }
 
-    private void onInstallSunupClicked(View view) {
-        Utils.openUrl(this, "https://f-droid.org/en/packages/org.unifiedpush.distributor.sunup");
-    }
-
     private void runChangePassword(String oldPassword, String newPassword) {
         showLoadingIndicator(this);
 
@@ -492,85 +488,152 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     private void updatePushSection() {
         LinearLayout sectionPushDistributor = findViewById(R.id.sectionPushDistributor);
         TextView textPushDistributor = findViewById(R.id.textPushDistributor);
+        View buttonOpenPushDistributor = findViewById(R.id.buttonOpenPushDistributor);
         LinearLayout sectionPushUrl = findViewById(R.id.sectionPushUrl);
         TextView textPushUrl = findViewById(R.id.textPushUrl);
+        TextView textPushSource = findViewById(R.id.textPushSource);
+        TextView textPushStatus = findViewById(R.id.textPushStatus);
         Button buttonRegister = findViewById(R.id.buttonRegisterPush);
 
-        TextView textInfoSunup = findViewById(R.id.textInfoSunup);
-        Button buttonInstallSunup = findViewById(R.id.buttonInstallSunup);
+        boolean builtIn = PushChoice.BUILT_IN.equals(PushChoice.INSTANCE.get(this));
+        textPushSource.setText(getString(R.string.push_source, getString(
+                builtIn ? R.string.push_source_built_in : R.string.push_source_another_app)));
 
         String distributor = UnifiedPush.getAckDistributor(this);
         String url = (String) settings.get(Settings.SET_FMDSERVER_PUSH_URL);
 
         if (distributor != null && !distributor.isEmpty() && !url.isEmpty()) {
+            boolean isSelf = distributor.equals(getPackageName());
             sectionPushDistributor.setVisibility(View.VISIBLE);
-            textPushDistributor.setText(getString(R.string.Settings_FMDServer_Push_Distributor, distributor));
+            String name = isSelf ? getString(R.string.push_distributor_built_in) : appLabel(distributor);
+            textPushDistributor.setText(getString(R.string.Settings_FMDServer_Push_Distributor, name));
+            buttonOpenPushDistributor.setVisibility(isSelf ? View.GONE : View.VISIBLE);
 
             sectionPushUrl.setVisibility(View.VISIBLE);
             textPushUrl.setText(getString(R.string.Settings_FMDServer_Push_Url, url));
 
-            textInfoSunup.setVisibility(View.GONE);
-            buttonInstallSunup.setVisibility(View.GONE);
-
+            textPushStatus.setVisibility(View.GONE);
             buttonRegister.setText(R.string.Settings_FMDServer_Push_Register_Again);
         } else {
             sectionPushDistributor.setVisibility(View.GONE);
             sectionPushUrl.setVisibility(View.GONE);
 
-            textInfoSunup.setVisibility(View.VISIBLE);
-            buttonInstallSunup.setVisibility(View.VISIBLE);
-
+            int status;
+            if (builtIn) {
+                status = R.string.push_built_in_waiting;
+            } else if (PushChoice.INSTANCE.otherApps(this).isEmpty()) {
+                status = R.string.push_no_other_app;
+            } else {
+                status = R.string.push_another_app_not_chosen;
+            }
+            textPushStatus.setText(status);
+            textPushStatus.setVisibility(View.VISIBLE);
             buttonRegister.setText(R.string.Settings_FMDServer_Push_Register);
         }
     }
 
+    private String appLabel(String packageName) {
+        try {
+            PackageManager pm = getPackageManager();
+            return pm.getApplicationLabel(pm.getApplicationInfo(packageName, 0)).toString();
+        } catch (PackageManager.NameNotFoundException e) {
+            return packageName;
+        }
+    }
+
+    private void onEditPushSourceClicked(View view) {
+        boolean builtIn = PushChoice.BUILT_IN.equals(PushChoice.INSTANCE.get(this));
+        int checked = builtIn ? 0 : 1;
+        String[] options = {
+                getString(R.string.push_source_built_in),
+                getString(R.string.push_source_another_app),
+        };
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(R.string.push_source_title)
+                .setSingleChoiceItems(options, checked, (dialog, idx) -> {
+                    dialog.dismiss();
+                    if (idx == checked) {
+                        return;
+                    }
+                    if (idx == 0) {
+                        useBuiltInPush();
+                    } else {
+                        useAnotherPushApp();
+                    }
+                })
+                .show();
+    }
+
     private void onRegisterPushClicked(View view) {
         // Force re-registration, to refresh the push URL
-        unregisterWithUnifiedPush(view.getContext());
         registerWithUnifiedPush();
     }
 
     private void registerWithUnifiedPush() {
-        Context context = this;
-        ResolvedDistributor res = UnifiedPush.resolveDefaultDistributor(context);
-
-        switch (res) {
-            case ResolvedDistributor.Found found:
-                // The user doesn't have to interact. Will be the case most of the time,
-                // if the user has a default or a single distributor installed
-                UnifiedPush.saveDistributor(context, found.getPackageName());
-                UnifiedPush.register(context, INSTANCE_DEFAULT, null, null);
-                handler.postDelayed(this::updatePushSection, 1500L);
-                break;
-
-            case ResolvedDistributor.ToSelect ignored:
-                // Always show this dialog, so that the user knows what to do in the OS picker
-                PushWarningsKt.showDialogMultipleUnifiedPushDistributorApps(context, () -> {
-                    registerWithUnifiedPushMultipleDistributors();
-                    return Unit.INSTANCE;
-                });
-                break;
-
-            case ResolvedDistributor.NoneAvailable ignored:
-                FmdLogKt.log(context).w(TAG, "No UnifiedPush distributor app found.");
-                PushWarningsKt.showDialogMissingUnifiedPush(context, null);
-                break;
-
-            default:
-                FmdLogKt.log(context).e(TAG, "Unknown ResolvedDistributor case: " + res);
-                break;
+        if (PushChoice.BUILT_IN.equals(PushChoice.INSTANCE.get(this))) {
+            useBuiltInPush();
+        } else {
+            useAnotherPushApp();
         }
     }
 
-    private void registerWithUnifiedPushMultipleDistributors() {
+    private void useBuiltInPush() {
+        PushChoice.INSTANCE.useBuiltIn(this);
+        updatePushSection();
+        handler.postDelayed(this::updatePushSection, 1500L);
+    }
+
+    /**
+     * One other app is simply used. Of several, the connector's own picker chooses, when
+     * they offer one; apps too old for it get a plain list. None is said so, plainly, and
+     * the built-in distributor is not quietly used instead.
+     */
+    private void useAnotherPushApp() {
+        Context context = this;
+        List<String> others = PushChoice.INSTANCE.otherApps(context);
+
+        if (others.isEmpty()) {
+            PushChoice.INSTANCE.useAnotherApp(context, null);
+            updatePushSection();
+            new MaterialAlertDialogBuilder(context)
+                    .setTitle(R.string.push_source_another_app)
+                    .setMessage(R.string.push_no_other_app)
+                    .setPositiveButton(R.string.Ok, null)
+                    .show();
+            return;
+        }
+
+        if (others.size() == 1) {
+            usePushApp(others.get(0));
+            return;
+        }
+
+        if (UnifiedPush.resolveDefaultDistributor(context) instanceof ResolvedDistributor.NoneAvailable) {
+            // None of them has the connector's picker: list them.
+            String[] labels = new String[others.size()];
+            for (int i = 0; i < others.size(); i++) {
+                labels[i] = appLabel(others.get(i));
+            }
+            new MaterialAlertDialogBuilder(context)
+                    .setTitle(R.string.push_pick_app_title)
+                    .setItems(labels, (dialog, idx) -> usePushApp(others.get(idx)))
+                    .show();
+            return;
+        }
+
         UnifiedPush.tryPickDistributor(this, (success) -> {
-            if (success) {
-                // No need to save the distributor
-                UnifiedPush.register(this, INSTANCE_DEFAULT, null, null);
-                handler.postDelayed(this::updatePushSection, 1500L);
+            String picked = UnifiedPush.getSavedDistributor(context);
+            if (success && picked != null && !picked.equals(getPackageName())) {
+                usePushApp(picked);
             }
             return Unit.INSTANCE;
         });
+    }
+
+    private void usePushApp(String packageName) {
+        PushChoice.INSTANCE.useAnotherApp(this, packageName);
+        updatePushSection();
+        handler.postDelayed(this::updatePushSection, 1500L);
     }
 
 }

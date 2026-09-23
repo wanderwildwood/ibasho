@@ -207,7 +207,6 @@
     <string name="server_connectivity_lost_text">FMD Server na %1$s již není dostupný. Poslední úspěšné spojení proběhlo %2$s.</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD kontroluje spojení s FMD Serverem každých X hodin. Nastavte na 0 pro zakázání kontroly spojení.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Interval kontroly spojení</string>
-    <string name="Settings_FMDServer_Push_Description">Odesílání příkazů z FMD Serveru do vašeho zařízení vyžaduje distribuční aplikaci služby UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributor: %s</string>
     <string name="Settings_FMDServer_Push_Register">Registrovat</string>
     <string name="Settings_FMDServer_Push_Register_Again">Znovu registrovat</string>
@@ -225,8 +224,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Další informace o zprávách push</string>
     <string name="allowlist_invalid_number">Toto telefonní číslo je neplatné!</string>
     <string name="password_min_length">Heslo musí mít alespoň 8 znaků. Je doporučeno 16 nebo více.</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">Nainstalovat Sunup</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">Doporučená distribuční aplikace UnifiedPush je Sunup. Sunup je jednoduchý na nastavení a používá doručovací servery organizace Mozilla.</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Hodnoty pod 15 minut nejsou doporučeny.</string>
     <string name="missing_push_title">Chybějící UnifiedPush</string>
     <string name="missing_push_description">Bez distribuční aplikace UnifiedPush nemůžete přijímat příkazy z FMD Serveru.</string>
@@ -253,8 +250,6 @@
     <string name="import_failed_message">Import selhal nebo byl pouze částečně úspěšný. Pro více informací se podívejte do protokolů.</string>
     <string name="push_registration_failed_title">Registrace push selhala</string>
     <string name="push_registration_upload_failed_text">Adresu push se nepodařilo odeslat serveru FMD. Kvůli tomu nemůžete dostávat příkazy z FMD Serveru. Tento problém můžete opravit otevřením nastavení FMD Serveru a klepnutím na „Znovu registrovat“ pro ruční obnovení registrace do služby push.</string>
-    <string name="multiple_unified_push_distributors_title">Několik distribučních aplikací UnifiedPush</string>
-    <string name="multiple_unified_push_distributors_description">Máte nainstalovaných několik distribučních aplikací UnifiedPush. Vyberte prosím, kterou z nich chcete použít pro FMD.</string>
     <string name="export_password_enter_title">Zadejte šifrovací heslo</string>
     <string name="export_password_message">Zvolte si heslo pro zašifrování exportované databáze.</string>
     <string name="export_password_message_empty_warning">Pokud ponecháte heslo prázdné, nebude záloha šifrovaná. Tím se vystavujete riziku vystavení citlivých nastavení.</string>

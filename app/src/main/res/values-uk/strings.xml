@@ -186,7 +186,6 @@
     <string name="appearance_dynamic_colors">Динамічні кольори</string>
     <string name="log_view_export">Експорт журналів</string>
     <string name="log_view_clear">Очистити журнали</string>
-    <string name="Settings_FMDServer_Push_Description">Для надсилання команд з FMD Server на ваш пристрій потрібен додаток-розподільник UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Register">Зареєструвати</string>
     <string name="Settings_FMDServer_Push_Register_Again">Зареєструватися знову</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Максимально допустимий час без підключення</string>
@@ -225,8 +224,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Більше інформації про push-повідомлення</string>
     <string name="allowlist_invalid_number">Цей номер телефону недійсний!</string>
     <string name="password_min_length">Пароль має містити щонайменше 8 символів. Рекомендовано 16 або більше.</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">Встановити Sunup</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">Рекомендованим дистриб\'ютором UnifiedPush є Sunup. Sunup легко налаштовується та використовує push-сервери від Mozilla.</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Значення нижче 15 хвилин не рекомендуються.</string>
     <string name="missing_push_title">Відсутній UnifiedPush</string>
     <string name="missing_push_description">Без дистриб\'юторського застосунку UnifiedPush ви не можете отримувати команди від FMD Server.</string>

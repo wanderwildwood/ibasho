@@ -46,6 +46,7 @@ public class Settings extends HashMap<Integer, Object> {
     public static final int SET_FMD_EDGE_INFO_SHOWN = 117;
     public static final int SET_FMDSERVER_PERMISSIONS = 118;
     public static final int SET_FMD_CRYPT_PROTO = 119;
+    public static final int SET_FMDSERVER_PUSH_SOURCE = 120; // PushChoice: built_in or another_app
 
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS = 201;
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS = 202;
@@ -119,6 +120,7 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_FMD_CRYPT_PUBKEY:
                 case SET_FMDSERVER_URL:
                 case SET_FMDSERVER_PUSH_URL:
+                case SET_FMDSERVER_PUSH_SOURCE:
                     return "";
                 case SET_FMDSERVER_LAST_CMD_MILLIS:
                     return 0L;

@@ -47,14 +47,11 @@
     <string name="Settings_FMDServer_Logout_Button">Kijelentkezés</string>
     <string name="Settings_FMDServer_Delete_Account">Fiók törlése</string>
     <string name="Settings_FMDServer_Unregister_Success">Fiók és adatok törlése sikeres!</string>
-    <string name="Settings_FMDServer_Push_Description">Az FMD szerverről történő parancsküldéshez szükség van egy UnifiedPush distributor alkalmazásra az eszközön.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributor: %s</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
     <string name="Settings_FMDServer_Push_Open_Help">Több információ a push üzenetekről</string>
     <string name="Settings_FMDServer_Push_Register">Regisztráció</string>
     <string name="Settings_FMDServer_Push_Register_Again">Regisztráció újra</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">Sunup telepítése</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">Az ajánlott UnifiedPush distributor alkalmazás a Sunup. A Sunup beállítása könnyű és a Mozilla szervereit használja.</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Háttérbeli helyzet feltöltési intervallum</string>
     <string name="Settings_FMDServer_Update_Interval_Description">Az FMD feltölti az eszköz helyzetét minden X percben.</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">15 perc alatti értékek nem ajánlottak.</string>

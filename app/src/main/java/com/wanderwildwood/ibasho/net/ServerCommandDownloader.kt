@@ -38,9 +38,11 @@ class ServerCommandDownloader(
      */
     fun download() {
         if (!settingsRepo.serverAccountExists()) {
+            context.log().i(TAG, "No server account, so there is no command to download")
             return
         }
 
+        context.log().i(TAG, "Downloading command from the server")
         val fmdServerRepo = FmdServerRepository(context).getApiService()
         fmdServerRepo.getCommand(::onResponse, ::onError)
 

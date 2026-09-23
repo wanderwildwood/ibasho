@@ -35,7 +35,6 @@
     <string name="Settings_FMD_Server_General">Genel</string>
     <string name="Settings_FMD_Server_Server_URL">Sunucu URL:</string>
     <string name="Settings_FMD_Server_Connection_Status">Bağlantı durumu:</string>
-    <string name="Settings_FMDServer_Push_Description">FMD Sunucusundan cihazınıza komut göndermek UnifiedPush dağıtıcı uygulaması gerektirir.</string>
     <string name="Settings_FMDServer_Push_Distributor">Dağıtıcı: %s</string>
     <string name="Settings_FMDServer_Push_Register">Kayıt Ol</string>
     <string name="Settings_FMDServer_Push_Register_Again">Tekrar kaydol</string>
@@ -214,6 +213,4 @@
     <string name="Fused">Çok kaynaklı konum sağlayıcı</string>
     <string name="dont_show_again">Tekrar gösterme</string>
     <string name="Settings_FMDServer_Push_Open_Help">Push bildirimleri ile daha fazla bilgi</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">Sunup\'ı kur</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">Önerilen UnifiedPush dağıtıcı uygulaması Sunup\'tır. Sunup kurması kolaydır ve Mozilla\'nın push sunucularını kullanır.</string>
 </resources>

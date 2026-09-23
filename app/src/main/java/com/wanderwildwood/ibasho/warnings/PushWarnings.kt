@@ -4,7 +4,7 @@ import android.content.Context
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.data.SettingsRepository
-import com.wanderwildwood.ibasho.services.isRegisteredWithUnifiedPush
+import com.wanderwildwood.ibasho.push.PushChoice
 import com.wanderwildwood.ibasho.ui.settings.FMDServerActivity
 import com.wanderwildwood.ibasho.utils.Notifications
 import com.wanderwildwood.ibasho.utils.Utils.Companion.openUrl
@@ -16,7 +16,7 @@ fun shouldWarnUnifiedPushRequired(context: Context): Boolean {
         return false
     }
 
-    return !isRegisteredWithUnifiedPush(context)
+    return !PushChoice.isSetUp(context)
 }
 
 fun notifyWarnUnifiedPushRequired(context: Context) {
@@ -49,12 +49,4 @@ fun showDialogMissingUnifiedPush(context: Context, onRegisterClicked: (() -> Uni
     }
 
     builder.show()
-}
-
-fun showDialogMultipleUnifiedPushDistributorApps(context: Context, onSelectClicked: () -> Unit) {
-    MaterialAlertDialogBuilder(context)
-        .setTitle(R.string.multiple_unified_push_distributors_title)
-        .setMessage(R.string.multiple_unified_push_distributors_description)
-        .setPositiveButton(R.string.select, { dialog, _ -> onSelectClicked() })
-        .show()
 }

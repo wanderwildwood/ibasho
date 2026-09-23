@@ -210,14 +210,11 @@
     <string name="allowlist_reset_title">Restablecer contactos permitidos</string>
     <string name="Settings_FMDServer_Push_Register">Registrarse</string>
     <string name="allowlist_reset_text">Debido a un fallo, se han restablecido los contactos permitidos. Por favor vuelva a configurarlos.</string>
-    <string name="Settings_FMDServer_Push_Description">Enviar comandos desde el Servidor FMD a su dispositivo se requiere una aplicación de distribuidor UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distribuidor: %s</string>
     <string name="Settings_FMDServer_Push_Url">Inserte URL: %s</string>
     <string name="Settings_FMDServer_Push_Register_Again">Volver a registrarse</string>
     <string name="Fused">Fusionado</string>
     <string name="dont_show_again">No mostrar más</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">Instalar Sunup</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">La aplicación de distribuidor de UnifiedPush recomendada es Sunup. Sunup es fácil de configurar y utiliza los servidores de notificaciones push de Mozilla.</string>
     <string name="Settings_FMDServer_Push_Open_Help">Más información sobre notificaciones push</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Valores por debajo de 15 minutos no se recomiendan.</string>
     <string name="password_set">Establecer contraseña</string>

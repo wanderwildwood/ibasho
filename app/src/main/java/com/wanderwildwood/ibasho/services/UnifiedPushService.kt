@@ -33,6 +33,11 @@ class UnifiedPushService : PushService() {
         val settings = SettingsRepository.getInstance(this)
         settings.set(Settings.SET_FMDSERVER_PUSH_URL, endpoint.url)
 
+        if (!settings.serverAccountExists()) {
+            log().i(TAG, "No server account, so the endpoint is not sent anywhere")
+            return
+        }
+
         val repo = FmdServerRepository(this).getApiService()
         repo.registerPushEndpoint(endpoint.url, { _: ServerError ->
             val context = this
@@ -67,9 +72,9 @@ fun isRegisteredWithUnifiedPush(context: Context): Boolean {
 // fun registerWithUnifiedPush: see FMDServerActivity
 
 fun unregisterWithUnifiedPush(context: Context) {
-    if (isRegisteredWithUnifiedPush(context)) {
-        UnifiedPush.unregister(context)
-    }
+    // Unconditionally: a registration the distributor has not answered yet is not "acked",
+    // but it is still a registration, and the built-in distributor holds a connection for it.
+    UnifiedPush.unregister(context)
     // ensure that the state is cleared
     clearPushState(context)
 }

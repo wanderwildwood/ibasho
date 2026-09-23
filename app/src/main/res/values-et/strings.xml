@@ -162,7 +162,6 @@
     <string name="cmd_locate_response_location_off">Asukoht pole teada: asukohatuvastus on lülitatud välja.</string>
     <string name="cmd_nodisturb_response_off">„Ära sega“ olek on väljas.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD rakendus annab sulle teada, kui ühendus FMD Serveriga pole toiminud enam kui x tundi. Kui ühenduse kontrollimine on lülitatud välja, siis see seadistuse ei ole kasutusel.</string>
-    <string name="Settings_FMDServer_Push_Description">Käskude saatmine FMD Serverist eeldab, et sul on kasutusel mõni UnifiedPushi levitaja.</string>
     <string name="cmd_help_description_short">Näita abiteavet</string>
     <string name="required_permissions_title">Nõutavad õigused</string>
     <string name="perm_overlay_name">Muude rakenduste peal kuvamine</string>
@@ -181,8 +180,6 @@
     <string name="Notification_Security_Description">Teavitused turvauuenduste kohta</string>
     <string name="Notification_Fail_Description">Teavitused, kui midagi ei toimi, näiteks ühendus FMD Serveriga</string>
     <string name="Settings_FMDServer_Push_Open_Help">Lisateave tõuketeenuse kohta</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">Paigalda Sunup</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">UnifiedPushi tõuketeadete soovitatav levitaja on Sunup. See rakendus on kergesti seadistatav ja tema kasutatavat serveriparki haldab Mozilla.</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Me ei soovita kasutada lühemat, kui 15-minutilist välpa.</string>
     <string name="password_min_length">Salasõna peab olema vähemalt 8 tähemärki pikk, aga pigem 16 või enam oleks mõistlik.</string>
     <string name="missing_push_description">Kui UnifiedPushi tõuketeadete levitaja on paigaldamata, siis siin nutiseadmes ei saa vastu võtta käske FMD serverist.</string>
@@ -257,8 +254,6 @@
     <string name="import_failed_message">Importimine ei õnnestunud või õnnestus osaliselt. Üksikasjalikku teavet leidad logidest.</string>
     <string name="push_registration_failed_title">Tõuketeenuse registreerimine ei õnnestunud</string>
     <string name="push_registration_upload_failed_text">Tõuketeenuse võrguaadressi saatmine FMD Serverile polnud võimalik. Seetõttu sinu nutiseade ei saa ka FMD Serverist käske vastu võtta. Vea parandamiseks ava FMD Serveri seadistused, klõpsa „Registreeri uuesti“ ja siis uuendatakse tõuketeenuse registreerimine käsitsi.</string>
-    <string name="multiple_unified_push_distributors_title">Mitu UnifiedPushi levitajat</string>
-    <string name="multiple_unified_push_distributors_description">Sinu nutiseaadmes leidub mitu UnifiedPushi levitajat. Palun vali, mida neist sa tahad FMD jaoks kasutada.</string>
     <string name="server_username">Kasutajanimi</string>
     <string name="Settings_Debugging">Veaotsing</string>
     <string name="server_apparently_deleted_text">FMD ei suuda FMD serverisse logida sisse „%s“ kasutajakontoga. Tundub, et see konto on serverist kustutatud.</string>

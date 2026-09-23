@@ -9,10 +9,12 @@ import com.wanderwildwood.ibasho.data.AllowlistRepository
 import com.wanderwildwood.ibasho.data.Settings
 import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.data.UncaughtExceptionHandler.Companion.initUncaughtExceptionHandler
+import com.wanderwildwood.ibasho.push.EmbeddedPush
+import com.wanderwildwood.ibasho.push.EmbeddedPushStore
+import com.wanderwildwood.ibasho.push.PushChoice
 import com.wanderwildwood.ibasho.services.FmdBatteryLowService
 import com.wanderwildwood.ibasho.services.ServerConnectivityCheckService
 import com.wanderwildwood.ibasho.services.ServerLocationUploadService
-import com.wanderwildwood.ibasho.services.isRegisteredWithUnifiedPush
 import com.wanderwildwood.ibasho.services.unregisterWithUnifiedPush
 import com.wanderwildwood.ibasho.utils.NetworkUtils.isNetworkAvailable
 import com.wanderwildwood.ibasho.utils.Notifications
@@ -81,28 +83,38 @@ class FmdApplication : Application() {
             ServerLocationUploadService.scheduleRecurring(this)
             ServerConnectivityCheckService.scheduleJob(this)
 
-            if (isRegisteredWithUnifiedPush(this)) {
-                if (isNetworkAvailable(this)) {
-                    // Re-register with the saved distributor, to keep the registration fresh.
-                    // Doing this on each Application start is important, because e.g. UP library upgrades
-                    // can reset internal state. A re-registration resolves this automatically.
-                    this.log().i(TAG, "Renewing push registration")
-                    UnifiedPush.register(this, INSTANCE_DEFAULT, null, null)
-                } else {
-                    this.log().i(TAG, "Skipping push renewal (no network)")
-                }
-            } else {
-                notifyWarnUnifiedPushRequired(this)
-            }
-
-            // Do NOT try to register with UnifiedPush.
-            // This needs a UI context, and should thus happen in the MainActivity.
+            restartPush()
         } else {
             FmdBatteryLowService.cancelJob(this)
             ServerLocationUploadService.cancelJob(this)
             ServerConnectivityCheckService.cancelJob(this)
 
-            unregisterWithUnifiedPush(this)
+            if (EmbeddedPushStore(this).debugWithoutAccount) {
+                // A debug build testing push without an account (see DebugPushReceiver)
+                restartPush()
+            } else {
+                unregisterWithUnifiedPush(this)
+                EmbeddedPush.sync(this)
+            }
         }
+    }
+
+    private fun restartPush() {
+        PushChoice.migrate(this)
+        if (PushChoice.isSetUp(this)) {
+            if (isNetworkAvailable(this)) {
+                // Re-register with the saved distributor, to keep the registration fresh.
+                // Doing this on each Application start is important, because e.g. UP library upgrades
+                // can reset internal state. A re-registration resolves this automatically.
+                this.log().i(TAG, "Renewing push registration")
+                UnifiedPush.register(this, INSTANCE_DEFAULT, null, null)
+            } else {
+                this.log().i(TAG, "Skipping push renewal (no network)")
+            }
+        } else if (!PushChoice.registerIfPossible(this)) {
+            // Another app is chosen, and there is none, or more than one to choose from.
+            notifyWarnUnifiedPushRequired(this)
+        }
+        EmbeddedPush.sync(this)
     }
 }

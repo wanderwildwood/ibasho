@@ -1,7 +1,6 @@
 package com.wanderwildwood.ibasho.ui;
 
 import static com.wanderwildwood.ibasho.net.ServerRequiredVersionCheckKt.isMinRequiredVersion;
-import static com.wanderwildwood.ibasho.services.UnifiedPushServiceKt.isRegisteredWithUnifiedPush;
 import static com.wanderwildwood.ibasho.ui.SetupWarningsActivityKt.shouldShowSetupWarnings;
 import static com.wanderwildwood.ibasho.ui.UiUtil.setupEdgeToEdgeAppBar;
 
@@ -29,6 +28,7 @@ import com.wanderwildwood.ibasho.ui.home.CommandListFragment;
 import com.wanderwildwood.ibasho.ui.home.TransportListFragment;
 import com.wanderwildwood.ibasho.ui.settings.FMDServerActivity;
 import com.wanderwildwood.ibasho.ui.settings.SettingsFragment;
+import com.wanderwildwood.ibasho.push.PushChoice;
 import com.wanderwildwood.ibasho.warnings.PushWarningsKt;
 import kotlin.Unit;
 
@@ -108,7 +108,7 @@ public class MainActivity extends FmdActivity {
 
             new ServerCommandDownloader(this).download();
 
-            if (!isRegisteredWithUnifiedPush(this)) {
+            if (!PushChoice.INSTANCE.isSetUp(this)) {
                 PushWarningsKt.showDialogMissingUnifiedPush(this, () -> {
                     Intent intent = new Intent(this, FMDServerActivity.class);
                     startActivity(intent);

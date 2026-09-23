@@ -210,7 +210,6 @@
     <string name="Settings_FMDServer_Push_Distributor">Распространитель: %s</string>
     <string name="Settings_FMDServer_Push_Url">Пуш ссылка: %s</string>
     <string name="Settings_FMDServer_Push_Register">Зарегистрировать</string>
-    <string name="Settings_FMDServer_Push_Description">Для отправки команд с Сервера FMD на ваше устройство, требуется приложение распространителя UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Register_Again">Зарегистрировать повторно</string>
     <string name="allowlist_reset_title">Сброс разрешённых контактов</string>
     <string name="allowlist_reset_text">В связи со сбоем, разрешённые контакты были сброшены. Пожалуйста, настройте их снова.</string>
@@ -223,8 +222,6 @@
     <string name="cmd_ringermode_description_long">Имейте ввиду, что \"беззвучный\" также включает режим \"Не беспокоить\". Это ожидаемое поведение, управляемое Android.</string>
     <string name="setup_recommendations_title">Рекомендации</string>
     <string name="Settings_FMDServer_Push_Open_Help">Больше информации о пуш-уведомлениях</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">Установить Sunup</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">Рекомендованное приложение распространителя UnifiedPush это Sunup. Sunup легко настроить и он использует пуш-сервера от Mozilla.</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Значения ниже 15 минут не рекомендованы.</string>
     <string name="password_min_length">Пароль должен состоять как минимум из 8 символов. Рекомендуется 16 или более.</string>
     <string name="allowlist_invalid_number">Этот мобильный номер неверный!</string>
@@ -260,8 +257,6 @@
     <string name="import_failed_message">Импортирование не удалось или было лишь частично успешным. Пожалуйста, проверьте логи для подробностей.</string>
     <string name="push_registration_failed_title">Не удалось зарегистрировать пуш-уведомления</string>
     <string name="push_registration_upload_failed_text">Пуш ссылка не может быть отправлена на FMD Сервер. Таким образом, вы не можете получать команды от FMD Сервера. Чтобы исправить это - пожалуйста откройте настройки FMD Сервера и нажмите на \"Зарегистрировать повторно\" для ручного обновления регистрации пуш-уведомлений.</string>
-    <string name="multiple_unified_push_distributors_title">Несколько приложений-распространителей UnifiedPush</string>
-    <string name="multiple_unified_push_distributors_description">У вас установлено несколько приложений-распространителей UnifiedPush. Пожалуйста, выберите какое именно вы хотите использовать для FMD.</string>
     <string name="invalid_url">Неверный URL-адрес</string>
     <string name="save">Сохранить</string>
     <string name="Settings_Access_Control">Контроль доступа</string>

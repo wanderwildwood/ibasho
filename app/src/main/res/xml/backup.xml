@@ -30,4 +30,8 @@
     <exclude
         domain="sharedpref"
         path="unifiedpush.connector.xml" />
+    <!-- The built-in push distributor: its id with the push server belongs to this phone alone -->
+    <exclude
+        domain="sharedpref"
+        path="embedded_push.xml" />
 </full-backup-content>

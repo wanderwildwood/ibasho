@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <!-- Debug builds only: drives the built-in push distributor from adb, without a
+             server account. See DebugPushReceiver. -->
+        <receiver
+            android:name=".push.DebugPushReceiver"
+            android:exported="true" />
+    </application>
+
+</manifest>

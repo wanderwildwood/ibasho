@@ -185,7 +185,6 @@
     <string name="transport_notification_reply_title">الرد على الإشعار</string>
     <string name="transport_sms_description_auth">لا يمكن إرسال الأوامر إلا لأرقام الهواتف الموجودة في القائمة المسموح بها. لإرسال أوامر من رقم هاتف غير موجود في القائمة المسموح بها، يجب عليك تضمين الرقم السري: \"%s mypin help\". لتسهيل الأمر، حتى لا تضطر إلى إعادة كتابة الرقم السري في كل مرة، سيتم إضافة رقم الهاتف الجديد هذا إلى القائمة المسموح بها مؤقتًا لمدة 10 دقائق.</string>
     <string name="dont_show_again">عدم الإظهار مرة أخرى</string>
-    <string name="Settings_FMDServer_Push_Description">يتطلب إرسال الأوامر من ملقم FMD إلى جهازك تطبيق موزع UnifiedPush.</string>
     <string name="Settings_FMDServer_Check_Interval_Title">فترة فحص الاتصال</string>
     <string name="Settings_FMDServer_Check_Interval_Description">يقوم FMD بفحص الإتصال بخادم FMD كل X ساعة. إضبط هذا الخيار على 0 لتعطيل فحص الإتصال.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">سيقوم FMD بإعلامك إذا كان آخر إتصال ناجح بخادم FMD قد مضى عليه أكثر من X ساعات. ولن يكون لهذا أي تأثير إذا كان فحص الإتصال مُعطلاً.</string>

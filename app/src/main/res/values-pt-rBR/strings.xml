@@ -210,7 +210,6 @@
     <string name="Settings_FMDServer_Push_Distributor">Distribuidor: %s</string>
     <string name="Settings_FMDServer_Push_Url">URL do Push: %s</string>
     <string name="Settings_FMDServer_Push_Register">Cadastrar</string>
-    <string name="Settings_FMDServer_Push_Description">Para enviar comandos do FMD Server, seu dispositivo precisa de um app distribuidor UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Register_Again">Cadastrar novamente</string>
     <string name="allowlist_reset_text">Devido à uma falha, os contatos permitidos foram reconfigurados. Configure-os novamente.</string>
     <string name="allowlist_reset_title">Reconfiguração dos contatos permitidos</string>
@@ -225,8 +224,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Mais informações sobre o push</string>
     <string name="allowlist_invalid_number">Este número de telefone é invalido!</string>
     <string name="password_min_length">A senha tem que ter pelo menos 8 caracteres. São recomendados 16 ou mais.</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">Instalar Sunup</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">O aplicativo de distribuidor de UnifiedPush recomendado é o Sunup. O Sunup é fácil de configurar e usa os servidores de push da Mozilla.</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Valores abaixo de 15 minutos não são recomendados.</string>
     <string name="missing_push_title">UnifiedPush ausente</string>
     <string name="missing_push_description">Sem um aplicativo distribuidor de UnifiedPush, você não pode receber comandos do FMD Server.</string>
@@ -257,8 +254,6 @@
     <string name="import_failed_message">A importação falhou ou foi apenas parcialmente bem-sucedida. Confira os registros para mais detalhes.</string>
     <string name="push_registration_failed_title">Falha de cadastro no push</string>
     <string name="push_registration_upload_failed_text">A URL push não pôde ser enviada ao FMD Server. Então, você não poderá receber comandos pelo FMD Server. Para resolver isso, abra as configurações do FMD Server e clique em \"Cadastrar novamente\" para renovar o cadastro push manualmente.</string>
-    <string name="multiple_unified_push_distributors_title">Vários apps distribuidores do UnifiedPush</string>
-    <string name="multiple_unified_push_distributors_description">Você tem vários apps distribuidores do UnifiedPush instalados. Selecione qual você quer usar para o FMD.</string>
     <string name="Settings_Debugging">Solução de problemas</string>
     <string name="server_apparently_deleted_text">O FMD não pode se conectar à sua conta do FMD Server \"%s\". Parece que esta conta foi apagada do servidor.</string>
     <string name="server_username">Nome do usuário</string>

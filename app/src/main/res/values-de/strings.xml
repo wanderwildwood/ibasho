@@ -225,7 +225,6 @@
     <string name="Settings_FMDServer_Push_Register_Again">Erneut registrieren</string>
     <string name="Settings_FMDServer_Push_Register">Registrieren</string>
     <string name="Settings_FMDServer_Push_Distributor">Verteiler: %s</string>
-    <string name="Settings_FMDServer_Push_Description">Um Befehle von FMD Server an dein Gerät zu senden, wird eine UnifiedPush-Verteiler-App benötigt.</string>
     <string name="allowlist_reset_text">Aufgrund eines Absturzes wurden die Erlaubten Kontakte zurückgesetzt. Bitte konfiguriere sie erneut.</string>
     <string name="allowlist_reset_title">Erlaubte Kontakte zurücksetzen</string>
     <string name="cmd_ringermode_description_short">Klingelmodus ändern</string>
@@ -239,8 +238,6 @@
     <string name="Settings_FMDServer_Push_Open_Help">Mehr Informationen zu Push</string>
     <string name="allowlist_invalid_number">Diese Telefonnummer ist ungültig!</string>
     <string name="password_min_length">Das Passwort muss mindestens 8 Zeichen lang sein. Es werden 16 oder mehr Zeichen empfohlen.</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">Sunup installieren</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">Die empfohlene UnifiedPush-Verteiler-App ist Sunup. Sunup ist einfach einzurichten und benutzt Push-Server von Mozilla.</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Werte unter 15 Minuten werden nicht empfohlen.</string>
     <string name="missing_push_title">UnifiedPush fehlt</string>
     <string name="missing_push_description">Ohne eine UnifiedPush-Verteiler-App kannst du keine Befehle vom FMD-Server empfangen.</string>
@@ -271,8 +268,6 @@
     <string name="import_failed_message">Der Import ist fehlgeschlagen oder war nur teilweise erfolgreich. Weitere Informationen findest du in den Logs.</string>
     <string name="push_registration_failed_title">Push-Registrierung fehlgeschlagen</string>
     <string name="push_registration_upload_failed_text">Die Push-URL konnte nicht an FMD Server geschickt werden. Deshalb wirst du keine Befehle von FMD Server empfangen können. Um dies zu beheben, öffne bitte die FMD-Server-Einstellungen und klicke auf \"Erneut registrieren\" um die Push-Registrierung manuell zu erneuern.</string>
-    <string name="multiple_unified_push_distributors_title">Mehrere UnifiedPush-Verteiler-Apps</string>
-    <string name="multiple_unified_push_distributors_description">Du hast mehrere UnifiedPush-Verteiler-Apps installiert. Bitte wähle, welche davon du für FMD verwenden möchtest.</string>
     <string name="server_username">Benutzername</string>
     <string name="Settings_Debugging">Fehlerbehebung</string>
     <string name="server_apparently_deleted_text">FMD kann sich nicht in dein FMD-Server-Konto „%s“ einloggen. Es scheint, als wäre das Konto vom Server gelöscht worden.</string>

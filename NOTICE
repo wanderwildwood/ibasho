@@ -1,0 +1,18 @@
+Whereabouts is GPL-3.0-or-later (see LICENSE). It is a fork of FindMyDevice.
+
+The built-in push distributor, in app/src/main/java/com/wanderwildwood/ibasho/push/,
+is adapted from two Apache-2.0 projects, whose licence is in LICENSES/Apache-2.0.txt:
+
+- Sunup, https://codeberg.org/Sunup/android, commit fe768d0 (1.3.3).
+  The autopush WebSocket client and its message formats (api/ServerConnection.kt,
+  api/MessageSender.kt, api/data/ClientMessage.kt, api/data/ServerMessage.kt) and the
+  restart worker (services/RestartWorker.kt). Rewritten for Gson in place of
+  kotlinx.serialization, reduced to one registration, and wired to the UnifiedPush
+  connector inside this app rather than to other apps.
+
+- UnifiedPush android-distributor, https://codeberg.org/UnifiedPush/android-distributor,
+  commit 6daaf14 (0.7.6). The reconnection delays (SourceManager.getTimeout) and the
+  approach of the foreground service and network callback.
+
+Each file taken from them says so at the top. The changes are this project's, under
+GPL-3.0-or-later.

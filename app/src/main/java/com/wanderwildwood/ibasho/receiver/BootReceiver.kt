@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import com.wanderwildwood.ibasho.data.SettingsRepository
+import com.wanderwildwood.ibasho.push.EmbeddedPush
 import com.wanderwildwood.ibasho.services.ServerConnectivityCheckService
 import com.wanderwildwood.ibasho.services.ServerVersionCheckService
 import com.wanderwildwood.ibasho.services.TempContactExpiredService
@@ -26,6 +27,10 @@ class BootReceiver : BroadcastReceiver() {
 
             // One-shot services that don't need to run on every FmdApplication start
             TempContactExpiredService.scheduleJob(context, 0)
+
+            // Android 12 lets an app start a foreground service from the background only
+            // briefly after this broadcast, so the built-in push connection starts here too.
+            EmbeddedPush.sync(context)
 
             val settings = SettingsRepository.getInstance(context)
             if (settings.serverAccountExists()) {

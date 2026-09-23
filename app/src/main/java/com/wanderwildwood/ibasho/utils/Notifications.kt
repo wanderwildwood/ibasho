@@ -27,6 +27,7 @@ object Notifications {
     const val CHANNEL_FAILED: Int = 47
     const val CHANNEL_IN_APP: Int = 48
     const val CHANNEL_EXECUTION_SERVICE = 49
+    const val CHANNEL_PUSH_CONNECTION = 50
 
     @JvmStatic
     @JvmOverloads
@@ -127,6 +128,16 @@ object Notifications {
             channel8.description =
                 context.getString(R.string.Notification_ExecutionService_Description)
 
+            // The built-in push distributor's standing notification. Low, so it is shown
+            // but never sounds, and never pulls an E Ink screen out of what it was showing.
+            val channel9 = NotificationChannel(
+                CHANNEL_PUSH_CONNECTION.toString(),
+                context.getString(R.string.push_connection_channel),
+                NotificationManager.IMPORTANCE_LOW
+            )
+            channel9.description = context.getString(R.string.push_connection_channel_description)
+            channel9.setShowBadge(false)
+
             val notificationManager =
                 context.getSystemService<NotificationManager>(NotificationManager::class.java)
             notificationManager.createNotificationChannel(channel1)
@@ -136,6 +147,7 @@ object Notifications {
             notificationManager.createNotificationChannel(channel6)
             notificationManager.createNotificationChannel(channel7)
             notificationManager.createNotificationChannel(channel8)
+            notificationManager.createNotificationChannel(channel9)
         }
     }
 }

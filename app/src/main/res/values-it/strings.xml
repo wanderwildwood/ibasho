@@ -209,7 +209,6 @@
     <string name="log_view_clear_confirm">Vuoi veramente eliminare tutte le voci di registro?</string>
     <string name="allowlist_reset_title">Rimuovi contatti fidati</string>
     <string name="allowlist_reset_text">A causa di un arresto anomalo, i contatti fidati sono stati ripristinati. Si prega di configurarli nuovamente.</string>
-    <string name="Settings_FMDServer_Push_Description">L\'invio di comandi dal server FMD al dispositivo richiede un\'applicazione del distributore UnifiedPush.</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributore: %s</string>
     <string name="Settings_FMDServer_Push_Register">Registra</string>
     <string name="Settings_FMDServer_Push_Register_Again">Registra Nuovamente</string>
@@ -229,8 +228,6 @@
     <string name="dont_show_again">Non mostrare nuovamente</string>
     <string name="Settings_Access_Control">Controllo accesso</string>
     <string name="Settings_Debugging">Risoluzione problemi</string>
-    <string name="Settings_FMDServer_Push_Install_Sunup">Installa Sunup</string>
-    <string name="Settings_FMDServer_Push_Info_Sunup">L\'app distributrice consigliata per UnifiedPush è Sunup. Sunup è facile da configurare e utilizza i server push di Mozilla.</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Non si consigliano valori inferiori a 15 minuti.</string>
     <string name="password_set">Imposta password</string>
     <string name="password_change">Cambia password</string>
@@ -266,7 +263,5 @@
     <string name="missing_push_description">Senza l\'app distributrice UnifiedPush non è possibile ricevere comandi dal server FMD.</string>
     <string name="push_registration_failed_title">Registrazione push fallita</string>
     <string name="push_registration_upload_failed_text">Non è stato possibile inviare l\'URL di notifica al server FMD. Di conseguenza, non è possibile ricevere comandi dal server FMD. Per risolvere il problema, apri le impostazioni del server FMD e clicca su “Registrati di nuovo” per rinnovare manualmente la registrazione delle notifiche.</string>
-    <string name="multiple_unified_push_distributors_title">Multiple app di distribuzione UnifiedPush</string>
-    <string name="multiple_unified_push_distributors_description">Hai installato più app di distribuzione UnifiedPush. Seleziona quella che desideri utilizzare per FMD.</string>
     <string name="invalid_url">URL non valido</string>
 </resources>
