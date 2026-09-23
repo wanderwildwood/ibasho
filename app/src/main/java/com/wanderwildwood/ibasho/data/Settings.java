@@ -15,7 +15,7 @@ import com.wanderwildwood.ibasho.utils.RingerUtils;
 @Keep
 public class Settings extends HashMap<Integer, Object> {
 
-    public static final int SETTINGS_VERSION = 4;
+    public static final int SETTINGS_VERSION = 5;
 
     public static final int SET_WIPE_ENABLED = 0;
     // public static final int SET_ACCESS_VIA_PIN = 1;

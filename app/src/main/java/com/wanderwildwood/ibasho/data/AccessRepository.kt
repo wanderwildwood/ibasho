@@ -17,9 +17,10 @@ import com.wanderwildwood.ibasho.database.TempPhoneNumberWithSmsPassword
 import com.wanderwildwood.ibasho.transports.SmsTransport
 import com.wanderwildwood.ibasho.utils.SingletonHolder
 import com.wanderwildwood.ibasho.utils.log
-import com.wanderwildwood.ibasho.utils.normalizePhoneNumber
+import com.wanderwildwood.ibasho.utils.normalizeNumberForStorage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
 
 class AccessRepository private constructor(private val context: Context) {
@@ -71,14 +72,14 @@ class AccessRepository private constructor(private val context: Context) {
     }
 
     suspend fun getPhoneNumber(phoneNumber: String): PhoneNumber? {
-        val number = normalizePhoneNumber(context, phoneNumber) ?: return null
+        val number = normalizeNumberForStorage(context, phoneNumber) ?: return null
         val entity = db.phoneNumberDao().get(number)
         return entity
     }
 
     // XXX: Dispatchers.IO appears to be needed. Otherwise, the getPhoneNumbers Flow won't emit the new value.
     suspend fun insertPhoneNumber(phoneNumber: PhoneNumber) = withContext(Dispatchers.IO) {
-        val number = normalizePhoneNumber(context, phoneNumber.number) ?: return@withContext
+        val number = normalizeNumberForStorage(context, phoneNumber.number) ?: return@withContext
         val norm = phoneNumber.copy(number = number)
         db.phoneNumberDao().insert(norm)
     }
@@ -91,6 +92,8 @@ class AccessRepository private constructor(private val context: Context) {
         db.phoneNumberDao().delete(phoneNumber)
     }
 
+    /* ------- Migrations ------- */
+
     suspend fun migratePhoneAllowListToDb(oldList: AllowlistModel) {
         for (old in oldList) {
             // Due to https://gitlab.com/fmd-foss/fmd-android/-/work_items/426, the migration may
@@ -99,9 +102,20 @@ class AccessRepository private constructor(private val context: Context) {
             if (getPhoneNumber(old.number) != null) {
                 continue
             }
-            val number = normalizePhoneNumber(context, old.number) ?: continue
+            val number = normalizeNumberForStorage(context, old.number) ?: continue
             val new = PhoneNumber(0, old.name, number, FmdPermission.ALL)
             db.phoneNumberDao().insert(new)
+        }
+    }
+
+    // https://gitlab.com/fmd-foss/fmd-android/-/work_items/445
+    suspend fun migrateNumbersToE164(context: Context) {
+        context.log().i(TAG, "Migrating phone numbers to E.164")
+        val all = getPhoneNumbers().first()
+        for (ele in all) {
+            val numE164 = normalizeNumberForStorage(context, ele.number) ?: ele.number
+            val new = ele.copy(number = numE164)
+            updatePhoneNumber(new)
         }
     }
 
@@ -130,7 +144,7 @@ class AccessRepository private constructor(private val context: Context) {
     /* ------- Temporary Phone Numbers ------- */
 
     suspend fun getTempPhoneNumber(number: String): TempPhoneNumberWithSmsPassword? {
-        val number = normalizePhoneNumber(context, number) ?: return null
+        val number = normalizeNumberForStorage(context, number) ?: return null
         return db.tempPhoneNumberDao().get(number)
     }
 
@@ -139,7 +153,7 @@ class AccessRepository private constructor(private val context: Context) {
         subscriptionId: Int,
         smsPassword: SmsPassword,
     ) = withContext(Dispatchers.IO) {
-        val normNumber = normalizePhoneNumber(context, number) ?: return@withContext
+        val normNumber = normalizeNumberForStorage(context, number) ?: return@withContext
         val addedMillis = System.currentTimeMillis()
         val tempNumber =
             TempPhoneNumber(0, normNumber, subscriptionId, addedMillis, smsPassword.rowId)

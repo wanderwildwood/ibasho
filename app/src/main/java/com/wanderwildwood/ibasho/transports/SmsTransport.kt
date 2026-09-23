@@ -18,7 +18,7 @@ import com.wanderwildwood.ibasho.permissions.SmsPermission
 import com.wanderwildwood.ibasho.services.TempContactExpiredService
 import com.wanderwildwood.ibasho.ui.access.AccessControlActivity
 import com.wanderwildwood.ibasho.utils.log
-import com.wanderwildwood.ibasho.utils.normalizePhoneNumber
+import com.wanderwildwood.ibasho.utils.normalizeNumberForStorage
 
 
 class SmsTransport(
@@ -54,7 +54,8 @@ class SmsTransport(
         activity.startActivity(Intent(context, AccessControlActivity::class.java))
     })
 
-    override fun getDestinationString() = normalizePhoneNumber(context, phoneNumber) ?: phoneNumber
+    override fun getDestinationString() =
+        normalizeNumberForStorage(context, phoneNumber) ?: phoneNumber
 
     override suspend fun isAllowed(parsed: ParserResult.Success): AccessResponse {
         var isKnownButDenied = false
@@ -64,7 +65,8 @@ class SmsTransport(
         if (storedNumber != null) {
             val hasPermission = storedNumber.permission.hasPermission(parsed.command.permission)
             if (hasPermission) {
-                context.log().i(TAG, "${storedNumber.toDisplayLabel()} used FMD via allowlist")
+                context.log()
+                    .i(TAG, "${storedNumber.toDisplayLabel(context)} used FMD via allowlist")
                 return AccessResponse.ALLOWED
             } else {
                 // Even if the number is in the list of phone numbers and is explicitly denied this command, continue anyway.
@@ -72,7 +74,7 @@ class SmsTransport(
                 // As long as one element allows access, that is sufficient.
                 context.log().i(
                     TAG,
-                    "${storedNumber.toDisplayLabel()} denied access to ${parsed.command.keyword}. Continuing to check for password."
+                    "${storedNumber.toDisplayLabel(context)} denied access to ${parsed.command.keyword}. Continuing to check for password."
                 )
                 isKnownButDenied = true
             }
@@ -89,9 +91,10 @@ class SmsTransport(
                 context.log().i(TAG, "$phoneNumber used FMD via temporary allowlist")
                 return AccessResponse.ALLOWED
             } else {
+                val passwordLabel = storedTempNumber.smsPassword.toDisplayLabel(context)
                 context.log().i(
                     TAG,
-                    "$phoneNumber denied access to ${parsed.command.keyword} via password ${storedTempNumber.smsPassword.toDisplayLabel()} hasPermission=$hasPermission isExpired=$isExpired"
+                    "$phoneNumber denied access to ${parsed.command.keyword} via password=$passwordLabel hasPermission=$hasPermission isExpired=$isExpired"
                 )
                 return AccessResponse.DENIED_EXISTS
             }

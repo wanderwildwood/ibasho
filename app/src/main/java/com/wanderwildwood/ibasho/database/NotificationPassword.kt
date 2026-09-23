@@ -1,5 +1,6 @@
 package com.wanderwildwood.ibasho.database
 
+import android.content.Context
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -29,7 +30,7 @@ data class NotificationPassword(
         return permission
     }
 
-    override fun toDisplayLabel(): String {
+    override fun toDisplayLabel(context: Context): String {
         return label
     }
 }

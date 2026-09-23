@@ -11,7 +11,7 @@ import androidx.work.workDataOf
 import com.wanderwildwood.ibasho.data.Settings
 import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.utils.log
-import com.wanderwildwood.ibasho.utils.normalizePhoneNumber
+import com.wanderwildwood.ibasho.utils.normalizeNumberForStorage
 import com.wanderwildwood.ibasho.workers.CommandExecutionWorker
 
 
@@ -47,7 +47,7 @@ class SmsReceiver : BroadcastReceiver() {
             context.log().i(TAG, "Cannot handle SMS: phoneNumber is empty!")
             return
         }
-        phoneNumber = normalizePhoneNumber(context, phoneNumber) ?: phoneNumber
+        phoneNumber = normalizeNumberForStorage(context, phoneNumber) ?: phoneNumber
 
         val msg = fullMessageBuilder.toString()
 

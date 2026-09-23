@@ -1,11 +1,13 @@
 package com.wanderwildwood.ibasho.database
 
+import android.content.Context
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 import com.wanderwildwood.ibasho.commands.FmdPermission
+import com.wanderwildwood.ibasho.utils.normalizeNumberForDisplay
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -29,7 +31,8 @@ data class PhoneNumber(
         return permission
     }
 
-    override fun toDisplayLabel(): String {
-        return "$name ($number)"
+    override fun toDisplayLabel(context: Context): String {
+        val numberDisplay = normalizeNumberForDisplay(context, number) ?: number
+        return if (name.isBlank()) numberDisplay else "$name ($numberDisplay)"
     }
 }

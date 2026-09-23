@@ -22,7 +22,7 @@ import com.wanderwildwood.ibasho.database.PhoneNumber
 import com.wanderwildwood.ibasho.database.SmsPassword
 import com.wanderwildwood.ibasho.ui.FmdActivity
 import com.wanderwildwood.ibasho.ui.common.validatePassword
-import com.wanderwildwood.ibasho.utils.normalizePhoneNumber
+import com.wanderwildwood.ibasho.utils.normalizeNumberForStorage
 import kotlinx.coroutines.launch
 
 class AccessControlActivity : FmdActivity(), AccessControlFuns {
@@ -145,7 +145,7 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
     }
 
     private suspend fun addContactToAllowList(rawNumber: String, name: String) {
-        val normNumber = normalizePhoneNumber(this, rawNumber)
+        val normNumber = normalizeNumberForStorage(this, rawNumber)
         if (normNumber == null) {
             Toast.makeText(this, R.string.allowlist_invalid_number, Toast.LENGTH_LONG).show()
             return

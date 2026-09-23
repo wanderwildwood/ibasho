@@ -133,6 +133,9 @@ class SettingsRepository private constructor(private val context: Context) {
         if (currentVersion < 4) {
             migrateFmdPinToDb()
         }
+        if (currentVersion < 5) {
+            AccessRepository.getInstance(context).migrateNumbersToE164(context)
+        }
 
         set(Settings.SET_SET_VERSION, Settings.SETTINGS_VERSION)
     }

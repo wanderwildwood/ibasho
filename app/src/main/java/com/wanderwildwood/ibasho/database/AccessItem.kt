@@ -1,7 +1,9 @@
 package com.wanderwildwood.ibasho.database
 
+import android.content.Context
+
 interface AccessItem {
     fun getItemPermission(): Long
 
-    fun toDisplayLabel(): String
+    fun toDisplayLabel(context: Context): String
 }

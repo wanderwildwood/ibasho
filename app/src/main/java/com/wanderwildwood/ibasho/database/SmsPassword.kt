@@ -1,5 +1,6 @@
 package com.wanderwildwood.ibasho.database
 
+import android.content.Context
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
@@ -31,7 +32,7 @@ data class SmsPassword(
         return permission
     }
 
-    override fun toDisplayLabel(): String {
+    override fun toDisplayLabel(context: Context): String {
         return label
     }
 }
@@ -50,7 +51,7 @@ data class SmsPasswordWithTempPhoneNumbers(
         return smsPassword.getItemPermission()
     }
 
-    override fun toDisplayLabel(): String {
-        return smsPassword.toDisplayLabel()
+    override fun toDisplayLabel(context: Context): String {
+        return smsPassword.toDisplayLabel(context)
     }
 }

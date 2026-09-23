@@ -44,6 +44,7 @@ import com.wanderwildwood.ibasho.database.SmsPasswordWithTempPhoneNumbers
 import com.wanderwildwood.ibasho.database.TempPhoneNumber
 import com.wanderwildwood.ibasho.ui.theme.AppTheme
 import com.wanderwildwood.ibasho.utils.Utils
+import com.wanderwildwood.ibasho.utils.normalizeNumberForDisplay
 
 // Help class so that we can both:
 // 1. Pass a ViewModel to create a tab to keep the upper code simple.
@@ -225,9 +226,14 @@ private fun <T : AccessItem> ItemRow(
     onDeleteClicked: (T) -> Unit,
 ) {
     val context = LocalContext.current
+    // The number is stored as E.164 now, so it is shown the way the phone writes a number
+    // locally; a nameless entry is just the number, as upstream words it.
     val label = when (item) {
-        is PhoneNumber -> stringResource(R.string.allowlist_entry, item.name, item.number)
-        else -> item.toDisplayLabel()
+        is PhoneNumber -> {
+            val shown = normalizeNumberForDisplay(context, item.number) ?: item.number
+            if (item.name.isBlank()) shown else stringResource(R.string.allowlist_entry, item.name, shown)
+        }
+        else -> item.toDisplayLabel(context)
     }
     Row(
         verticalAlignment = Alignment.CenterVertically,
