@@ -17,7 +17,8 @@ public class CypherUtilsTest {
         KeyPair keys = CypherUtils.genRsaKeyPair();
         String msg = "The password is *****";
         byte[] encryptedMsg = CypherUtils.encryptWithKey(keys.getPublic(), msg);
-        String decryptedMsg = CypherUtils.decryptWithKey(keys.getPrivate(), encryptedMsg);
+        byte[] decryptedBytes = CypherUtils.decryptWithKey(keys.getPrivate(), encryptedMsg);
+        String decryptedMsg = new String(decryptedBytes);
         assertEquals(decryptedMsg, msg);
         Assert.assertEquals(msg, decryptedMsg);
     }
@@ -28,10 +29,10 @@ public class CypherUtilsTest {
         String msg = "SecretMsg";
         byte[] encryptedMsg = CypherUtils.encryptWithKey(keys.getPublicKey(), msg);
         KeyPair keyPair = CypherUtils.decryptPrivateKeyWithPassword(keys.getEncryptedPrivateKey(), "password");
-        String decryptedMsg = CypherUtils.decryptWithKey(keyPair.getPrivate(), encryptedMsg);
+        byte[] decryptedBytes = CypherUtils.decryptWithKey(keyPair.getPrivate(), encryptedMsg);
+        String decryptedMsg = new String(decryptedBytes);
         Assert.assertEquals(msg, decryptedMsg);
     }
-
 
     @Test
     public void testBase64() {

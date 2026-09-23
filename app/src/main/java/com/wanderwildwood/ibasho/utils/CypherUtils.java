@@ -228,7 +228,7 @@ public class CypherUtils {
         return null;
     }
 
-    public static String decryptWithKey(PrivateKey priv, byte[] encryptedMsg) {
+    public static byte[] decryptWithKey(PrivateKey priv, byte[] encryptedMsg) {
         byte[] sessionKeyPacket = Arrays.copyOfRange(encryptedMsg, 0, RSA_KEY_SIZE_BITS / 8);
         byte[] ivAndAesCiphertext = Arrays.copyOfRange(encryptedMsg, RSA_KEY_SIZE_BITS / 8, encryptedMsg.length);
 
@@ -239,8 +239,7 @@ public class CypherUtils {
             byte[] sessionKey = cipher.doFinal(sessionKeyPacket);
 
             // Symmetrically decrypt message
-            byte[] msg = decryptWithAes(ivAndAesCiphertext, sessionKey);
-            return new String(msg, StandardCharsets.UTF_8);
+            return decryptWithAes(ivAndAesCiphertext, sessionKey);
         } catch (NoSuchAlgorithmException | NoSuchPaddingException | BadPaddingException |
                  IllegalBlockSizeException | InvalidKeyException |
                  InvalidAlgorithmParameterException e) {

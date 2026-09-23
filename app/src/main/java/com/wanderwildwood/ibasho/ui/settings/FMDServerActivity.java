@@ -28,6 +28,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
@@ -63,6 +64,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
     private final Handler handler = new Handler(Looper.getMainLooper());
 
+    private FmdServerViewModel viewModel;
     private SettingsRepository settings;
     private FmdServerApiService fmdServerRepo;
 
@@ -87,6 +89,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         setupEdgeToEdgeAppBar(findViewById(R.id.appBar));
         setupEdgeToEdgeScrollView(findViewById(R.id.scrollView));
 
+        viewModel = new ViewModelProvider(this, FmdServerViewModel.Companion.getFactory()).get(FmdServerViewModel.class);
         settings = SettingsRepository.Companion.getInstance(this);
         fmdServerRepo = new FmdServerRepository(this).getApiService();
 
@@ -158,13 +161,14 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
             FmdBatteryLowService.scheduleJobNow(this);
         }
 
-        getServerVersion();
+        viewModel.getServerVersion().observe(this, this::onNewServerVersion);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
+        viewModel.queryServerVersion();
         checkConnection();
         updatePushSection();
         new ServerCommandDownloader(this).download();
@@ -443,21 +447,15 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     }
 
     @SuppressLint("SetTextI18n")
-    private void getServerVersion() {
+    private void onNewServerVersion(String version) {
         TextView serverVersion = findViewById(R.id.serverVersion);
-
-        String baseUrl = (String) settings.get(Settings.SET_FMDSERVER_URL);
-        new FmdServerRepository(this).getServerVersion(baseUrl, response -> {
-            runOnUiThread(() -> {
-                serverVersion.setText(getString(R.string.label_value, getString(R.string.server_version), response));
-                serverVersion.setVisibility(View.VISIBLE);
-            });
-        }, error -> {
-            runOnUiThread(() -> {
-                // Silently ignore
-                serverVersion.setVisibility(View.GONE);
-            });
-        });
+        if (version == null || version.isEmpty()) {
+            // The connection status already shows why there is no version
+            serverVersion.setVisibility(View.GONE);
+            return;
+        }
+        serverVersion.setText(getString(R.string.label_value, getString(R.string.server_version), version));
+        serverVersion.setVisibility(View.VISIBLE);
     }
 
     private void updatePushSection() {

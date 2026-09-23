@@ -105,43 +105,46 @@ class FmdServerApiV2Repository private constructor(
         errorListener: ErrorListener,
     ) {
         val call = doRequest(service)
-        call.enqueue(
-            listener,
-            { error ->
-                // We can only retry HTTP_UNAUTHORIZED errors
-                if (error.statusCode != 401) {
-                    errorListener.onError(error)
-                    return@enqueue
-                }
+        call.enqueue(listener) { error ->
+            // We can only retry HTTP_UNAUTHORIZED errors
+            if (error.statusCode != 401) {
+                errorListener.onError(error)
+                return@enqueue
+            }
 
-                // Try to refresh the access token
-                context.log().i(TAG, "Refreshing access token")
+            refreshAccessToken({
+                context.log().i(TAG, "Retrying original request")
+                val call = doRequest(service)
+                call.enqueue(listener, errorListener)
+            }, errorListener)
+        }
+    }
 
-                val username = settings.get(Settings.SET_FMDSERVER_ID) as String
-                val passwordKey =
-                    encryptedSettings.getString(KEY_FMDSERVER_V2_PASSWORD_KEY).decodeBase64()
-                val authKey = CryptoV2.deriveAuthKey(username, passwordKey)
+    fun refreshAccessToken(
+        listener: Listener<Unit>,
+        errorListener: ErrorListener,
+    ) {
+        context.log().i(TAG, "Refreshing access token")
+        val username = settings.get(Settings.SET_FMDSERVER_ID) as String
+        val passwordKey =
+            encryptedSettings.getString(KEY_FMDSERVER_V2_PASSWORD_KEY).decodeBase64()
+        val authKey = CryptoV2.deriveAuthKey(username, passwordKey)
 
-                val loginRequest = LoginRequest(
-                    username,
-                    authKey.encodeBase64(),
-                    ACCESS_TOKEN_VALIDITY_SECS,
-                )
-                service.login(loginRequest).enqueue(
-                    listener = { response ->
-                        // If refreshing succeeds, store it and retry the original request
-                        encryptedSettings.setCachedAccessToken(response.accessToken)
-                        service = initService()
-
-                        // Note: we need to pass the reference to the new service object
-                        context.log().i(TAG, "Retrying original request")
-                        val call = doRequest(service)
-                        call.enqueue(listener, errorListener)
-                    },
-                    // If refreshing fails, use the original error handler
-                    errorListener,
-                )
+        val loginRequest = LoginRequest(
+            username,
+            authKey.encodeBase64(),
+            ACCESS_TOKEN_VALIDITY_SECS,
+        )
+        service.login(loginRequest).enqueue(
+            listener = { response ->
+                // If refreshing succeeds, store the new token
+                encryptedSettings.setCachedAccessToken(response.accessToken)
+                service = initService()
+                // Notify caller, they can retry the original request
+                listener.onResponse(Unit)
             },
+            // If refreshing fails, use the original error handler
+            errorListener,
         )
     }
 
@@ -397,24 +400,34 @@ class FmdServerApiV2Repository private constructor(
     }
 
     override fun sendLocation(location: FmdLocation) {
-        val raw = location.encodeToJson().encodeToByteArray()
+        sendLocations(listOf(location))
+    }
+
+    fun sendLocations(locations: List<FmdLocation>) {
+        val raw = locations.map { it.encodeToJson().encodeToByteArray() }
         sendData(raw, DataBlobType.Location)
     }
 
     override fun sendPicture(picture: FmdPicture) {
-        val raw = picture.encodeToJson().encodeToByteArray()
+        sendPictures(listOf(picture))
+    }
+
+    fun sendPictures(pictures: List<FmdPicture>) {
+        val raw = pictures.map { it.encodeToJson().encodeToByteArray() }
         sendData(raw, DataBlobType.Picture)
     }
 
-    fun sendData(raw: ByteArray, type: DataBlobType) {
-        val enc = ltk.encryptDataBlob(raw, type)
+    private fun sendData(rawItems: List<ByteArray>, type: DataBlobType) {
+        val encItems = rawItems.map { raw ->
+            val enc = ltk.encryptDataBlob(raw, type)
+            EncryptedItem(
+                clientItemIdHex = enc.uniqueId.toHexString(),
+                unixMillis = enc.unixMillis,
+                ciphertext64 = enc.ciphertext.encodeBase64(),
+            )
+        }
 
-        val item = EncryptedItem(
-            clientItemIdHex = enc.uniqueId.toHexString(),
-            unixMillis = enc.unixMillis,
-            ciphertext64 = enc.ciphertext.encodeBase64(),
-        )
-        val request = DataRequestResponse(listOf(item))
+        val request = DataRequestResponse(encItems)
         doRequestWithCachedToken(
             { srv -> srv.postData(type.label, request) },
             listener = {},

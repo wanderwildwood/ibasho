@@ -2,34 +2,47 @@ package com.wanderwildwood.ibasho.data
 
 import android.content.Context
 import android.location.Location
+import com.google.gson.Gson
+import com.google.gson.annotations.SerializedName
 import com.wanderwildwood.ibasho.utils.Utils
 import com.wanderwildwood.ibasho.utils.Utils.Companion.getOpenStreetMapLink
+import kotlinx.serialization.Serializable
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.Date
 
 
+@Serializable
 data class FmdLocation(
     val lat: Double,
     val lon: Double,
 
     /** Horizontal radius in meter */
     val accuracy: Float? = null,
+
     /** Height above sea level in meter */
     val altitude: Double? = null,
+
     /** Horizontal direction of travel between 0.0 and 360.0 */
+    @SerializedName("heading")
     val bearing: Float? = null,
+
     /** Speed in m/s */
     val speed: Float? = null,
 
     val provider: String,
+
+    @SerializedName("bat")
     val batteryLevel: Int,
 
     // Or this? -> Calendar.getInstance(TimeZone.getTimeZone("UTC")).timeInMillis
+    @SerializedName("date")
     val timeMillis: Long = System.currentTimeMillis(),
 ) {
 
     companion object {
+        private val gson = Gson()
+
         fun fromAndroidLocation(context: Context, loc: Location): FmdLocation {
             return FmdLocation(
                 lat = loc.latitude,
@@ -42,6 +55,14 @@ data class FmdLocation(
                 batteryLevel = Utils.getBatteryLevel(context),
                 timeMillis = loc.time,
             )
+        }
+
+        fun decodeFromJson(jsonStr: String): FmdLocation? {
+            return try {
+                gson.fromJson(jsonStr, FmdLocation::class.java)
+            } catch (e: Exception) {
+                null
+            }
         }
     }
 
