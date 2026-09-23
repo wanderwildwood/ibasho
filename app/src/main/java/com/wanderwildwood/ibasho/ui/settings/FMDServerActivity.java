@@ -1,6 +1,7 @@
 package com.wanderwildwood.ibasho.ui.settings;
 
 import static org.unifiedpush.android.connector.ConstantsKt.INSTANCE_DEFAULT;
+import static com.wanderwildwood.ibasho.net.FmdServerRepositoryKt.FMD_SERVER_PROTO_V2;
 import static com.wanderwildwood.ibasho.services.UnifiedPushServiceKt.unregisterWithUnifiedPush;
 import static com.wanderwildwood.ibasho.ui.UiUtil.setupEdgeToEdgeAppBar;
 import static com.wanderwildwood.ibasho.ui.UiUtil.setupEdgeToEdgeScrollView;
@@ -32,6 +33,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import org.apache.maven.artifact.versioning.ComparableVersion;
 import org.unifiedpush.android.connector.UnifiedPush;
 import org.unifiedpush.android.connector.data.ResolvedDistributor;
 
@@ -49,6 +51,7 @@ import com.wanderwildwood.ibasho.services.ServerConnectivityCheckService;
 import com.wanderwildwood.ibasho.services.ServerLocationUploadService;
 import com.wanderwildwood.ibasho.ui.FmdActivity;
 import com.wanderwildwood.ibasho.ui.access.FmdPermissionDialogFragment;
+import com.wanderwildwood.ibasho.ui.protov2wizard.ProtoV2WizardActivity;
 import com.wanderwildwood.ibasho.utils.FmdLogKt;
 import com.wanderwildwood.ibasho.ui.common.ArmedButtonKt;
 import com.wanderwildwood.ibasho.utils.UnregisterUtil;
@@ -449,6 +452,8 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
     @SuppressLint("SetTextI18n")
     private void onNewServerVersion(String version) {
         TextView serverVersion = findViewById(R.id.serverVersion);
+        updateProtocolMigration(version == null ? "" : version);
+
         if (version == null || version.isEmpty()) {
             // The connection status already shows why there is no version
             serverVersion.setVisibility(View.GONE);
@@ -456,6 +461,32 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         }
         serverVersion.setText(getString(R.string.label_value, getString(R.string.server_version), version));
         serverVersion.setVisibility(View.VISIBLE);
+    }
+
+    private void updateProtocolMigration(String version) {
+        int protoVersion = ((Number) settings.get(Settings.SET_FMD_CRYPT_PROTO)).intValue();
+        ComparableVersion minRequired = new ComparableVersion("0.17.0");
+        ComparableVersion currentVersion = new ComparableVersion(version);
+
+        TextView textMigrationV2 = findViewById(R.id.textMigrationV2);
+        Button buttonMigrationV2 = findViewById(R.id.buttonMigrationV2);
+        buttonMigrationV2.setOnClickListener(this::onMigrationV2Clicked);
+
+        if (protoVersion == FMD_SERVER_PROTO_V2) {
+            textMigrationV2.setText(R.string.proto_v2_start_text_already_done);
+            buttonMigrationV2.setEnabled(false);
+        } else if (currentVersion.compareTo(minRequired) >= 0) {
+            textMigrationV2.setText(R.string.proto_v2_start_text);
+            buttonMigrationV2.setEnabled(true);
+        } else {
+            textMigrationV2.setText(R.string.proto_v2_start_text_not_available);
+            buttonMigrationV2.setEnabled(false);
+        }
+    }
+
+    private void onMigrationV2Clicked(View v) {
+        Intent intent = new Intent(v.getContext(), ProtoV2WizardActivity.class);
+        startActivity(intent);
     }
 
     private void updatePushSection() {

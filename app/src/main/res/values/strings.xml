@@ -161,6 +161,34 @@
     <string name="registration_token_hint">Only if the server asks for one.</string>
     <string name="server_registration_token_error">Network request failed with HTTP 401. This can happen if the server requires a registration token and the token you provided was wrong.</string>
 
+    <!-- FMD Server migration proto v2 -->
+    <string name="proto_v2_start_title">Server protocol v2</string>
+    <string name="proto_v2_start_text">Your account can be moved to FMD Server\'s protocol v2, which improves the end-to-end encryption.</string>
+    <string name="proto_v2_start_text_already_done">Your account already uses protocol v2. There is nothing to move.</string>
+    <string name="proto_v2_start_text_not_available">Protocol v2 needs FMD Server 0.17.0 or later.</string>
+    <string name="proto_v2_start_button">Start migration</string>
+
+    <string name="proto_v2_wizard_title">Migration assistant</string>
+    <string name="proto_v2_wizard_error">An error occurred:</string>
+
+    <string name="proto_v2_wizard_step1_button_more_info">More information</string>
+    <string name="proto_v2_wizard_step1_text_risk">There is a risk of data loss if the migration is interrupted. We recommend to do the following before starting the migration:\n1. Export this app\'s settings.\n2. Log in via the web interface and export your data (locations, pictures).</string>
+    <string name="proto_v2_wizard_step1_button_open_web">Open %s</string>
+    <string name="proto_v2_wizard_step1_text_password">To start the migration, enter the password for your account.</string>
+    <string name="proto_v2_wizard_step1_text_keep_app_open">Keep the app open until the migration has finished.</string>
+
+    <string name="proto_v2_wizard_step2_text_intro">Your account has successfully been migrated to v2.</string>
+    <string name="proto_v2_wizard_step2_text_data">Choose what should happen with your existing data stored on FMD Server (locations, pictures). You can either:\n1. Delete the data (fast)\n2. Migrate the data (slow)</string>
+    <string name="proto_v2_wizard_step2_text_data_migration">If you migrate the data, all locations and pictures will be downloaded, decrypted with v1, re-encrypted with v2, and re-uploaded. This will take some time.</string>
+    <string name="proto_v2_wizard_step2_text_num_locations">Number of locations: %d</string>
+    <string name="proto_v2_wizard_step2_text_num_pictures">Number of pictures: %d</string>
+    <string name="proto_v2_wizard_step2_button_delete_data">Delete data</string>
+    <string name="proto_v2_wizard_step2_button_migrate_data">Migrate data</string>
+    <string name="proto_v2_wizard_step2_button_delete_data_armed">Delete data — tap again</string>
+    <string name="proto_v2_wizard_step2_text_migration_in_progress">Migration in progress…</string>
+
+    <string name="proto_v2_wizard_step3_button_close">Finish assistant</string>
+
     <!-- Settings: Access control -->
     <string name="access_tab_phone_number">Phone numbers</string>
     <string name="access_tab_sms_password">SMS passwords</string>

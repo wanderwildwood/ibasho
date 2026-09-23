@@ -184,6 +184,10 @@
                 android:ems="10"
                 android:text="@string/Settings_FMDServer_Delete_Account" />
 
+            <!-- Protocol v2 -->
+
+            <include layout="@layout/activity_f_m_d_server_section_proto_migration" />
+
             <!-- Push -->
 
             <include layout="@layout/activity_f_m_d_server_section_push" />

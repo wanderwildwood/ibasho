@@ -1,5 +1,8 @@
 package com.wanderwildwood.ibasho.net.model
 
-data class PasswordResponse (
+import androidx.annotation.Keep
+
+@Keep
+data class PasswordResponse(
     val accessToken: String,
 )

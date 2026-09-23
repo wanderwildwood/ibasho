@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/margin_normal"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        style="@style/FMD.Text.SectionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:text="@string/proto_v2_start_title" />
+
+    <TextView
+        android:id="@+id/textMigrationV2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:gravity="center_vertical"
+        android:minHeight="24dp"
+        android:text="@string/proto_v2_start_text" />
+
+    <Button
+        android:id="@+id/buttonMigrationV2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_normal"
+        android:text="@string/proto_v2_start_button" />
+
+</LinearLayout>

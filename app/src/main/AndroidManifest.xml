@@ -108,6 +108,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.protov2wizard.ProtoV2WizardActivity"
+            android:label="@string/proto_v2_wizard_title" />
 
         <receiver
             android:name=".receiver.DeviceAdminReceiver"

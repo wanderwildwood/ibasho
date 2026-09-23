@@ -1,7 +1,6 @@
 package com.wanderwildwood.ibasho.net
 
 import android.content.Context
-import com.wanderwildwood.ibasho.BuildConfig
 import com.wanderwildwood.ibasho.crypto.CryptoV2
 import com.wanderwildwood.ibasho.crypto.CryptoV2.Companion.CLIENT_ITEM_ID_SIZE_BYTES
 import com.wanderwildwood.ibasho.crypto.DataBlobType
@@ -30,7 +29,6 @@ import com.wanderwildwood.ibasho.utils.encodeBase64
 import com.wanderwildwood.ibasho.utils.log
 import com.wanderwildwood.ibasho.utils.toIsoDateTimeString
 import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -63,6 +61,11 @@ class FmdServerApiV2Repository private constructor(
         service = initService()
     }
 
+    // Only exposed for the v2 migration
+    fun initServicePub() {
+        service = initService()
+    }
+
     /**
      * Call this to re-initialize the service whenever the baseUrl or the accessToken has changed.
      */
@@ -83,12 +86,14 @@ class FmdServerApiV2Repository private constructor(
         if (accessToken.isNotBlank()) {
             okHttpBuilder.addInterceptor(AuthorizationInterceptor(accessToken))
         }
+        /*
         if (BuildConfig.DEBUG) {
             val logging = HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             }
             okHttpBuilder.addNetworkInterceptor(logging)
         }
+         */
 
         val retrofit = Retrofit.Builder()
             .baseUrl("${baseUrl}/api/v2/")
