@@ -10,57 +10,58 @@
     -->
     <color name="colorIcon">#000000</color>
 
-    <!-- Generated with https://material-foundation.github.io/material-theme-builder/ -->
-    <!-- With settings: primary: #318F2F secondary: #4CB050 tertiary: #318F2F -->
-    <!-- Color match ("stay true to my color inputs") = true -->
+    <!-- Ink on paper. These were a green palette from the Material theme builder; on a grey
+         panel the greens were only a darker grey, and the views half of the app should look
+         like the MMD half. Errors are ink too: the words say it, as elsewhere in these apps.
+         The contrast variants below belonged to settings that no longer exist. -->
 
-    <color name="md_theme_primary">#006C0F</color>
+    <color name="md_theme_primary">#000000</color>
     <color name="md_theme_onPrimary">#FFFFFF</color>
-    <color name="md_theme_primaryContainer">#278627</color>
-    <color name="md_theme_onPrimaryContainer">#F8FFF0</color>
-    <color name="md_theme_secondary">#006E1C</color>
+    <color name="md_theme_primaryContainer">#E5E5E5</color>
+    <color name="md_theme_onPrimaryContainer">#000000</color>
+    <color name="md_theme_secondary">#000000</color>
     <color name="md_theme_onSecondary">#FFFFFF</color>
-    <color name="md_theme_secondaryContainer">#4CB050</color>
-    <color name="md_theme_onSecondaryContainer">#003D0B</color>
-    <color name="md_theme_tertiary">#006C0F</color>
+    <color name="md_theme_secondaryContainer">#E5E5E5</color>
+    <color name="md_theme_onSecondaryContainer">#000000</color>
+    <color name="md_theme_tertiary">#000000</color>
     <color name="md_theme_onTertiary">#FFFFFF</color>
-    <color name="md_theme_tertiaryContainer">#278627</color>
-    <color name="md_theme_onTertiaryContainer">#F8FFF0</color>
-    <color name="md_theme_error">#BA1A1A</color>
+    <color name="md_theme_tertiaryContainer">#E5E5E5</color>
+    <color name="md_theme_onTertiaryContainer">#000000</color>
+    <color name="md_theme_error">#000000</color>
     <color name="md_theme_onError">#FFFFFF</color>
-    <color name="md_theme_errorContainer">#FFDAD6</color>
-    <color name="md_theme_onErrorContainer">#93000A</color>
-    <color name="md_theme_background">#F6FBEF</color>
-    <color name="md_theme_onBackground">#181D16</color>
-    <color name="md_theme_surface">#F6FBEF</color>
-    <color name="md_theme_onSurface">#181D16</color>
-    <color name="md_theme_surfaceVariant">#DBE6D3</color>
-    <color name="md_theme_onSurfaceVariant">#3F4A3C</color>
-    <color name="md_theme_outline">#6F7A6A</color>
-    <color name="md_theme_outlineVariant">#BFCAB8</color>
+    <color name="md_theme_errorContainer">#E5E5E5</color>
+    <color name="md_theme_onErrorContainer">#000000</color>
+    <color name="md_theme_background">#FFFFFF</color>
+    <color name="md_theme_onBackground">#000000</color>
+    <color name="md_theme_surface">#FFFFFF</color>
+    <color name="md_theme_onSurface">#000000</color>
+    <color name="md_theme_surfaceVariant">#F0F0F0</color>
+    <color name="md_theme_onSurfaceVariant">#333333</color>
+    <color name="md_theme_outline">#000000</color>
+    <color name="md_theme_outlineVariant">#BDBDBD</color>
     <color name="md_theme_scrim">#000000</color>
-    <color name="md_theme_inverseSurface">#2C322A</color>
-    <color name="md_theme_inverseOnSurface">#EDF3E6</color>
-    <color name="md_theme_inversePrimary">#7DDC71</color>
-    <color name="md_theme_primaryFixed">#98F98A</color>
-    <color name="md_theme_onPrimaryFixed">#002202</color>
-    <color name="md_theme_primaryFixedDim">#7DDC71</color>
-    <color name="md_theme_onPrimaryFixedVariant">#005309</color>
-    <color name="md_theme_secondaryFixed">#93FA8F</color>
-    <color name="md_theme_onSecondaryFixed">#002204</color>
-    <color name="md_theme_secondaryFixedDim">#77DC76</color>
-    <color name="md_theme_onSecondaryFixedVariant">#005313</color>
-    <color name="md_theme_tertiaryFixed">#98F98A</color>
-    <color name="md_theme_onTertiaryFixed">#002202</color>
-    <color name="md_theme_tertiaryFixedDim">#7DDC71</color>
-    <color name="md_theme_onTertiaryFixedVariant">#005309</color>
-    <color name="md_theme_surfaceDim">#D6DCD0</color>
-    <color name="md_theme_surfaceBright">#F6FBEF</color>
+    <color name="md_theme_inverseSurface">#000000</color>
+    <color name="md_theme_inverseOnSurface">#FFFFFF</color>
+    <color name="md_theme_inversePrimary">#FFFFFF</color>
+    <color name="md_theme_primaryFixed">#E5E5E5</color>
+    <color name="md_theme_onPrimaryFixed">#000000</color>
+    <color name="md_theme_primaryFixedDim">#BDBDBD</color>
+    <color name="md_theme_onPrimaryFixedVariant">#000000</color>
+    <color name="md_theme_secondaryFixed">#E5E5E5</color>
+    <color name="md_theme_onSecondaryFixed">#000000</color>
+    <color name="md_theme_secondaryFixedDim">#BDBDBD</color>
+    <color name="md_theme_onSecondaryFixedVariant">#000000</color>
+    <color name="md_theme_tertiaryFixed">#E5E5E5</color>
+    <color name="md_theme_onTertiaryFixed">#000000</color>
+    <color name="md_theme_tertiaryFixedDim">#BDBDBD</color>
+    <color name="md_theme_onTertiaryFixedVariant">#000000</color>
+    <color name="md_theme_surfaceDim">#E0E0E0</color>
+    <color name="md_theme_surfaceBright">#FFFFFF</color>
     <color name="md_theme_surfaceContainerLowest">#FFFFFF</color>
-    <color name="md_theme_surfaceContainerLow">#F0F6E9</color>
-    <color name="md_theme_surfaceContainer">#EAF0E3</color>
-    <color name="md_theme_surfaceContainerHigh">#E4EADE</color>
-    <color name="md_theme_surfaceContainerHighest">#DFE4D8</color>
+    <color name="md_theme_surfaceContainerLow">#FFFFFF</color>
+    <color name="md_theme_surfaceContainer">#FFFFFF</color>
+    <color name="md_theme_surfaceContainerHigh">#F5F5F5</color>
+    <color name="md_theme_surfaceContainerHighest">#EEEEEE</color>
     <color name="md_theme_primary_mediumContrast">#004005</color>
     <color name="md_theme_onPrimary_mediumContrast">#FFFFFF</color>
     <color name="md_theme_primaryContainer_mediumContrast">#1C7E20</color>
