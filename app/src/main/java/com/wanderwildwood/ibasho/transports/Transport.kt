@@ -1,6 +1,8 @@
 package com.wanderwildwood.ibasho.transports
 
 import android.content.Context
+import com.wanderwildwood.ibasho.data.SettingsRepository
+import com.wanderwildwood.ibasho.data.Settings
 import androidx.annotation.CallSuper
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
@@ -12,12 +14,23 @@ import com.wanderwildwood.ibasho.utils.log
 
 
 // Order matters for the home screen
-fun availableTransports(context: Context): List<Transport<*>> = listOf(
-    SmsTransport(context, "42", -1),
-    NotificationReplyTransport(context, null),
-    FmdServerTransport(context),
-    InAppTransport(context),
-)
+fun availableTransports(context: Context): List<Transport<*>> {
+    // Texts only keeps the server and notification replies out of sight, as Messaging keeps
+    // Signal out of sight for anyone who never set it up. A server once added shows again.
+    val settings = SettingsRepository.getInstance(context)
+    val textsOnly = settings.get(Settings.SET_SETUP_MODE) == Settings.VAL_SETUP_TEXTS &&
+        !settings.serverAccountExists()
+    return if (textsOnly) {
+        listOf(SmsTransport(context, "42", -1), InAppTransport(context))
+    } else {
+        listOf(
+            SmsTransport(context, "42", -1),
+            NotificationReplyTransport(context, null),
+            FmdServerTransport(context),
+            InAppTransport(context),
+        )
+    }
+}
 
 
 abstract class Transport<DestinationType>(

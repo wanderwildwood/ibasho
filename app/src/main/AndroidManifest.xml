@@ -62,6 +62,7 @@
             android:name=".ui.settings.AddAccountActivity"
             android:exported="false"
             android:label="@string/Settings_FMDServer_AddAccount" />
+        <activity android:name=".ui.setup.SetupGuideActivity" />
         <activity
             android:name=".ui.SetupWarningsActivity"
             android:label="@string/setup_warnings_title" />

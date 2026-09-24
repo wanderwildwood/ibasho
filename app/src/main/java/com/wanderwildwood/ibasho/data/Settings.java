@@ -50,6 +50,12 @@ public class Settings extends HashMap<Integer, Object> {
     // When the regular upload job last started. It says whether Android is still letting the
     // app run at all, which the last upload cannot: no fix indoors also means no upload.
     public static final int SET_FMDSERVER_LAST_UPLOAD_JOB_MILLIS = 121;
+    // What the setup guide was told: "" before it is answered, then VAL_SETUP_TEXTS or
+    // VAL_SETUP_SERVER. Texts only keeps the server out of sight until one is added.
+    public static final int SET_SETUP_MODE = 122;
+    public static final String VAL_SETUP_TEXTS = "texts";
+    public static final String VAL_SETUP_SERVER = "server";
+    public static final int SET_SETUP_GUIDE_DONE = 123;
 
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS = 201;
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS = 202;
@@ -99,6 +105,7 @@ public class Settings extends HashMap<Integer, Object> {
                     //case SET_FMD_CRYPT_NEW_SALT:
                 case SET_UPDATEBOARDING_MODERN_CRYPTO_COMPLETED:
                 case SET_FMD_EDGE_INFO_SHOWN:
+                case SET_SETUP_GUIDE_DONE:
                     return false;
                 case SET_FMD_LOW_BAT_SEND:
                     return true;
@@ -124,6 +131,7 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_FMDSERVER_URL:
                 case SET_FMDSERVER_PUSH_URL:
                 case SET_FMDSERVER_PUSH_SOURCE:
+                case SET_SETUP_MODE:
                     return "";
                 case SET_FMDSERVER_LAST_CMD_MILLIS:
                 case SET_FMDSERVER_LAST_UPLOAD_JOB_MILLIS:

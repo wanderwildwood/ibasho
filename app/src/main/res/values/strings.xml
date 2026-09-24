@@ -501,4 +501,42 @@
     <string name="cmd_delete_response_dry_run">Dry run successful, skipping the actual device deletion.</string>
     <string name="cmd_delete_response_failed">Failed to delete device due to an exception.</string>
     <string name="cmd_delete_response_success">The device should now be deleted. Goodbye!</string>
+
+    <!-- The setup guide. -->
+    <string name="setup_title">Setting up</string>
+    <string name="setup_intro">Whereabouts finds this phone when it is lost. How should it be reached?</string>
+    <string name="setup_choose_texts">Texts only</string>
+    <string name="setup_choose_texts_text">A phone you trust texts this one, and it answers with where it is, or rings. Nothing else to set up.</string>
+    <string name="setup_choose_server">Texts and a server</string>
+    <string name="setup_choose_server_text">Also a web page with a map and buttons. Needs an account on a server that you or someone you know runs.</string>
+    <string name="setup_later">Later</string>
+    <string name="setup_allow_title">Texts and location</string>
+    <string name="setup_allow_text">To read a text and answer it, and to say where the phone is even when nobody is using it. Location asks twice: the second time, choose Allow all the time.</string>
+    <string name="setup_allow">Allow</string>
+    <string name="setup_allowed">Allowed</string>
+    <string name="setup_next">Next</string>
+    <string name="setup_skip">Skip</string>
+    <string name="setup_number_title">A phone you trust</string>
+    <string name="setup_number_text">Only the numbers here can ask this phone where it is. Add your own other phone, or someone you live with.</string>
+    <string name="setup_number_name">Name</string>
+    <string name="setup_number_number">Phone number</string>
+    <string name="setup_number_add">Add this number</string>
+    <string name="setup_number_contacts">Choose from contacts</string>
+    <string name="setup_ring_title">Ringing</string>
+    <string name="setup_ring_text">So that it can ring loudly even when the phone is on silent. Leave these if you only want to find it.</string>
+    <string name="setup_server_title">The server</string>
+    <string name="setup_server_text">Log in to an account on the server, or make one there. You need its address, and a password nobody else knows: it is the only thing that can read this phone\'s locations.</string>
+    <string name="setup_server_login">Log in or register</string>
+    <string name="setup_server_done">Logged in as %s.</string>
+    <string name="setup_kompakt_title">On a Kompakt</string>
+    <string name="setup_kompakt_text">The Kompakt stops apps working in the background, and nothing on the phone can change that. Until a one-time step from a computer, this phone answers texts but will not send its location to the server by itself.</string>
+    <string name="setup_kompakt_restricted">This phone is stopping it at the moment.</string>
+    <string name="setup_kompakt_clear">This phone is letting it run.</string>
+    <string name="setup_done_title">Ready</string>
+    <string name="setup_done_text">From a phone you trust, text this one:\n\n%1$s locate\nIt answers with where it is.\n\n%2$s ring\nIt rings, even on silent.\n\n%3$s help\nIt lists everything else.</string>
+    <string name="setup_done_server">Or open your server\'s web page to see it on a map.</string>
+    <string name="setup_done_kompakt">If it ever stops answering after sitting unused for a while, the Kompakt has closed it. The README\'s On a Mudita Kompakt section has the one-time fix.</string>
+    <string name="setup_done_later">Everything here can be changed in Settings, and this guide opened again from there.</string>
+    <string name="setup_finish">Done</string>
+    <string name="Settings_Setup_Guide">Setup guide</string>
 </resources>

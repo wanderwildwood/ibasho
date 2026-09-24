@@ -20,6 +20,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import com.wanderwildwood.ibasho.BuildConfig;
 import com.wanderwildwood.ibasho.R;
+import com.wanderwildwood.ibasho.ui.setup.SetupGuideActivity;
 import com.wanderwildwood.ibasho.data.Settings;
 import com.wanderwildwood.ibasho.data.SettingsRepository;
 import com.wanderwildwood.ibasho.net.MinRequiredVersionResult;
@@ -81,6 +82,16 @@ public class MainActivity extends FmdActivity {
             startActivity(intent);
             finish();
             return;
+        }
+
+        // A new install starts with the setup guide. An existing one, already set up, is
+        // counted as done rather than being walked through what it has.
+        if (!(Boolean) settings.get(Settings.SET_SETUP_GUIDE_DONE)) {
+            if (settings.serverAccountExists() || (Boolean) settings.get(Settings.SET_FIRST_TIME_CONTACT_ADDED)) {
+                settings.set(Settings.SET_SETUP_GUIDE_DONE, true);
+            } else {
+                startActivity(new Intent(this, SetupGuideActivity.class));
+            }
         }
 
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
