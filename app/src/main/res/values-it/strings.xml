@@ -188,12 +188,6 @@
     <string name="appearance_language">Lingua</string>
     <string name="appearance_language_choose">Scegli lingua</string>
     <string name="appearance_language_system_default">Predefinita di sistema</string>
-    <string name="appearance_theme">Tema</string>
-    <string name="appearance_theme_dark">Scuro</string>
-    <string name="appearance_dynamic_colors">Colori dinamici</string>
-    <string name="appearance_theme_choose">Scegli tema</string>
-    <string name="appearance_theme_follow_system">Come da sistema</string>
-    <string name="appearance_theme_light">Chiaro</string>
     <string name="server_version_upgrade_required_title">Necessario aggiornamento del server FMD</string>
     <string name="server_version_upgrade_required_text">Il server FMD in uso ha la versione {CURRENT}, ma questa applicazione richiede almeno {MIN}. Il controllo del dispositivo tramite il server FMD potrebbe non funzionare più. Aggiorna il server.</string>
     <string name="crashed_title">Rapporto anomalia</string>
@@ -262,4 +256,15 @@
     <string name="push_registration_failed_title">Registrazione push fallita</string>
     <string name="push_registration_upload_failed_text">Non è stato possibile inviare l\'URL di notifica al server FMD. Di conseguenza, non è possibile ricevere comandi dal server FMD. Per risolvere il problema, apri le impostazioni del server FMD e clicca su “Registrati di nuovo” per rinnovare manualmente la registrazione delle notifiche.</string>
     <string name="invalid_url">URL non valido</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Attenzione: la password non è inclusa nel backup dell\'app.</string>
+    <string name="delete_pw_warning_empty">Attenzione: l\'eliminazione non andrà a buon fine perché la password di cancellazione è vuota. È necessario sia abilitare la funzione sia impostare una password.</string>
+    <string name="cmd_delete_description_short">Ripristino di fabbrica del dispositivo</string>
+    <string name="cmd_delete_description_long">Si cancelleranno tutti i dati. In seguito non sarà più possibile comunicare con il dispositivo. Per evitare l\'utilizzo accidentale e doloso, questo comando richiede una password e deve essere esplicitamente abilitato nelle impostazioni.</string>
+    <string name="cmd_delete_response_disabled">Impossibile Cancellare: il comando Cancella non è abilitato nelle impostazioni.</string>
+    <string name="cmd_delete_response_pwd_missing">Impossibile cancellare: password mancante. Utilizzo: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Impossibile cancellare: password errata.</string>
+    <string name="cmd_delete_response_dry_run">Prova riuscita, evitando l\'effettiva cancellazione del dispositivo.</string>
+    <string name="cmd_delete_response_failed">Cancellazione del dispositivo fallita a causa di una eccezione.</string>
+    <string name="cmd_delete_response_success">A questo punto il dispositivo dovrebbe essere stato cancellato. Addio!</string>
 </resources>

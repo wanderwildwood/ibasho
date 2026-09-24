@@ -181,7 +181,6 @@
     <string name="cmd_bluetooth_response_on">Bluetooth activé.</string>
     <string name="crashed_title">Rapport de plantage</string>
     <string name="crashed_open_issuetracker">Ouvrir le gestionnaire d’incidents</string>
-    <string name="appearance_dynamic_colors">Couleurs dynamiques</string>
     <string name="perm_bluetooth_connect_name">Se connecter au Bluetooth</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Intervalle de vérification de connectivité</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD vérifie la connectivité au Serveur FMD toutes les X heures. Le réglage à 0 désactive la vérification de la connectivité.</string>
@@ -196,11 +195,6 @@
     <string name="cmd_locate_response_gps_fail">Impossible de récupérer une nouvelle localisation GPS. Peut-être à cause d’un délai d’expiration.</string>
     <string name="Notification_InApp_Description">Notifications intégrées à l’application</string>
     <string name="server_registration_token_error">Requête réseau échouée avec le code HTTP 401. Cela peut arriver si le serveur nécessite un jeton d’enregistrement et que le jeton que vous avez fourni est incorrect.</string>
-    <string name="appearance_theme_follow_system">Suivre le thème système</string>
-    <string name="appearance_theme_light">Clair</string>
-    <string name="appearance_theme_dark">Sombre</string>
-    <string name="appearance_theme">Thème</string>
-    <string name="appearance_theme_choose">Choisir le thème</string>
     <string name="server_login_attempts_title">Tentatives échouées de connexion au Serveur FMD</string>
     <string name="server_login_attempts_text">Quelqu’un a essayé de se connecter à votre compte Serveur FMD « %s ». À cause de plusieurs mauvais mots de passe, le compte est maintenant bloqué pour 10 minutes.</string>
     <string name="cmd_bluetooth_response_off">Bluetooth désactivé.</string>
@@ -294,4 +288,15 @@
     <string name="about_app_icon_description">Icône d\'appli</string>
     <string name="about_documentation">Documentation</string>
     <string name="about_donate">Faire un don</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Avertissement : le mot de passe n\'est pas inclus dans la sauvegarde de l\'application.</string>
+    <string name="delete_pw_warning_empty">Avertissement : la réinitialisation ne fonctionnera pas, car le mot de passe de réinitialisation est vide.</string>
+    <string name="cmd_delete_description_short">Réinitialiser l\'appareil aux paramètres d\'usine</string>
+    <string name="cmd_delete_description_long">Cela efface toutes les données. Par la suite, vous ne pourrez plus communiquer avec l\'appareil. Pour prévenir une utilisation accidentelle et malveillante, cette commande requiert un mot de passe et doit être explicitement activée dans les paramètres.</string>
+    <string name="cmd_delete_response_disabled">Réinitialisation impossible : la commande de réinitialisation n\'est pas activée dans les paramètres.</string>
+    <string name="cmd_delete_response_pwd_missing">Réinitialisation impossible : mot de passe manquant. Utilisation : %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Réinitialisation impossible : mot de passe incorrect.</string>
+    <string name="cmd_delete_response_dry_run">Essai réussi, on passe la vraie réinitialisation de l’appareil.</string>
+    <string name="cmd_delete_response_failed">Impossible de réinitialiser l’appareil à cause d’une erreur.</string>
+    <string name="cmd_delete_response_success">L\'appareil devrait maintenant avoir été réinitialisé aux paramètres d\'usine. Au revoir !</string>
 </resources>

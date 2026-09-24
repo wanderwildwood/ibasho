@@ -188,12 +188,6 @@
     <string name="pw_change_empty">Geslo ne sme biti prazno.</string>
     <string name="pw_change_wrong_password">Napačno geslo</string>
     <string name="perm_bluetooth_connect_name">Poveži Bluetooth</string>
-    <string name="appearance_theme_light">Svetla</string>
-    <string name="appearance_theme_dark">Temna</string>
-    <string name="appearance_theme_follow_system">Uporabi sistemsko</string>
-    <string name="appearance_dynamic_colors">Dinamične barve</string>
-    <string name="appearance_theme">Tema</string>
-    <string name="appearance_theme_choose">Izberi temo</string>
     <string name="server_version_upgrade_required_title">Zahtevana je nadgradnja FMD strežnika</string>
     <string name="crashed_title">Poročilo o zrušitvi</string>
     <string name="server_version_upgrade_required_text">Različica FMD strežnika, ki ga uporabljate, je {CURRENT}. Ta aplikacija pa zahteva vsaj različico {MIN}. Upravljanje vaše naprave prek FMD strežnika morda ne bo več delovalo. Prosim, nadgradite svoj FMD strežnik.</string>
@@ -294,4 +288,15 @@
     <string name="about_app_icon_description">Ikona aplikacije</string>
     <string name="about_documentation">Dokumentacija</string>
     <string name="about_donate">Doniraj</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Opozorilo: geslo ni vključeno v varnostno kopijo aplikacije.</string>
+    <string name="delete_pw_warning_empty">Opozorilo: Brisanje ne bo delovalo, ker geslo za brisanje ni nastavljeno. Storiti morate oboje: funkcijo omogočiti in nastaviti geslo.</string>
+    <string name="cmd_delete_description_short">Ponastavi napravo na tovarniške nastavitve</string>
+    <string name="cmd_delete_description_long">To izbriše vse podatke na napravi. Po tem postopku z napravo ne boste mogli več komunicirati. Da bi preprečili nenamerno ali zlonamerno uporabo, ta ukaz zahteva geslo, ki mora biti izrecno omogočeno v nastavitvah.</string>
+    <string name="cmd_delete_response_disabled">Brisanje ni mogoče: ukaz za brisanje ni omogočen v nastavitvah.</string>
+    <string name="cmd_delete_response_pwd_missing">Brisanje ni mogoče: manjka geslo. Primer uporabe: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Brisanje ni mogoče: napačno geslo.</string>
+    <string name="cmd_delete_response_dry_run">Poskusno izvajanje ukaza je bilo uspešno, naprava ni bila dejansko izbrisana.</string>
+    <string name="cmd_delete_response_failed">Naprave ni bilo mogoče izbrisati zaradi izjeme.</string>
+    <string name="cmd_delete_response_success">Naprava bo sedaj pobrisana. Nasvidenje!</string>
 </resources>

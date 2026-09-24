@@ -123,12 +123,6 @@
     <string name="appearance_language">語言</string>
     <string name="appearance_language_choose">選擇語言</string>
     <string name="appearance_language_system_default">系統預設</string>
-    <string name="appearance_theme">主題</string>
-    <string name="appearance_theme_choose">選擇主題</string>
-    <string name="appearance_theme_follow_system">跟隨系統</string>
-    <string name="appearance_theme_light">淺色</string>
-    <string name="appearance_theme_dark">深色</string>
-    <string name="appearance_dynamic_colors">動態顏色</string>
     <string name="log_view_title">日誌</string>
     <string name="log_view_export">匯出日誌</string>
     <string name="log_view_clear">清除日誌</string>
@@ -242,4 +236,15 @@
     <string name="cmd_bluetooth_response_is_off">藍牙已關閉。</string>
     <string name="cmd_gps_response_is_on">定位服務已開啟。</string>
     <string name="cmd_gps_response_is_off">定位服務已關閉。</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">警告：應用程式備份不含密碼。</string>
+    <string name="delete_pw_warning_empty">警告：由於刪除密碼為空，刪除功能將無法運作。您必須同時啟用此功能並設定密碼。</string>
+    <string name="cmd_delete_description_short">將裝置恢復為出廠設定</string>
+    <string name="cmd_delete_description_long">此操作將清除所有資料。完成後，您將無法再與該裝置進行通訊。為防止誤觸或惡意使用，此指令需要輸入密碼，且必須在設定中明確啟用。</string>
+    <string name="cmd_delete_response_disabled">無法刪除：尚未在設定中啟用刪除指令。</string>
+    <string name="cmd_delete_response_pwd_missing">無法刪除：缺少密碼。 用途：%s。</string>
+    <string name="cmd_delete_response_pwd_wrong">無法刪除：密碼錯誤。</string>
+    <string name="cmd_delete_response_dry_run">模擬執行成功，已略過實際的裝置刪除操作。</string>
+    <string name="cmd_delete_response_failed">由於發生例外狀況，裝置刪除失敗。</string>
+    <string name="cmd_delete_response_success">裝置現在應已刪除。再見！</string>
 </resources>

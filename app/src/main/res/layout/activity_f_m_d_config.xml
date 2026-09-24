@@ -110,6 +110,52 @@
                 android:inputType="text"
                 android:text="" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_normal"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                style="@style/FMD.Text.SectionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="fmd delete" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/cmd_delete_description_long" />
+
+            <CheckBox
+                android:id="@+id/checkBoxWipeData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Enable" />
+
+            <Button
+                android:id="@+id/buttonDeletePassword"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/password_set" />
+
+            <TextView
+                android:id="@+id/textViewDeletePasswordWarning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/delete_pw_warning_empty" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_small"
+                android:text="@string/delete_pw_warning_no_backup" />
 
         </LinearLayout>
     </com.wanderwildwood.ibasho.ui.paging.PagingScrollView>

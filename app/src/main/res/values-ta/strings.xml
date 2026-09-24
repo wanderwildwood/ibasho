@@ -7,7 +7,6 @@
     <string name="registration_token">பதிவு கிள்ளாக்கு</string>
     <string name="WhiteList_Add_Contact">தொடர்பைச் சேர்க்கவும்</string>
     <string name="allowlist_phone_number_name">பெயர்</string>
-    <string name="appearance_theme_light">ஒளி</string>
     <string name="notify_crypto_update_title">நடவடிக்கை தேவை</string>
     <string name="notify_crypto_update_text">FMD ஐப் பயன்படுத்த சில அமைப்புகளை நீங்கள் புதுப்பிக்க வேண்டும். திறக்க சொடுக்கு செய்க.</string>
     <string name="server_unregister_failed_title">பதிவு செய்யாதது தோல்வியடைந்தது</string>
@@ -111,11 +110,6 @@
     <string name="appearance_language">மொழி</string>
     <string name="appearance_language_system_default">கணினி இயல்புநிலை</string>
     <string name="appearance_language_choose">மொழியைத் தேர்வுசெய்க</string>
-    <string name="appearance_theme">கருப்பொருள்</string>
-    <string name="appearance_theme_choose">கருப்பொருள் தேர்வு செய்யவும்</string>
-    <string name="appearance_theme_follow_system">அமைப்பைப் பின்தொடரவும்</string>
-    <string name="appearance_theme_dark">இருண்ட</string>
-    <string name="appearance_dynamic_colors">மாறும் வண்ணங்கள்</string>
     <string name="log_view_title">பதிவுகள்</string>
     <string name="log_view_export">ஏற்றுமதி பதிவுகள்</string>
     <string name="log_view_clear">பதிவுகளை அழிக்கவும்</string>
@@ -242,4 +236,15 @@
     <string name="missing_push_title">UnifiedPush காணவில்லை</string>
     <string name="missing_push_description">UnifiedPush விநியோகச்தர் பயன்பாடு இல்லாமல் FMD சேவையகத்திலிருந்து கட்டளைகளைப் பெற முடியாது.</string>
     <string name="tip_first_contact_added">வாழ்த்துகள், உங்கள் முதல் தொடர்பைச் சேர்த்துவிட்டீர்கள்! அனுமதிக்கப்பட்ட ஃபோன் எண்ணிலிருந்து \"%1$s\" எனத் தொடங்கும் குறுஞ்செய்தி அனுப்புவதன் மூலம் நீங்கள் இப்போது fmd உடன் தொடர்புகொள்ளலாம். எடுத்துக்காட்டாக, \"%2$s உதவி\" அல்லது \"%3$s ஃபிளாஷ்\" என்பதை அனுப்பவும். எல்லாம் வேலை செய்யும்போது, பயன்பாடு பதிலளிக்கும்.</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">எச்சரிக்கை: பயன்பாட்டின் காப்புப்பிரதியில் கடவுச்சொல் சேர்க்கப்படவில்லை.</string>
+    <string name="delete_pw_warning_empty">எச்சரிக்கை: நீக்கு கடவுச்சொல் காலியாக இருப்பதால், நீக்குவது வேலை செய்யாது. நீங்கள் இருவரும் அம்சத்தை இயக்க வேண்டும் மற்றும் கடவுச்சொல்லை அமைக்க வேண்டும்.</string>
+    <string name="cmd_delete_description_short">தொழிற்சாலை சாதனத்தை மீட்டெடுக்கிறது</string>
+    <string name="cmd_delete_description_long">இது எல்லா தரவையும் துடைக்கிறது. பின்னர் நீங்கள் இனி சாதனத்துடன் தொடர்பு கொள்ள முடியாது. தற்செயலான மற்றும் தீங்கிழைக்கும் பயன்பாட்டைத் தடுக்க, இந்த கட்டளைக்கு கடவுச்சொல் தேவைப்படுகிறது, மேலும் இது அமைப்புகளில் வெளிப்படையாக இயக்கப்பட வேண்டும்.</string>
+    <string name="cmd_delete_response_disabled">நீக்க முடியாது: அமைப்புகளில் நீக்குதல் கட்டளை இயக்கப்படவில்லை.</string>
+    <string name="cmd_delete_response_pwd_missing">நீக்க முடியாது: கடவுச்சொல்லைக் காணவில்லை. பயன்பாடு: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">நீக்க முடியாது: தவறான கடவுச்சொல்.</string>
+    <string name="cmd_delete_response_dry_run">உலர் ரன் வெற்றிகரமாக, உண்மையான சாதன நீக்குதலைத் தவிர்க்கிறது.</string>
+    <string name="cmd_delete_response_failed">விதிவிலக்கு காரணமாக சாதனத்தை நீக்கத் தவறிவிட்டது.</string>
+    <string name="cmd_delete_response_success">சாதனம் இப்போது நீக்கப்பட வேண்டும். குட்பை!</string>
 </resources>

@@ -99,10 +99,6 @@
     <string name="allowlist_phone_number">رقم هاتف</string>
     <string name="server_login_attempts_text">حاول أحدهم تسجيل الدخول لحساب خادم FMD الخاص بك \"%s\". بسبب تعدّد محاولات تسجيل الدخول الفاشلة، سيتم إغلاق حسابك لعشر دقائق.</string>
     <string name="server_login_attempts_title">فشل تسجيل الدخول لخادم FMD</string>
-    <string name="appearance_theme">سمة</string>
-    <string name="appearance_theme_choose">إختر سمة</string>
-    <string name="appearance_theme_follow_system">إتبع إعداد النظام</string>
-    <string name="appearance_dynamic_colors">ألوان ديناميكية</string>
     <string name="log_view_title">سجلات</string>
     <string name="log_view_export">استخرج السجلات</string>
     <string name="about_source_code">شفرة المصدر</string>
@@ -113,8 +109,6 @@
     <string name="Settings_FMDServer_Location_Type_Description">المصدر أو المصادر التي يتم رفع بيانات الموقع إليها بانتظام في الخلفية.\nإن لم يتم إختيار أحدها، لن يتم رفع بيانات الموقع بانتظام. (بإمكانك استعمال واجهة الويب للقيام برفع إجباري، ما يتطلب إشعارات دفع مفعلة.)</string>
     <string name="temporary_allowlist_expired">انتهت صلاحية وصولك المؤقت إلى FMD. لمواصلة استخدام FMD، أرسل الرقم السري مرة أخرى.</string>
     <string name="allowlist_phone_number_name">إسم</string>
-    <string name="appearance_theme_light">فاتح</string>
-    <string name="appearance_theme_dark">داكن</string>
     <string name="Settings_Import_Failed">فشل الاستيراد</string>
     <string name="OpenCellId_test_no_connection">غياب الإتصال الخلوي</string>
     <string name="add">إضافة</string>
@@ -201,4 +195,14 @@
     <string name="Settings_FMD_Server_Fingerprint">بصمة المفتاح:</string>
     <string name="Settings_FMDServer_Push_Distributor">الموزع: %s</string>
     <string name="Settings_FMDServer_Push_Url">رابط Push: %s</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">تحذير: كلمة المرور غير مُضمَّنة في النسخة الاحتياطية للتطبيق.</string>
+    <string name="delete_pw_warning_empty">تحذير: لن تنجح عملية الحذف لأنّ كلمة مرور الحذف فارغة. يجب عليك تفعيل هذه الخاصية وتعيين كلمة مرور.</string>
+    <string name="cmd_delete_description_short">محو الجهاز</string>
+    <string name="cmd_delete_description_long">يمحو كل البيانات. لن تستطيع التواصل مع الجهاز بعدها. لتفادي التفعيل عن طريق الخطأ او الخبيث، يتطلب هذا الامر كلمة مرور و يجب تفعيله بشكل صريح في الاعدادات.</string>
+    <string name="cmd_delete_response_disabled">لا يمكن المحو: امر المحو غير مفعل في الاعدادات.</string>
+    <string name="cmd_delete_response_pwd_missing">لا يمكن المحو: كلمة المرور مفقودة. الاستعمال: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">لا يمكن المحو: كلمة مرور خاطئة.</string>
+    <string name="cmd_delete_response_failed">فشل محو الجهاز بسبب استثناء.</string>
+    <string name="cmd_delete_response_success">من المفترض أن الجهاز ممحي. إلى اللقاء!</string>
 </resources>

@@ -172,16 +172,12 @@
     <string name="export_failed">Не вдалось експортувати</string>
     <string name="Settings_Appearance">Зовнішній вигляд</string>
     <string name="appearance_language">Мова</string>
-    <string name="appearance_theme_dark">Темна</string>
-    <string name="appearance_theme_follow_system">Слідкуйте за системою</string>
-    <string name="appearance_theme_light">Світла</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Інтервал перевірки підключення</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD перевіряє підключення до сервера FMD кожні X годин. Встановіть значення 0, щоб вимкнути перевірку підключення.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD сповістить вас, якщо останнє успішне з\'єднання з сервером FMD відбулося більше X годин тому. Це не має ніякого ефекту, якщо перевірка підключення вимкнена.</string>
     <string name="server_connectivity_lost_title">Втрачено з\'єднання з сервером FMD</string>
     <string name="server_connectivity_lost_text">Сервер FMD за адресою %1$s більше не доступний. Останнє успішне з\'єднання було за адресою %2$s.</string>
     <string name="cmd_bluetooth_response_no_bluetooth">Схоже цей пристрій не має Bluetooth.</string>
-    <string name="appearance_dynamic_colors">Динамічні кольори</string>
     <string name="log_view_export">Експорт журналів</string>
     <string name="log_view_clear">Очистити журнали</string>
     <string name="Settings_FMDServer_Push_Register">Зареєструвати</string>
@@ -194,8 +190,6 @@
     <string name="pw_change_network_failed">Зміна пароля не відбулася через помилку мережі.</string>
     <string name="appearance_language_choose">Виберіть мову</string>
     <string name="appearance_language_system_default">Мова системи</string>
-    <string name="appearance_theme">Тема</string>
-    <string name="appearance_theme_choose">Виберіть тему</string>
     <string name="cmd_bluetooth_description_short">Вмикає та вимикає Bluetooth</string>
     <string name="cmd_bluetooth_response_on">Bluetooth увімкнено.</string>
     <string name="Settings_FMDServer_Delete_Account">Видалити обліковий запис</string>
@@ -242,4 +236,15 @@
     <string name="cmd_bluetooth_response_is_off">Bluetooth вимкнено.</string>
     <string name="cmd_gps_response_is_on">Сервіси Визначення Місцезнаходження увімкнені.</string>
     <string name="cmd_gps_response_is_off">Сервіси Визначення Місцезнаходження вимкнені.</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Увага: Пароль не включений в резервну копію застосунку.</string>
+    <string name="delete_pw_warning_empty">Увага: Видалення не спрацює, тому що пароль видалення порожній. Ви повинні увімкнути функцію і встановити пароль.</string>
+    <string name="cmd_delete_description_short">Скидання до заводських налаштувань</string>
+    <string name="cmd_delete_description_long">Це призведе до видалення всіх даних. Після цього ви більше не зможете спілкуватися з пристроєм. Щоб запобігти випадковому або зловмисному використанню, ця команда вимагає пароля, і її потрібно явно ввімкнути в налаштуваннях.</string>
+    <string name="cmd_delete_response_disabled">Неможливо видалити: команда видалення не ввімкнена в налаштуваннях.</string>
+    <string name="cmd_delete_response_pwd_missing">Неможливо видалити: відсутній пароль. Використання: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Неможливо видалити: неправильний пароль.</string>
+    <string name="cmd_delete_response_dry_run">Пробний запуск успішно завершено, фактичне видалення пристрою пропущено.</string>
+    <string name="cmd_delete_response_failed">Не вдалося видалити пристрій через виняток.</string>
+    <string name="cmd_delete_response_success">Тепер пристрій слід видалити. До побачення!</string>
 </resources>

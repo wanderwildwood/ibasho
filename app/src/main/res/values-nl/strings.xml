@@ -50,10 +50,6 @@
     <string name="appearance_language">Taal</string>
     <string name="appearance_language_choose">Taal kiezen</string>
     <string name="appearance_language_system_default">Systeemstandaard</string>
-    <string name="appearance_theme">Thema</string>
-    <string name="appearance_theme_choose">Thema kiezen</string>
-    <string name="appearance_theme_follow_system">Systeemstandaard</string>
-    <string name="appearance_theme_light">Licht</string>
     <string name="about">Over</string>
     <string name="notify_crypto_update_title">Actie vereist</string>
     <string name="server_unregister_failed_title">Uitschrijving mislukt</string>
@@ -141,7 +137,6 @@
     <string name="cmd_ring_description_short">Laat het toestel overgaan</string>
     <string name="cmd_nodisturb_description_short">Niet storen aan-/uitzetten</string>
     <string name="perm_battery_optimizations_name">Instellingen voor batterijbesparing negeren</string>
-    <string name="appearance_dynamic_colors">Dynamische kleuren</string>
     <string name="perm_location_name">Locatie</string>
     <string name="perm_notification_access_name">Toegang tot meldingen</string>
     <string name="perm_post_notification_name">Meldingen verzenden</string>
@@ -157,7 +152,6 @@
     <string name="temporary_allowlist_expired">Uw tijdelijke toegang tot FMD is verlopen. Om FMD te blijven gebruiken, moet u het wachtwoord opnieuw sturen.</string>
     <string name="OpenCellId_open_website">OpenCelliD-website openen</string>
     <string name="about_source_code">Broncode</string>
-    <string name="appearance_theme_dark">Donker</string>
     <string name="log_view_title">Logboeken</string>
     <string name="log_view_export">Logboeken exporteren</string>
     <string name="server_unregister_continue_anyway">Toch doorgaan</string>
@@ -294,4 +288,15 @@
     <string name="about_app_icon_description">App-pictogram</string>
     <string name="about_documentation">Documentatie</string>
     <string name="about_donate">Doneren</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Waarschuwing: Het wachtwoord wordt niet opgenomen in de back-up van de app.</string>
+    <string name="delete_pw_warning_empty">Waarschuwing: Verwijderen zal niet lukken, omdat het wachtwoord voor verwijdering kreeg is. U moet de functie inschakelen en ook een wachtwoord instellen.</string>
+    <string name="cmd_delete_description_short">Apparaat terugzetten naar fabrieksinstellingen</string>
+    <string name="cmd_delete_description_long">Hiermee worden alle gegevens gewist. Daarna kun je niet meer communiceren met het apparaat. Om onbedoeld en kwaadwillig gebruik te voorkomen, vereist deze opdracht een wachtwoord en moet deze expliciet zijn ingeschakeld in de instellingen.</string>
+    <string name="cmd_delete_response_disabled">Kan niet wissen: de delete-opdracht is niet ingeschakeld in de instellingen.</string>
+    <string name="cmd_delete_response_pwd_missing">Kan niet wissen: wachtwoord ontbreekt. Gebruik: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Kan niet wissen: incorrect wachtwoord.</string>
+    <string name="cmd_delete_response_dry_run">Proefdraaien is gelukt en het daadwerkelijke verwijderen van het apparaat wordt overgeslagen.</string>
+    <string name="cmd_delete_response_failed">Kan apparaat niet wissen vanwege een uitzondering.</string>
+    <string name="cmd_delete_response_success">Het apparaat zou nu gewist moeten zijn. Tot ziens!</string>
 </resources>

@@ -17,7 +17,7 @@ public class Settings extends HashMap<Integer, Object> {
 
     public static final int SETTINGS_VERSION = 5;
 
-    //public static final int SET_WIPE_ENABLED = 0; // the wipe command was removed
+    public static final int SET_WIPE_ENABLED = 0;
     // public static final int SET_ACCESS_VIA_PIN = 1;
     public static final int SET_LOCKSCREEN_MESSAGE = 2;
     public static final int SET_PIN = 3;
@@ -90,7 +90,7 @@ public class Settings extends HashMap<Integer, Object> {
             return super.get(key);
         } else {
             switch (key) {
-                    // case SET_WIPE_ENABLED:
+                case SET_WIPE_ENABLED:
                     // case SET_ACCESS_VIA_PIN:
                 case SET_FIRST_TIME_WHITELIST:
                 case SET_FIRST_TIME_CONTACT_ADDED:

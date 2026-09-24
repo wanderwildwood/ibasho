@@ -13,6 +13,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,6 +34,8 @@ public class FMDConfigActivity extends FmdActivity implements TextWatcher {
 
     private Button buttonSelectRingtone;
     private EditText editTextLockScreenMessage;
+    private CheckBox checkBoxDeviceWipe;
+    private Button buttonDeletePassword;
     private EditText editTextFmdCommand;
 
     private static final int REQUEST_CODE_RINGTONE = 5;
@@ -51,6 +54,18 @@ public class FMDConfigActivity extends FmdActivity implements TextWatcher {
         editTextLockScreenMessage = findViewById(R.id.editTextTextLockScreenMessage);
         editTextLockScreenMessage.setText((String) settings.get(Settings.SET_LOCKSCREEN_MESSAGE));
         editTextLockScreenMessage.addTextChangedListener(this);
+
+        // The wipe command is off unless it is switched on here, on this phone, and it needs a
+        // password of its own: nobody can arm it from the server.
+        checkBoxDeviceWipe = findViewById(R.id.checkBoxWipeData);
+        checkBoxDeviceWipe.setChecked((Boolean) settings.get(Settings.SET_WIPE_ENABLED));
+        checkBoxDeviceWipe.setOnCheckedChangeListener((button, isChecked) -> {
+            settings.set(Settings.SET_WIPE_ENABLED, isChecked);
+            updateDeletePasswordButton();
+        });
+        buttonDeletePassword = findViewById(R.id.buttonDeletePassword);
+        buttonDeletePassword.setOnClickListener(this::onEnterDeletePasswordClicked);
+        updateDeletePasswordButton();
 
         buttonSelectRingtone = findViewById(R.id.buttonSelectRingTone);
         buttonSelectRingtone.setOnClickListener(this::onSelectRingtoneClicked);
@@ -107,4 +122,23 @@ public class FMDConfigActivity extends FmdActivity implements TextWatcher {
     }
 
 
+
+    private void onEnterDeletePasswordClicked(View v) {
+        new PasswordSetDialog(v.getContext(), (newPassword) -> {
+            encSettings.setDeletePassword(newPassword);
+            updateDeletePasswordButton();
+            return Unit.INSTANCE;
+        }, R.string.password_enter, getString(R.string.delete_pw_message), true, true).show();
+    }
+
+    // Upstream coloured this button green or red. On an ink screen the words have to say it.
+    private void updateDeletePasswordButton() {
+        boolean enabled = (boolean) settings.get(Settings.SET_WIPE_ENABLED);
+        String password = encSettings.getDeletePassword();
+        boolean isPasswordEmpty = password == null || password.isBlank();
+
+        buttonDeletePassword.setText(isPasswordEmpty ? R.string.password_set : R.string.password_change);
+        findViewById(R.id.textViewDeletePasswordWarning)
+                .setVisibility(enabled && isPasswordEmpty ? View.VISIBLE : View.GONE);
+    }
 }

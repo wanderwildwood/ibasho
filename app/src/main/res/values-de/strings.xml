@@ -201,12 +201,6 @@
     <string name="Settings_Appearance">Erscheinungsbild</string>
     <string name="appearance_language">Sprache</string>
     <string name="appearance_language_choose">Sprache auswählen</string>
-    <string name="appearance_theme_follow_system">Systemstandard</string>
-    <string name="appearance_theme_dark">Dunkel</string>
-    <string name="appearance_theme">Designstil</string>
-    <string name="appearance_theme_choose">Designstil auswählen</string>
-    <string name="appearance_theme_light">Hell</string>
-    <string name="appearance_dynamic_colors">Dynamische Farben</string>
     <string name="crashed_title">Absturzbericht</string>
     <string name="server_version_upgrade_required_title">FMD Server muss aktualisiert werden</string>
     <string name="server_version_upgrade_required_text">Der genutzte FMD Server ist Version {CURRENT}, aber diese App benötigt mindestens {MIN}. Die Steuerung dieses Geräts mit diesem Server könnte beeinträchtigt sein. Bitte den Server updaten.</string>
@@ -332,4 +326,15 @@
     <string name="proto_v2_wizard_step1_text_risk">Es besteht ein Risiko von Datenverlust, falls die Migration unterbrochen wird. Wir empfehlen, vor Beginn der Migration folgendes zu tun:\n1. Exportiere die FMD-Android-Einstellungen.\n2. Logge dich über die Web-Oberfläche ein und exportiere deine Daten (Standorte, Fotos).</string>
     <string name="proto_v2_wizard_step2_text_data">Wähle aus, was mit deinen bestehenden Daten auf FMD Server passieren soll (Standorte, Fotos). Du kannst entweder:\n1. Die Daten löschen (schnell)\n2. Die Daten migrieren (langsam)</string>
     <string name="proto_v2_wizard_step2_text_data_migration">Falls du die Daten migrierst, werden alle Standorte und Fotos heruntergeladen, mit v1 entschlüsselt, mit v2 neu verschlüsselt, und wieder hochgeladen. Dies kann einige Zeit dauern.</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Achtung: Das Passwort ist nicht im App-Backup enthalten.</string>
+    <string name="delete_pw_warning_empty">Achtung: Löschen wird nicht funktionieren, da das Lösch-Passwort leer ist. Du musst sowohl die Funktion aktivieren als auch ein Passwort setzen.</string>
+    <string name="cmd_delete_description_short">Gerät auf Werkseinstellungen zurücksetzen</string>
+    <string name="cmd_delete_description_long">Alle Daten werden gelöscht. Danach kannst Du nicht mehr mit dem Gerät kommunizieren. Um versehentliche und böswillige Nutzung zu verhindern, erfordert dieser Befehl ein Kennwort und er muss in den Einstellungen ausdrücklich aktiviert werden.</string>
+    <string name="cmd_delete_response_disabled">Löschen nicht möglich: Der „delete“-Befehl ist nicht in den Einstellungen aktiviert.</string>
+    <string name="cmd_delete_response_pwd_missing">Löschen nicht möglich: Passwort fehlt. Syntax: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Löschen nicht möglich: falsches Passwort.</string>
+    <string name="cmd_delete_response_dry_run">Testlauf erfolgreich, die eigentliche Gerätelöschung wird übersprungen.</string>
+    <string name="cmd_delete_response_failed">Das Löschen des Geräts ist fehlgeschlagen aufgrund eines Ausnahmefehlers.</string>
+    <string name="cmd_delete_response_success">Das Gerät sollte nun gelöscht werden. Auf Wiedersehen!</string>
 </resources>

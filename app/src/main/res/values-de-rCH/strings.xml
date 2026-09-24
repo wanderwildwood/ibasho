@@ -188,12 +188,6 @@
     <string name="appearance_language_choose">Sprach uswähle</string>
     <string name="notify_crypto_update_title">Aktion nötig</string>
     <string name="notify_crypto_update_text">Du musch paar Iistellige update zum FMD wiiter bruche. Klick zum d App öffne.</string>
-    <string name="appearance_theme_follow_system">Systemstandard</string>
-    <string name="appearance_theme_light">Hell</string>
-    <string name="appearance_theme">Designstil</string>
-    <string name="appearance_theme_choose">Designstil uswähle</string>
-    <string name="appearance_dynamic_colors">Dynamische Farbe</string>
-    <string name="appearance_theme_dark">Dunkel</string>
     <string name="log_view_clear">Protokoll lösche</string>
     <string name="server_version_upgrade_required_title">FMD Server muss updated werde</string>
     <string name="server_version_upgrade_required_text">De genutzti FMD Server isch Version {CURRENT}, aber d App brucht mindestens {MIN}. Di Stürig vom Gerät mit dem Server chönnti beiiträchtigt si. Bitte de Server update.</string>
@@ -291,4 +285,15 @@
     <string name="push_registration_failed_title">Push-Registrierig fehlschlage</string>
     <string name="push_registration_upload_failed_text">D Push-URL hat nöd chönne an FMD Server gschickt werde. Drum chasch kei Befehl vo FMD Server empfange. Zum das behebe, mach d FMD-Server-Iistellige uf und druck uf \"Erneut registriere\" zum d Push-Registrierig manuell erneuere.</string>
     <string name="invalid_url">Ungültigi URL</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Achtung: S Passwort isch nöd im App-Backup enthalte.</string>
+    <string name="delete_pw_warning_empty">Achtung: S Zruggsetze goht nöd wills Löschpasswort leer isch. Du muesch sowohl d Funktion aktiviere als au es Passwort setze.</string>
+    <string name="cmd_delete_description_short">Gerät uf Werksiistellige zruggsetze</string>
+    <string name="cmd_delete_description_long">Alli Date werdet glöscht. Nachher chasch nümme mitem Gerät kommuniziere. Um versehentlichi und böswilligi Nutzig z verhindere, brucht de Befehl es Kennwort und er muess ide Iistellige usdrücklich aktiviert werde.</string>
+    <string name="cmd_delete_response_disabled">Lösche nöd möglich: De delete-Befehl isch nöd ide Iistellige aktiviert.</string>
+    <string name="cmd_delete_response_pwd_missing">Lösche nöd möglich: Passwort fehlt. Syntax: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Lösche nöd möglich: falsches Passwort.</string>
+    <string name="cmd_delete_response_dry_run">Testlauf erfolgriich, die eigentlichi Gerätlöschig wird übersprunge.</string>
+    <string name="cmd_delete_response_failed">S Lösche vom Gerät isch fehlglschage ufgrund vomne Usnahmefehler.</string>
+    <string name="cmd_delete_response_success">S Gerät sett jetzt glöscht werde. Uf Wiederluege!</string>
 </resources>

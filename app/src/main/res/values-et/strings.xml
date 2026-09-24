@@ -34,7 +34,6 @@
     <string name="Settings_FMDServer_Delete_Account">Kustuta kasutajakonto</string>
     <string name="WhiteList_Add_Contact">Lisa kontakt</string>
     <string name="allowlist_phone_number">Telefoninumber</string>
-    <string name="appearance_theme_follow_system">Järgi süsteemi kujundust</string>
     <string name="notify_crypto_update_title">Vajalik on kasutaja sekkumine</string>
     <string name="Settings_Lockscreenmessage_Description">Lukustusvaate sõnum:\nSeadme lukustamisel kuvatakse see sõnum kõigile nähtavalt ka lukustuse ajal.</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Taustal toimiva asukoha üleslaadimise välp</string>
@@ -42,7 +41,6 @@
     <string name="perm_write_secure_settings_name">Turvaseadistuste salvestamine</string>
     <string name="crashed_open_issuetracker">Ava veahaldus</string>
     <string name="Settings_FMDServer_Push_Register_Again">Registreeri uuesti</string>
-    <string name="appearance_theme_light">Hele kujundus</string>
     <string name="server_version">Serveri versioon</string>
     <string name="Settings_FMDServer_Error_id_or_pw_empty">FMD kasutajanimi ja salasõna ei saa jääda tühjaks.</string>
     <string name="Notification_FAIL">Vead</string>
@@ -88,13 +86,10 @@
     <string name="appearance_language">Keel</string>
     <string name="appearance_language_choose">Vali keel</string>
     <string name="appearance_language_system_default">Süsteemi keel</string>
-    <string name="appearance_theme_choose">Vali kujundus</string>
     <string name="OpenCellId_test_no_connection">Mobiilsideühendus puudub</string>
     <string name="OpenCellId_open_website">Ava OpenCelliD veebisait</string>
-    <string name="appearance_theme_dark">Tume kujundus</string>
     <string name="log_view_title">Logid</string>
     <string name="about">Rakenduse teave</string>
-    <string name="appearance_dynamic_colors">Dünaamilised värvid</string>
     <string name="log_view_export">Ekspordi logid</string>
     <string name="log_view_clear">Kustuta logid</string>
     <string name="about_source_code">Lähtekood</string>
@@ -142,7 +137,6 @@
     <string name="missing_permissions_description">FMD vajab töötamiseks järgnevaid õigusi.</string>
     <string name="setup_warnings_title">Seadistamisega seotud hoiatused</string>
     <string name="transport_inapp_send_command_command_placeholder">Käsk</string>
-    <string name="appearance_theme">Kujundus</string>
     <string name="transport_fmd_server_description_auth">Kõik, kes teavad sinu kasutajanime ja salasõna, võivad logida sisse sinu FMD serverisse ja sealt sinu nutiseadet juhtida.</string>
     <string name="transport_inapp_send_command_button_send">Saada</string>
     <string name="Settings_Select_Ringtone">Vali telefonihelin</string>
@@ -294,4 +288,15 @@
     <string name="about_app_icon_description">Rakenduse ikoon</string>
     <string name="about_documentation">Dokumentatsioon</string>
     <string name="about_donate">Toeta meid rahaliselt</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Hoiatus: salasõna ei sisaldu rakenduse varukoopias.</string>
+    <string name="delete_pw_warning_empty">Hoiatus: Kuna kustutamise salasõna on tühi, siis kustutamine tegelikult ei toimi. Sa pead lülitama sisse nii antud funktsionaalsuse, kui sellega seotud salasõna.</string>
+    <string name="cmd_delete_description_short">Lähtesta nutiseade tootja algolekusse</string>
+    <string name="cmd_delete_description_long">Järgnevaga kustuvad kõik andmed ja peale seda pole sul võimalik nutiseadmega enam suhelda. Vältimaks juhuslikku ja pahatahtlikku kasutamist selle võimaluse sisselülitamine eeldab, et kasutad salasõna ja võtad ta teadlikult kasutusele.</string>
+    <string name="cmd_delete_response_disabled">Kustutamine pole võimalik: vastav käsk on seadistsutest keelatud.</string>
+    <string name="cmd_delete_response_pwd_missing">Kustutamine pole võimalik: salasõna on puudu. Kasutusjuhend: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Kustutamine pole võimalik: vale salasõna.</string>
+    <string name="cmd_delete_response_dry_run">Katse õnnestus, tegelik kustutamine jääb tegemata.</string>
+    <string name="cmd_delete_response_failed">Kustutamine ei õnnestunud vea tõttu.</string>
+    <string name="cmd_delete_response_success">Nutiseadme sisu kustutamine peaks algama nüüd. Nägemist!</string>
 </resources>

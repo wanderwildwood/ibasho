@@ -11,18 +11,20 @@ all.
 Built for a 4.3" e-ink phone, so: no animation, no colour, one screen where one
 screen will do.
 
-## What it does not do
+## Wiping, and what it does not do
 
-**It cannot wipe the device.** The wipe command is gone, and `wipe-data` is
-absent from the device-admin policy, so Android will refuse it even if something
-asked. A remote wipe means whoever learns the server password can factory-reset
-the phone, which is the wrong trade for a phone somebody carries by agreement.
+**Wiping is off unless the phone's owner turns it on.** Under **Settings →
+General → fmd delete**, on the phone itself, the wipe command is switched on and
+given a password of its own, separate from the server's. Until both are done it
+refuses, so nobody can arm it from the server or by text: knowing the server
+password is not enough to factory-reset someone's phone. It then answers
+`delete <password>` by text or from the server's web page, and
+`delete <password> dryrun` checks everything without wiping.
 
 **It cannot take a photograph.** The camera command is gone, along with the
 camera permission. A silent photo is something the person holding the phone
-cannot tell has happened.
-
-Both are reasonable in a stolen-phone tool. Neither belongs here.
+cannot tell has happened; that is reasonable in a stolen-phone tool and does not
+belong here.
 
 ## Locating
 

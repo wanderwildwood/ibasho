@@ -65,8 +65,6 @@
     <string name="pw_change_success">Şifre değiştirildi</string>
     <string name="pw_change_empty">Şifre boş olmamalıdır.</string>
     <string name="server_login_attempts_text">Birisi FMD Sunucu hesabınız olan \"%s\"\'a giriş yapmayı denedi. Birden fazla başarısız şifreden dolayı, hesap şimdi 10 dakika boyunca kilitli.</string>
-    <string name="appearance_theme">Tema</string>
-    <string name="appearance_theme_choose">Tema seçiniz</string>
     <string name="server_unregister_failed_title">Kaydı geri almak başarısız oldu</string>
     <string name="server_connectivity_lost_text">%1$s konumundaki FMD sunucusu artık erişilemiyor. Son başarılı bağlantı zamanı %2$s.</string>
     <string name="server_version">Sunucu sürümü</string>
@@ -83,8 +81,6 @@
     <string name="appearance_language">Dil</string>
     <string name="appearance_language_choose">Dili seç</string>
     <string name="appearance_language_system_default">Sistem varsayılanı</string>
-    <string name="appearance_theme_follow_system">Sisteme Ayak Uydur</string>
-    <string name="appearance_theme_light">Açık</string>
     <string name="log_view_clear">Günlükleri Temizle</string>
     <string name="server_connectivity_lost_title">FMD Sunucu bağlantısı kayboldu</string>
     <string name="server_version_upgrade_required_text">Şu anda kullandığınız FMD Sunucusu {CURRENT} sürümüne sahip, fakat bu uygulama en az {MIN} gerektiriyor. Cihazınızı FMD Sunucusuyla kontrol etmek artık çalışmayabilir. Lütfen sunucunuzu yükseltin.</string>
@@ -101,8 +97,6 @@
     <string name="allowlist_phone_number">Telefon Numarası</string>
     <string name="temporary_allowlist_expired">Geçiçi FindMyDevice erişiminizin süresi doldu. FindMyDevice kullanmaya devam etmek için, PINi tekrar gönderin.</string>
     <string name="log_view_export">Günlükleri Dışa Aktar</string>
-    <string name="appearance_theme_dark">Koyu</string>
-    <string name="appearance_dynamic_colors">Dinamik Renkler</string>
     <string name="log_view_title">Günlükler</string>
     <string name="log_view_clear_confirm">Gerçekten bütün günlük girdilerini silmek istiyor musunuz?</string>
     <string name="about">Hakkında</string>
@@ -211,4 +205,15 @@
     <string name="Fused">Çok kaynaklı konum sağlayıcı</string>
     <string name="dont_show_again">Tekrar gösterme</string>
     <string name="Settings_FMDServer_Push_Open_Help">Push bildirimleri ile daha fazla bilgi</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Dikkat: Şifre uygulama yedeğine dahil edilmez.</string>
+    <string name="delete_pw_warning_empty">Dikkat: Silme şifresi belirlenmediği için silme işlemi yapılamayacak. Hem özelliği aktifleştirip hem de şifre belirlemeniz gerekmektedir.</string>
+    <string name="cmd_delete_description_short">Cihazı fabrika-sıfırla</string>
+    <string name="cmd_delete_description_long">Bu bütün verileri siler. Bundan sonra cihazla artık iletişim kuramazsınız. Kötü niyetli ve yanlışlıkla kullanımı önlemek için, bu komut şifre gerektirmektedir ve ayarlarda etkinleştirilmesi gerekmektedir.</string>
+    <string name="cmd_delete_response_disabled">Silinemedi: ayarlarda sil komutu etkin değil.</string>
+    <string name="cmd_delete_response_pwd_missing">Silinemedi: şifre eksik. Kullanım: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Silinemedi: yanlış şifre.</string>
+    <string name="cmd_delete_response_dry_run">Prova başarılı, asıl cihaz silimi geçiliyor.</string>
+    <string name="cmd_delete_response_failed">Bir istisna yüzünden cihazı silmek başarısız oldu.</string>
+    <string name="cmd_delete_response_success">Cihaz şimdi silinmiş olmalı. Güle güle!</string>
 </resources>

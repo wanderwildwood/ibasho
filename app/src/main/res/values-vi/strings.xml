@@ -130,12 +130,6 @@
     <string name="OpenCellId_test_no_connection">Không có kết nối di động</string>
     <string name="appearance_language">Ngôn ngữ</string>
     <string name="appearance_language_system_default">Mặc định hệ thống</string>
-    <string name="appearance_theme">Chủ đề</string>
-    <string name="appearance_theme_choose">Chọn chủ đề</string>
-    <string name="appearance_theme_follow_system">Theo hệ thống</string>
-    <string name="appearance_theme_light">Sáng</string>
-    <string name="appearance_theme_dark">Tối</string>
-    <string name="appearance_dynamic_colors">Màu sắc động</string>
     <string name="log_view_title">Nhật ký</string>
     <string name="log_view_export">Xuất nhật ký</string>
     <string name="about">Giới thiệu</string>
@@ -204,4 +198,13 @@
     <string name="Settings_FMDServer_LOW_BAT_Upload_Description">Tải lên vị trí của thiết bị này khi mức pin thấp. Điều này yêu cầu quyền truy cập thông báo.</string>
     <string name="pw_change_success">Mật khẩu đã được thay đổi</string>
     <string name="pw_change_empty">Mật khẩu không được để trống.</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="cmd_delete_description_short">Đặt lại thiết bị về cài đặt gốc</string>
+    <string name="cmd_delete_description_long">Điều này xóa tất cả dữ liệu. Sau đó, bạn sẽ không còn có thể giao tiếp với thiết bị. Để ngăn chặn việc sử dụng ngẫu nhiên và độc hại, lệnh này yêu cầu một mật khẩu và cần được bật rõ ràng trong cài đặt.</string>
+    <string name="cmd_delete_response_disabled">Không thể xóa: lệnh xóa không được bật trong cài đặt.</string>
+    <string name="cmd_delete_response_pwd_missing">Không thể xóa: thiếu mật khẩu. Cách sử dụng: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Không thể xóa: mật khẩu sai.</string>
+    <string name="cmd_delete_response_dry_run">Chạy thử thành công, bỏ qua việc xóa thiết bị thực tế.</string>
+    <string name="cmd_delete_response_failed">Không thể xóa thiết bị do một ngoại lệ.</string>
+    <string name="cmd_delete_response_success">Thiết bị bây giờ nên được xóa. Tạm biệt!</string>
 </resources>

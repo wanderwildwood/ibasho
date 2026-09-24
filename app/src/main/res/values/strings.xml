@@ -41,10 +41,10 @@
     <!-- Settings (main screen, with the list) -->
     <string name="Settings_Settings">Settings</string>
     <string name="Settings_FMDConfig">General</string>
-    <string name="Settings_FMDServer" translatable="false">FMD Server</string>
+    <string name="Settings_FMDServer" translatable="false">Server</string>
     <string name="Settings_Access_Control">Access control</string>
     <string name="Settings_OpenCellId" translatable="false">BeaconDB &amp; OpenCelliD</string>
-    <string name="Settings_Appearance">Appearance</string>
+    <string name="Settings_Appearance">Language</string>
     <string name="Settings_Import">Import settings</string>
     <string name="Settings_Export">Export settings</string>
     <string name="Settings_Logs">Logs</string>
@@ -80,7 +80,7 @@
     <string name="about_libraries">Bundled libraries</string>
 
     <!-- Settings: General -->
-    <string name="Settings_FMDCommand_Description">The command used to communicate with FMD.</string>
+    <string name="Settings_FMDCommand_Description">The command used to communicate with Whereabouts.</string>
     <string name="Toast_Empty_FMDCommand">Empty command not allowed, using default.</string>
     <string name="Settings_Ringer_Tone_Description">Select a ringtone for the \"ring\" command.</string>
     <string name="Settings_Select_Ringtone">Select ringtone</string>
@@ -106,7 +106,7 @@
     <string name="Settings_FMDServer_Unregister_Success">Unregistering and data deletion successful!</string>
     <string name="Settings_FMDServer_Push_Title" translatable="false">Push</string>
     <string name="Settings_FMDServer_Push_Distributor">Distributor: %s</string>
-    <string name="push_description">FMD Server wakes this phone by push to give it commands. Whereabouts has push built in. Another UnifiedPush app, such as Sunup or ntfy, can do it instead.</string>
+    <string name="push_description">The server wakes this phone by push to give it commands. Whereabouts has push built in. Another UnifiedPush app, such as Sunup or ntfy, can do it instead.</string>
     <string name="push_source">Push service: %s</string>
     <string name="push_source_title">Push service</string>
     <string name="push_source_built_in">Built in</string>
@@ -114,22 +114,22 @@
     <string name="push_pick_app_title">Push app</string>
     <string name="push_distributor_built_in">built in, through Mozilla\'s push service</string>
     <string name="push_built_in_waiting">Waiting for Mozilla\'s push service to answer. Commands will not arrive until it does.</string>
-    <string name="push_no_other_app">No other push app is installed, so commands from FMD Server will not reach this phone. Install one, such as Sunup or ntfy, or choose Built in.</string>
+    <string name="push_no_other_app">No other push app is installed, so commands from the server will not reach this phone. Install one, such as Sunup or ntfy, or choose Built in.</string>
     <string name="push_another_app_not_chosen">No push app is registered yet. Tap Register to choose one.</string>
     <string name="push_connection_channel">Push connection</string>
     <string name="push_connection_channel_description">Shown while Whereabouts holds its own connection to the push service open.</string>
     <string name="push_connection_notification_title">Push connection open</string>
-    <string name="push_connection_notification_text">Keeps a connection to Mozilla\'s push service open, so FMD Server can reach this phone.</string>
+    <string name="push_connection_notification_text">Keeps a connection to Mozilla\'s push service open, so the server can reach this phone.</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
     <string name="Settings_FMDServer_Push_Open_Help">More information about push</string>
     <string name="Settings_FMDServer_Push_Register">Register</string>
     <string name="Settings_FMDServer_Push_Register_Again">Register again</string>
     <string name="Settings_FMDServer_Check_Interval_Title">Connectivity check interval</string>
-    <string name="Settings_FMDServer_Check_Interval_Description">FMD checks the connectivity to FMD Server every X hours. Set this to 0 to disable the connectivity check.</string>
+    <string name="Settings_FMDServer_Check_Interval_Description">Whereabouts checks the connectivity to the server every X hours. Set this to 0 to disable the connectivity check.</string>
     <string name="Settings_FMDServer_Check_Notify_After_Title">Maximum allowed time without connectivity</string>
-    <string name="Settings_FMDServer_Check_Notify_After_Description">FMD will notify you if the last successful connection to FMD Server is more than X hours ago. This has no effect if the connectivity check is disabled.</string>
+    <string name="Settings_FMDServer_Check_Notify_After_Description">Whereabouts will notify you if the last successful connection to the server is more than X hours ago. This has no effect if the connectivity check is disabled.</string>
     <string name="Settings_FMDServer_Update_Interval_Title">Background location upload interval</string>
-    <string name="Settings_FMDServer_Update_Interval_Description">FMD uploads the device\'s location every X minutes.</string>
+    <string name="Settings_FMDServer_Update_Interval_Description">Whereabouts uploads the device\'s location every X minutes.</string>
     <string name="Settings_FMDServer_Update_Interval_Description_Constraint">Values below 15 minutes are not recommended.</string>
     <string name="Settings_FMDServer_Location_Type_Title">Location source</string>
     <string name="Settings_FMDServer_Location_Type_Description">The source(s) from which the location data is uploaded at regular intervals in the background.\nIf none is selected, no locations are uploaded regularly. (You can still use the web interface to force an upload. This requires push.)</string>
@@ -147,18 +147,18 @@
     <string name="pw_change_empty">Password must not be empty.</string>
     <string name="pw_change_wrong_password">Wrong password</string>
     <string name="pw_change_network_failed">Password change failed due to a network error.</string>
-    <string name="server_login_attempts_title">Failed login attempts to FMD Server</string>
-    <string name="server_login_attempts_text">Someone tried to log in to your FMD Server account \"%s\". Due to multiple failed passwords, the account is now locked for 10 minutes.</string>
-    <string name="server_login_attempts_text_time">Someone tried to log in to your FMD Server account \"%1$s\" at %2$s. Due to multiple failed attempts, the account is now locked for 10 minutes.</string>
-    <string name="server_message_other_title">FMD Server operator announcement</string>
-    <string name="server_message_other_text">The FMD Server operator has posted the following message:\n\n%s</string>
-    <string name="server_version_upgrade_required_title">FMD Server upgrade required</string>
-    <string name="server_version_upgrade_required_text">The FMD Server you are using has version {CURRENT}, but this app requires at least {MIN}. Controlling your device via FMD Server may not work anymore. Please upgrade your server.</string>
-    <string name="server_connectivity_lost_title">FMD Server connectivity lost</string>
-    <string name="server_connectivity_lost_text">The FMD Server at %1$s can no longer be reached. The last successful connection was at %2$s.</string>
+    <string name="server_login_attempts_title">Failed login attempts to the server</string>
+    <string name="server_login_attempts_text">Someone tried to log in to your server account \"%s\". Due to multiple failed passwords, the account is now locked for 10 minutes.</string>
+    <string name="server_login_attempts_text_time">Someone tried to log in to your server account \"%1$s\" at %2$s. Due to multiple failed attempts, the account is now locked for 10 minutes.</string>
+    <string name="server_message_other_title">Server announcement</string>
+    <string name="server_message_other_text">The server\'s operator has posted the following message:\n\n%s</string>
+    <string name="server_version_upgrade_required_title">Server upgrade required</string>
+    <string name="server_version_upgrade_required_text">The server you are using has version {CURRENT}, but this app requires at least {MIN}. Controlling your device via the server may not work anymore. Please upgrade your server.</string>
+    <string name="server_connectivity_lost_title">Server connectivity lost</string>
+    <string name="server_connectivity_lost_text">The server at %1$s can no longer be reached. The last successful connection was at %2$s.</string>
     <string name="server_connectivity_check_not_enabled_title">Enable the server connectivity check</string>
-    <string name="server_connectivity_check_not_enabled_text">FMD can regularly check whether FMD Server is still reachable. For privacy reasons this is off by default. But for availability reasons we recommend enabling it.</string>
-    <string name="server_apparently_deleted_text">FMD cannot log in to your FMD Server account \"%s\". It looks like the account was deleted from the server.</string>
+    <string name="server_connectivity_check_not_enabled_text">Whereabouts can regularly check whether the server is still reachable. For privacy reasons this is off by default. But for availability reasons we recommend enabling it.</string>
+    <string name="server_apparently_deleted_text">Whereabouts cannot log in to your server account \"%s\". It looks like the account was deleted from the server.</string>
 
     <!-- FMD Server registration/login -->
     <string name="server_version">Server version</string>
@@ -166,8 +166,8 @@
     <string name="server_version_error_low_version">At least server version {MIN} is required, but the selected server has version {CURRENT}. Continue at your own risk.</string>
     <!-- Toast when logging in or registering seemed to work but left no account behind -->
     <string name="server_login_no_user_id">Failed: no user id</string>
-    <string name="Settings_FMDServer_AddAccount">FMD Server: Login</string>
-    <string name="Settings_FMDServer_Info">With FMD Server you can send commands over the internet, from the server to the app. You can also view the device location on a map. For self-hosting instructions, see the website.</string>
+    <string name="Settings_FMDServer_AddAccount">Server: Log in</string>
+    <string name="Settings_FMDServer_Info">With a server you can send commands over the internet, from the server to the app. You can also view the device location on a map. For self-hosting instructions, see the website.</string>
     <string name="Settings_FMDServer_open_website">Open FMD Server website</string>
     <string name="Settings_FMDServer_Server_Url">Server URL</string>
     <string name="Settings_FMDServer_Login">Login</string>
@@ -182,7 +182,7 @@
 
     <!-- FMD Server migration proto v2 -->
     <string name="proto_v2_start_title">Server protocol v2</string>
-    <string name="proto_v2_start_text">Your account can be moved to FMD Server\'s protocol v2, which improves the end-to-end encryption.</string>
+    <string name="proto_v2_start_text">Your account can be moved to the server\'s protocol v2, which improves the end-to-end encryption.</string>
     <string name="proto_v2_start_text_already_done">Your account already uses protocol v2. There is nothing to move.</string>
     <string name="proto_v2_start_text_not_available">Protocol v2 needs FMD Server 0.17.0 or later.</string>
     <string name="proto_v2_start_button">Start migration</string>
@@ -197,7 +197,7 @@
     <string name="proto_v2_wizard_step1_text_keep_app_open">Keep the app open until the migration has finished.</string>
 
     <string name="proto_v2_wizard_step2_text_intro">Your account has successfully been migrated to v2.</string>
-    <string name="proto_v2_wizard_step2_text_data">Choose what should happen with your existing data stored on FMD Server (locations, pictures). You can either:\n1. Delete the data (fast)\n2. Migrate the data (slow)</string>
+    <string name="proto_v2_wizard_step2_text_data">Choose what should happen with your existing data stored on the server (locations, pictures). You can either:\n1. Delete the data (fast)\n2. Migrate the data (slow)</string>
     <string name="proto_v2_wizard_step2_text_data_migration">If you migrate the data, all locations and pictures will be downloaded, decrypted with v1, re-encrypted with v2, and re-uploaded. This will take some time.</string>
     <string name="proto_v2_wizard_step2_text_num_locations">Number of locations: %d</string>
     <string name="proto_v2_wizard_step2_text_num_pictures">Number of pictures: %d</string>
@@ -215,16 +215,16 @@
 
     <string name="access_permission_hint">For each entry, you can choose which commands are allowed. By default, new entries are restricted to the most basic commands.</string>
 
-    <string name="access_phone_number_hint">The phone numbers in this list are allowed to access FMD via SMS, by texting \"%s command\".</string>
+    <string name="access_phone_number_hint">The phone numbers in this list are allowed to access Whereabouts via SMS, by texting \"%s command\".</string>
     <string name="access_phone_number_empty">No phone numbers yet. Add one with a button below.</string>
 
-    <string name="access_sms_password_hint">The passwords in this list can be used to access FMD from any phone number via SMS, by texting \"%s password command\".</string>
+    <string name="access_sms_password_hint">The passwords in this list can be used to access Whereabouts from any phone number via SMS, by texting \"%s password command\".</string>
     <string name="access_sms_password_add">Add SMS password</string>
     <string name="access_sms_password_used_by">Used by</string>
     <string name="access_sms_password_expiry">Expiry time</string>
-    <string name="access_sms_password_granted_info">Access granted! You can now use FMD for 10 minutes without including the password in your messages. Any new password that you send before your current access expires will be ignored.</string>
+    <string name="access_sms_password_granted_info">Access granted! You can now use Whereabouts for 10 minutes without including the password in your messages. Any new password that you send before your current access expires will be ignored.</string>
 
-    <string name="access_notification_password_hint">The passwords in this list can be used to access FMD from any app that shows a notification with a \"reply\" quick action (such as messenger apps). The notification text should be \"%s password command\".</string>
+    <string name="access_notification_password_hint">The passwords in this list can be used to access Whereabouts from any app that shows a notification with a \"reply\" quick action (such as messenger apps). The notification text should be \"%s password command\".</string>
     <string name="access_notification_password_add">Add notification password</string>
 
     <string name="access_password_empty">No passwords yet. Add one with the button below.</string>
@@ -236,7 +236,7 @@
 
     <!-- Settings: Allowed contacts -->
     <string name="WhiteList_Add_Contact">Add contact</string>
-    <string name="tip_first_contact_added">Congratulations, you have added your first contact! You can now communicate with FMD by sending an SMS that starts with \"%1$s\" from the allowed phone number. For example, send \"%2$s help\" or \"%3$s flash\". When everything works, the app will respond.</string>
+    <string name="tip_first_contact_added">Congratulations, you have added your first contact! You can now communicate with Whereabouts by sending an SMS that starts with \"%1$s\" from the allowed phone number. For example, send \"%2$s help\" or \"%3$s flash\". When everything works, the app will respond.</string>
     <string name="Toast_Duplicate_contact">This contact already exists.</string>
     <string name="WhiteList_no_contact_picker">No contact picker application found!</string>
     <string name="allowlist_add_phone_number">Add phone number</string>
@@ -246,16 +246,16 @@
     <string name="allowlist_entry">%1$s (%2$s)</string>
     <string name="allowlist_delete_title_phone_number">Delete phone number?</string>
     <string name="allowlist_delete_title_password">Delete password?</string>
-    <string name="allowlist_delete_message">Once this entry is deleted, it will no longer be able to access FMD. You can re-add it later if you change your mind.</string>
+    <string name="allowlist_delete_message">Once this entry is deleted, it will no longer be able to access Whereabouts. You can re-add it later if you change your mind.</string>
     <string name="allowlist_reset_title">Allowed contacts reset</string>
     <string name="allowlist_reset_text">Due to a crash, the allowed contacts were reset. Please configure them again.</string>
     <string name="allowlist_invalid_number">This phone number is invalid!</string>
 
     <!-- Settings: Temporary allowed contacts -->
-    <string name="temporary_allowlist_expired">Your temporary FMD access expired. To continue using FMD, send the password again.</string>
+    <string name="temporary_allowlist_expired">Your temporary Whereabouts access expired. To continue using Whereabouts, send the password again.</string>
 
     <!-- Settings: OpenCelliD -->
-    <string name="network_info_general">FMD can use the BeaconDB and OpenCelliD services to get a location estimate based on the surrounding cell towers (both) and Wi-Fi networks (BeaconDB only). An internet connection is required for every location query.</string>
+    <string name="network_info_general">Whereabouts can use the BeaconDB and OpenCelliD services to get a location estimate based on the surrounding cell towers (both) and Wi-Fi networks (BeaconDB only). An internet connection is required for every location query.</string>
     <string name="network_info_privacy">Privacy: Keep in mind that BeaconDB and OpenCelliD learn your location with every query. Please see their respective privacy policies for details.</string>
     <string name="beacondb_open_website">Open BeaconDB website</string>
     <string name="OpenCellId_open_website">Open OpenCelliD website</string>
@@ -270,12 +270,6 @@
     <string name="appearance_language">Language</string>
     <string name="appearance_language_choose">Choose language</string>
     <string name="appearance_language_system_default">System default</string>
-    <string name="appearance_theme">Theme</string>
-    <string name="appearance_theme_choose">Choose theme</string>
-    <string name="appearance_theme_follow_system">Follow system</string>
-    <string name="appearance_theme_light">Light</string>
-    <string name="appearance_theme_dark">Dark</string>
-    <string name="appearance_dynamic_colors">Dynamic colors</string>
 
     <!-- Settings: Import/export -->
     <string name="export_authenticate_title">Authenticate to export the backup</string>
@@ -309,11 +303,11 @@
     <string name="about_documentation">Documentation</string>
     <string name="about_donate">Donate</string>
     <string name="about_source_code">Source code</string>
-    <string name="app_description">Find your phone when it is lost: see where it is, make it ring, or lock it, by text message or from an FMD Server web page. It cannot wipe the device and it cannot take a photograph; both were removed. Most of this code is Nulide\'s, from FindMyDevice.</string>
+    <string name="app_description">Find your phone when it is lost: see where it is, make it ring, lock it, or, if you turn that on here, wipe it. By text message or from your server\'s web page. Most of this code is Nulide\'s, from FindMyDevice.</string>
 
     <!-- Crypto update boarding -->
     <string name="notify_crypto_update_title">Action required</string>
-    <string name="notify_crypto_update_text">You need to update some settings to continue using FMD. Click to open.</string>
+    <string name="notify_crypto_update_text">You need to update some settings to continue using Whereabouts. Click to open.</string>
     <string name="server_unregister_failed_title">Unregistering failed</string>
     <string name="server_unregister_failed_body">Unregistering failed with the following error: {ERROR}\n\nYou can continue anyway, but your account might not have been deleted from the server. If you continue, your account will be deleted locally from this device.</string>
     <string name="server_unregister_continue_anyway">Continue anyway</string>
@@ -324,7 +318,7 @@
     <!-- Commands -->
 
     <string name="cmd_missing_fmd_permissions">Cannot execute command \"%s\": You are not allowed to execute this command.</string>
-    <string name="cmd_missing_android_permissions">Cannot execute command \"%1$s\": The following Android permission(s) are not granted to the FMD app: %2$s.</string>
+    <string name="cmd_missing_android_permissions">Cannot execute command \"%1$s\": The following Android permission(s) are not granted to Whereabouts: %2$s.</string>
 
     <string name="cmd_bluetooth_description_short">Toggle Bluetooth on and off</string>
     <string name="cmd_bluetooth_response_no_bluetooth">The device does not seem to have Bluetooth.</string>
@@ -349,7 +343,7 @@
     <string name="cmd_gps_response_is_off">Location Services are off.</string>
 
     <string name="cmd_help_description_short">Show the help</string>
-    <string name="cmd_help_message_start">FMD Commands:</string>
+    <string name="cmd_help_message_start">Whereabouts commands:</string>
 
     <string name="cmd_locate_description_short">Locate the device</string>
     <string name="cmd_locate_description_long">Locate the device using one or more location providers. GPS has the highest accuracy, but may not always work. The \"fused\" provider is defined by Android, and uses a combination of sources (often WiFi or cell towers). The \"cell\" provider queries the public OpenCelliD and BeaconDB services for the surrounding cell tower locations.</string>
@@ -389,6 +383,8 @@
     <string name="perm_bluetooth_connect_name">Connect Bluetooth</string>
     <string name="perm_bluetooth_scan_name">Scan Bluetooth</string>
     <string name="perm_device_admin_name">Device admin</string>
+    <string name="delete_pw_message">The word sent after the command, as in \"delete password\". At least 8 characters, and nothing like the server password: this one wipes the phone.</string>
+    <string name="perm_device_admin_wipe_name">Device admin, to wipe</string>
     <string name="perm_do_not_disturb_access_name">Do Not Disturb access</string>
     <string name="perm_location_name">Location</string>
     <string name="perm_notification_access_name">Notification access</string>
@@ -400,8 +396,8 @@
 
     <!-- Permissions: Descriptions -->
     <string name="Permission_IGNORE_BATTERY_OPTIMIZATION">This application is supposed to work in the background. To ensure it works even when your device is in standby, you need to turn off battery optimization for this app.</string>
-    <string name="Permission_POST_NOTIFICATIONS">FMD will occasionally send you notifications, for example to warn you that someone is locating your device.</string>
-    <string name="perm_unused_app_description">Android pauses apps that are not opened for a few months and removes their permissions. FMD, however, is supposed to work in the background. After setting it up you rarely need to open it. Therefore you need to exempt FMD from being paused, otherwise it may not work in a few months.</string>
+    <string name="Permission_POST_NOTIFICATIONS">Whereabouts will occasionally send you notifications, for example to warn you that someone is locating your device.</string>
+    <string name="perm_unused_app_description">Android pauses apps that are not opened for a few months and removes their permissions. Whereabouts, however, is supposed to work in the background. After setting it up you rarely need to open it. Therefore you need to exempt Whereabouts from being paused, otherwise it may not work in a few months.</string>
 
     <!-- Permissions: Other strings -->
     <string name="required_permissions_title">Required permissions</string>
@@ -418,38 +414,38 @@
     <!-- Transports -->
 
     <string name="transport_sms_title">SMS</string>
-    <string name="transport_sms_description">Send commands to your device over SMS. E.g., text \"%s help\" to your device. FMD will reply with an SMS.</string>
+    <string name="transport_sms_description">Send commands to your device over SMS. E.g., text \"%s help\" to your device. Whereabouts will reply with an SMS.</string>
     <string name="transport_sms_description_auth">Only phone numbers that are in the allowlist can send commands. To send commands from a phone number that is not in the allowlist, you can define and include a password: \"%s mypassword help\". For convenience, so that you don\'t have to re-type the password every time, this new phone number is added to a temporary allowlist for the next 10 minutes.</string>
     <string name="transport_sms_description_note">SMS may incur costs for both you and the person texting you. SMS requires your SIM card to be unlocked (e.g., after a reboot).</string>
 
     <string name="transport_notification_reply_title">Notification reply</string>
-    <string name="transport_notification_reply_description">You can allow FMD to read your notifications to listen for commands. FMD can then reply via Android\'s built-in notification reply feature. This allows you to control FMD using a messaging application of your choice, as long as it posts notifications that can be replied to. For example, you can send a Signal message \"%s mypassword help\" to your phone.</string>
-    <string name="transport_notification_reply_description_auth">Controlling FMD via notification reply requires a password to be set. Every message must contain a correct password.</string>
+    <string name="transport_notification_reply_description">You can allow Whereabouts to read your notifications to listen for commands. Whereabouts can then reply via Android\'s built-in notification reply feature. This allows you to control Whereabouts using a messaging application of your choice, as long as it posts notifications that can be replied to. For example, you can send a Signal message \"%s mypassword help\" to your phone.</string>
+    <string name="transport_notification_reply_description_auth">Controlling Whereabouts via notification reply requires a password to be set. Every message must contain a correct password.</string>
     <!-- Stands in for the app a command came from, in the "was executed by" notification, when that app is not known -->
     <string name="transport_notification_reply_destination_unknown">Notification Response</string>
 
-    <string name="transport_fmd_server_title" translatable="false">FMD Server</string>
-    <string name="transport_fmd_server_description">FMD Server provides a web interface to control your device, and view its location. You can self-host FMD Server or use the provided instance. Data is stored encrypted on the server, protected by your password.</string>
-    <string name="transport_fmd_server_description_auth">Anyone who knows your username and password can log in to FMD Server and control your device.</string>
-    <string name="transport_fmd_server_description_note">FMD Server requires an internet connection. This can be a mobile network (thus the SIM needs to be unlocked) or WiFi.</string>
+    <string name="transport_fmd_server_title" translatable="false">Server</string>
+    <string name="transport_fmd_server_description">The server gives you a web page to control your device and see its location. You run it yourself. Data is stored encrypted on the server, protected by your password.</string>
+    <string name="transport_fmd_server_description_auth">Anyone who knows your username and password can log in to the server and control your device.</string>
+    <string name="transport_fmd_server_description_note">Using the server needs an internet connection. This can be a mobile network (thus the SIM needs to be unlocked) or WiFi.</string>
 
     <string name="transport_inapp_title">In-app</string>
-    <string name="transport_inapp_description">Send commands locally from within FMD to your device. This is useful for testing. FMD will reply with a notification.</string>
+    <string name="transport_inapp_description">Send commands locally from within Whereabouts to your device. This is useful for testing. Whereabouts will reply with a notification.</string>
     <string name="transport_inapp_send_command_title">Send in-app command</string>
     <string name="transport_inapp_send_command_command_placeholder">Command</string>
     <string name="transport_inapp_send_command_button_send">Send</string>
 
     <!-- Notification Channels -->
     <string name="Notification_Usage">Usage</string>
-    <string name="Notification_Usage_Description">Notifications when FMD is receiving commands</string>
+    <string name="Notification_Usage_Description">Notifications when Whereabouts is receiving commands</string>
     <string name="Pin_Usage">Password usage</string>
-    <string name="Notification_Pin_Usage_Description">Notifications when FMD is accessed is via a password</string>
-    <string name="Notification_Server" translatable="false">FMD Server</string>
-    <string name="Notification_Server_Description">Notifications related to FMD Server</string>
+    <string name="Notification_Pin_Usage_Description">Notifications when Whereabouts is accessed is via a password</string>
+    <string name="Notification_Server" translatable="false">Server</string>
+    <string name="Notification_Server_Description">Notifications related to the server</string>
     <string name="Notification_Security">Security</string>
     <string name="Notification_Security_Description">Notifications about security updates</string>
     <string name="Notification_FAIL">Failures</string>
-    <string name="Notification_Fail_Description">Notifications when something fails, like the connection to FMD Server</string>
+    <string name="Notification_Fail_Description">Notifications when something fails, like the connection to the server</string>
     <string name="Notification_InApp">In-app transport channel</string>
     <string name="Notification_InApp_Description">Notifications from the in-app transport channel</string>
     <string name="Notification_ExecutionService">Command execution</string>
@@ -466,17 +462,17 @@
     <string name="setup_warnings_title">Setup warnings</string>
     <string name="setup_recommendations_title">Recommendations</string>
     <string name="missing_permissions_title">Missing permissions</string>
-    <string name="missing_permissions_description">The following permissions are needed for FMD to run.</string>
+    <string name="missing_permissions_description">The following permissions are needed for Whereabouts to run.</string>
     <string name="missing_push_title">Missing UnifiedPush</string>
-    <string name="missing_push_description">Without a UnifiedPush distributor app you cannot receive commands from FMD Server.</string>
+    <string name="missing_push_description">Without a UnifiedPush distributor app you cannot receive commands from the server.</string>
 
     <!-- Notifications-->
     <string name="push_registration_failed_title">Push registration failed</string>
-    <string name="push_registration_upload_failed_text">The push URL could not be sent to FMD Server. Therefore, you are unable to receive commands from FMD Server. To fix this, please open the FMD Server settings and click \"Register again\" to manually renew the push registration.</string>
+    <string name="push_registration_upload_failed_text">The push URL could not be sent to the server. Therefore, you are unable to receive commands from the server. To fix this, please open the server settings and click \"Register again\" to manually renew the push registration.</string>
 
 
     <!-- Lock screen message-->
-    <string name="Locked_Lock_Screen">FMD\nThis device is locked!\nMessage from the owner:</string>
+    <string name="Locked_Lock_Screen">Whereabouts\nThis device is locked!\nMessage from the owner:</string>
     <string name="LockScreen_Usage_detectd">LockScreenMessage: Usage detected.</string>
     <string name="LockScreen_Backbutton_pressed">LockScreenMessage: Back-Button pressed.</string>
 
@@ -485,7 +481,7 @@
 
     <!-- Crash activity -->
     <string name="crashed_title">Crash report</string>
-    <string name="crashed_text">FMD has crashed! Here is the log:</string>
+    <string name="crashed_text">Whereabouts has crashed! Here is the log:</string>
     <string name="crashed_send_log">Send log</string>
     <string name="crashed_copy_log">Copy log</string>
     <string name="crashed_open_issuetracker">Open issue tracker</string>
@@ -494,4 +490,15 @@
     <!-- Varia -->
     <string name="invalid_url">Invalid URL</string>
 
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Warning: The password is not included in the app backup.</string>
+    <string name="delete_pw_warning_empty">Warning: Deleting won\'t work because the delete password is empty. You must both enable the feature and set a password.</string>
+    <string name="cmd_delete_description_short">Factory-reset the device</string>
+    <string name="cmd_delete_description_long">This wipes all data. Afterwards you will no longer be able to communicate with the device. To prevent accidental and malicious usage, this command requires a password and it needs to be explicitly enabled in the settings.</string>
+    <string name="cmd_delete_response_disabled">Cannot delete: delete command is not enabled in settings.</string>
+    <string name="cmd_delete_response_pwd_missing">Cannot delete: missing password. Usage: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Cannot delete: wrong password.</string>
+    <string name="cmd_delete_response_dry_run">Dry run successful, skipping the actual device deletion.</string>
+    <string name="cmd_delete_response_failed">Failed to delete device due to an exception.</string>
+    <string name="cmd_delete_response_success">The device should now be deleted. Goodbye!</string>
 </resources>

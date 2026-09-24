@@ -79,18 +79,12 @@
     <string name="server_version_upgrade_required_title">Palvelimen päivitys vaaditaan</string>
     <string name="server_version_upgrade_required_text">Käyttämäsi FMD-palvelimen versio on {CURRENT}, mutta tämä sovellus vaatii vähintään version {MIN}. Laitteesi hallinta palvelimen kautta ei välttämättä toimi. Päivitä palvelin.</string>
     <string name="allowlist_add_phone_number">Lisää puhelinnumero</string>
-    <string name="appearance_theme">Teema</string>
-    <string name="appearance_theme_choose">Valitse teema</string>
     <string name="log_view_title">Lokit</string>
     <string name="server_login_attempts_title">Epäonnistuneita kirjautumisyrityksiä FMD-palvelimelle</string>
     <string name="server_registration_token_error">Verkkopyyntö epäonnistui tilakoodilla HTTP 401. Tämä voi tapahtua, jos palvelin tarvitsee rekisteröintitunnisteen ja syöttämäsi tunniste oli virheellinen.</string>
     <string name="server_login_attempts_text">Tilillesi \"%s\" on yritetty kirjautua. Useiden virheellisten salasanojen syöttämisen vuoksi tili on lukittu 10 minuutiksi.</string>
     <string name="registration_token_hint">Yksityiset palvelimet saattavat vaatia salaisen tunnisteen. Jätä tyhjäksi, jos palvelin on julkinen.</string>
-    <string name="appearance_theme_follow_system">Järjestelmän teema</string>
-    <string name="appearance_theme_light">Vaalea</string>
-    <string name="appearance_theme_dark">Tumma</string>
     <string name="about">Tietoa</string>
-    <string name="appearance_dynamic_colors">Dynaamiset värit</string>
     <string name="Settings_FMDServer_Info">FMD-palvelimella voit lähettää komentoja verkon yli sovellukseen. Näet myös laitteen sijainnin kartalla sekä laitteella otettavat valokuvat. Katso ohjeet oman palvelimen käyttöön verkkosivuilta.</string>
     <string name="OpenCellId_test_no_connection">Ei yhteyttä</string>
     <string name="request_failed_exception">Poikkeus</string>
@@ -204,4 +198,13 @@
     <string name="Settings_FMDServer_Check_Notify_After_Description">FMD ilmoittaa, jos viimeisimmästä onnistuneesta yhteyden tarkistuksesta on kulunut pidempään kuin määrittämäsi tuntimäärä ja tarkistus on käytössä.</string>
     <string name="server_connectivity_lost_title">Yhteys FMD-palvelimeen on katkennut</string>
     <string name="Settings_FMDServer_Check_Interval_Description">FMD tarkistaa yhteyden FMD-palvelimelle määrittämäsi tuntimäärän välein. Aseta nollaksi poistaaksesi tarkistus käytöstä.</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="cmd_delete_description_short">Palauta laitteen tehdasasetukset</string>
+    <string name="cmd_delete_description_long">Pyyhkii kaikki tiedot laitteelta. Et pysty jälkikäteen enää saamaan yhteyttä laitteeseen. Salasana vaaditaan ilkeämielisen tai vahingossa suoritetun komennon haitan ehkäisemiseksi. Toiminto pitää olla erikseen otettu käyttöön asetuksissa.</string>
+    <string name="cmd_delete_response_disabled">Ei voida poistaa: poistokomentoa ei ole otettu käyttöön asetuksissa.</string>
+    <string name="cmd_delete_response_pwd_missing">Ei voitu poistaa: puuttuva salasana. Käyttöohje: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Ei voitu poistaa: virheellinen salasana.</string>
+    <string name="cmd_delete_response_dry_run">Testiajo suoritettu, ohitetaan todellinen laitteen poisto.</string>
+    <string name="cmd_delete_response_failed">Laitetta ei voitu poistaa poikkeaman vuoksi.</string>
+    <string name="cmd_delete_response_success">Laite poistetaan. Hyvästi!</string>
 </resources>

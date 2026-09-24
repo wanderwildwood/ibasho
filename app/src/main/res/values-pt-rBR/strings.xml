@@ -188,12 +188,6 @@
     <string name="appearance_language">Idioma</string>
     <string name="appearance_language_choose">Selecionar idioma</string>
     <string name="appearance_language_system_default">Padrão do sistema</string>
-    <string name="appearance_theme_dark">Escuro</string>
-    <string name="appearance_theme">Tema</string>
-    <string name="appearance_theme_follow_system">Seguir o sistema</string>
-    <string name="appearance_dynamic_colors">Cores dinâmicas</string>
-    <string name="appearance_theme_choose">Selecionar tema</string>
-    <string name="appearance_theme_light">Claro</string>
     <string name="server_version_upgrade_required_title">Atualização do FMD Server necessária</string>
     <string name="server_version_upgrade_required_text">O FMD Server que você está usando está na versão {CURRENT}, mas o app requer que esteja no mínimo na {MIN}. Pode ser que controlar seu dispositivo pelo FMD Server não funcione mais. Atualize seu servidor.</string>
     <string name="crashed_title">Relatório de falha</string>
@@ -294,4 +288,15 @@
     <string name="about_app_icon_description">Ícone do app</string>
     <string name="about_documentation">Documentação</string>
     <string name="about_donate">Doar</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Atenção: A senha não é inclusa no backup de apps.</string>
+    <string name="delete_pw_warning_empty">Atenção: Apagar não funcionará pois a senha de apagar está vazia. Você deve tanto ativar o recurso como configurar uma senha.</string>
+    <string name="cmd_delete_description_short">Apagar os dados do dispositivo</string>
+    <string name="cmd_delete_description_long">Apaga todos os dados. Depois, não será mais possível se comunicar com o dispositivo. Para prevenir uso malicioso ou acidental, este comando requer uma senha e precisa estar ativado explicitamente nas configurações.</string>
+    <string name="cmd_delete_response_disabled">Não foi possível executar o delete: não está ativado nas configurações.</string>
+    <string name="cmd_delete_response_pwd_missing">Não foi possível executar o delete: nenhuma senha. Uso: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Não foi possível executar o delete: senha errada.</string>
+    <string name="cmd_delete_response_dry_run">Execução seca bem-sucedida, pulando o apagamento real do dispositivo.</string>
+    <string name="cmd_delete_response_failed">Falha ao apagar o dispositivo devido à uma exceção.</string>
+    <string name="cmd_delete_response_success">Seu dispositivo agora deve ter sido apagado. Adeus!</string>
 </resources>

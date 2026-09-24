@@ -1,8 +1,10 @@
 <device-admin xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- force-lock only. wipe-data is deliberately absent: Android enforces the
-         policies declared here, so the app is incapable of wiping the device even
-         if code asked it to. Removing DeleteCommand alone would not give that. -->
+    <!-- force-lock for the lock command, wipe-data for the wipe command. Android enforces
+         what is declared here, so without wipe-data the app could not wipe even if asked.
+         The command itself stays off unless it is switched on in this phone's own settings
+         and given its own password, so nobody else can arm it. -->
     <uses-policies>
         <force-lock />
+        <wipe-data />
     </uses-policies>
 </device-admin>

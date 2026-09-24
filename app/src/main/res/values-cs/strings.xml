@@ -188,12 +188,6 @@
     <string name="appearance_language">Jazyk</string>
     <string name="appearance_language_choose">Vybrat jazyk</string>
     <string name="appearance_language_system_default">Podle systému</string>
-    <string name="appearance_theme_light">Světlý</string>
-    <string name="appearance_dynamic_colors">Dynamické barvy</string>
-    <string name="appearance_theme">Motiv</string>
-    <string name="appearance_theme_choose">Vybrat motiv</string>
-    <string name="appearance_theme_follow_system">Podle systému</string>
-    <string name="appearance_theme_dark">Tmavý</string>
     <string name="crashed_title">Hlášení o pádu</string>
     <string name="server_version_upgrade_required_title">Vyžadována aktualizace FMD Serveru</string>
     <string name="server_version_upgrade_required_text">FMD Server, který používáte, má verzi {CURRENT}, ale tato aplikace vyžaduje alespoň {MIN}. Ovládání zařízení prostřednictvím FMD Serveru již nemusí fungovat. Prosíme, aktualizujte svůj server.</string>
@@ -294,4 +288,15 @@
     <string name="about_app_icon_description">Ikona aplikace</string>
     <string name="about_documentation">Dokumentace</string>
     <string name="about_donate">Přispějte</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Varování: Záloha aplikace neobsahuje heslo.</string>
+    <string name="delete_pw_warning_empty">Varování: Mazání nebude fungovat, protože heslo pro smazání je prázdné. Musíte povolit funkci a nastavit heslo.</string>
+    <string name="cmd_delete_description_short">Tovární reset zařízení</string>
+    <string name="cmd_delete_description_long">Toto vymaže všechna data. Po této akci již nebudete moci komunikovat se zařízením. Pro zabránění nechtěnému a škodlivému použití vyžaduje tento příkaz heslo a je třeba jej explicitně povolit v nastavení.</string>
+    <string name="cmd_delete_response_disabled">Nepodařilo se odstranit: příkaz k odstranění není povolen v nastavení.</string>
+    <string name="cmd_delete_response_pwd_missing">Nepodařilo se odstranit: chybějící heslo. Použití: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Nepodařilo se odstranit: nesprávné heslo.</string>
+    <string name="cmd_delete_response_dry_run">Zkušební běh proběhl úspěšně, překakování skutečného odstranění zařízení.</string>
+    <string name="cmd_delete_response_failed">Nepodařilo se odstranit zařízení z důvodu chyby.</string>
+    <string name="cmd_delete_response_success">Zařízení by nyní mělo být vymazáno. Na shledanou!</string>
 </resources>

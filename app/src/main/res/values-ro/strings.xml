@@ -101,12 +101,6 @@
     <string name="appearance_language">Limbă</string>
     <string name="appearance_language_choose">Alege limba</string>
     <string name="appearance_language_system_default">Limba dispozitivului</string>
-    <string name="appearance_theme">Temă</string>
-    <string name="appearance_theme_choose">Alege tema</string>
-    <string name="appearance_theme_follow_system">Tema dispozitivului</string>
-    <string name="appearance_theme_light">Luminos</string>
-    <string name="appearance_theme_dark">Întunecat</string>
-    <string name="appearance_dynamic_colors">Culori dinamice</string>
     <string name="log_view_title">Jurnale</string>
     <string name="log_view_export">Exportă jurnalele</string>
     <string name="log_view_clear">Șterge jurnalele</string>
@@ -219,4 +213,13 @@
     <string name="crashed_copy_log">Copiază jurnalul</string>
     <string name="crashed_open_issuetracker">Deschide sistemul de urmărire a erorilor</string>
     <string name="crashed_continue_without">Continuă fără a raporta</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="cmd_delete_description_short">Resetează dispozitivul la setările din fabrică</string>
+    <string name="cmd_delete_description_long">Aceasta șterge toate datele. Ulterior, nu vei mai putea comunica cu dispozitivul. Pentru a preveni utilizarea accidentală sau malițioasă, această comandă necesită o parolă și trebuie activată explicit în setări.</string>
+    <string name="cmd_delete_response_disabled">Nu se poate șterge: comanda de ștergere nu este activată în setări.</string>
+    <string name="cmd_delete_response_pwd_missing">Nu se poate șterge: lipsește parola. Utilizare: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Nu se poate șterge: parolă greșită.</string>
+    <string name="cmd_delete_response_dry_run">Testul de execuție a reușit, ștergerea efectivă a dispozitivului a fost sărită.</string>
+    <string name="cmd_delete_response_failed">Ștergerea dispozitivului a eșuat din cauza unei excepții.</string>
+    <string name="cmd_delete_response_success">Dispozitivul ar trebui să fie acum șters. La revedere!</string>
 </resources>

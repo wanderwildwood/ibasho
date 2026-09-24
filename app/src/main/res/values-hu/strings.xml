@@ -166,12 +166,6 @@
     <string name="appearance_language">Nyelv</string>
     <string name="appearance_language_choose">Válassz nyelvet</string>
     <string name="appearance_language_system_default">Rendszer alapértelmezés</string>
-    <string name="appearance_theme">Téma</string>
-    <string name="appearance_theme_choose">Válassz témát</string>
-    <string name="appearance_theme_follow_system">Rendszertéma követése</string>
-    <string name="appearance_theme_light">Világos</string>
-    <string name="appearance_theme_dark">Sötét</string>
-    <string name="appearance_dynamic_colors">Dinamikus színek</string>
     <string name="about_source_code">Forráskód</string>
     <string name="notify_crypto_update_text">Az FMD használatának folytatásához pár beállítást frissíteni kell. Kattints a megnyitáshoz.</string>
     <string name="server_unregister_failed_body">A fiók törlése nem sikerült a következő hiba miatt: {ERROR}\n\nTovább léphetsz, de lehet, hogy a fiókod nem lett törölve a szerverről. Ha folytatod, a fiókod törölve lesz az eszközről.</string>
@@ -260,4 +254,15 @@
     <string name="crashed_continue_without">Folytatás jelentés nélkül</string>
     <string name="export_authenticate_title">Hitelesítsd magad a biztonsági mentés exportálásához</string>
     <string name="notify_crypto_update_title">Intézkedni szükséges</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Figyelmeztetés: A jelszó nem szerepel az alkalmazás biztonsági mentésében.</string>
+    <string name="delete_pw_warning_empty">Figyelmeztetés: A törlés nem fog működni mert a jelszó üres. A funkciót be kell kapcsolni és egy jelszót is be kell állítani.</string>
+    <string name="cmd_delete_description_short">Az eszköz gyári visszaállítása</string>
+    <string name="cmd_delete_description_long">Ez letörli az összes adatot. Utána már nem fogsz tudni kommunikálni az eszközzel. A véletlen vagy rosszindulatú használat megakadályozása miatt ennek a parancsnak jelszót kell beállítani és külön be kell kapcsolni a beállításokban.</string>
+    <string name="cmd_delete_response_disabled">Nem lehet törölni: a \"delete\" parancs nincs bekapcsolva a beállításokban.</string>
+    <string name="cmd_delete_response_pwd_missing">Nem lehet törölni: hiányzó jelszó. Használat: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Nem lehet törölni: rossz jelszó.</string>
+    <string name="cmd_delete_response_dry_run">Sikeres próba, a tényleges törlés kihagyva.</string>
+    <string name="cmd_delete_response_failed">Nem lehet törölni az eszközt egy kivétel miatt.</string>
+    <string name="cmd_delete_response_success">Az eszköz elvileg le lett törölve. Viszlát!</string>
 </resources>

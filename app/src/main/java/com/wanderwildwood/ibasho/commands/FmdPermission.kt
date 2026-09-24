@@ -12,8 +12,9 @@ enum class FmdPermission(val bit: Long) {
     HELP(1L shl 0),
 
     BLUETOOTH(1L shl 1),
-    // 1L shl 2 was CAMERA and 1L shl 3 was DELETE; both commands were removed.
-    // Keep the bits unused so stored masks never grant something new.
+    // 1L shl 2 was CAMERA, removed; the bit stays unused so a stored mask never grants
+    // something new with it.
+    DELETE(1L shl 3),
     FLASH(1L shl 4),
     GPS(1L shl 5),
     LOCATE(1L shl 6),

@@ -99,12 +99,6 @@
     <string name="appearance_language">Idioma</string>
     <string name="appearance_language_choose">Selecionar idioma</string>
     <string name="appearance_language_system_default">Padrão do sistema</string>
-    <string name="appearance_theme">Tema</string>
-    <string name="appearance_theme_choose">Selecionar tema</string>
-    <string name="appearance_theme_follow_system">Seguir o sistema</string>
-    <string name="appearance_theme_light">Claro</string>
-    <string name="appearance_theme_dark">Escuro</string>
-    <string name="appearance_dynamic_colors">Cores dinâmicas</string>
     <string name="log_view_title">Registos</string>
     <string name="log_view_export">Exportar registos</string>
     <string name="log_view_clear">Limpar registos</string>
@@ -214,4 +208,13 @@
     <string name="crashed_copy_log">Copiar registos</string>
     <string name="crashed_open_issuetracker">Abrir o rastreador de problemas</string>
     <string name="crashed_continue_without">Continuar sem relatar</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="cmd_delete_description_short">Apagar os dados do dispositivo</string>
+    <string name="cmd_delete_description_long">Apaga todos os dados. Depois, não será mais possível comunicar com o dispositivo. Para prevenir uso malicioso ou acidental, este comando requer uma palavra-passe e precisa estar ativado explicitamente nas configurações.</string>
+    <string name="cmd_delete_response_disabled">Não foi possível executar o apagar: não está ativado nas configurações.</string>
+    <string name="cmd_delete_response_pwd_missing">Não foi possível executar apagar: nenhuma palavra-passe. Uso: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Não foi possível executar apagar: palavra-passe errada.</string>
+    <string name="cmd_delete_response_dry_run">Execução seca bem-sucedida, pulando o apagamento real do dispositivo.</string>
+    <string name="cmd_delete_response_failed">Falha ao apagar o dispositivo devido à uma exceção.</string>
+    <string name="cmd_delete_response_success">O seu dispositivo agora deve ter sido apagado. Adeus!</string>
 </resources>

@@ -188,12 +188,6 @@
     <string name="appearance_language_choose">Выберите язык</string>
     <string name="appearance_language_system_default">Как в системе</string>
     <string name="appearance_language">Язык</string>
-    <string name="appearance_theme_light">Светлая</string>
-    <string name="appearance_dynamic_colors">Динамические цвета</string>
-    <string name="appearance_theme">Тема</string>
-    <string name="appearance_theme_choose">Выбрать тему</string>
-    <string name="appearance_theme_follow_system">Как в системе</string>
-    <string name="appearance_theme_dark">Тёмная</string>
     <string name="server_version_upgrade_required_title">Необходимо обновить FMD Сервер</string>
     <string name="server_version_upgrade_required_text">Используемый вами сервер FMD имеет версию {CURRENT}, но это приложение требует как минимум версию {MIN}. Управление вашим устройством через сервер FMD может больше не работать. Пожалуйста, обновите ваш сервер.</string>
     <string name="crashed_title">Отчёт об ошибке</string>
@@ -294,4 +288,15 @@
     <string name="about_app_icon_description">Иконка приложения</string>
     <string name="about_documentation">Документация</string>
     <string name="about_donate">Пожертвовать</string>
+    <!-- The wipe command, restored: off unless enabled on this phone, and it needs its own password. -->
+    <string name="delete_pw_warning_no_backup">Внимание: Пароль не включён в резервную копию приложения.</string>
+    <string name="delete_pw_warning_empty">Внимание: Удаление не сработает, потому что пароль удаления пустой. Вы должны включить функцию и установить пароль.</string>
+    <string name="cmd_delete_description_short">Сброс устройства до заводских настроек (dry run - пробный прогон)</string>
+    <string name="cmd_delete_description_long">Это удалит все данные. После этого вы больше не сможете взаимодействовать с устройством. Чтобы предотвратить случайное, или злонамеренное использование, эта команда требует использования пароля который должен быть явно включён в настройках.</string>
+    <string name="cmd_delete_response_disabled">Невозможно удалить: команда delete не включена в настройках.</string>
+    <string name="cmd_delete_response_pwd_missing">Невозможно удалить: отсутствует пароль. Использование: %s.</string>
+    <string name="cmd_delete_response_pwd_wrong">Невозможно удалить: неверный пароль.</string>
+    <string name="cmd_delete_response_dry_run">Пробный запуск прошёл успешно, без фактического удаления устройства.</string>
+    <string name="cmd_delete_response_failed">Не удалось удалить устройство из-за ошибки.</string>
+    <string name="cmd_delete_response_success">Теперь устройство должно быть очищено. Прощайте!</string>
 </resources>
