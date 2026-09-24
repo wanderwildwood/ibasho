@@ -15,7 +15,7 @@ import android.widget.Toast
 
 // TODO: this repository is not published yet. The link must resolve before release.
 // No scheme: it has to fit one line at 480px, and a reader can type it.
-const val SOURCE_URL = "github.com/wanderwildwood/ibasho"
+const val SITE_URL = "wanderthe.dev"
 
 /**
  * About is a dialog reached by the "i" in the top right, not a settings row:
@@ -37,7 +37,7 @@ fun showAboutDialog(context: Context) {
         append("\n")
         append(context.getString(R.string.about_built_on))
         append("\n")
-        append(context.getString(R.string.about_source, SOURCE_URL))
+        append(context.getString(R.string.about_source, SITE_URL))
     }
 
     // A llama under the message, which opens the page a donation goes to. The dialog is a
