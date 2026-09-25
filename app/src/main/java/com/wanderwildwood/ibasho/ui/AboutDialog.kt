@@ -31,23 +31,21 @@ fun showAboutDialog(context: Context) {
         append("\n\n")
         append(context.getString(R.string.about_sends_network))
         append("\n\n")
-        // The last three are short facts, not paragraphs: consecutive lines
-        // keep the licence, the attribution and the source all above the fold.
+        // The last two are short facts, not paragraphs: consecutive lines
+        // keep the licence and the attribution both above the fold.
         append(context.getString(R.string.about_licence))
         append("\n")
         append(context.getString(R.string.about_built_on))
-        append("\n")
-        append(context.getString(R.string.about_source, SITE_URL))
     }
 
-    // A llama under the message, which opens the page a donation goes to. The dialog is a
+    // Under the message, one line: the site's name, then a llama which opens the page a
+    // donation goes to; only the llama and its words are pressed. The dialog is a
     // builder rather than Compose, so the row is put together by hand rather than inflated:
-    // it is a drawing and three words, and a layout file for that would be a file to keep.
-    val row = LinearLayout(context).apply {
+    // it is a name, a drawing and three words, and a layout file for that would be a file to keep.
+    val density = context.resources.displayMetrics.density
+    val llama = LinearLayout(context).apply {
         orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
-        val pad = (24 * context.resources.displayMetrics.density).toInt()
-        setPadding(pad, pad / 3, pad, pad / 2)
         isClickable = true
         setOnClickListener {
             // Straight to the checkout. The Donate button on the site only leads here
@@ -67,7 +65,7 @@ fun showAboutDialog(context: Context) {
                 ).show()
             }
         }
-        val size = (22 * context.resources.displayMetrics.density).toInt()
+        val size = (22 * density).toInt()
         addView(
             ImageView(context).apply { setImageResource(R.drawable.llama) },
             LinearLayout.LayoutParams(size, size),
@@ -75,9 +73,23 @@ fun showAboutDialog(context: Context) {
         addView(
             TextView(context).apply {
                 text = context.getString(R.string.about_llama)
-                val gap = (6 * context.resources.displayMetrics.density).toInt()
+                val gap = (6 * density).toInt()
                 setPadding(gap, 0, 0, 0)
             },
+        )
+    }
+    val row = LinearLayout(context).apply {
+        orientation = LinearLayout.HORIZONTAL
+        gravity = Gravity.CENTER_VERTICAL
+        val pad = (24 * density).toInt()
+        setPadding(pad, pad / 3, pad, pad / 2)
+        addView(TextView(context).apply { text = SITE_URL })
+        addView(
+            llama,
+            LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+            ).apply { marginStart = (12 * density).toInt() },
         )
     }
 
