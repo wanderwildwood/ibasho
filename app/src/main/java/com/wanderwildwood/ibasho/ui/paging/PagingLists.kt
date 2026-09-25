@@ -63,7 +63,12 @@ fun RecyclerView.turnsAPageOnSwipe() {
 private fun RecyclerView.turnPage(forward: Boolean) {
     val page = height - paddingTop - paddingBottom
     if (page <= 0) return
-    scrollBy(0, if (forward) page else -page)
+    if (!forward) {
+        turnBack(page, if (clipToPadding) paddingTop else 0, height - paddingBottom,
+            canGoFurther = { canScrollVertically(-1) }) { dy -> scrollBy(0, dy) }
+        return
+    }
+    scrollBy(0, page)
     alignToRow(
         canGoFurther = canScrollVertically(if (forward) 1 else -1),
         firstTop = getChildAt(0)?.top,
@@ -116,7 +121,12 @@ fun ListView.turnsAPageOnSwipe() {
 private fun ListView.turnPage(forward: Boolean) {
     val page = height - paddingTop - paddingBottom
     if (page <= 0) return
-    scrollListBy(if (forward) page else -page)
+    if (!forward) {
+        turnBack(page, if (clipToPadding) paddingTop else 0, height - paddingBottom,
+            canGoFurther = { canScrollList(-1) }) { dy -> scrollListBy(dy) }
+        return
+    }
+    scrollListBy(page)
     alignToRow(
         canGoFurther = canScrollList(if (forward) 1 else -1),
         firstTop = getChildAt(0)?.top,
@@ -124,6 +134,38 @@ private fun ListView.turnPage(forward: Boolean) {
         page = page,
         edge = if (clipToPadding) paddingTop else 0,
     ) { dy -> scrollListBy(dy) }
+}
+
+/**
+ * One page back, losing nothing.
+ *
+ * ⚠ Not the forward turn run backwards, which is what this was, and which skipped rows. The
+ * forward pull brings a part-cut top row into view by scrolling back over rows already read;
+ * backwards the same pull scrolls further up and pushes the row just above the previous page
+ * off the bottom before it is ever shown. Found in Messaging, whose copy of this lost a
+ * message every page or two on the way up.
+ *
+ * So the row the previous page opened on lands whole at the bottom, as the line of overlap,
+ * and the top row is pulled into view only when that costs no more than that row.
+ */
+private inline fun android.view.ViewGroup.turnBack(
+    page: Int,
+    topEdge: Int,
+    bottomEdge: Int,
+    canGoFurther: () -> Boolean,
+    scroll: (Int) -> Unit,
+) {
+    val opener = (0 until childCount).map { getChildAt(it) }.firstOrNull { it.bottom > topEdge }
+    if (opener == null || opener.height > page) {
+        scroll(-page)
+        return
+    }
+    val overlap = opener.height
+    scroll(opener.bottom - bottomEdge)
+    if (!canGoFurther()) return
+    val first = getChildAt(0) ?: return
+    val cut = topEdge - first.top
+    if (cut in 1..overlap && first.height <= page) scroll(-cut)
 }
 
 /**
