@@ -89,7 +89,7 @@ fun showAboutDialog(context: Context) {
             LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT,
-            ).apply { marginStart = (12 * density).toInt() },
+            ).apply { marginStart = (6 * density).toInt() },
         )
     }
 
