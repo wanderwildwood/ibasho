@@ -27,6 +27,12 @@ abstract class FmdActivity : AppCompatActivity() {
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
         if (toolbar != null) {
             setSupportActionBar(toolbar)
+            // A way back on every screen but the first, as the Compose screens have one: on
+            // the Kompakt the hardware back is easy to forget is there.
+            if (this !is MainActivity) {
+                supportActionBar?.setDisplayHomeAsUpEnabled(true)
+                toolbar.setNavigationOnClickListener { finish() }
+            }
         }
     }
 

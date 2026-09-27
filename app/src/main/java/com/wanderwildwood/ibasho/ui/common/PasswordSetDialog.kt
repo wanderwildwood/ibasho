@@ -8,7 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.commands.Command
 import com.wanderwildwood.ibasho.commands.availableCommands
@@ -35,7 +35,7 @@ class PasswordSetDialog(
             textView.text = message
         }
 
-        dialog = MaterialAlertDialogBuilder(context)
+        dialog = EInkAlertDialogBuilder(context)
             .setTitle(title)
             .setView(passwordLayout)
             .setPositiveButton(R.string.Ok, { _, _ ->

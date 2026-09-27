@@ -31,7 +31,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder;
 
 import org.apache.maven.artifact.versioning.ComparableVersion;
 import org.unifiedpush.android.connector.UnifiedPush;
@@ -318,7 +318,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
     private void onChangePasswordClicked(View view) {
         LayoutInflater inflater = getLayoutInflater();
-        final AlertDialog.Builder alert = new MaterialAlertDialogBuilder(this);
+        final AlertDialog.Builder alert = new EInkAlertDialogBuilder(this);
         alert.setTitle(getString(R.string.Settings_FMDServer_Change_Password_Button));
         alert.setCancelable(false);
 
@@ -351,7 +351,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
 
     private void showLoadingIndicator(Context context) {
         View loadingLayout = getLayoutInflater().inflate(R.layout.dialog_loading, null);
-        loadingDialog = new MaterialAlertDialogBuilder(context).setView(loadingLayout).setCancelable(false).create();
+        loadingDialog = new EInkAlertDialogBuilder(context).setView(loadingLayout).setCancelable(false).create();
         loadingDialog.show();
     }
 
@@ -548,7 +548,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                 getString(R.string.push_source_built_in),
                 getString(R.string.push_source_another_app),
         };
-        new MaterialAlertDialogBuilder(this)
+        new EInkAlertDialogBuilder(this)
                 .setTitle(R.string.push_source_title)
                 .setSingleChoiceItems(options, checked, (dialog, idx) -> {
                     dialog.dismiss();
@@ -595,7 +595,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         if (others.isEmpty()) {
             PushChoice.INSTANCE.useAnotherApp(context, null);
             updatePushSection();
-            new MaterialAlertDialogBuilder(context)
+            new EInkAlertDialogBuilder(context)
                     .setTitle(R.string.push_source_another_app)
                     .setMessage(R.string.push_no_other_app)
                     .setPositiveButton(R.string.Ok, null)
@@ -614,7 +614,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
             for (int i = 0; i < others.size(); i++) {
                 labels[i] = appLabel(others.get(i));
             }
-            new MaterialAlertDialogBuilder(context)
+            new EInkAlertDialogBuilder(context)
                     .setTitle(R.string.push_pick_app_title)
                     .setItems(labels, (dialog, idx) -> usePushApp(others.get(idx)))
                     .show();

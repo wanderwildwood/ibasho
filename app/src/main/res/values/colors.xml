@@ -15,53 +15,56 @@
          like the MMD half. Errors are ink too: the words say it, as elsewhere in these apps.
          The contrast variants below belonged to settings that no longer exist. -->
 
+    <!-- No grey anywhere, as MMD's own palette has none: every container tier is white
+         and every line and secondary text is ink (STYLE.md, "The two files every app
+         carries"). The greys that were here tinted the bottom bar and its selected pill. -->
     <color name="md_theme_primary">#000000</color>
     <color name="md_theme_onPrimary">#FFFFFF</color>
-    <color name="md_theme_primaryContainer">#E5E5E5</color>
+    <color name="md_theme_primaryContainer">#FFFFFF</color>
     <color name="md_theme_onPrimaryContainer">#000000</color>
     <color name="md_theme_secondary">#000000</color>
     <color name="md_theme_onSecondary">#FFFFFF</color>
-    <color name="md_theme_secondaryContainer">#E5E5E5</color>
+    <color name="md_theme_secondaryContainer">#FFFFFF</color>
     <color name="md_theme_onSecondaryContainer">#000000</color>
     <color name="md_theme_tertiary">#000000</color>
     <color name="md_theme_onTertiary">#FFFFFF</color>
-    <color name="md_theme_tertiaryContainer">#E5E5E5</color>
+    <color name="md_theme_tertiaryContainer">#FFFFFF</color>
     <color name="md_theme_onTertiaryContainer">#000000</color>
     <color name="md_theme_error">#000000</color>
     <color name="md_theme_onError">#FFFFFF</color>
-    <color name="md_theme_errorContainer">#E5E5E5</color>
+    <color name="md_theme_errorContainer">#FFFFFF</color>
     <color name="md_theme_onErrorContainer">#000000</color>
     <color name="md_theme_background">#FFFFFF</color>
     <color name="md_theme_onBackground">#000000</color>
     <color name="md_theme_surface">#FFFFFF</color>
     <color name="md_theme_onSurface">#000000</color>
-    <color name="md_theme_surfaceVariant">#F0F0F0</color>
-    <color name="md_theme_onSurfaceVariant">#333333</color>
+    <color name="md_theme_surfaceVariant">#FFFFFF</color>
+    <color name="md_theme_onSurfaceVariant">#000000</color>
     <color name="md_theme_outline">#000000</color>
-    <color name="md_theme_outlineVariant">#BDBDBD</color>
+    <color name="md_theme_outlineVariant">#000000</color>
     <color name="md_theme_scrim">#000000</color>
     <color name="md_theme_inverseSurface">#000000</color>
     <color name="md_theme_inverseOnSurface">#FFFFFF</color>
     <color name="md_theme_inversePrimary">#FFFFFF</color>
-    <color name="md_theme_primaryFixed">#E5E5E5</color>
+    <color name="md_theme_primaryFixed">#FFFFFF</color>
     <color name="md_theme_onPrimaryFixed">#000000</color>
-    <color name="md_theme_primaryFixedDim">#BDBDBD</color>
+    <color name="md_theme_primaryFixedDim">#FFFFFF</color>
     <color name="md_theme_onPrimaryFixedVariant">#000000</color>
-    <color name="md_theme_secondaryFixed">#E5E5E5</color>
+    <color name="md_theme_secondaryFixed">#FFFFFF</color>
     <color name="md_theme_onSecondaryFixed">#000000</color>
-    <color name="md_theme_secondaryFixedDim">#BDBDBD</color>
+    <color name="md_theme_secondaryFixedDim">#FFFFFF</color>
     <color name="md_theme_onSecondaryFixedVariant">#000000</color>
-    <color name="md_theme_tertiaryFixed">#E5E5E5</color>
+    <color name="md_theme_tertiaryFixed">#FFFFFF</color>
     <color name="md_theme_onTertiaryFixed">#000000</color>
-    <color name="md_theme_tertiaryFixedDim">#BDBDBD</color>
+    <color name="md_theme_tertiaryFixedDim">#FFFFFF</color>
     <color name="md_theme_onTertiaryFixedVariant">#000000</color>
-    <color name="md_theme_surfaceDim">#E0E0E0</color>
+    <color name="md_theme_surfaceDim">#FFFFFF</color>
     <color name="md_theme_surfaceBright">#FFFFFF</color>
     <color name="md_theme_surfaceContainerLowest">#FFFFFF</color>
     <color name="md_theme_surfaceContainerLow">#FFFFFF</color>
     <color name="md_theme_surfaceContainer">#FFFFFF</color>
-    <color name="md_theme_surfaceContainerHigh">#F5F5F5</color>
-    <color name="md_theme_surfaceContainerHighest">#EEEEEE</color>
+    <color name="md_theme_surfaceContainerHigh">#FFFFFF</color>
+    <color name="md_theme_surfaceContainerHighest">#FFFFFF</color>
     <color name="md_theme_primary_mediumContrast">#004005</color>
     <color name="md_theme_onPrimary_mediumContrast">#FFFFFF</color>
     <color name="md_theme_primaryContainer_mediumContrast">#1C7E20</color>

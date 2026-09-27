@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menuItemConnection"
+        android:title="@string/connection_switch_description"
+        app:actionLayout="@layout/menu_connection_switch"
+        app:showAsAction="always"/>
+
+    <item
         android:id="@+id/menuItemSetupWarnings"
         android:title="@string/setup_warnings_title"
         android:icon="@drawable/ic_warning"
@@ -15,5 +21,6 @@
         android:title="@string/Settings_About"
         android:icon="@drawable/ic_info"
         app:showAsAction="always"/>
+
 
 </menu>

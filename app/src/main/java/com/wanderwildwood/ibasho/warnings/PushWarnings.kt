@@ -1,7 +1,7 @@
 package com.wanderwildwood.ibasho.warnings
 
 import android.content.Context
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.push.PushChoice
@@ -33,7 +33,7 @@ fun notifyWarnUnifiedPushRequired(context: Context) {
 }
 
 fun showDialogMissingUnifiedPush(context: Context, onRegisterClicked: (() -> Unit)?) {
-    val builder = MaterialAlertDialogBuilder(context)
+    val builder = EInkAlertDialogBuilder(context)
         .setTitle(R.string.missing_push_title)
         .setMessage(R.string.missing_push_description)
         .setNeutralButton(R.string.Settings_FMDServer_Push_Open_Help, { _, _ ->

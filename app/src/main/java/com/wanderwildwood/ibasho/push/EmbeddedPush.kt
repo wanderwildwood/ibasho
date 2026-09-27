@@ -48,7 +48,8 @@ object EmbeddedPush {
         val store = EmbeddedPushStore(context)
         val hasAccount = SettingsRepository.getInstance(context).serverAccountExists() ||
                 store.debugWithoutAccount
-        return hasAccount && PushChoice.get(context) == PushChoice.BUILT_IN && store.hasChannels()
+        return hasAccount && PushChoice.get(context) == PushChoice.BUILT_IN && store.hasChannels() &&
+                !ConnectionPause.isPaused(context)
     }
 
     private val handler = Handler(Looper.getMainLooper())

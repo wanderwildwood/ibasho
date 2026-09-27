@@ -15,7 +15,7 @@ import androidx.annotation.NonNull;
 
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationBarView;
 
 import com.wanderwildwood.ibasho.BuildConfig;
@@ -132,6 +132,9 @@ public class MainActivity extends FmdActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        // The connection's switch, turned on or off from the tile or notification meanwhile.
+        MaterialToolbar connectionBar = findViewById(R.id.toolbar);
+        if (connectionBar != null) showConnectionItem(connectionBar.getMenu());
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, activeFragment, activeFragment.getStaticTag())
                 .commit();
@@ -162,7 +165,31 @@ public class MainActivity extends FmdActivity {
         } else {
             toolbar.inflateMenu(R.menu.main_app_bar);
         }
+        showConnectionItem(toolbar.getMenu());
         return true;
+    }
+
+    /**
+     * The connection's switch in the title bar, as Tailscale keeps one: off closes the
+     * connection and stops the server jobs, on puts them back. See ConnectionPause. Only
+     * offered with a server account, since without one there is nothing open.
+     */
+    private void showConnectionItem(Menu menu) {
+        MenuItem item = menu.findItem(R.id.menuItemConnection);
+        if (item == null) return;
+        boolean account = com.wanderwildwood.ibasho.data.SettingsRepository.Companion.getInstance(this).serverAccountExists();
+        item.setVisible(account);
+        if (!account || item.getActionView() == null) return;
+        com.google.android.material.materialswitch.MaterialSwitch toggle =
+                item.getActionView().findViewById(R.id.connectionSwitch);
+        toggle.setOnCheckedChangeListener(null);
+        toggle.setChecked(!com.wanderwildwood.ibasho.push.ConnectionPause.INSTANCE.isPaused(this));
+        toggle.setOnCheckedChangeListener((button, on) -> {
+            com.wanderwildwood.ibasho.push.ConnectionPause.INSTANCE.setPaused(this, !on);
+            android.widget.Toast.makeText(this,
+                    on ? R.string.connection_turned_on : R.string.connection_turned_off,
+                    android.widget.Toast.LENGTH_LONG).show();
+        });
     }
 
     @Override
@@ -183,7 +210,7 @@ public class MainActivity extends FmdActivity {
                         .replace("{CURRENT}", outdated.getActualVersion())
                         .replace("{MIN}", outdated.getMinRequiredVersion());
 
-                new MaterialAlertDialogBuilder(this)
+                new EInkAlertDialogBuilder(this)
                         .setTitle(getString(R.string.server_version_upgrade_required_title))
                         .setMessage(text)
                         .setPositiveButton(getString(R.string.Ok), null)

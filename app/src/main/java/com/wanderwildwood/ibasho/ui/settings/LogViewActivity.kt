@@ -7,7 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.data.LogRepository
 import com.wanderwildwood.ibasho.ui.FmdActivity
@@ -63,7 +63,7 @@ class LogViewActivity : FmdActivity() {
             intent.type = "*/*"
             startActivityForResult(intent, EXPORT_REQ_CODE)
         } else if (item.itemId == R.id.menuClearLog) {
-            MaterialAlertDialogBuilder(this)
+            EInkAlertDialogBuilder(this)
                 .setTitle(getString(R.string.log_view_clear))
                 .setMessage(R.string.log_view_clear_confirm)
                 .setPositiveButton(getString(R.string.Ok), { dialog, button ->

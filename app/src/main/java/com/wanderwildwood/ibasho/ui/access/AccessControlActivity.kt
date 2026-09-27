@@ -12,7 +12,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.data.AccessRepository
 import com.wanderwildwood.ibasho.data.Settings
@@ -62,7 +62,7 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
         val nameInput = layout.findViewById<EditText>(R.id.editTextName)
         val phoneNumberInput = layout.findViewById<EditText>(R.id.editTextPhoneNumber)
 
-        MaterialAlertDialogBuilder(context)
+        EInkAlertDialogBuilder(context)
             .setTitle(context.getString(R.string.allowlist_add_phone_number))
             .setView(layout)
             .setPositiveButton(
@@ -162,7 +162,7 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
             val keyword = settings.get(Settings.SET_FMD_COMMAND) as String
             val message =
                 getString(R.string.tip_first_contact_added, keyword, keyword, keyword)
-            MaterialAlertDialogBuilder(this)
+            EInkAlertDialogBuilder(this)
                 .setMessage(message)
                 .setCancelable(false)
                 .setPositiveButton(android.R.string.ok) { _, _ ->
@@ -183,7 +183,7 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
         val labelInput = layout.findViewById<EditText>(R.id.editTextLabel)
         val passwordInput = layout.findViewById<EditText>(R.id.editTextPassword)
 
-        MaterialAlertDialogBuilder(context)
+        EInkAlertDialogBuilder(context)
             .setTitle(title)
             .setView(layout)
             .setCancelable(false)

@@ -24,6 +24,11 @@ class UnifiedPushService : PushService() {
 
     override fun onMessage(message: PushMessage, instance: String) {
         log().i(TAG, "Received push message")
+        // Off is off: a push through another app's distributor is not a way round it.
+        if (com.wanderwildwood.ibasho.push.ConnectionPause.isPaused(this)) {
+            log().i(TAG, "Connection is turned off; not fetching commands")
+            return
+        }
         ServerCommandDownloader(this).download()
     }
 

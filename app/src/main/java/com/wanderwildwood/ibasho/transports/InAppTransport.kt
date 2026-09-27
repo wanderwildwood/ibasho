@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.commands.AccessResponse
 import com.wanderwildwood.ibasho.commands.ParserResult
@@ -86,7 +86,7 @@ fun onTestCommandClicked(activity: AppCompatActivity) {
     val fmdTriggerWord = settings.get(Settings.SET_FMD_COMMAND) as String
     editTextCommand.setText("$fmdTriggerWord ")
 
-    MaterialAlertDialogBuilder(context)
+    EInkAlertDialogBuilder(context)
         .setTitle(context.getString(R.string.transport_inapp_send_command_title))
         .setView(dialogLayout)
         .setPositiveButton(

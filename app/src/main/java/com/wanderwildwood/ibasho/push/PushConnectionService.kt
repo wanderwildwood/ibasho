@@ -327,6 +327,13 @@ class PushConnectionService : Service() {
             .setOngoing(true)
             .setShowWhen(false)
             .setOnlyAlertOnce(true)
+            .addAction(
+                0, getString(R.string.connection_turn_off),
+                PendingIntent.getBroadcast(
+                    this, 1, Intent(this, ConnectionPause.TurnOffReceiver::class.java),
+                    PendingIntent.FLAG_IMMUTABLE
+                )
+            )
             .setSilent(true)
             .setContentIntent(
                 PendingIntent.getActivity(

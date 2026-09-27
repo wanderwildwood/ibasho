@@ -20,7 +20,7 @@ import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
 import androidx.biometric.BiometricPrompt
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.ui.TaggedFragment
@@ -220,7 +220,7 @@ class SettingsFragment : TaggedFragment() {
         // TODO: The message_warning is temporary. We should include these in the backup again.
         val message =
             getString(R.string.import_success_message) + "\n\n" + getString(R.string.import_success_message_warning)
-        MaterialAlertDialogBuilder(context)
+        EInkAlertDialogBuilder(context)
             .setTitle(getString(R.string.Settings_Import_Success))
             .setMessage(message)
             .setPositiveButton(getString(R.string.Ok)) { _, _ -> }
@@ -229,7 +229,7 @@ class SettingsFragment : TaggedFragment() {
     }
 
     private fun showImportFailedDialog(context: Context) {
-        MaterialAlertDialogBuilder(context)
+        EInkAlertDialogBuilder(context)
             .setTitle(getString(R.string.Settings_Import_Failed))
             .setMessage(R.string.import_failed_message)
             .setPositiveButton(getString(R.string.Ok)) { _, _ -> }

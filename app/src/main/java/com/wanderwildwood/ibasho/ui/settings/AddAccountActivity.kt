@@ -17,7 +17,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
 import com.wanderwildwood.ibasho.BuildConfig
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.data.RegistrationTokenRepository
@@ -140,7 +140,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
         prefillRegistrationToken(registrationTokenInput)
 
-        val registerDialog = MaterialAlertDialogBuilder(context)
+        val registerDialog = EInkAlertDialogBuilder(context)
             .setTitle(context.getString(R.string.Settings_FMDServer_Register))
             .setView(registerLayout)
             .setCancelable(false)
@@ -188,7 +188,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
         val passwordInput = loginLayout.findViewById<EditText>(R.id.editTextPassword)
 
-        val loginDialog = MaterialAlertDialogBuilder(context)
+        val loginDialog = EInkAlertDialogBuilder(context)
             .setTitle(context.getString(R.string.Settings_FMDServer_Login))
             .setView(loginLayout)
             .setCancelable(false)
@@ -236,7 +236,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         val url = editTextServerUrl.text.toString().removeSuffix("/") + "/privacy?embedded=true"
         webView.loadUrl(url)
 
-        MaterialAlertDialogBuilder(context)
+        EInkAlertDialogBuilder(context)
             .setTitle(getString(R.string.Settings_FMDServer_Alert_PrivacyPolicy_Title))
             .setView(webView)
             .setPositiveButton(getString(R.string.accept)) { _, _ ->
@@ -258,7 +258,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
     private fun showLoadingIndicator(context: Context) {
         val loadingLayout = layoutInflater.inflate(R.layout.dialog_loading, null)
         loadingDialog =
-            MaterialAlertDialogBuilder(context).setView(loadingLayout).setCancelable(false).create()
+            EInkAlertDialogBuilder(context).setView(loadingLayout).setCancelable(false).create()
         loadingDialog?.show()
     }
 
@@ -337,7 +337,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                 message = getString(R.string.server_registration_token_error)
             }
 
-            val builder: AlertDialog.Builder = MaterialAlertDialogBuilder(this)
+            val builder: AlertDialog.Builder = EInkAlertDialogBuilder(this)
             builder.setTitle(R.string.request_failed_title)
             builder.setMessage(message)
             builder.setNeutralButton(R.string.copy) { _, _ ->

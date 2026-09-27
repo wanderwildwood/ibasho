@@ -14,8 +14,14 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
+            android:minHeight="64dp"
             app:title="@string/Settings_FMDServer" />
+
+        <!-- TopAppBarMMD's rule beneath the title. -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@android:color/black" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.wanderwildwood.ibasho.ui.paging.PagingScrollView

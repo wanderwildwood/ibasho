@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The selected tab's mark, as NavigationBarMMD draws it: a 4dp bar of ink at the item's foot. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <layer-list>
+            <item android:gravity="bottom" android:height="4dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/black" />
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:drawable="@android:color/transparent" />
+</selector>

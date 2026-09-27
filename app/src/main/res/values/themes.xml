@@ -2,6 +2,24 @@
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
         <!-- No activity transitions: a slide is a full panel repaint on e-ink. -->
         <item name="android:windowAnimationStyle">@null</item>
+        <!-- MMD's type: Lato, which it bundles. Its "Medium" resolves to Regular. -->
+        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="fontFamily">@font/lato_regular</item>
+        <!-- MMD's bottom bar, top bar and card, as the Compose half of the app draws them. -->
+        <item name="bottomNavigationStyle">@style/Widget.Ibasho.BottomNavigation</item>
+        <item name="toolbarStyle">@style/Widget.Ibasho.Toolbar</item>
+        <item name="appBarLayoutStyle">@style/Widget.Ibasho.AppBar</item>
+        <item name="materialCardViewStyle">@style/Widget.Ibasho.Card</item>
+        <item name="android:colorControlHighlight">@android:color/transparent</item>
+        <!-- Ink, not 87% ink: Android's default text colours are translucent black, which the
+             panel draws as grey. -->
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="android:textColorSecondary">@android:color/black</item>
+        <item name="android:textColorTertiary">@android:color/black</item>
+        <item name="android:textColorHint">@android:color/black</item>
+        <!-- MMD's divider: a rule of ink. -->
+        <item name="android:listDivider">@drawable/divider_ink</item>
+        <item name="materialDividerStyle">@style/Widget.Ibasho.Divider</item>
         <item name="colorPrimary">@color/md_theme_primary</item>
         <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>

@@ -35,7 +35,7 @@
 
     <!-- MainActivity -->
     <string name="bottom_nav_commands">Commands</string>
-    <string name="bottom_nav_transports">Transport channels</string>
+    <string name="bottom_nav_transports">Channels</string>
     <string name="bottom_nav_settings">Settings</string>
 
     <!-- Settings (main screen, with the list) -->
@@ -119,6 +119,12 @@
     <string name="push_connection_channel">Push connection</string>
     <string name="push_connection_channel_description">Shown while Whereabouts holds its own connection to the push service open.</string>
     <string name="push_connection_notification_title">Push connection open</string>
+    <string name="connection_turn_off">Turn off connection</string>
+    <string name="connection_turn_on">Turn on connection</string>
+    <string name="connection_switch_description">Connection to the server</string>
+    <string name="connection_tile_label">Whereabouts</string>
+    <string name="connection_turned_off">Connection off. The server can\'t reach this phone and no locations are uploaded until you turn it on again. SMS commands still work.</string>
+    <string name="connection_turned_on">Connection on.</string>
     <string name="push_connection_notification_text">Keeps a connection to Mozilla\'s push service open, so the server can reach this phone.</string>
     <string name="Settings_FMDServer_Push_Url">Push URL: %s</string>
     <string name="Settings_FMDServer_Push_Open_Help">More information about push</string>

@@ -74,7 +74,14 @@ class FmdApplication : Application() {
 
     fun restartServices() {
         val settings = SettingsRepository.getInstance(this)
-        if (settings.serverAccountExists()) {
+        if (settings.serverAccountExists() && com.wanderwildwood.ibasho.push.ConnectionPause.isPaused(this)) {
+            // Turned off by hand: everything that talks to the server stops, and nothing is
+            // unregistered, so turning it on again needs no setting up. See ConnectionPause.
+            FmdBatteryLowService.cancelJob(this)
+            ServerLocationUploadService.cancelJob(this)
+            ServerConnectivityCheckService.cancelJob(this)
+            EmbeddedPush.sync(this)
+        } else if (settings.serverAccountExists()) {
             // Scheduling a job that is already running should be fine (?),
             // because they have the same, fixed JOB_ID.
             if (settings.get(Settings.SET_FMD_LOW_BAT_SEND) as Boolean) {

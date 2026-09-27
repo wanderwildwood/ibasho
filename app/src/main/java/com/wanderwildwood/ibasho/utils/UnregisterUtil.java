@@ -3,7 +3,7 @@ package com.wanderwildwood.ibasho.utils;
 import android.content.Context;
 import android.content.DialogInterface;
 
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder;
 
 import com.wanderwildwood.ibasho.R;
 import com.wanderwildwood.ibasho.data.Settings;
@@ -21,7 +21,7 @@ public class UnregisterUtil {
             message = message.replace("{ERROR}", "error or getMessage() was null!");
         }
 
-        new MaterialAlertDialogBuilder(context)
+        new EInkAlertDialogBuilder(context)
                 .setTitle(context.getString(R.string.server_unregister_failed_title))
                 .setMessage(message)
                 .setPositiveButton(context.getString(R.string.server_unregister_continue_anyway),

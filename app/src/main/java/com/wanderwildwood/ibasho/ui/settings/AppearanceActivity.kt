@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.databinding.ActivityAppearanceBinding
 import com.wanderwildwood.ibasho.ui.FmdActivity
@@ -76,7 +76,7 @@ class AppearanceActivity : FmdActivity() {
         names.add(0, getString(R.string.appearance_language_system_default))
 
         viewBinding.buttonEditLanguage.setOnClickListener { _ ->
-            MaterialAlertDialogBuilder(this)
+            EInkAlertDialogBuilder(this)
                 .setTitle(R.string.appearance_language_choose)
                 .setSingleChoiceItems(names.toTypedArray(), checkedIdx) { _, idx ->
                     val newLocale = if (idx == 0) {

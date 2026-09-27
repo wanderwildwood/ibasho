@@ -2,7 +2,7 @@ package com.wanderwildwood.ibasho.ui
 
 import android.content.Context
 import android.content.Intent
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
 import com.wanderwildwood.ibasho.BuildConfig
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.ui.settings.AboutActivity
@@ -101,7 +101,7 @@ fun showAboutDialog(context: Context) {
         )
     }
 
-    MaterialAlertDialogBuilder(context)
+    EInkAlertDialogBuilder(context)
         .setTitle(context.getString(R.string.about_title, BuildConfig.VERSION_NAME))
         .setMessage(body)
         .setView(row)

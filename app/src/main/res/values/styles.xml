@@ -16,25 +16,106 @@
 
     <style name="FMD.Text.SectionTitle" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">?attr/colorPrimary</item>
-        <item name="android:textSize">17sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textAlignment">textStart</item>
     </style>
 
     <style name="FMD.Text.Log.Title" parent="TextAppearance.Material3.BodyMedium">
         <item name="fontFamily">monospace</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="FMD.Text.Log.Message" parent="TextAppearance.Material3.BodyMedium">
         <item name="fontFamily">monospace</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="FMD.Text.Log.Date" parent="TextAppearance.Material3.BodySmall">
         <item name="fontFamily">monospace</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
+
+    <!-- NavigationBarMMD: white, no pill, the selected tab marked by a 4dp bar of ink along
+         its foot; every label and icon ink. The 2dp rule above it is in the layout. -->
+    <style name="Widget.Ibasho.BottomNavigation" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@android:color/white</item>
+        <item name="backgroundTint">@android:color/white</item>
+        <item name="elevation">0dp</item>
+        <item name="itemActiveIndicatorStyle">@null</item>
+        <item name="itemBackground">@drawable/nav_item_selected_bar</item>
+        <item name="itemRippleColor">@android:color/transparent</item>
+        <item name="itemIconTint">@android:color/black</item>
+        <item name="itemTextColor">@android:color/black</item>
+        <item name="labelVisibilityMode">labeled</item>
+    </style>
+
+    <!-- TopAppBarMMD: 64dp, white, the 3dp rule beneath is in the layout. -->
+    <style name="Widget.Ibasho.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:minHeight">64dp</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="Widget.Ibasho.AppBar" parent="Widget.Material3.AppBarLayout">
+        <item name="android:background">@android:color/white</item>
+        <item name="elevation">0dp</item>
+        <!-- Lifting on scroll tints the bar with a surface colour: a grey wash on e-ink. -->
+        <item name="liftOnScroll">false</item>
+    </style>
+
+    <!-- A card is white inside a black edge, as Mudita's component demo draws one. -->
+    <style name="Widget.Ibasho.Card" parent="Widget.Material3.CardView.Outlined">
+        <item name="cardBackgroundColor">@android:color/white</item>
+        <item name="strokeColor">@android:color/black</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="Widget.Ibasho.Divider" parent="Widget.Material3.MaterialDivider">
+        <item name="dividerColor">@android:color/black</item>
+    </style>
+
+    <!-- Material 3's text styles, restated on MMD's scale (28/24/20/18/16/15/14, 14sp the
+         floor) and in ink. Same names, so every layout and widget that asks for one gets
+         this one: the library's own 11sp and 12sp steps are below what the panel reads. -->
+    <style name="TextAppearance.Material3.BodyLarge" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item><item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="TextAppearance.Material3.BodyMedium" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">15sp</item><item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="TextAppearance.Material3.BodySmall" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item><item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="TextAppearance.Material3.LabelLarge" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="TextAppearance.Material3.LabelMedium" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.Material3.LabelSmall" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.Material3.TitleSmall" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">15sp</item><item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="TextAppearance.Material3.TitleMedium" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">16sp</item><item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="TextAppearance.Material3.TitleLarge" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">20sp</item><item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <!-- Dialogs: no dim, ink on white. The frame is EInkAlertDialogBuilder's drawable. -->
+    <style name="ThemeOverlay.Ibasho.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <!-- And no shadow round the rim: a shadow is a band of grey on this panel. -->
+        <item name="android:windowElevation">0dp</item>
+        <item name="colorSurface">@android:color/white</item>
+        <item name="colorOnSurface">@android:color/black</item>
+        <item name="colorOnSurfaceVariant">@android:color/black</item>
+    </style>
 </resources>

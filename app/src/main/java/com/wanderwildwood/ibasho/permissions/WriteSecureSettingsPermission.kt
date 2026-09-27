@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.utils.RootAccess.Companion.execCommand
 import com.wanderwildwood.ibasho.utils.RootAccess.Companion.isRooted
@@ -38,7 +38,7 @@ class WriteSecureSettingsPermission : Permission() {
 
     override fun request(activity: Activity) {
         val userId = getUserId(activity)
-        MaterialAlertDialogBuilder(activity).apply {
+        EInkAlertDialogBuilder(activity).apply {
             setTitle(R.string.grant_write_secure_settings_title)
             setMessage(activity.getString(R.string.grant_write_secure_settings_description, userId))
 
