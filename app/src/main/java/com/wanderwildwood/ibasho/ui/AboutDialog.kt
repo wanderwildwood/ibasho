@@ -38,8 +38,18 @@ fun showAboutDialog(context: Context) {
         append(context.getString(R.string.about_built_on))
     }
 
-    // Under the message, one line: the site's name, then a llama which opens the page a
-    // donation goes to; only the llama and its words are pressed. The dialog is a
+    // An address, opened in whatever the phone has for web pages. A Kompakt may have
+    // nothing, so that says so rather than the press doing nothing.
+    val open = { address: String ->
+        runCatching {
+            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(address)))
+        }.onFailure {
+            Toast.makeText(context, R.string.about_no_browser, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    // Under the message, one line: the site's name, which opens the site, then a llama
+    // which opens the page a donation goes to. The dialog is a
     // builder rather than Compose, so the row is put together by hand rather than inflated:
     // it is a name, a drawing and three words, and a layout file for that would be a file to keep.
     val density = context.resources.displayMetrics.density
@@ -53,17 +63,7 @@ fun showAboutDialog(context: Context) {
             // square.link form, not the long checkout.square.site address it redirects to --
             // the short one is what the site itself links to, so a regenerated checkout
             // follows it and a published app does not break.
-            runCatching {
-                context.startActivity(
-                    Intent(Intent.ACTION_VIEW, Uri.parse("https://square.link/u/AGu8oT10")),
-                )
-            }.onFailure {
-                Toast.makeText(
-                    context,
-                    R.string.about_no_browser,
-                    Toast.LENGTH_SHORT,
-                ).show()
-            }
+            open("https://square.link/u/AGu8oT10")
         }
         val size = (22 * density).toInt()
         addView(
@@ -83,7 +83,15 @@ fun showAboutDialog(context: Context) {
         gravity = Gravity.CENTER_VERTICAL
         val pad = (24 * density).toInt()
         setPadding(pad, pad / 3, pad, pad / 2)
-        addView(TextView(context).apply { text = SITE_URL })
+        addView(
+            TextView(context).apply {
+                text = SITE_URL
+                isClickable = true
+                setOnClickListener { open("https://$SITE_URL") }
+                val gap = (4 * density).toInt()
+                setPadding(0, gap, 0, gap)
+            },
+        )
         addView(
             llama,
             LinearLayout.LayoutParams(
