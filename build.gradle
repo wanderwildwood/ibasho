@@ -3,9 +3,9 @@
 buildscript {
 
     ext {
-        about_version = '15.0.4'
+        about_version = '15.2.0'
         kotlin_version = '2.3.10'
-        room_version = '2.8.4'
+        room_version = '2.8.5'
     }
 
     repositories {

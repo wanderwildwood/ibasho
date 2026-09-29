@@ -39,8 +39,8 @@ android {
         // noinspection ExpiredTargetSdkVersion
         targetSdkVersion 32
         // Own versioning from here; upstream was at 0.16.2 when this forked.
-        versionCode 21
-        versionName "0.1.20"
+        versionCode 22
+        versionName "0.1.21"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -155,7 +155,7 @@ dependencies {
     ksp "androidx.room:room-compiler:$room_version"
 
     // Compose
-    def composeBom = platform('androidx.compose:compose-bom:2026.08.00')
+    def composeBom = platform('androidx.compose:compose-bom:2026.09.00')
     implementation composeBom
     androidTestImplementation composeBom
     implementation 'androidx.compose.material3:material3'
@@ -180,13 +180,13 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:3.0.0"
     debugImplementation("com.squareup.okhttp3:logging-interceptor:5.5.0")
 
-    implementation 'org.unifiedpush.android:connector:3.3.3'
+    implementation 'org.unifiedpush.android:connector:3.3.5'
     implementation 'com.jakewharton:process-phoenix:3.0.0'
     implementation "com.mikepenz:aboutlibraries-core:${about_version}"
     implementation "com.mikepenz:aboutlibraries-compose-m3:${about_version}"
     implementation 'net.lingala.zip4j:zip4j:2.11.6'
     implementation "org.apache.maven:maven-artifact:3.9.16" // for semantic versions
-    implementation 'org.bouncycastle:bcprov-jdk18on:1.85.2'
+    implementation 'org.bouncycastle:bcprov-jdk18on:1.86'
 
     // Shizuku
     implementation "dev.rikka.shizuku:api:13.1.0"
