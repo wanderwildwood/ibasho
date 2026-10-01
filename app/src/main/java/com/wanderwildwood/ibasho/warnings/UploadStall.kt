@@ -1,6 +1,8 @@
 package com.wanderwildwood.ibasho.warnings
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import com.wanderwildwood.ibasho.data.BackgroundLocationType
 import com.wanderwildwood.ibasho.data.Settings
@@ -55,12 +57,21 @@ fun uploadStall(context: Context): UploadStall {
 }
 
 /**
- * A Mudita Kompakt restricts installed apps in the background and offers no setting on the
- * phone to lift it: its App info has no Battery page. The way out is a one-time step from a
- * computer, which the README describes.
+ * A Mudita Kompakt restricts installed apps in the background through DuraSpeed, MediaTek's
+ * background manager. Its list, where switching an app on lets it run, has no way in from the
+ * phone's Settings -- no menu entry, no search -- and will not open for another app, but its
+ * App info page will, and that page has an Open button. The README has the rest.
  */
 fun isMuditaKompakt(): Boolean = Build.MANUFACTURER.equals("Mudita", ignoreCase = true)
 
 const val KOMPAKT_HELP_URL = "https://github.com/wanderwildwood/ibasho#on-a-mudita-kompakt"
 
-fun openKompaktHelp(context: Context) = Utils.openUrl(context, KOMPAKT_HELP_URL)
+fun openKompaktHelp(context: Context) {
+    runCatching {
+        context.startActivity(
+            Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                .setData(Uri.parse("package:com.mediatek.duraspeed"))
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        )
+    }.onFailure { Utils.openUrl(context, KOMPAKT_HELP_URL) }
+}

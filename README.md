@@ -57,32 +57,30 @@ it — not what the command is, which the phone fetches from your server itself.
 
 ## On a Mudita Kompakt
 
-The Kompakt stops installed apps from running in the background, and there is no
-setting on the phone to change that: its App info has no Battery page, and the
-MediaTek service that does it (DuraSpeed) has no screen you can reach. Until it
-is lifted, Whereabouts can answer a text message but cannot upload on its own or
-hear commands from the server. Its **Setup warnings** screen says so when it
-happens.
+DuraSpeed, a MediaTek service on the Kompakt, closes installed apps a few
+minutes after the screen goes dark and keeps them closed until they are opened
+again. Until it lets Whereabouts be, the app can answer a text message but
+cannot upload on its own or hear commands from the server. Its **Setup
+warnings** screen says so when it happens. Mudita's own apps are on DuraSpeed's
+allow list; this one has to be added, once.
 
-The fix is a one-time step from a computer with `adb` installed. First, on the
-phone:
+Kompakt's Settings has no way in to DuraSpeed: no menu entry, and no search box
+to look for it in. Its own screen will not open for another app either, but its
+App info page will, and Whereabouts' **Open DuraSpeed** button, in the setup
+guide and in **Setup warnings**, goes there. Then:
 
-1. **Settings → About**: tap **Build number** again and again until the phone says
-   developer mode is on.
-2. **Settings → System → Developer options**: turn on **USB debugging**.
-3. Plug the phone into the computer and allow the prompt that appears on it.
+1. Tap **Open** on DuraSpeed's App info page.
+2. Switch **Whereabouts** on in the list. **On means allowed** to run in the
+   background, which is easy to read the wrong way round. Switching DuraSpeed off
+   at the top works too, for every app.
 
-Then, on the computer:
+If **Setup warnings** still says background running is off after that, it can be
+lifted from a computer with `adb` installed: turn on developer mode (tap **Build
+number** in **Settings → About** until it says so), turn on **USB debugging** in
+**Settings → System → Developer options**, plug the phone in, allow the prompt,
+and run
 
     adb shell cmd appops set com.wanderwildwood.ibasho RUN_ANY_IN_BACKGROUND allow
-    adb shell settings put global setting.duraspeed.enabled 0
-    adb shell settings put system setting.duraspeed.enabled 0
-
-The first line lets this app run in the background; the other two switch
-DuraSpeed off, which otherwise takes that back and closes apps a few minutes
-after the screen goes dark. That is phone-wide, not just for this app. To undo
-it, put both settings back to `1`. Check **Setup warnings** again after the
-phone restarts.
 
 Ringing also needs **Display over other apps** and **Do Not Disturb access**.
 Both can be granted on the phone: the app's permission buttons open the right
