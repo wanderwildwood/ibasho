@@ -11,6 +11,11 @@ all.
 Built for a 4.3" e-ink phone, so: no animation, no colour, one screen where one
 screen will do.
 
+| | |
+|---|---|
+| ![The commands it answers, and what each needs](screenshots/01.png) | ![The SMS channel: who may text it, and how](screenshots/02.png) |
+| ![Setting up: texts only, or texts and a server](screenshots/03.png) | ![About](screenshots/04.png) |
+
 ## Wiping, and what it does not do
 
 **Wiping is off unless the phone's owner turns it on.** Under **Settings →
