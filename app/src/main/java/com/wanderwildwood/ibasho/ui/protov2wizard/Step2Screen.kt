@@ -46,6 +46,7 @@ fun Step2Screen(
             .fillMaxSize()
             .padding(horizontal = 20.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
+        isScrollbarVisible = false,
     ) {
         item {
             TextMMD(stringResource(R.string.proto_v2_wizard_step2_text_intro))

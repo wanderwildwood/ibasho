@@ -65,7 +65,8 @@ fun FmdPermissionDialog(
 
                 // Column of commands/permissions
                 LazyColumnMMD(
-                    modifier = Modifier.padding(top = 16.dp, bottom = 16.dp)
+                    modifier = Modifier.padding(top = 16.dp, bottom = 16.dp),
+                    isScrollbarVisible = false,
                 ) {
                     items(commands) { command ->
                         CommandRow(

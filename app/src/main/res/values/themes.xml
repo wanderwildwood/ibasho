@@ -1,5 +1,8 @@
 <resources>
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <!-- No scrollbars: a list moves a page to a swipe, and nothing else needs one. -->
+        <item name="android:scrollbarThumbVertical">@android:color/transparent</item>
+        <item name="android:scrollbarThumbHorizontal">@android:color/transparent</item>
         <!-- No activity transitions: a slide is a full panel repaint on e-ink. -->
         <item name="android:windowAnimationStyle">@null</item>
         <!-- MMD's type: Lato, which it bundles. Its "Medium" resolves to Regular. -->

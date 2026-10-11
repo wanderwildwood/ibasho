@@ -34,6 +34,7 @@ fun ErrorScreen(
             .fillMaxSize()
             .padding(horizontal = 24.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
+        isScrollbarVisible = false,
     ) {
         item {
             TextMMD(stringResource(R.string.proto_v2_wizard_error), fontWeight = FontWeight.Bold)

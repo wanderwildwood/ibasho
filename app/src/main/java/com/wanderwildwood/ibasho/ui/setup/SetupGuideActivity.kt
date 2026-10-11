@@ -150,6 +150,7 @@ private fun Page(content: androidx.compose.foundation.lazy.LazyListScope.() -> U
             .fillMaxSize()
             .padding(horizontal = 20.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
+        isScrollbarVisible = false,
         content = content,
     )
 }

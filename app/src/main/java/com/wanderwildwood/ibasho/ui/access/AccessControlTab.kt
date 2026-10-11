@@ -95,6 +95,7 @@ fun <T : AccessItem> AccessControlTab(
         // which at 480x800 was not enough: it was cut off behind the buttons.
         LazyColumnMMD(
             modifier = Modifier.weight(1f),
+            isScrollbarVisible = false,
         ) {
             item {
                 TextMMD(stringResource(accessType.hintText, commandKeyword))
