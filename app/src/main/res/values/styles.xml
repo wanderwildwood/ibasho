@@ -52,10 +52,19 @@
         <item name="labelVisibilityMode">labeled</item>
     </style>
 
-    <!-- TopAppBarMMD: 64dp, white, the 3dp rule beneath is in the layout. -->
+    <!-- TopAppBarMMD: 64dp, white, the thin rule beneath is in the layout. -->
     <style name="Widget.Ibasho.Toolbar" parent="Widget.Material3.Toolbar">
         <item name="android:minHeight">64dp</item>
         <item name="android:background">@android:color/white</item>
+        <item name="titleTextAppearance">@style/TextAppearance.Ibasho.TopBarTitle</item>
+    </style>
+
+    <!-- TopAppBarMMD's title: titleLarge, 24sp Lato, as the Compose screens draw it. -->
+    <style name="TextAppearance.Ibasho.TopBarTitle" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="fontFamily">@font/lato_regular</item>
     </style>
 
     <style name="Widget.Ibasho.AppBar" parent="Widget.Material3.AppBarLayout">
