@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mudita.mmd.components.buttons.ButtonMMD
 import com.mudita.mmd.components.divider.HorizontalDividerMMD
-import com.mudita.mmd.components.lazy.LazyColumnMMD
+import com.wanderwildwood.ibasho.ui.PagedColumn
 import com.mudita.mmd.components.text.TextMMD
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.database.AccessItem
@@ -93,9 +93,8 @@ fun <T : AccessItem> AccessControlTab(
         // One paging list whether or not there is anything in it. The empty case used to lay
         // the two hints out flat and give the "nothing here" line whatever height was left,
         // which at 480x800 was not enough: it was cut off behind the buttons.
-        LazyColumnMMD(
+        PagedColumn(
             modifier = Modifier.weight(1f),
-            isScrollbarVisible = false,
         ) {
             item {
                 TextMMD(stringResource(accessType.hintText, commandKeyword))

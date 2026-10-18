@@ -37,7 +37,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.mudita.mmd.components.buttons.ButtonMMD
 import com.mudita.mmd.components.buttons.OutlinedButtonMMD
-import com.mudita.mmd.components.lazy.LazyColumnMMD
+import com.wanderwildwood.ibasho.ui.PagedColumn
 import com.mudita.mmd.components.text.TextMMD
 import com.mudita.mmd.components.text_field.TextFieldMMD
 import com.wanderwildwood.ibasho.R
@@ -145,12 +145,11 @@ private fun Guide(resumed: Int) {
 
 @Composable
 private fun Page(content: androidx.compose.foundation.lazy.LazyListScope.() -> Unit) {
-    LazyColumnMMD(
+    PagedColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(horizontal = 20.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
-        isScrollbarVisible = false,
         content = content,
     )
 }

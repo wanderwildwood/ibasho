@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mudita.mmd.components.buttons.ButtonMMD
 import com.mudita.mmd.components.buttons.OutlinedButtonMMD
-import com.mudita.mmd.components.lazy.LazyColumnMMD
+import com.wanderwildwood.ibasho.ui.PagedColumn
 import com.mudita.mmd.components.text.TextMMD
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.ui.theme.AppTheme
@@ -41,12 +41,11 @@ fun Step2Screen(
         }
     }
 
-    LazyColumnMMD(
+    PagedColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(horizontal = 20.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
-        isScrollbarVisible = false,
     ) {
         item {
             TextMMD(stringResource(R.string.proto_v2_wizard_step2_text_intro))

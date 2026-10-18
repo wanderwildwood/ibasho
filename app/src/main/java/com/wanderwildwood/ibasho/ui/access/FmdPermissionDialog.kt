@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import com.mudita.mmd.components.cards.CardMMD
 import com.mudita.mmd.components.checkbox.CheckboxMMD
-import com.mudita.mmd.components.lazy.LazyColumnMMD
+import com.wanderwildwood.ibasho.ui.PagedColumn
 import com.mudita.mmd.components.text.TextMMD
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.commands.Command
@@ -64,9 +64,9 @@ fun FmdPermissionDialog(
                 )
 
                 // Column of commands/permissions
-                LazyColumnMMD(
-                    modifier = Modifier.padding(top = 16.dp, bottom = 16.dp),
-                    isScrollbarVisible = false,
+                // Weighted so the buttons below keep their room when the list runs past the dialog.
+                PagedColumn(
+                    modifier = Modifier.weight(1f, fill = false).padding(top = 16.dp, bottom = 16.dp),
                 ) {
                     items(commands) { command ->
                         CommandRow(
@@ -111,7 +111,7 @@ private fun CommandRow(
     ) {
         CheckboxMMD(
             checked,
-            onCheckedChange = null, // handled by the row
+            onCheckedChange = onCheckedChange,
             modifier = Modifier
                 .padding(start = 8.dp, end = 32.dp)
                 .size(12.dp),
