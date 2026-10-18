@@ -42,6 +42,27 @@ that is the trade for working indoors, and it is off unless you turn it on.
 On a degoogled phone with no network location provider, expect GPS only —
 sparse, and outdoors.
 
+## Sharing where you are with another app
+
+Another app can ask Whereabouts for one location, once. Whereabouts names the app
+that asked ("Share where you are with Messaging?"); on **Share** it takes one
+fresh fix and hands it back. If no fresh fix comes in within a minute, it offers
+the last one it has, saying how old it is, but only if that is under ten minutes
+old. Nothing is kept, and nothing goes anywhere but to the app that asked.
+Messaging uses this for **Send where I am**.
+
+For an app that wants to do the same, start this for a result:
+
+    action  com.wanderwildwood.ibasho.action.SHARE_LOCATION_ONCE
+
+`RESULT_OK` carries `latitude` and `longitude` (double), `time` (long, when the
+fix was taken, in milliseconds since 1970) and, when the phone knows it,
+`accuracy` (float, metres). Cancel, Back, or no fix at all give `RESULT_CANCELED`.
+When there is a reason, it is in `reason`: `no_fix`, or `no_permission` if
+Whereabouts has not been allowed location. Started without asking for a result,
+it closes at once. No permission is needed to ask, and this is the only thing
+Whereabouts lets another app reach.
+
 ## Server
 
 It talks to [FMD Server](https://gitlab.com/fmd-foss/fmd-server), self-hosted.

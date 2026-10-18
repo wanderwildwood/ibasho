@@ -66,6 +66,18 @@
         <activity
             android:name=".ui.SetupWarningsActivity"
             android:label="@string/setup_warnings_title" />
+        <!-- The one thing other apps may ask of Whereabouts: one location, once, after the
+             person says yes on this screen. Started for a result; see the README. -->
+        <activity
+            android:name=".ui.share.ShareLocationActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:label="@string/share_location_title">
+            <intent-filter>
+                <action android:name="com.wanderwildwood.ibasho.action.SHARE_LOCATION_ONCE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.access.AccessControlActivity"
             android:label="@string/Settings_Access_Control" />

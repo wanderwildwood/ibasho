@@ -545,4 +545,18 @@
     <string name="setup_done_later">Everything here can be changed in Settings, and this guide opened again from there.</string>
     <string name="setup_finish">Done</string>
     <string name="Settings_Setup_Guide">Setup guide</string>
+
+    <!-- Share where you are, once, with another app that asks (ShareLocationActivity) -->
+    <string name="share_location_title">Share where you are</string>
+    <string name="share_location_question">Share where you are with %1$s?</string>
+    <string name="share_location_explain">Whereabouts takes one fix now and hands it to %1$s. Nothing is kept, and nothing is sent anywhere else.</string>
+    <string name="share_location_share">Share</string>
+    <string name="share_location_finding">Finding where you are…</string>
+    <string name="share_location_no_fresh_fix">No fresh fix came in.</string>
+    <plurals name="share_location_last_known_age">
+        <item quantity="one">The last one Whereabouts has is %d minute old.</item>
+        <item quantity="other">The last one Whereabouts has is %d minutes old.</item>
+    </plurals>
+    <string name="share_location_share_last">Share that one</string>
+    <string name="share_location_no_permission">Whereabouts has no location access. Open Whereabouts to allow it, then try again.</string>
 </resources>
