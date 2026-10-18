@@ -32,15 +32,34 @@ class NotificationAccessPermission : Permission() {
     }
 
     override fun request(activity: Activity) {
-        // Android 13 and later grey this switch out for an app installed from a file until
-        // restricted settings are allowed for it, and say nothing about how. Where that is in
-        // force, say it instead of opening a list whose switch cannot be moved. On Android 12
-        // (MuditaOS) there is no such restriction, and nothing changes.
-        if (RestrictedSettings.isRestricted(activity)) {
-            RestrictedSettings.showHint(activity)
-            return
-        }
         val intent = Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS)
         activity.startActivity(intent)
+        // Android 13 and later grey this switch out for an app installed from a file until
+        // restricted settings are allowed for it, and do not say how. So when the person comes
+        // back and access is still not granted, and that restriction can be the reason, say it.
+        // On Android 12 (MuditaOS) there is no such restriction, and nothing changes.
+        if (!RestrictedSettings.isRestricted(activity)) return
+        activity.application.registerActivityLifecycleCallbacks(object : SimpleLifecycle() {
+            private var left = false
+            override fun onActivityPaused(a: Activity) { if (a === activity) left = true }
+            override fun onActivityResumed(a: Activity) {
+                if (a !== activity || !left) return
+                activity.application.unregisterActivityLifecycleCallbacks(this)
+                if (!isGranted(activity)) RestrictedSettings.showHint(activity)
+            }
+            override fun onActivityDestroyed(a: Activity) {
+                if (a === activity) activity.application.unregisterActivityLifecycleCallbacks(this)
+            }
+        })
+    }
+
+    private open class SimpleLifecycle : android.app.Application.ActivityLifecycleCallbacks {
+        override fun onActivityCreated(a: Activity, b: android.os.Bundle?) = Unit
+        override fun onActivityStarted(a: Activity) = Unit
+        override fun onActivityResumed(a: Activity) = Unit
+        override fun onActivityPaused(a: Activity) = Unit
+        override fun onActivityStopped(a: Activity) = Unit
+        override fun onActivitySaveInstanceState(a: Activity, b: android.os.Bundle) = Unit
+        override fun onActivityDestroyed(a: Activity) = Unit
     }
 }
