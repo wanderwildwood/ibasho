@@ -32,6 +32,14 @@ class NotificationAccessPermission : Permission() {
     }
 
     override fun request(activity: Activity) {
+        // Android 13 and later grey this switch out for an app installed from a file until
+        // restricted settings are allowed for it, and say nothing about how. Where that is in
+        // force, say it instead of opening a list whose switch cannot be moved. On Android 12
+        // (MuditaOS) there is no such restriction, and nothing changes.
+        if (RestrictedSettings.isRestricted(activity)) {
+            RestrictedSettings.showHint(activity)
+            return
+        }
         val intent = Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS)
         activity.startActivity(intent)
     }

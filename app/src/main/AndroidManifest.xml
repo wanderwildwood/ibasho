@@ -44,6 +44,11 @@
         android:name="android.hardware.telephony"
         android:required="false" />
 
+    <!-- DuraSpeed, so its absence can be told from its presence (KompaktOS has none). -->
+    <queries>
+        <package android:name="com.mediatek.duraspeed" />
+    </queries>
+
     <application
         android:name=".FmdApplication"
         android:allowBackup="true"

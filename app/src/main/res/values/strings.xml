@@ -559,4 +559,8 @@
     </plurals>
     <string name="share_location_share_last">Share that one</string>
     <string name="share_location_no_permission">Whereabouts has no location access. Open Whereabouts to allow it, then try again.</string>
+
+    <!-- Restricted settings (Android 13+), only while in force for this app -->
+    <string name="restricted_settings_hint">Android blocks this for apps installed from a file.\nOpen App info, tap ⋮, then Allow restricted settings, and try again.</string>
+    <string name="restricted_settings_app_info">App info</string>
 </resources>

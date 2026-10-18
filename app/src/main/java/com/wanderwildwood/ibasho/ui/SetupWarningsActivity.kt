@@ -75,7 +75,7 @@ class SetupWarningsActivity : FmdActivity() {
         viewBinding.backgroundRestricted.backgroundRestrictedButton.isVisible = shouldNudge
 
         // A Kompakt's App info has no Battery page, so "Open settings" would lead nowhere.
-        if (isMuditaKompakt()) {
+        if (isMuditaKompakt(context)) {
             viewBinding.backgroundRestricted.backgroundRestrictedText.setText(
                 R.string.background_restricted_text_kompakt
             )
@@ -84,7 +84,7 @@ class SetupWarningsActivity : FmdActivity() {
             )
         }
         viewBinding.backgroundRestricted.backgroundRestrictedButton.setOnClickListener {
-            if (isMuditaKompakt()) openKompaktHelp(context) else openAppSettings(context)
+            if (isMuditaKompakt(context)) openKompaktHelp(context) else openAppSettings(context)
         }
     }
 
@@ -107,7 +107,7 @@ class SetupWarningsActivity : FmdActivity() {
                 else R.string.upload_stall_off
             )
             UploadStall.NOT_RUNNING -> getString(
-                if (isMuditaKompakt()) R.string.upload_stall_not_running_kompakt
+                if (isMuditaKompakt(context)) R.string.upload_stall_not_running_kompakt
                 else R.string.upload_stall_not_running,
                 since
             )
@@ -117,12 +117,12 @@ class SetupWarningsActivity : FmdActivity() {
         row.icCheck.isVisible = stall == UploadStall.NONE
         row.uploadStallButton.isVisible = stall != UploadStall.NONE
         row.uploadStallButton.setText(
-            if (stall == UploadStall.NOT_RUNNING && isMuditaKompakt()) R.string.kompakt_help_button
+            if (stall == UploadStall.NOT_RUNNING && isMuditaKompakt(context)) R.string.kompakt_help_button
             else R.string.background_restricted_button
         )
         row.uploadStallButton.setOnClickListener {
             when {
-                stall == UploadStall.NOT_RUNNING && isMuditaKompakt() -> openKompaktHelp(context)
+                stall == UploadStall.NOT_RUNNING && isMuditaKompakt(context) -> openKompaktHelp(context)
                 stall == UploadStall.NOT_RUNNING -> openAppSettings(context)
                 // No fix: the location sources are chosen on the server screen.
                 else -> startActivity(Intent(this, FMDServerActivity::class.java))

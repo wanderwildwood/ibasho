@@ -114,7 +114,7 @@ private fun Guide(resumed: Int) {
         add(Step.CHOOSE); add(Step.ALLOW); add(Step.NUMBER); add(Step.RING)
         if (mode == Settings.VAL_SETUP_SERVER) {
             add(Step.SERVER)
-            if (isMuditaKompakt()) add(Step.KOMPAKT)
+            if (isMuditaKompakt(activity)) add(Step.KOMPAKT)
         }
         add(Step.DONE)
     }
@@ -388,7 +388,7 @@ private fun DoneStep(mode: String, onFinish: () -> Unit) {
         if (mode == Settings.VAL_SETUP_SERVER) {
             item { TextMMD(stringResource(R.string.setup_done_server)) }
         }
-        if (mode == Settings.VAL_SETUP_TEXTS && isMuditaKompakt()) {
+        if (mode == Settings.VAL_SETUP_TEXTS && isMuditaKompakt(context)) {
             item { TextMMD(stringResource(R.string.setup_done_kompakt)) }
         }
         item { TextMMD(stringResource(R.string.setup_done_later)) }

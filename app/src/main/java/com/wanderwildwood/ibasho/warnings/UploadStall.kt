@@ -62,7 +62,12 @@ fun uploadStall(context: Context): UploadStall {
  * phone's Settings -- no menu entry, no search -- and will not open for another app, but its
  * App info page will, and that page has an Open button. The README has the rest.
  */
-fun isMuditaKompakt(): Boolean = Build.MANUFACTURER.equals("Mudita", ignoreCase = true)
+fun isMuditaKompakt(context: Context): Boolean = runCatching {
+    // DuraSpeed itself, not the maker's name: KompaktOS also says "Mudita" and has no DuraSpeed,
+    // and there the help button opened an App info page that closes at once. In <queries>.
+    context.packageManager.getApplicationInfo("com.mediatek.duraspeed", 0)
+    true
+}.getOrDefault(false)
 
 const val KOMPAKT_HELP_URL = "https://github.com/wanderwildwood/ibasho#on-a-mudita-kompakt"
 
