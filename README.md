@@ -123,6 +123,17 @@ taken out and how it reads on a small grey screen.
 The built-in push connection is adapted from [Sunup](https://codeberg.org/Sunup/android)
 and the UnifiedPush Android distributor library, both Apache-2.0; see [NOTICE](NOTICE).
 
+## Getting it, and keeping it
+
+Download <https://github.com/wanderwildwood/ibasho/releases/latest/download/whereabouts.apk>
+and sideload it. That address always points at the newest release, and every release
+publishes a `.sha256` beside the APK if you would rather check than trust.
+
+For updates without doing this by hand, add this repository to
+[Obtainium](https://github.com/ImranR98/Obtainium):
+
+    https://github.com/wanderwildwood/ibasho
+
 ## Licence
 
 GNU General Public License, version 3 or later — the same as upstream, whose

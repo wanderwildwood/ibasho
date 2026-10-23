@@ -30,6 +30,9 @@ apps.
 ## Permissions
 
 The full list is in `app/src/main/AndroidManifest.xml`. Location, SMS, Do Not Disturb access and
-display over other apps are what let a lost phone be found, rung or locked. There is no camera
+display over other apps are what let a lost phone be found, rung or locked. Bluetooth lets a command
+switch the phone's Bluetooth on or off or scan for nearby devices; the phone state and cell
+permissions read the cell towers the phone sees, for locating by cell; biometric is the lock on
+the app's settings. There is no camera
 permission. Sharing a location with another app needs no permission beyond the location access
 Whereabouts already has.
