@@ -5,22 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
-import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.commands.Command
 import com.wanderwildwood.ibasho.commands.availableCommands
 import com.wanderwildwood.ibasho.utils.CypherUtils
 
-class PasswordSetDialog(
+class PasswordSetDialog @JvmOverloads constructor(
     val context: Context,
     val onSuccess: (String) -> Unit,
     @StringRes val title: Int = R.string.password_enter,
     val message: String? = null,
     val forceMinLength: Boolean = true,
     val allowEmpty: Boolean = false,
+    val onCancel: () -> Unit = {},
 ) {
 
     var dialog: AlertDialog
@@ -38,13 +37,19 @@ class PasswordSetDialog(
         dialog = EInkAlertDialogBuilder(context)
             .setTitle(title)
             .setView(passwordLayout)
-            .setPositiveButton(R.string.Ok, { _, _ ->
-                val password = editTextPassword.getText().toString()
-                validatePassword(context, password, forceMinLength, allowEmpty, onSuccess)
-            })
-            .setNegativeButton(context.getString(R.string.cancel), { _, _ -> })
+            .setPositiveButton(R.string.Ok, null)
+            .setNegativeButton(context.getString(R.string.cancel), { _, _ -> onCancel() })
             .setCancelable(false)
             .create()
+
+        // A wrong entry keeps the dialog open, with what was typed and the reason in the dialog.
+        dialog.closeOnlyWhen {
+            val password = editTextPassword.getText().toString()
+            val problem = passwordProblem(context, password, forceMinLength, allowEmpty)
+            passwordLayout.showDialogError(problem)
+            if (problem == null) onSuccess(password)
+            problem == null
+        }
     }
 
     fun show() {
@@ -52,31 +57,23 @@ class PasswordSetDialog(
     }
 }
 
-fun validatePassword(
+/** Why [password] cannot be used (a string resource), or null when it can. */
+@StringRes
+fun passwordProblem(
     context: Context,
     password: String,
     forceMinLength: Boolean,
     allowEmpty: Boolean,
-    onSuccess: (String) -> Unit,
-) {
-    if (password.isBlank()) {
-        if (allowEmpty) {
-            onSuccess("")
-        } else {
-            Toast.makeText(context, R.string.pw_change_empty, Toast.LENGTH_LONG).show()
-        }
+): Int? {
+    return if (password.isBlank()) {
+        if (allowEmpty) null else R.string.pw_change_empty
     } else if (availableCommands(context).stream()
             .anyMatch { cmd: Command? -> cmd!!.keyword == password }
     ) {
-        Toast.makeText(
-            context,
-            R.string.password_match_command_keyword,
-            Toast.LENGTH_LONG
-        ).show()
+        R.string.password_match_command_keyword
     } else if (forceMinLength && password.length < CypherUtils.MIN_PASSWORD_LENGTH) {
-        Toast.makeText(context, R.string.password_min_length, Toast.LENGTH_LONG)
-            .show()
+        R.string.password_error_min_length
     } else {
-        onSuccess(password)
+        null
     }
 }

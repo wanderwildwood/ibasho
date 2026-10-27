@@ -21,7 +21,9 @@ import com.wanderwildwood.ibasho.database.NotificationPassword
 import com.wanderwildwood.ibasho.database.PhoneNumber
 import com.wanderwildwood.ibasho.database.SmsPassword
 import com.wanderwildwood.ibasho.ui.FmdActivity
-import com.wanderwildwood.ibasho.ui.common.validatePassword
+import com.wanderwildwood.ibasho.ui.common.closeOnlyWhen
+import com.wanderwildwood.ibasho.ui.common.passwordProblem
+import com.wanderwildwood.ibasho.ui.common.showDialogError
 import com.wanderwildwood.ibasho.utils.normalizeNumberForStorage
 import kotlinx.coroutines.launch
 
@@ -62,20 +64,27 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
         val nameInput = layout.findViewById<EditText>(R.id.editTextName)
         val phoneNumberInput = layout.findViewById<EditText>(R.id.editTextPhoneNumber)
 
-        EInkAlertDialogBuilder(context)
+        val dialog = EInkAlertDialogBuilder(context)
             .setTitle(context.getString(R.string.allowlist_add_phone_number))
             .setView(layout)
-            .setPositiveButton(
-                getString(R.string.add),
-                { _, _ ->
-                    val name = nameInput.getText().toString()
-                    val number = phoneNumberInput.getText().toString()
-                    lifecycleScope.launch {
-                        addContactToAllowList(number, name)
-                    }
-                })
+            .setPositiveButton(getString(R.string.add), null)
             .setNegativeButton(getString(R.string.cancel), null)
-            .show()
+            .create()
+
+        // A number that cannot be right keeps the dialog open, with the reason in it.
+        dialog.closeOnlyWhen {
+            val name = nameInput.getText().toString()
+            val number = phoneNumberInput.getText().toString()
+            val valid = normalizeNumberForStorage(context, number) != null
+            layout.showDialogError(if (valid) null else R.string.allowlist_invalid_number)
+            if (valid) {
+                lifecycleScope.launch {
+                    addContactToAllowList(number, name)
+                }
+            }
+            valid
+        }
+        dialog.show()
     }
 
     override fun onAddContactClicked() {
@@ -183,27 +192,31 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
         val labelInput = layout.findViewById<EditText>(R.id.editTextLabel)
         val passwordInput = layout.findViewById<EditText>(R.id.editTextPassword)
 
-        EInkAlertDialogBuilder(context)
+        val dialog = EInkAlertDialogBuilder(context)
             .setTitle(title)
             .setView(layout)
             .setCancelable(false)
-            .setPositiveButton(
-                getString(R.string.add),
-                { _, _ ->
-                    val label = labelInput.getText().toString()
-                    val password = passwordInput.getText().toString()
-
-                    validatePassword(context, password, forceMinLength = true, allowEmpty = false) {
-                        viewModel.setLoading(true)
-                        lifecycleScope.launch {
-                            val passwordHash = settings.hashLocalPassword(password)
-                            onSaveClicked(label, passwordHash)
-                            viewModel.setLoading(false)
-                        }
-                    }
-                })
+            .setPositiveButton(getString(R.string.add), null)
             .setNegativeButton(getString(R.string.cancel), null)
-            .show()
+            .create()
+
+        // A wrong password keeps the dialog open, with the label and password still typed in.
+        dialog.closeOnlyWhen {
+            val label = labelInput.getText().toString()
+            val password = passwordInput.getText().toString()
+            val problem = passwordProblem(context, password, forceMinLength = true, allowEmpty = false)
+            layout.showDialogError(problem)
+            if (problem == null) {
+                viewModel.setLoading(true)
+                lifecycleScope.launch {
+                    val passwordHash = settings.hashLocalPassword(password)
+                    onSaveClicked(label, passwordHash)
+                    viewModel.setLoading(false)
+                }
+            }
+            problem == null
+        }
+        dialog.show()
     }
 
     override fun onAddSmsPasswordClicked() {

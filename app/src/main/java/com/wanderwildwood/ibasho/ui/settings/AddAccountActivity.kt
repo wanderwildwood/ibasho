@@ -18,6 +18,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
+import com.wanderwildwood.ibasho.ui.common.closeOnlyWhen
+import com.wanderwildwood.ibasho.ui.common.showDialogError
 import com.wanderwildwood.ibasho.BuildConfig
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.data.RegistrationTokenRepository
@@ -145,38 +147,42 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
             .setView(registerLayout)
             .setCancelable(false)
             .setNegativeButton(getString(R.string.cancel), null)
-            .setPositiveButton(getString(R.string.Ok)) { _, _ ->
+            .setPositiveButton(getString(R.string.Ok), null)
+            .create()
+
+        // A wrong entry keeps the dialog open, with what was typed and the reason in it.
+        registerDialog.closeOnlyWhen {
+            val username = usernameInput.text.toString()
+            val password = passwordInput.text.toString()
+            val registrationToken = registrationTokenInput.text.toString()
+
+            cacheRegistrationToken(registrationToken)
+
+            val problem = if (username.isEmpty() || password.isEmpty()) {
+                R.string.Settings_FMDServer_Error_id_or_pw_empty
+            } else if (password.length < MIN_PASSWORD_LENGTH) {
+                R.string.password_error_min_length
+            } else {
+                null
+            }
+            registerLayout.showDialogError(problem)
+            if (problem == null) {
                 showLoadingIndicator(context)
-
-                val username = usernameInput.text.toString()
-                val password = passwordInput.text.toString()
-                val registrationToken = registrationTokenInput.text.toString()
-
-                cacheRegistrationToken(registrationToken)
-
-                if (username.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(
-                        context, R.string.Settings_FMDServer_Error_id_or_pw_empty, Toast.LENGTH_LONG
-                    ).show()
-                    loadingDialog?.cancel()
-                } else if (password.length < MIN_PASSWORD_LENGTH) {
-                    Toast.makeText(context, R.string.password_min_length, Toast.LENGTH_LONG).show()
-                    loadingDialog?.cancel()
-                } else {
-                    // Key generation and password hashing is expensive-ish, so we don't want
-                    // to do it on the UI thread (e.g., it would block the loading indicator).
-                    lifecycleScope.launch(Dispatchers.IO) {
-                        val fmdServerRepo = getTemporaryApiService()
-                        fmdServerRepo.register(
-                            username,
-                            password,
-                            registrationToken,
-                            this@AddAccountActivity::onRegisterOrLoginSuccess,
-                            this@AddAccountActivity::onRegisterOrLoginError,
-                        )
-                    }
+                // Key generation and password hashing is expensive-ish, so we don't want
+                // to do it on the UI thread (e.g., it would block the loading indicator).
+                lifecycleScope.launch(Dispatchers.IO) {
+                    val fmdServerRepo = getTemporaryApiService()
+                    fmdServerRepo.register(
+                        username,
+                        password,
+                        registrationToken,
+                        this@AddAccountActivity::onRegisterOrLoginSuccess,
+                        this@AddAccountActivity::onRegisterOrLoginError,
+                    )
                 }
             }
+            problem == null
+        }
         showPrivacyPolicyThenDialog(context, registerDialog)
     }
 
@@ -194,35 +200,34 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
             .setView(loginLayout)
             .setCancelable(false)
             .setNegativeButton(getString(R.string.cancel), null)
-            .setPositiveButton(getString(R.string.Ok)) { _, _ ->
+            .setPositiveButton(getString(R.string.Ok), null)
+            .create()
+
+        loginDialog.closeOnlyWhen {
+            val id = idInput.text.toString()
+            val password = passwordInput.text.toString()
+            val ok = id.isNotEmpty() && password.isNotEmpty()
+            loginLayout.showDialogError(if (ok) null else R.string.Settings_FMDServer_Error_id_or_pw_empty)
+            if (ok) {
                 showLoadingIndicator(context)
-
-                val id = idInput.text.toString()
-                val password = passwordInput.text.toString()
-
-                if (id.isNotEmpty() && password.isNotEmpty()) {
-                    lifecycleScope.launch(Dispatchers.IO) {
-                        val fmdServerRepo = getTemporaryApiService()
-                        fmdServerRepo.login(
-                            id,
-                            password,
-                            this@AddAccountActivity::onRegisterOrLoginSuccess,
-                            this@AddAccountActivity::onRegisterOrLoginError,
-                        )
-                    }
-                } else {
-                    Toast.makeText(
-                        context, R.string.Settings_FMDServer_Error_id_or_pw_empty, Toast.LENGTH_LONG
-                    ).show()
-                    loadingDialog?.cancel()
+                lifecycleScope.launch(Dispatchers.IO) {
+                    val fmdServerRepo = getTemporaryApiService()
+                    fmdServerRepo.login(
+                        id,
+                        password,
+                        this@AddAccountActivity::onRegisterOrLoginSuccess,
+                        this@AddAccountActivity::onRegisterOrLoginError,
+                    )
                 }
             }
+            ok
+        }
         showPrivacyPolicyThenDialog(context, loginDialog)
     }
 
     private fun showPrivacyPolicyThenDialog(
         context: Context,
-        dialogToShowAfterAccepting: AlertDialog.Builder
+        dialogToShowAfterAccepting: AlertDialog
     ) {
         val webView = WebView(context)
         webView.clearCache(true) // make sure to load the latest policy
@@ -242,7 +247,8 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
             .setTitle(getString(R.string.Settings_FMDServer_Alert_PrivacyPolicy_Title))
             .setView(webView)
             .setPositiveButton(getString(R.string.accept)) { _, _ ->
-                val shown = dialogToShowAfterAccepting.show()
+                val shown = dialogToShowAfterAccepting
+                shown.show()
                 // Pan the dialog so the focused field stays visible when the keyboard
                 // is up. ADJUST_RESIZE collapses the dialog to a sliver here; without
                 // either, the registration token sits under the keyboard and the

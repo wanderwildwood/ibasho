@@ -28,6 +28,7 @@ import com.wanderwildwood.ibasho.ui.access.AccessControlActivity
 import com.wanderwildwood.ibasho.ui.common.PasswordSetDialog
 import com.wanderwildwood.ibasho.ui.helper.SettingsEntry
 import com.wanderwildwood.ibasho.ui.helper.SettingsViewAdapter
+import com.wanderwildwood.ibasho.utils.deleteDocumentQuietly
 import com.wanderwildwood.ibasho.utils.SettingsImportExporter
 import com.wanderwildwood.ibasho.utils.SettingsImportExporter.Companion.filenameForExport
 import com.wanderwildwood.ibasho.utils.log
@@ -143,7 +144,7 @@ class SettingsFragment : TaggedFragment() {
 
     private fun showExportPasswordDialog(context: Context, uri: Uri) {
         val message = context.getString(R.string.export_password_message) +
-                "\n\n" + context.getString(R.string.password_min_length) +
+                "\n\n" + context.getString(R.string.export_password_rule) +
                 "\n\n" + context.getString(R.string.export_password_message_empty_warning)
 
         PasswordSetDialog(
@@ -156,6 +157,8 @@ class SettingsFragment : TaggedFragment() {
             R.string.export_password_enter_title,
             message,
             allowEmpty = true,
+            // The picker has already made the file; no backup means no empty file left behind.
+            onCancel = { deleteDocumentQuietly(context, uri) },
         ).show()
     }
 
@@ -191,8 +194,13 @@ class SettingsFragment : TaggedFragment() {
         }
     }
 
-    private fun showImportPasswordDialog(context: Context) {
-        val message = context.getString(R.string.import_password_message)
+    private fun showImportPasswordDialog(context: Context, wrongPassword: Boolean = false) {
+        val message = if (wrongPassword) {
+            context.getString(R.string.import_password_wrong) + "\n\n" +
+                    context.getString(R.string.import_password_message)
+        } else {
+            context.getString(R.string.import_password_message)
+        }
 
         PasswordSetDialog(
             context,
@@ -200,12 +208,20 @@ class SettingsFragment : TaggedFragment() {
             R.string.export_password_enter_title,
             message,
             forceMinLength = false,
+            // Cancelling leaves nothing behind in the cache.
+            onCancel = { File(context.cacheDir, TEMP_ZIP_NAME).delete() },
         ).show()
     }
 
     private fun executeImport(context: Context, password: String?) = lifecycleScope.launch {
         val tempFile = File(context.cacheDir, TEMP_ZIP_NAME)
-        val isSuccessful = SettingsImportExporter(context).importData(tempFile.toUri(), password)
+        val importer = SettingsImportExporter(context)
+        val isSuccessful = importer.importData(tempFile.toUri(), password)
+        if (!isSuccessful && importer.lastFailureWasWrongPassword) {
+            // Ask again; the copy stays until the user gives up or it works.
+            showImportPasswordDialog(context, wrongPassword = true)
+            return@launch
+        }
         if (isSuccessful) {
             showImportSuccessDialog(context)
         } else {

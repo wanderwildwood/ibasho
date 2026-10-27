@@ -2,6 +2,7 @@ package com.wanderwildwood.ibasho.utils
 
 import android.content.Context
 import android.net.Uri
+import android.provider.DocumentsContract
 import android.os.Build
 import android.widget.Toast
 import com.google.gson.Gson
@@ -17,6 +18,7 @@ import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.database.ACCESS_DB_FILENAME
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import net.lingala.zip4j.exception.ZipException
 import net.lingala.zip4j.io.inputstream.ZipInputStream
 import net.lingala.zip4j.io.outputstream.ZipOutputStream
 import net.lingala.zip4j.model.ZipParameters
@@ -38,6 +40,10 @@ private const val TAG = "ImportExportUtil"
 class SettingsImportExporter(
     private val context: Context,
 ) {
+    /** Set by [importData] when the backup is encrypted and the password given was not its. */
+    var lastFailureWasWrongPassword = false
+        private set
+
     companion object {
         fun filenameForExport(): String {
             return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -96,6 +102,7 @@ class SettingsImportExporter(
         // since the URI path may not have those (e.g. when the file comes from Nextcloud as a content provider).
         // Thus we just need to try one format, and if it fails, try the other.
 
+        lastFailureWasWrongPassword = false
         var success = importV1SettingsJson(uri)
         if (success) {
             return@withContext true
@@ -142,6 +149,7 @@ class SettingsImportExporter(
         password: String?,
     ): Boolean {
         var inputStream: InputStream? = null
+        var dbClosed = false
         try {
             context.log().i(TAG, "Trying to import ZIP")
             inputStream = context.contentResolver.openInputStream(uri)
@@ -154,6 +162,7 @@ class SettingsImportExporter(
             // in place, Room will just overwrite it with the DB cached in memory.
             val accessRepo = AccessRepository.getInstance(context)
             accessRepo.closeDb()
+            dbClosed = true
 
             val zipInputStream = ZipInputStream(inputStream, password?.toCharArray())
             var settingsFound = false
@@ -192,6 +201,7 @@ class SettingsImportExporter(
             }
 
             accessRepo.openDb()
+            dbClosed = false
 
             if (settingsFound && (allowlistFound || accessDbFound)) {
                 context.log().i(TAG, "ZIP import successful")
@@ -206,9 +216,16 @@ class SettingsImportExporter(
 
         } catch (e: Exception) {
             context.log().e(TAG, "ZIP import failed:\n${e.stackTraceToString()}")
+            if (e is ZipException && e.type == ZipException.Type.WRONG_PASSWORD) {
+                lastFailureWasWrongPassword = true
+            }
             // continue
         } finally {
             inputStream?.close()
+            // A failed import must not leave the database closed.
+            if (dbClosed) {
+                AccessRepository.getInstance(context).openDb()
+            }
         }
 
         return false
@@ -249,10 +266,21 @@ suspend fun writeToUri(
         }
     } catch (e: Exception) {
         context.log().e(TAG, "Export failed:\n${e.stackTraceToString()}")
+        // Don't leave a broken or empty file behind.
+        deleteDocumentQuietly(context, uri)
         withContext(Dispatchers.Main) {
             Toast.makeText(context, R.string.export_failed, Toast.LENGTH_SHORT).show()
         }
     } finally {
         outputStream?.close()
+    }
+}
+
+/** Removes a document the picker created for an export that did not happen. */
+fun deleteDocumentQuietly(context: Context, uri: Uri) {
+    try {
+        DocumentsContract.deleteDocument(context.contentResolver, uri)
+    } catch (e: Exception) {
+        context.log().w(TAG, "Could not remove the unused export file:\n${e.message}")
     }
 }
