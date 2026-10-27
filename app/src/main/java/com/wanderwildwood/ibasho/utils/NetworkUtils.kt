@@ -1,11 +1,8 @@
 package com.wanderwildwood.ibasho.utils
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.net.wifi.ScanResult
-import android.net.wifi.WifiManager
 
 data class NetworkInfo(
     val interfaceName: String,
@@ -39,11 +36,17 @@ object NetworkUtils {
     fun isNetworkAvailable(context: Context): Boolean {
         val connectivityManager = context.getSystemService(ConnectivityManager::class.java)
 
-        val activeNetwork = connectivityManager.activeNetwork ?: return false
+        @Suppress("Deprecation")
+        return connectivityManager.allNetworks.any { network ->
+            val caps = connectivityManager.getNetworkCapabilities(network) ?: return@any false
 
-        val caps = connectivityManager.getNetworkCapabilities(activeNetwork) ?: return false
-
-        return caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-                && caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+            // Exclude VPN networks, because they still have the INTERNET, VALIDATED capabilities,
+            // even after the device transitioned into airplane mode.
+            // Check the underlying physical networks instead.
+            // See https://gitlab.com/fmd-foss/fmd-android/-/work_items/448
+            !caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN)
+                    && caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+                    && caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+        }
     }
 }
