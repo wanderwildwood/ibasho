@@ -6,14 +6,14 @@ import android.widget.Button
 import androidx.annotation.StringRes
 
 /** How long an armed control stays live before it forgets it was tapped. */
-private const val DISARM_AFTER_MS = 4_000L
+private const val DISARM_AFTER_MS = 6_000L
 
 /**
  * A destructive action asks in its own face rather than stacking a dialog on
  * top of the screen that already holds it. The first tap arms the button and
  * changes what it says; a second tap does the thing.
  *
- * It disarms itself after four seconds, so a stray tap does not leave a live
+ * It disarms itself after six seconds, so a stray tap does not leave a live
  * trigger for whoever picks the phone up next.
  */
 fun armThenRun(

@@ -1,7 +1,10 @@
 package com.wanderwildwood.ibasho.ui.access
 
 import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.DialogFragment
 import com.wanderwildwood.ibasho.ui.theme.AppTheme
@@ -34,6 +37,13 @@ class FmdPermissionDialogFragment : DialogFragment() {
             ?: error("Host must implement FmdPermissionDialogFragment.Listener")
 
         return Dialog(context).apply {
+            // This shell only hosts the Compose dialog, which draws its own frame. Left as it
+            // is, the shell adds a second window with a dimmed backdrop (a screen of grey).
+            window?.apply {
+                setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+                setDimAmount(0f)
+            }
             setContentView(ComposeView(context).apply {
                 setContent {
                     AppTheme {

@@ -2,15 +2,12 @@ package com.wanderwildwood.ibasho.ui.access
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.TextButton
@@ -22,14 +19,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
-import com.mudita.mmd.components.cards.CardMMD
 import com.mudita.mmd.components.checkbox.CheckboxMMD
 import com.wanderwildwood.ibasho.ui.PagedColumn
+import com.wanderwildwood.ibasho.ui.theme.EInkDialog
 import com.mudita.mmd.components.text.TextMMD
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.commands.Command
@@ -47,51 +42,42 @@ fun FmdPermissionDialog(
     var permission by rememberSaveable { mutableLongStateOf(initialPermission) }
     val commands = availableCommandsWithoutHelp(LocalContext.current)
 
-    // https://m3.material.io/components/dialogs/specs
-    Dialog(onCancelClicked) {
-        CardMMD(
-            modifier = Modifier
-                .padding(24.dp)
-                .fillMaxWidth(),
-            shape = RoundedCornerShape(28.dp)
+    EInkDialog(onCancelClicked) {
+        TextMMD(
+            text = stringResource(R.string.fmd_permission_allowed_commands_title),
+            style = MaterialTheme.typography.headlineSmall,
+        )
+
+        // Column of commands/permissions
+        // Weighted so the buttons below keep their room when the list runs past the dialog.
+        PagedColumn(
+            modifier = Modifier.weight(1f, fill = false).padding(top = 16.dp, bottom = 16.dp),
         ) {
-            Column(
-                modifier = Modifier.padding(24.dp),
-            ) {
-                TextMMD(
-                    text = stringResource(R.string.fmd_permission_allowed_commands_title),
-                    style = MaterialTheme.typography.headlineSmall,
+            items(commands) { command ->
+                CommandRow(
+                    command,
+                    checked = permission.hasPermission(command.permission),
+                    onCheckedChange = { checked ->
+                        permission = permission.setPermission(command.permission, checked)
+                    },
                 )
+            }
+        }
 
-                // Column of commands/permissions
-                // Weighted so the buttons below keep their room when the list runs past the dialog.
-                PagedColumn(
-                    modifier = Modifier.weight(1f, fill = false).padding(top = 16.dp, bottom = 16.dp),
-                ) {
-                    items(commands) { command ->
-                        CommandRow(
-                            command,
-                            checked = permission.hasPermission(command.permission),
-                            onCheckedChange = { checked ->
-                                permission = permission.setPermission(command.permission, checked)
-                            },
-                        )
-                    }
-                }
-
-                // Button row
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.End,
-                ) {
-                    TextButton(onClick = onCancelClicked) {
-                        TextMMD(stringResource(R.string.cancel))
-                    }
-                    Spacer(Modifier.padding(4.dp))
-                    TextButton(onClick = { onSaveClicked(permission) }) {
-                        TextMMD(stringResource(R.string.save))
-                    }
-                }
+        // Button row
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.End,
+        ) {
+            TextButton(onClick = onCancelClicked, modifier = Modifier.heightIn(min = 48.dp)) {
+                TextMMD(stringResource(R.string.cancel))
+            }
+            Spacer(Modifier.padding(4.dp))
+            TextButton(
+                onClick = { onSaveClicked(permission) },
+                modifier = Modifier.heightIn(min = 48.dp),
+            ) {
+                TextMMD(stringResource(R.string.save))
             }
         }
     }
@@ -103,30 +89,26 @@ private fun CommandRow(
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
 ) {
+    // The word comes first and is never broken ("bluetoothscan" used to wrap mid-word beside
+    // an icon): no icon, little padding, one line. The whole row is the touch target.
     Row(
         modifier = Modifier
-            .clickable(onClick = { onCheckedChange(!checked) })
-            .padding(vertical = 10.dp),
+            .fillMaxWidth()
+            .heightIn(min = 48.dp)
+            .clickable(onClick = { onCheckedChange(!checked) }),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         CheckboxMMD(
             checked,
             onCheckedChange = onCheckedChange,
-            modifier = Modifier
-                .padding(start = 8.dp, end = 32.dp)
-                .size(12.dp),
-        )
-        Icon(
-            painterResource(command.icon),
-            contentDescription = null,
-            modifier = Modifier.size(24.dp),
+            modifier = Modifier.padding(end = 12.dp),
         )
         TextMMD(
-            modifier = Modifier
-                .padding(horizontal = 24.dp)
-                .weight(1f),
+            modifier = Modifier.weight(1f),
             text = command.keyword,
             style = MaterialTheme.typography.bodyLarge,
+            softWrap = false,
+            maxLines = 1,
         )
     }
 }

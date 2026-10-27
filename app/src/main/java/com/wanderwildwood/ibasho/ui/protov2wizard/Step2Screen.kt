@@ -25,7 +25,7 @@ import kotlinx.coroutines.delay
 
 // Upstream's three icon-led paragraphs lose their icons: on sixteen greys a small glyph is a
 // smudge, and the paragraphs say what the icons did. Deleting the history cannot be undone,
-// so that button asks in its own face and disarms itself after four seconds.
+// so that button asks in its own face and disarms itself after six seconds.
 @Composable
 fun Step2Screen(
     numLocations: Int,
@@ -36,7 +36,7 @@ fun Step2Screen(
     var deleteArmed by remember { mutableStateOf(false) }
     LaunchedEffect(deleteArmed) {
         if (deleteArmed) {
-            delay(4000)
+            delay(6000)
             deleteArmed = false
         }
     }
