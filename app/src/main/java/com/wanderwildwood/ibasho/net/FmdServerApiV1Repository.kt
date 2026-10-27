@@ -470,13 +470,14 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
 
     override fun registerPushEndpoint(
         url: String,
+        listener: Listener<Unit>,
         errorListener: ErrorListener,
     ) {
         doRequestWithCachedToken<Unit>(
             doRequest = { accessToken, _, onError2 ->
                 registerPushEndpointInternal(accessToken, url, onError2)
             },
-            listener = { _ -> },
+            listener,
             errorListener,
         )
     }

@@ -85,6 +85,7 @@ class ServerConnectivityCheckService : FmdJobService() {
                     title,
                     text,
                     Notifications.CHANNEL_SERVER,
+                    Notifications.ID_SERVER_NUDGE_CONNECTIVITY_CHECK,
                     cls = FMDServerActivity::class.java,
                 )
             }

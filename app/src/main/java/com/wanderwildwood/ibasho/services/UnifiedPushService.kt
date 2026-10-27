@@ -44,16 +44,23 @@ class UnifiedPushService : PushService() {
         }
 
         val repo = FmdServerRepository(this).getApiService()
-        repo.registerPushEndpoint(endpoint.url, { _: ServerError ->
-            val context = this
-            Notifications.notify(
-                context,
-                title = context.getString(R.string.push_registration_failed_title),
-                text = context.getString(R.string.push_registration_upload_failed_text),
-                channelID = Notifications.CHANNEL_SERVER,
-                cls = FMDServerActivity::class.java,
-            )
-        })
+        repo.registerPushEndpoint(
+            endpoint.url,
+            listener = {
+                Notifications.dismiss(this, Notifications.ID_SERVER_PUSH_MISSING)
+                Notifications.dismiss(this, Notifications.ID_SERVER_PUSH_REGISTRATION_FAILED)
+            },
+            errorListener = { _: ServerError ->
+                val context = this
+                Notifications.notify(
+                    context,
+                    title = context.getString(R.string.push_registration_failed_title),
+                    text = context.getString(R.string.push_registration_upload_failed_text),
+                    channelID = Notifications.CHANNEL_SERVER,
+                    notificationId = Notifications.ID_SERVER_PUSH_REGISTRATION_FAILED,
+                    cls = FMDServerActivity::class.java,
+                )
+            })
     }
 
     override fun onRegistrationFailed(reason: FailedReason, instance: String) {
@@ -93,6 +100,6 @@ private fun clearPushState(context: Context) {
     // In the latter case, inform the server.
     if (settings.serverAccountExists()) {
         val repo = FmdServerRepository(context).getApiService()
-        repo.registerPushEndpoint("", { _ -> /* noop */ })
+        repo.registerPushEndpoint("", {}, { _ -> /* noop */ })
     }
 }

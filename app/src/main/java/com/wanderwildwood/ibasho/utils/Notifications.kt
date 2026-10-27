@@ -18,6 +18,8 @@ import com.wanderwildwood.ibasho.ui.MainActivity
 object Notifications {
     private val TAG: String = Notifications::class.java.simpleName
 
+    // ------- Notification Channels -------
+
     const val CHANNEL_USAGE: Int = 42
 
     // public static final int CHANNEL_LIFE = 43;
@@ -29,6 +31,13 @@ object Notifications {
     const val CHANNEL_EXECUTION_SERVICE = 49
     const val CHANNEL_PUSH_CONNECTION = 50
 
+    // ------- Notification IDs -------
+
+    const val ID_SERVER_PUSH_MISSING = 1000
+    const val ID_SERVER_PUSH_REGISTRATION_FAILED = 1001
+    const val ID_SERVER_NUDGE_CONNECTIVITY_CHECK = 1002
+    const val ID_SERVER_UPGRADE_REQUIRED = 1003
+
     @JvmStatic
     @JvmOverloads
     fun notify(
@@ -36,6 +45,7 @@ object Notifications {
         title: String?,
         text: String?,
         channelID: Int,
+        notificationId: Int = System.currentTimeMillis().toInt(),
         cls: Class<*> = MainActivity::class.java,
         customizeBuilder: ((NotificationCompat.Builder) -> Unit) = { _ -> },
     ) {
@@ -69,10 +79,14 @@ object Notifications {
             return
         }
 
-        val notificationId = System.currentTimeMillis().toInt() // any unique ID
-
         val notificationManager = NotificationManagerCompat.from(context)
         notificationManager.notify(notificationId, builder.build())
+    }
+
+    @JvmStatic
+    fun dismiss(context: Context, notificationId: Int) {
+        val notificationManager = NotificationManagerCompat.from(context)
+        notificationManager.cancel(notificationId)
     }
 
     fun init(context: Context) {

@@ -86,6 +86,7 @@ interface FmdServerApiService {
 
     fun registerPushEndpoint(
         url: String,
+        listener: Listener<Unit>,
         errorListener: ErrorListener,
     )
 

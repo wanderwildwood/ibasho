@@ -299,10 +299,11 @@ class FmdServerApiV2Repository private constructor(
 
     override fun registerPushEndpoint(
         url: String,
+        listener: Listener<Unit>,
         errorListener: ErrorListener
     ) {
         val request = PushUrlRequestResponse(url)
-        doRequestWithCachedToken({ srv -> srv.postPushUrl(request) }, {}, errorListener)
+        doRequestWithCachedToken({ srv -> srv.postPushUrl(request) }, listener, errorListener)
     }
 
     override fun changePassword(

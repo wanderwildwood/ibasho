@@ -28,6 +28,7 @@ fun notifyWarnUnifiedPushRequired(context: Context) {
         title,
         text,
         Notifications.CHANNEL_SERVER,
+        Notifications.ID_SERVER_PUSH_MISSING,
         cls = FMDServerActivity::class.java,
     )
 }

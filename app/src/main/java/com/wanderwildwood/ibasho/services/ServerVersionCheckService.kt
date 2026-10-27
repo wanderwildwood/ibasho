@@ -60,7 +60,8 @@ class ServerVersionCheckService : FmdJobService() {
                         context,
                         context.getString(R.string.server_version_upgrade_required_title),
                         text,
-                        Notifications.CHANNEL_SERVER
+                        Notifications.CHANNEL_SERVER,
+                        Notifications.ID_SERVER_UPGRADE_REQUIRED,
                     )
                     jobFinished()
                 }

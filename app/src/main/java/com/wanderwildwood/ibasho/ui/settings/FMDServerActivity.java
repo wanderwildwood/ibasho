@@ -54,6 +54,7 @@ import com.wanderwildwood.ibasho.ui.FmdActivity;
 import com.wanderwildwood.ibasho.ui.access.FmdPermissionDialogFragment;
 import com.wanderwildwood.ibasho.ui.protov2wizard.ProtoV2WizardActivity;
 import com.wanderwildwood.ibasho.ui.common.ArmedButtonKt;
+import com.wanderwildwood.ibasho.utils.Notifications;
 import com.wanderwildwood.ibasho.utils.UnregisterUtil;
 import com.wanderwildwood.ibasho.utils.Utils;
 import com.wanderwildwood.ibasho.push.PushChoice;
@@ -252,6 +253,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
             settings.set(Settings.SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS, value);
 
             if (value > 0) {
+                Notifications.dismiss(this, Notifications.ID_SERVER_NUDGE_CONNECTIVITY_CHECK);
                 ServerConnectivityCheckService.scheduleJob(this);
             } else {
                 ServerConnectivityCheckService.cancelJob(this);
