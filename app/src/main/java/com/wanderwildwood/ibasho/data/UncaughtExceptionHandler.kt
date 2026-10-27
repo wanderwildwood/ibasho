@@ -7,7 +7,8 @@ import com.wanderwildwood.ibasho.utils.log
 
 
 class UncaughtExceptionHandler(
-    private val context: Context
+    private val context: Context,
+    private val previousHandler: Thread.UncaughtExceptionHandler?,
 ) : Thread.UncaughtExceptionHandler {
 
     companion object {
@@ -16,18 +17,29 @@ class UncaughtExceptionHandler(
         const val CRASH_MSG_HEADER = "Fatal error"
 
         fun initUncaughtExceptionHandler(context: Context) {
-            val handler = UncaughtExceptionHandler(context)
-            Thread.currentThread().setUncaughtExceptionHandler(handler)
+            val previous = Thread.getDefaultUncaughtExceptionHandler()
+            val handler = UncaughtExceptionHandler(context, previous)
+
+            // Set crash handler on all threads, not just the current one (e.g. I/O thread, coroutine threads, ...)
+            Thread.setDefaultUncaughtExceptionHandler(handler)
         }
     }
 
     override fun uncaughtException(t: Thread, e: Throwable) {
-        // Log the crash
-        context.log().e(TAG, createNiceCrashLog(e))
+        // Never crash ourselves
+        try {
+            // Log the crash
+            context.log().e(TAG, createNiceCrashLog(e))
 
-        // Set the flag so that when the user launches the app again, the crash details are shown
-        val repo = SettingsRepository.getInstance(context)
-        repo.set(Settings.SET_APP_CRASHED_LOG_ENTRY, 1)
+            // Set the flag so that when the user launches the app again, the crash details are shown
+            val repo = SettingsRepository.getInstance(context)
+            repo.set(Settings.SET_APP_CRASHED_LOG_ENTRY, 1)
+        } catch (_: Exception) {
+            // Very bad. Not much we can do here.
+        } finally {
+            // Continue with the default/previous handler, to make sure that the app is properly terminated by the system.
+            previousHandler?.uncaughtException(t, e)
+        }
 
         // Don't show the CrashedActivity now (it often fails)
     }
