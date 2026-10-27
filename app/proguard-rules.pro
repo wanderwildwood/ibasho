@@ -23,3 +23,6 @@
 # https://developer.android.com/topic/performance/app-optimization/global-options
 -dontobfuscate
 -dontrepackage
+
+# Named in the theme (viewInflaterClass) and made by reflection; nothing else refers to it.
+-keep class com.wanderwildwood.ibasho.ui.common.IbashoViewInflater { <init>(); }

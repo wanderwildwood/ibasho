@@ -1,6 +1,8 @@
 package com.wanderwildwood.ibasho.ui.theme
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.platform.LocalCursorBlinkEnabled
 import com.mudita.mmd.ThemeMMD
 
 /**
@@ -24,4 +26,8 @@ import com.mudita.mmd.ThemeMMD
  */
 @Composable
 fun AppTheme(content: @Composable () -> Unit) =
-    ThemeMMD(colorScheme = monochrome, content = content)
+    // A steady cursor: a blinking one is two repaints a second on an e-ink panel for as long
+    // as a field has focus (and the battery to match).
+    CompositionLocalProvider(LocalCursorBlinkEnabled provides false) {
+        ThemeMMD(colorScheme = monochrome, content = content)
+    }

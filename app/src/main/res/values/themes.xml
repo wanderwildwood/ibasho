@@ -1,5 +1,7 @@
 <resources>
     <style name="AppTheme" parent="Theme.Material3.Light.NoActionBar">
+        <!-- Text fields draw a steady caret of their own instead of the platform's blinking one. -->
+        <item name="viewInflaterClass">com.wanderwildwood.ibasho.ui.common.IbashoViewInflater</item>
         <!-- No scrollbars: a list moves a page to a swipe, and nothing else needs one. -->
         <item name="android:scrollbarThumbVertical">@android:color/transparent</item>
         <item name="android:scrollbarThumbHorizontal">@android:color/transparent</item>
