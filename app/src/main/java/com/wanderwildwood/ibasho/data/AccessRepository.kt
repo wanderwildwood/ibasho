@@ -2,6 +2,7 @@ package com.wanderwildwood.ibasho.data
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.withTransaction
 import androidx.sqlite.db.SimpleSQLiteQuery
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.commands.FmdPermission
@@ -109,13 +110,26 @@ class AccessRepository private constructor(private val context: Context) {
     }
 
     // https://gitlab.com/fmd-foss/fmd-android/-/work_items/445
+    // https://gitlab.com/fmd-foss/fmd-android/-/work_items/447
     suspend fun migrateNumbersToE164(context: Context) {
         context.log().i(TAG, "Migrating phone numbers to E.164")
-        val all = getPhoneNumbers().first()
-        for (ele in all) {
-            val numE164 = normalizeNumberForStorage(context, ele.number) ?: ele.number
-            val new = ele.copy(number = numE164)
-            updatePhoneNumber(new)
+        db.withTransaction {
+            val dao = db.phoneNumberDao()
+
+            val allOld = dao.getAll().first()
+            val allNew = mutableSetOf<PhoneNumber>()
+
+            for (ele in allOld) {
+                val numE164 = normalizeNumberForStorage(context, ele.number) ?: ele.number
+                val new = ele.copy(number = numE164)
+                allNew.add(new)
+            }
+
+            // Phone numbers must be UNIQUE. However, it can happen that the user previously added
+            // different variants of the same number (prior to E.164 normalization).
+            // Therefore, use a set and keep just the first occurence. Other occurences are dropped.
+            allOld.forEach { dao.delete(it) }
+            allNew.forEach { dao.insert(it) }
         }
     }
 

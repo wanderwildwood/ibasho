@@ -35,4 +35,13 @@ data class PhoneNumber(
         val numberDisplay = normalizeNumberForDisplay(context, number) ?: number
         return if (name.isBlank()) numberDisplay else "$name ($numberDisplay)"
     }
+
+    override fun equals(other: Any?): Boolean {
+        return (other is PhoneNumber) && (number == other.number)
+    }
+
+    override fun hashCode(): Int {
+        return number.hashCode()
+    }
+
 }
