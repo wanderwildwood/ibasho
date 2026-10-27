@@ -207,9 +207,9 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="12dp"
                 android:layout_marginBottom="@dimen/margin_normal"
-                android:background="?android:attr/listDivider" />
+                android:background="@null" />
 
             <TextView
                 style="@style/FMD.Text.SectionTitle"
@@ -261,9 +261,9 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="12dp"
                 android:layout_marginBottom="@dimen/margin_normal"
-                android:background="?android:attr/listDivider" />
+                android:background="@null" />
 
             <TextView
                 style="@style/FMD.Text.SectionTitle"
@@ -327,9 +327,9 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="12dp"
                 android:layout_marginBottom="@dimen/margin_normal"
-                android:background="?android:attr/listDivider" />
+                android:background="@null" />
 
             <TextView
                 style="@style/FMD.Text.SectionTitle"
