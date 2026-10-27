@@ -14,8 +14,12 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
@@ -87,7 +91,7 @@ class SetupGuideActivity : FmdActivity() {
         setContent {
             AppTheme {
                 Scaffold(topBar = { FmdTopAppBar(R.string.setup_title) { finish() } }) { pad ->
-                    Box(modifier = Modifier.padding(pad)) { Guide(resumed) }
+                    Box(modifier = Modifier.padding(pad).imePadding()) { Guide(resumed) }
                 }
             }
         }
@@ -144,14 +148,31 @@ private fun Guide(resumed: Int) {
 }
 
 @Composable
-private fun Page(content: androidx.compose.foundation.lazy.LazyListScope.() -> Unit) {
-    PagedColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(horizontal = 20.dp, vertical = 8.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-        content = content,
-    )
+private fun Page(
+    footer: (@Composable ColumnScope.() -> Unit)? = null,
+    content: androidx.compose.foundation.lazy.LazyListScope.() -> Unit,
+) {
+    // A footer stays on screen under the page, so a step's buttons are never behind the
+    // keyboard or a page turn away.
+    Column(modifier = Modifier.fillMaxSize()) {
+        PagedColumn(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .padding(horizontal = 20.dp, vertical = 8.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+            content = content,
+        )
+        if (footer != null) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 20.dp, vertical = 8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                content = footer,
+            )
+        }
+    }
 }
 
 @Composable
@@ -230,13 +251,15 @@ private fun NumberStep(onNext: () -> Unit) {
     val numbers by repo.getPhoneNumbers().collectAsState(initial = emptyList())
     var name by rememberSaveable { mutableStateOf("") }
     var number by rememberSaveable { mutableStateOf("") }
+    var invalid by rememberSaveable { mutableStateOf(false) }
 
     fun add(rawNumber: String, rawName: String) {
         val norm = normalizeNumberForStorage(context, rawNumber)
         if (norm == null) {
-            Toast.makeText(context, R.string.allowlist_invalid_number, Toast.LENGTH_LONG).show()
+            invalid = true
             return
         }
+        invalid = false
         scope.launch {
             if (repo.getPhoneNumber(norm) == null) {
                 repo.insertPhoneNumber(PhoneNumber(0, rawName, norm))
@@ -267,7 +290,26 @@ private fun NumberStep(onNext: () -> Unit) {
         }
     }
 
-    Page {
+    Page(footer = {
+        if (invalid) {
+            TextMMD(stringResource(R.string.allowlist_invalid_number), fontWeight = FontWeight.Bold)
+        }
+        OutlinedButtonMMD(
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(min = 48.dp),
+            enabled = number.isNotBlank(),
+            onClick = { add(number, name) },
+        ) { TextMMD(stringResource(R.string.setup_number_add)) }
+        ButtonMMD(
+            modifier = Modifier
+                .fillMaxWidth()
+                .heightIn(min = 48.dp),
+            onClick = onNext,
+        ) {
+            TextMMD(stringResource(if (numbers.isEmpty()) R.string.setup_skip else R.string.setup_next))
+        }
+    }) {
         item { Heading(R.string.setup_number_title) }
         item { TextMMD(stringResource(R.string.setup_number_text)) }
         numbers.forEach { n ->
@@ -288,18 +330,11 @@ private fun NumberStep(onNext: () -> Unit) {
             TextFieldMMD(
                 modifier = Modifier.fillMaxWidth(),
                 value = number,
-                onValueChange = { number = it },
+                onValueChange = { number = it; invalid = false },
                 label = { TextMMD(stringResource(R.string.setup_number_number)) },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
             )
-        }
-        item {
-            OutlinedButtonMMD(
-                modifier = Modifier.fillMaxWidth(),
-                enabled = number.isNotBlank(),
-                onClick = { add(number, name) },
-            ) { TextMMD(stringResource(R.string.setup_number_add)) }
         }
         item {
             OutlinedButtonMMD(
@@ -314,11 +349,6 @@ private fun NumberStep(onNext: () -> Unit) {
                     }
                 },
             ) { TextMMD(stringResource(R.string.setup_number_contacts)) }
-        }
-        item {
-            ButtonMMD(modifier = Modifier.fillMaxWidth(), onClick = onNext) {
-                TextMMD(stringResource(if (numbers.isEmpty()) R.string.setup_skip else R.string.setup_next))
-            }
         }
     }
 }
