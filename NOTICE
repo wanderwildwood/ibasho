@@ -16,3 +16,8 @@ is adapted from two Apache-2.0 projects, whose licence is in LICENSES/Apache-2.0
 
 Each file taken from them says so at the top. The changes are this project's, under
 GPL-3.0-or-later.
+
+Lato, the typeface the screens are set in, comes with Mudita's MMD library. It is under the
+SIL Open Font License 1.1 (LICENSES/OFL-1.1.txt). The public suffix list inside OkHttp is
+under the Mozilla Public License 2.0. Both are named, with their full texts, in the bundled
+libraries list in the app (config/libraries/).

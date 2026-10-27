@@ -14,6 +14,7 @@
     <string name="Edit">Edit</string>
     <string name="Enable">Enable</string>
     <string name="Delete">Delete</string>
+    <string name="Delete_armed">Delete: press again</string>
     <string name="label">Label</string>
     <string name="save">Save</string>
     <string name="select">Select</string>
@@ -69,8 +70,13 @@
          the licence in full, what is bundled and under what, then the source. -->
     <!-- Title of the About dialog. %1$s is the version number, e.g. 0.1.6. Keep the app's name as it is -->
     <string name="about_title">Whereabouts %1$s</string>
-    <string name="about_sends">Sends this phone\'s location to the server you set, encrypted. Only your password can read it, and it cannot be reset.</string>
+    <string name="about_sends">This phone\'s location goes only to the server you set, encrypted on the phone first, and by text to the numbers you allow when they ask. Only your password can read what is on the server, and it cannot be reset.</string>
     <string name="about_sends_network">Cell and Wi-Fi positioning asks BeaconDB and OpenCelliD, which learn roughly where you are.</string>
+    <string name="about_privacy_title">Privacy</string>
+    <string name="about_privacy_permissions">Location is read when you ask for it, when a command from an allowed number asks for it, and to upload to your server, also in the background. Text messages are read only to find commands from the numbers you allow, and sent only as replies. Contacts are read only for the contact you pick. Bluetooth is used when a command switches it on or off or scans. Notifications show the app\'s notices, and the notification listener is used only to spot the command word. Device administration lets the app lock the screen, and wipe only if you switch that on with its own password. Do Not Disturb and display over other apps are for ringing. Phone state is for the cell towers around you.</string>
+    <string name="about_privacy_close">There are no ads, no analytics and no tracking. Nothing is sent to the app\'s maker. Backups and exports go only where you choose to save them.</string>
+    <string name="about_terms_title">Terms</string>
+    <string name="about_terms_warranty">It comes with no warranty: use it at your own risk. It can help you find a lost phone, but it cannot promise to.</string>
     <string name="about_licence">GNU General Public License, version 3 or later.</string>
     <string name="about_built_on">Built on FindMyDevice by Nulide, under the same licence.</string>
     <string name="about_llama">feed the llamas</string>
@@ -148,6 +154,7 @@
     <string name="password_new">New password</string>
     <string name="server_password_hint">This password cannot be reset, and it is the only thing that can read your locations.</string>
     <string name="password_min_length">At least 8 characters. It cannot be reset, and it is the only thing that can read your locations.</string>
+    <string name="password_error_min_length">At least 8 characters.</string>
     <string name="password_match_command_keyword">The password must not equal one of the commands!</string>
     <string name="pw_change_success">Password changed</string>
     <string name="pw_change_empty">Password must not be empty.</string>
@@ -174,7 +181,7 @@
     <string name="server_login_no_user_id">Failed: no user id</string>
     <string name="Settings_FMDServer_AddAccount">Server: Log in</string>
     <string name="Settings_FMDServer_Info">With a server you can send commands over the internet, from the server to the app. You can also view the device location on a map. For self-hosting instructions, see the website.</string>
-    <string name="Settings_FMDServer_open_website">Open FMD Server website</string>
+    <string name="Settings_FMDServer_open_website">Server website</string>
     <string name="Settings_FMDServer_Server_Url">Server URL</string>
     <string name="Settings_FMDServer_Login">Login</string>
     <string name="Settings_FMDServer_Register">Register</string>
@@ -190,7 +197,7 @@
     <string name="proto_v2_start_title">Server protocol v2</string>
     <string name="proto_v2_start_text">Your account can be moved to the server\'s protocol v2, which improves the end-to-end encryption.</string>
     <string name="proto_v2_start_text_already_done">Your account already uses protocol v2. There is nothing to move.</string>
-    <string name="proto_v2_start_text_not_available">Protocol v2 needs FMD Server 0.17.0 or later.</string>
+    <string name="proto_v2_start_text_not_available">Protocol v2 needs a server of version 0.17.0 or later.</string>
     <string name="proto_v2_start_button">Start migration</string>
 
     <string name="proto_v2_wizard_title">Migration assistant</string>
@@ -255,7 +262,7 @@
     <string name="allowlist_delete_message">Once this entry is deleted, it will no longer be able to access Whereabouts. You can re-add it later if you change your mind.</string>
     <string name="allowlist_reset_title">Allowed contacts reset</string>
     <string name="allowlist_reset_text">Due to a crash, the allowed contacts were reset. Please configure them again.</string>
-    <string name="allowlist_invalid_number">This phone number is invalid!</string>
+    <string name="allowlist_invalid_number">This is not a phone number the app can use. Check it and include the country code.</string>
 
     <!-- Settings: Temporary allowed contacts -->
     <string name="temporary_allowlist_expired">Your temporary Whereabouts access expired. To continue using Whereabouts, send the password again.</string>
@@ -282,6 +289,8 @@
     <string name="export_password_enter_title">Enter encryption password</string>
     <string name="export_password_message">Choose a password to encrypt the exported backup.</string>
     <string name="export_password_message_empty_warning">If you leave the password empty, the backup will be unencrypted. This risks exposing sensitive settings.</string>
+    <string name="export_password_rule">At least 8 characters. Keep it safe: the backup cannot be opened without it.</string>
+    <string name="import_password_wrong">That is not the password for this backup.</string>
     <string name="import_password_message">Enter the password that was used to encrypt the backup.</string>
     <string name="export_success">Export successful</string>
     <string name="export_failed">Export failed</string>

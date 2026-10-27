@@ -39,8 +39,8 @@ android {
         // noinspection ExpiredTargetSdkVersion
         targetSdkVersion 32
         // Own versioning from here; upstream was at 0.16.2 when this forked.
-        versionCode 29
-        versionName "0.1.28"
+        versionCode 30
+        versionName "0.1.29"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -206,3 +206,11 @@ room {
     schemaDirectory "$projectDir/schemas"
 }
 
+
+// The bundled-libraries list carries the full licence texts, so it reads offline, and names
+// what is not a Gradle dependency (the Lato typeface, the public suffix list in OkHttp).
+aboutLibraries {
+    // Not `collect { }`: Groovy reads that as its own Object.collect.
+    getCollect().configPath.set(file("$rootDir/config"))
+    getCollect().fetchRemoteLicense.set(true)
+}
