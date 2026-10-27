@@ -2,6 +2,7 @@ package com.wanderwildwood.ibasho.ui.settings
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -20,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -51,11 +53,10 @@ fun AboutHeader(
 
     val style = LibraryDefaults.m3LibrariesStyle()
 
-    val colors = style.colors
-    val bg = colors.headerBackground
-    val onBg = colors.headerOnBackground
-    val subtle = colors.headerSubtleContent
-    val versionChipBg = colors.tabIdleBackground
+    // Ink on white: the library style's header colours are greys, which the panel dithers.
+    val bg = Color.White
+    val onBg = Color.Black
+    val subtle = Color.Black
 
     Column(modifier = modifier.fillMaxWidth()) {
         Column(
@@ -82,14 +83,14 @@ fun AboutHeader(
                 Box(
                     modifier = Modifier
                         .clip(RoundedCornerShape(100.dp))
-                        .background(versionChipBg)
+                        .border(1.dp, Color.Black, RoundedCornerShape(100.dp))
                         .padding(horizontal = 10.dp, vertical = 6.dp),
                 ) {
                     BasicText(
                         text = packageVersion,
                         style = TextStyle(
                             color = subtle,
-                            fontSize = 12.sp,
+                            fontSize = 14.sp,
                             fontWeight = FontWeight.Medium
                         ),
                         maxLines = 1,
@@ -109,7 +110,7 @@ fun AboutHeader(
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
                 AssistChipMMD(
-                    onClick = { Utils.openUrl(context, "https://fmd-foss.org/docs/overview") },
+                    onClick = { Utils.openUrl(context, "https://github.com/wanderwildwood/ibasho#readme") },
                     label = { TextMMD(stringResource(R.string.about_documentation)) },
                     leadingIcon = {
                         Icon(
@@ -119,7 +120,7 @@ fun AboutHeader(
                     }
                 )
                 AssistChipMMD(
-                    onClick = { Utils.openUrl(context, "https://fmd-foss.org/donate") },
+                    onClick = { Utils.openUrl(context, "https://square.link/u/AGu8oT10") },
                     label = { TextMMD(stringResource(R.string.about_donate)) },
                     leadingIcon = {
                         Icon(
@@ -145,7 +146,7 @@ fun AboutHeader(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(1.dp)
-                .background(colors.headerDivider),
+                .background(Color.Black),
         )
     }
 }

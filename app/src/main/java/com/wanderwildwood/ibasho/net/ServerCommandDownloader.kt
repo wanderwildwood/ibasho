@@ -103,7 +103,7 @@ class ServerCommandDownloader(
                 CommandExecutionWorker.KEY_TRANSPORT_TYPE,
                 CommandExecutionWorker.TRANS_FMD_SERVER
             )
-            .putString(CommandExecutionWorker.KEY_DESTINATION, "FMD Server")
+            .putString(CommandExecutionWorker.KEY_DESTINATION, "your server")
             .build()
         val workRequest: WorkRequest =
             OneTimeWorkRequest.Builder(CommandExecutionWorker::class.java)

@@ -12,6 +12,9 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import android.graphics.Color
+import android.graphics.Typeface
+import com.wanderwildwood.ibasho.ui.paging.PagingScrollView
 
 // TODO: this repository is not published yet. The link must resolve before release.
 // No scheme: it has to fit one line at 480px, and a reader can type it.
@@ -26,16 +29,23 @@ const val SITE_URL = "wanderthe.dev"
  * full, what is bundled and whose it is, then the source.
  */
 fun showAboutDialog(context: Context) {
-    val body = buildString {
-        append(context.getString(R.string.about_sends))
-        append("\n\n")
-        append(context.getString(R.string.about_sends_network))
-        append("\n\n")
-        // The last two are short facts, not paragraphs: consecutive lines
-        // keep the licence and the attribution both above the fold.
-        append(context.getString(R.string.about_licence))
-        append("\n")
-        append(context.getString(R.string.about_built_on))
+    val density = context.resources.displayMetrics.density
+    val pad = (24 * density).toInt()
+
+    // Plain text in ink: a heading in bold, a paragraph under it.
+    fun heading(text: Int) = TextView(context).apply {
+        setText(text)
+        setTextColor(Color.BLACK)
+        textSize = 18f
+        setTypeface(typeface, Typeface.BOLD)
+        setPadding(0, (12 * density).toInt(), 0, (4 * density).toInt())
+    }
+
+    fun paragraph(text: String) = TextView(context).apply {
+        this.text = text
+        setTextColor(Color.BLACK)
+        textSize = 16f
+        setPadding(0, 0, 0, (8 * density).toInt())
     }
 
     // An address, opened in whatever the phone has for web pages. A Kompakt may have
@@ -52,7 +62,6 @@ fun showAboutDialog(context: Context) {
     // which opens the page a donation goes to. The dialog is a
     // builder rather than Compose, so the row is put together by hand rather than inflated:
     // it is a name, a drawing and three words, and a layout file for that would be a file to keep.
-    val density = context.resources.displayMetrics.density
     val llama = LinearLayout(context).apply {
         orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
@@ -81,8 +90,7 @@ fun showAboutDialog(context: Context) {
     val row = LinearLayout(context).apply {
         orientation = LinearLayout.HORIZONTAL
         gravity = Gravity.CENTER_VERTICAL
-        val pad = (24 * density).toInt()
-        setPadding(pad, pad / 3, pad, pad / 2)
+        setPadding(0, pad / 3, 0, pad / 2)
         addView(
             TextView(context).apply {
                 text = SITE_URL
@@ -101,10 +109,34 @@ fun showAboutDialog(context: Context) {
         )
     }
 
+    // The words sit in a paging view: the dialog is longer than a small screen, and a page
+    // turns on a swipe where a scroll would smear on the panel.
+    val column = LinearLayout(context).apply {
+        orientation = LinearLayout.VERTICAL
+        setPadding(pad, 0, pad, 0)
+        addView(heading(R.string.about_privacy_title))
+        addView(paragraph(context.getString(R.string.about_sends)))
+        addView(paragraph(context.getString(R.string.about_sends_network)))
+        addView(paragraph(context.getString(R.string.about_privacy_permissions)))
+        addView(paragraph(context.getString(R.string.about_privacy_close)))
+        addView(heading(R.string.about_terms_title))
+        addView(
+            paragraph(
+                context.getString(R.string.about_licence) + " " +
+                        context.getString(R.string.about_terms_warranty)
+            )
+        )
+        addView(paragraph(context.getString(R.string.about_built_on)))
+        addView(row)
+    }
+    val page = PagingScrollView(context).apply {
+        isVerticalScrollBarEnabled = false
+        addView(column)
+    }
+
     EInkAlertDialogBuilder(context)
         .setTitle(context.getString(R.string.about_title, BuildConfig.VERSION_NAME))
-        .setMessage(body)
-        .setView(row)
+        .setView(page)
         // The full dependency list is too long for a dialog, but the licences
         // have to be reachable, so it keeps its own screen.
         .setNeutralButton(R.string.about_libraries) { _, _ ->

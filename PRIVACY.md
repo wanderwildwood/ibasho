@@ -33,6 +33,9 @@ The full list is in `app/src/main/AndroidManifest.xml`. Location, SMS, Do Not Di
 display over other apps are what let a lost phone be found, rung or locked. Bluetooth lets a command
 switch the phone's Bluetooth on or off or scan for nearby devices; the phone state and cell
 permissions read the cell towers the phone sees, for locating by cell; biometric is the lock on
-the app's settings. There is no camera
+the app's settings. Contacts are read only for a contact you pick when adding a number. The
+notification listener is used only to spot the command word in a notification. Device
+administration lets the app lock the screen, and wipe the phone only if you switch that on
+with its own password. There is no camera
 permission. Sharing a location with another app needs no permission beyond the location access
 Whereabouts already has.

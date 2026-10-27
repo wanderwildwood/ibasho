@@ -24,7 +24,7 @@ class FmdServerTransport(
     private val destination: String,
 ) : Transport<Unit>(Unit) {
 
-    constructor(context: Context) : this(context, "FMD Server")
+    constructor(context: Context) : this(context, "your server")
 
     companion object {
         private val TAG = FmdServerTransport::class.simpleName
