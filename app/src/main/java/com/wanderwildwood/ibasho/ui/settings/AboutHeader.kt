@@ -141,12 +141,7 @@ fun AboutHeader(
                 )
             }
         }
-        // Bottom divider matching design's `borderBottom: 1px solid outlineVariant`
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(1.dp)
-                .background(Color.Black),
-        )
+        // No rule under the header: the page is set apart by space.
+        Spacer(modifier = Modifier.height(12.dp))
     }
 }
