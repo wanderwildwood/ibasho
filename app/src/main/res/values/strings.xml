@@ -84,6 +84,11 @@
     <string name="about_no_browser">There is no browser on this phone to open that with.</string>
     <string name="about_source">%1$s</string>
     <string name="about_libraries">Bundled libraries</string>
+    <string name="about_licences">Licences</string>
+    <string name="licences_source_title">Source code</string>
+    <string name="licences_licence_title">Licence</string>
+    <string name="licences_licence_holder">Whereabouts is free software under the GNU General Public License, version 3 or later. Copyright wander wildwood. The full text follows.</string>
+    <string name="licences_built_with_title">Built with</string>
 
     <!-- Settings: General -->
     <string name="Settings_FMDCommand_Description">The command used to communicate with Whereabouts.</string>

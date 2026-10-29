@@ -5,7 +5,7 @@ import android.content.Intent
 import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
 import com.wanderwildwood.ibasho.BuildConfig
 import com.wanderwildwood.ibasho.R
-import com.wanderwildwood.ibasho.ui.settings.AboutActivity
+import com.wanderwildwood.ibasho.ui.settings.LegalActivity
 import android.net.Uri
 import android.view.Gravity
 import android.widget.ImageView
@@ -109,24 +109,22 @@ fun showAboutDialog(context: Context) {
         )
     }
 
-    // The words sit in a paging view: the dialog is longer than a small screen, and a page
-    // turns on a swipe where a scroll would smear on the panel.
+    // Three doors, no rules between them: space sets them apart. Each opens its own page.
+    fun door(label: Int, page: String) = TextView(context).apply {
+        setText(label)
+        setTextColor(Color.BLACK)
+        textSize = 18f
+        gravity = Gravity.CENTER_VERTICAL
+        minHeight = (56 * density).toInt()
+        isClickable = true
+        setOnClickListener { context.startActivity(LegalActivity.intent(context, page)) }
+    }
     val column = LinearLayout(context).apply {
         orientation = LinearLayout.VERTICAL
         setPadding(pad, 0, pad, 0)
-        addView(heading(R.string.about_privacy_title))
-        addView(paragraph(context.getString(R.string.about_sends)))
-        addView(paragraph(context.getString(R.string.about_sends_network)))
-        addView(paragraph(context.getString(R.string.about_privacy_permissions)))
-        addView(paragraph(context.getString(R.string.about_privacy_close)))
-        addView(heading(R.string.about_terms_title))
-        addView(
-            paragraph(
-                context.getString(R.string.about_licence) + " " +
-                        context.getString(R.string.about_terms_warranty)
-            )
-        )
-        addView(paragraph(context.getString(R.string.about_built_on)))
+        addView(door(R.string.about_privacy_title, LegalActivity.PAGE_PRIVACY))
+        addView(door(R.string.about_terms_title, LegalActivity.PAGE_TERMS))
+        addView(door(R.string.about_licences, LegalActivity.PAGE_LICENCES))
         addView(row)
     }
     val page = PagingScrollView(context).apply {
@@ -137,11 +135,6 @@ fun showAboutDialog(context: Context) {
     EInkAlertDialogBuilder(context)
         .setTitle(context.getString(R.string.about_title, BuildConfig.VERSION_NAME))
         .setView(page)
-        // The full dependency list is too long for a dialog, but the licences
-        // have to be reachable, so it keeps its own screen.
-        .setNeutralButton(R.string.about_libraries) { _, _ ->
-            context.startActivity(Intent(context, AboutActivity::class.java))
-        }
         .setPositiveButton(android.R.string.ok, null)
         .show()
 }
