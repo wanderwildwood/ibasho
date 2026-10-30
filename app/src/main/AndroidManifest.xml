@@ -47,6 +47,11 @@
     <!-- DuraSpeed, so its absence can be told from its presence (KompaktOS has none). -->
     <queries>
         <package android:name="com.mediatek.duraspeed" />
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
     </queries>
 
     <application

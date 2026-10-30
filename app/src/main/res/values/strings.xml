@@ -73,7 +73,7 @@
     <string name="about_sends">This phone\'s location goes only to the server you set, encrypted on the phone first, and by text to the numbers you allow when they ask. Only your password can read what is on the server, and it cannot be reset.</string>
     <string name="about_sends_network">Cell and Wi-Fi positioning asks BeaconDB and OpenCelliD, which learn roughly where you are.</string>
     <string name="about_privacy_title">Privacy</string>
-    <string name="about_privacy_permissions">Location is read when you ask for it, when a command from an allowed number asks for it, and to upload to your server, also in the background. Text messages are read only to find commands from the numbers you allow, and sent only as replies. Contacts are read only for the contact you pick. Bluetooth is used when a command switches it on or off or scans. Notifications show the app\'s notices, and the notification listener is used only to spot the command word. Device administration lets the app lock the screen, and wipe only if you switch that on with its own password. Do Not Disturb and display over other apps are for ringing. Phone state is for the cell towers around you.</string>
+    <string name="about_privacy_permissions">Location is read when you ask for it, when a command from an allowed number asks for it, and to upload to your server, also in the background. Text messages are read only to find commands from the numbers you allow, and sent only as replies. Contacts are read only for the contact you pick. Bluetooth is used when a command switches it on or off or scans. Notifications show the app\'s notices, and the notification listener is used only to spot the command word. Device administration lets the app lock the screen, and wipe only if you switch that on with its own password. Do Not Disturb and display over other apps are for ringing. Phone state is for the cell towers around you. Your fingerprint or screen lock is asked for only before a backup is exported. The write-secure-settings permission is granted by you, over adb, root or Shizuku, and is used only to switch location on and off for a command. The battery-optimisation exemption is requested so replies are not delayed.</string>
     <string name="about_privacy_close">There are no ads, no analytics and no tracking. Nothing is sent to the app\'s maker. Backups and exports go only where you choose to save them.</string>
     <string name="about_terms_title">Terms</string>
     <string name="about_terms_free">This app is free software under the GNU General Public License, version 3 or later.</string>
@@ -82,6 +82,11 @@
     <string name="about_built_on">Built on FindMyDevice by Nulide, under the same licence.</string>
     <string name="about_llama">feed the llamas</string>
     <!-- Toast when the llama row is pressed and nothing on the phone can open a web page -->
+    <string name="about_no_browser_address">No browser is installed. The address is %1$s.</string>
+    <string name="setup_about">Privacy, terms and licences</string>
+    <string name="setup_page_unavailable">The page could not be loaded, so the policy cannot be shown. Check the server address and your connection, then try again.</string>
+    <string name="setup_page_loading">Loading the privacy policy. Accept is available once it has been shown.</string>
+    <string name="setup_page_not_https">The privacy policy is only shown over https. Use an https server address.</string>
     <string name="about_no_browser">There is no browser on this phone to open that with.</string>
     <string name="about_source">%1$s</string>
     <string name="about_libraries">Bundled libraries</string>
@@ -394,8 +399,8 @@
     <string name="cmd_nodisturb_response_off">Do Not Disturb mode turned off.</string>
 
     <string name="cmd_stats_description_short">Get network statistics</string>
-    <string name="cmd_stats_description_long">Get network statistics from the device. For example, its IP address and a list of surrounding Wifi networks.</string>
-    <string name="cmd_stats_response">Network statistics:\n\nDevice IPs:\n%1$s\n\nWifi networks:\n%2$s</string>
+    <string name="cmd_stats_description_long">Get network statistics from the device. For example, its IP address and a list of surrounding Wi-Fi networks.</string>
+    <string name="cmd_stats_response">Network statistics:\n\nDevice IPs:\n%1$s\n\nWi-Fi networks:\n%2$s</string>
 
     <!-- Permissions -->
 
@@ -436,11 +441,11 @@
 
     <string name="transport_sms_title">SMS</string>
     <string name="transport_sms_description">Send commands to your device over SMS. E.g., text \"%s help\" to your device. Whereabouts will reply with an SMS.</string>
-    <string name="transport_sms_description_auth">Only phone numbers that are in the allowlist can send commands. To send commands from a phone number that is not in the allowlist, you can define and include a password: \"%s mypassword help\". For convenience, so that you don\'t have to re-type the password every time, this new phone number is added to a temporary allowlist for the next 10 minutes.</string>
+    <string name="transport_sms_description_auth">Only phone numbers that are in the allowlist can send commands. To send commands from a phone number that is not in the allowlist, you can define and include a password: \"%s your-password help\". For convenience, so that you don\'t have to re-type the password every time, this new phone number is added to a temporary allowlist for the next 10 minutes.</string>
     <string name="transport_sms_description_note">SMS may incur costs for both you and the person texting you. SMS requires your SIM card to be unlocked (e.g., after a reboot).</string>
 
     <string name="transport_notification_reply_title">Notification reply</string>
-    <string name="transport_notification_reply_description">You can allow Whereabouts to read your notifications to listen for commands. Whereabouts can then reply via Android\'s built-in notification reply feature. This allows you to control Whereabouts using a messaging application of your choice, as long as it posts notifications that can be replied to. For example, you can send a Signal message \"%s mypassword help\" to your phone.</string>
+    <string name="transport_notification_reply_description">You can allow Whereabouts to read your notifications to listen for commands. Whereabouts can then reply via Android\'s built-in notification reply feature. This allows you to control Whereabouts using a messaging application of your choice, as long as it posts notifications that can be replied to. For example, you can send a Signal message \"%s your-password help\" to your phone.</string>
     <string name="transport_notification_reply_description_auth">Controlling Whereabouts via notification reply requires a password to be set. Every message must contain a correct password.</string>
     <!-- Stands in for the app a command came from, in the "was executed by" notification, when that app is not known -->
     <string name="transport_notification_reply_destination_unknown">Notification Response</string>

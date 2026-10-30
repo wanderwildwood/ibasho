@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.dp
 import com.mudita.mmd.components.buttons.ButtonMMD
 import com.mudita.mmd.components.buttons.OutlinedButtonMMD
 import com.wanderwildwood.ibasho.ui.PagedColumn
+import com.wanderwildwood.ibasho.ui.showAboutDialog
 import com.mudita.mmd.components.text.TextMMD
 import com.mudita.mmd.components.text_field.TextFieldMMD
 import com.wanderwildwood.ibasho.R
@@ -194,6 +195,13 @@ private fun ChooseStep(onTexts: () -> Unit, onServer: () -> Unit, onLater: () ->
         }
     }
     item { TextMMD(stringResource(R.string.setup_choose_server_text)) }
+    item {
+        // Privacy, Terms and Licences can be read before anything is asked of the phone.
+        val context = LocalContext.current
+        OutlinedButtonMMD(modifier = Modifier.fillMaxWidth(), onClick = { showAboutDialog(context) }) {
+            TextMMD(stringResource(R.string.setup_about))
+        }
+    }
     item {
         OutlinedButtonMMD(modifier = Modifier.fillMaxWidth(), onClick = onLater) {
             TextMMD(stringResource(R.string.setup_later))

@@ -38,14 +38,13 @@ class Utils {
 
         @JvmStatic
         fun openUrl(context: Context, url: String?) {
-            val uri = Uri.parse(url)
-            val i = Intent(Intent.ACTION_VIEW, uri)
-            // A Kompakt may have no browser: say so plainly rather than closing the app.
-            try {
-                context.startActivity(i)
-            } catch (e: Exception) {
-                android.widget.Toast.makeText(context, com.wanderwildwood.ibasho.R.string.about_no_browser, android.widget.Toast.LENGTH_LONG).show()
-            }
+            // Through the guarded opener: a real browser, or a plain message that carries the address.
+            val address = url.orEmpty()
+            com.wanderwildwood.ibasho.ui.openLink(
+                context,
+                address,
+                context.getString(com.wanderwildwood.ibasho.R.string.about_no_browser_address, address.removePrefix("https://")),
+            )
         }
 
         @JvmStatic

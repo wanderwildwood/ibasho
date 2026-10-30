@@ -51,11 +51,10 @@ class WriteSecureSettingsPermission : Permission() {
     }
 
     private fun requestManually(activity: Activity) {
-        val intent = Intent(
-            Intent.ACTION_VIEW,
-            "https://fmd-foss.org/docs/fmd-android/granting-secure-settings-access".toUri()
+        com.wanderwildwood.ibasho.utils.Utils.openUrl(
+            activity,
+            "https://fmd-foss.org/docs/fmd-android/granting-secure-settings-access",
         )
-        activity.startActivity(intent)
     }
 
     private fun requestViaShizuku(context: Activity) {

@@ -225,27 +225,95 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         showPrivacyPolicyThenDialog(context, loginDialog)
     }
 
+    /**
+     * The server's own privacy policy is shown before its login or registration, and Accept works
+     * only once the page has really been shown: a failed load, a missing WebView or an address that
+     * is not https says so in words and leaves Accept off, so nobody accepts a policy they never saw.
+     */
     private fun showPrivacyPolicyThenDialog(
         context: Context,
         dialogToShowAfterAccepting: AlertDialog
     ) {
-        val webView = WebView(context)
-        webView.clearCache(true) // make sure to load the latest policy
-
-        @SuppressLint("SetJavaScriptEnabled")
-        webView.settings.apply {
-            // JS is needed because the website is a React app
-            javaScriptEnabled = true
-            // DOM Storage is needed for the "follow system theme" of the React app to work
-            domStorageEnabled = true
+        val url = privacyPolicyUrl(editTextServerUrl.text.toString())
+        val status = TextView(context).apply {
+            setTextColor(android.graphics.Color.BLACK)
+            textSize = 16f
+            setPadding(0, 0, 0, 12)
+        }
+        val box = android.widget.LinearLayout(context).apply {
+            orientation = android.widget.LinearLayout.VERTICAL
+            val pad = (16 * resources.displayMetrics.density).toInt()
+            setPadding(pad, pad / 2, pad, 0)
+            addView(status)
         }
 
-        val url = editTextServerUrl.text.toString().removeSuffix("/") + "/privacy?embedded=true"
-        webView.loadUrl(url)
+        var accept: Button? = null
+        var failed = false
+        val handler = android.os.Handler(android.os.Looper.getMainLooper())
+        fun fail(message: Int) {
+            failed = true
+            status.setText(message)
+            status.visibility = View.VISIBLE
+            accept?.isEnabled = false
+        }
 
-        EInkAlertDialogBuilder(context)
+        if (url == null) {
+            fail(R.string.setup_page_not_https)
+        } else {
+            val webView = try {
+                WebView(context)
+            } catch (e: RuntimeException) {
+                // No WebView provider on this phone.
+                null
+            }
+            if (webView == null) {
+                fail(R.string.setup_page_unavailable)
+            } else {
+                webView.clearCache(true) // make sure to load the latest policy
+
+                @SuppressLint("SetJavaScriptEnabled")
+                webView.settings.apply {
+                    // JS is needed because the website is a React app
+                    javaScriptEnabled = true
+                    // DOM Storage is needed for the "follow system theme" of the React app to work
+                    domStorageEnabled = true
+                }
+                status.setText(R.string.setup_page_loading)
+                webView.webViewClient = object : android.webkit.WebViewClient() {
+                    override fun onReceivedError(
+                        view: WebView,
+                        request: android.webkit.WebResourceRequest,
+                        error: android.webkit.WebResourceError,
+                    ) {
+                        if (request.isForMainFrame) fail(R.string.setup_page_unavailable)
+                    }
+
+                    override fun onReceivedHttpError(
+                        view: WebView,
+                        request: android.webkit.WebResourceRequest,
+                        errorResponse: android.webkit.WebResourceResponse,
+                    ) {
+                        if (request.isForMainFrame && errorResponse.statusCode >= 400) fail(R.string.setup_page_unavailable)
+                    }
+
+                    override fun onPageFinished(view: WebView, url: String) {
+                        if (failed) return
+                        handler.removeCallbacksAndMessages(null)
+                        status.visibility = View.GONE
+                        accept?.isEnabled = true
+                    }
+                }
+                box.addView(webView, android.widget.LinearLayout.LayoutParams(
+                    android.widget.LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f))
+                webView.loadUrl(url)
+                // A page that never answers is told as such rather than left blank.
+                handler.postDelayed({ fail(R.string.setup_page_unavailable) }, 20_000)
+            }
+        }
+
+        val dialog = EInkAlertDialogBuilder(context)
             .setTitle(getString(R.string.Settings_FMDServer_Alert_PrivacyPolicy_Title))
-            .setView(webView)
+            .setView(box)
             .setPositiveButton(getString(R.string.accept)) { _, _ ->
                 val shown = dialogToShowAfterAccepting
                 shown.show()
@@ -258,9 +326,13 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                     WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN
                 )
             }
-            .setNegativeButton(getString(R.string.cancel), null)
+            .setNegativeButton(getString(R.string.cancel)) { _, _ -> handler.removeCallbacksAndMessages(null) }
             .setCancelable(false)
-            .show()
+            .create()
+        dialog.setOnDismissListener { handler.removeCallbacksAndMessages(null) }
+        dialog.show()
+        accept = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+        accept?.isEnabled = false
     }
 
     private fun showLoadingIndicator(context: Context) {

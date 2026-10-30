@@ -16,7 +16,6 @@ import android.graphics.Color
 import android.graphics.Typeface
 import com.wanderwildwood.ibasho.ui.paging.PagingScrollView
 
-// TODO: this repository is not published yet. The link must resolve before release.
 // No scheme: it has to fit one line at 480px, and a reader can type it.
 const val SITE_URL = "wanderthe.dev"
 
@@ -51,11 +50,7 @@ fun showAboutDialog(context: Context) {
     // An address, opened in whatever the phone has for web pages. A Kompakt may have
     // nothing, so that says so rather than the press doing nothing.
     val open = { address: String ->
-        runCatching {
-            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(address)))
-        }.onFailure {
-            Toast.makeText(context, R.string.about_no_browser, Toast.LENGTH_SHORT).show()
-        }
+        openLink(context, address, context.getString(R.string.about_no_browser_address, address.removePrefix("https://")))
     }
 
     // Under the message, one line: the site's name, which opens the site, then a llama

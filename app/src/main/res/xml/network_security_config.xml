@@ -19,19 +19,4 @@
         <certificateTransparency enabled="false" />
     </base-config>
 
-    <!-- Lock down the domains that the maintainers control. -->
-    <domain-config cleartextTrafficPermitted="false">
-        <domain includeSubdomains="true">fmd-foss.org</domain>
-        <domain includeSubdomains="true">nulide.de</domain>
-        <trust-anchors>
-            <!-- Only allow certs from Let's Encrypt. -->
-            <!-- This should prevent other CAs in the system trust store -->
-            <!-- from mis-issuing a certificate for our domains. -->
-            <!-- https://letsencrypt.org/certificates/ -->
-            <certificates src="@raw/isrg_root_x1" />
-            <certificates src="@raw/isrg_root_x2" />
-        </trust-anchors>
-        <certificateTransparency enabled="true" />
-    </domain-config>
-
 </network-security-config>
