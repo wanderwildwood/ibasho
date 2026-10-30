@@ -101,7 +101,7 @@ class LegalActivity : FmdActivity() {
                         )
                         PAGE_TERMS -> Words(
                             listOf(
-                                stringResource(R.string.about_licence) + " " +
+                                stringResource(R.string.about_terms_free) + " " +
                                     stringResource(R.string.about_terms_warranty),
                                 stringResource(R.string.about_built_on),
                             ),

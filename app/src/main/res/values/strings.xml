@@ -76,6 +76,7 @@
     <string name="about_privacy_permissions">Location is read when you ask for it, when a command from an allowed number asks for it, and to upload to your server, also in the background. Text messages are read only to find commands from the numbers you allow, and sent only as replies. Contacts are read only for the contact you pick. Bluetooth is used when a command switches it on or off or scans. Notifications show the app\'s notices, and the notification listener is used only to spot the command word. Device administration lets the app lock the screen, and wipe only if you switch that on with its own password. Do Not Disturb and display over other apps are for ringing. Phone state is for the cell towers around you.</string>
     <string name="about_privacy_close">There are no ads, no analytics and no tracking. Nothing is sent to the app\'s maker. Backups and exports go only where you choose to save them.</string>
     <string name="about_terms_title">Terms</string>
+    <string name="about_terms_free">This app is free software under the GNU General Public License, version 3 or later.</string>
     <string name="about_terms_warranty">It comes with no warranty: use it at your own risk. It can help you find a lost phone, but it cannot promise to.</string>
     <string name="about_licence">GNU General Public License, version 3 or later.</string>
     <string name="about_built_on">Built on FindMyDevice by Nulide, under the same licence.</string>
