@@ -14,7 +14,7 @@ screen will do.
 | | |
 |---|---|
 | ![The commands it answers, and what each needs](screenshots/01.png) | ![The SMS channel: who may text it, and how](screenshots/02.png) |
-| ![Setting up: texts only, or texts and a server](screenshots/03.png) | ![Wiping: off until switched on here, with a password of its own](screenshots/04.png) |
+| ![Setting up: texts only, or texts and a server](screenshots/03.png) | ![Settings: General, Server, Access control and more](screenshots/04.png) |
 
 ## Wiping, and what it does not do
 
