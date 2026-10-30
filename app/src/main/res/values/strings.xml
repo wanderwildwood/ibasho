@@ -578,4 +578,10 @@
     <!-- Restricted settings (Android 13+), only while in force for this app -->
     <string name="restricted_settings_hint">Android blocks this for apps installed from a file.\nOpen App info, tap ⋮, then Allow restricted settings, and try again.</string>
     <string name="restricted_settings_app_info">App info</string>
+    <!-- The folio at the foot of a paged list, "2 / 6"; a tap on it asks for a page -->
+    <string name="folio_of">%1$d / %2$d</string>
+    <string name="folio_go_title">Go to page</string>
+    <string name="folio_page">Page %1$d of %2$d</string>
+    <string name="folio_go">Go</string>
+    <string name="folio_cancel">Cancel</string>
 </resources>

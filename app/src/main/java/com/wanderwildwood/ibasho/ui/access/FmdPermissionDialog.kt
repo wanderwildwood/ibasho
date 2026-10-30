@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mudita.mmd.components.checkbox.CheckboxMMD
 import com.wanderwildwood.ibasho.ui.PagedColumn
+import com.wanderwildwood.ibasho.ui.theme.DialogButtons
 import com.wanderwildwood.ibasho.ui.theme.EInkDialog
 import com.mudita.mmd.components.text.TextMMD
 import com.wanderwildwood.ibasho.R
@@ -51,7 +52,7 @@ fun FmdPermissionDialog(
         // Column of commands/permissions
         // Weighted so the buttons below keep their room when the list runs past the dialog.
         PagedColumn(
-            modifier = Modifier.weight(1f, fill = false).padding(top = 16.dp, bottom = 16.dp),
+            modifier = Modifier.weight(1f, fill = false).padding(top = 16.dp, bottom = 16.dp)
         ) {
             items(commands) { command ->
                 CommandRow(
@@ -65,21 +66,12 @@ fun FmdPermissionDialog(
         }
 
         // Button row
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.End,
-        ) {
-            TextButton(onClick = onCancelClicked, modifier = Modifier.heightIn(min = 48.dp)) {
-                TextMMD(stringResource(R.string.cancel))
-            }
-            Spacer(Modifier.padding(4.dp))
-            TextButton(
-                onClick = { onSaveClicked(permission) },
-                modifier = Modifier.heightIn(min = 48.dp),
-            ) {
-                TextMMD(stringResource(R.string.save))
-            }
-        }
+        DialogButtons(
+            cancel = stringResource(R.string.cancel),
+            confirm = stringResource(R.string.save),
+            onCancel = onCancelClicked,
+            onConfirm = { onSaveClicked(permission) },
+        )
     }
 }
 
