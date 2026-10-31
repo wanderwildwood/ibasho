@@ -69,6 +69,7 @@ public class FMDConfigActivity extends FmdActivity implements TextWatcher {
 
         buttonSelectRingtone = findViewById(R.id.buttonSelectRingTone);
         buttonSelectRingtone.setOnClickListener(this::onSelectRingtoneClicked);
+        updateRingtoneButton();
 
         editTextFmdCommand = findViewById(R.id.editTextFmdCommand);
         editTextFmdCommand.setText((String) settings.get(Settings.SET_FMD_COMMAND));
@@ -100,28 +101,30 @@ public class FMDConfigActivity extends FmdActivity implements TextWatcher {
         }
     }
 
-    private void onSelectRingtoneClicked(View v) {
-        Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
-        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_ALARM);
-        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, getString(R.string.Settings_Select_Ringtone));
-        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, Uri.parse((String) settings.get(Settings.SET_RINGER_TONE)));
+    /** The button names the sound it chooses, so the choice can be seen from this page. */
+    private void updateRingtoneButton() {
+        String name = null;
         try {
-            this.startActivityForResult(intent, REQUEST_CODE_RINGTONE);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, getString(R.string.Settings_no_ringtone_picker), Toast.LENGTH_LONG).show();
+            Uri uri = Uri.parse((String) settings.get(Settings.SET_RINGER_TONE));
+            name = RingtoneManager.getRingtone(this, uri).getTitle(this);
+        } catch (RuntimeException ignored) {
         }
+        String label = getString(R.string.Settings_Select_Ringtone);
+        buttonSelectRingtone.setText(name == null ? label : label + "\n" + name);
     }
 
-    @Override
-    protected void onActivityResult(final int requestCode, final int resultCode, final Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
-        if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_CODE_RINGTONE) {
-            Uri uri = intent.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
-            settings.set(Settings.SET_RINGER_TONE, uri.toString());
-        }
+    private void onSelectRingtoneClicked(View v) {
+        // Chosen in the app's own list: Android's picker has no OK button on a Kompakt, so a
+        // sound picked there was lost on going back.
+        SoundChooser.INSTANCE.show(this, RingtoneManager.TYPE_ALARM, getString(R.string.Settings_Select_Ringtone),
+                Uri.parse((String) settings.get(Settings.SET_RINGER_TONE)), false, android.media.AudioAttributes.USAGE_ALARM, uri -> {
+                    if (uri != null) {
+                        settings.set(Settings.SET_RINGER_TONE, uri.toString());
+                        updateRingtoneButton();
+                    }
+                    return kotlin.Unit.INSTANCE;
+                });
     }
-
-
 
     private void onEnterDeletePasswordClicked(View v) {
         new PasswordSetDialog(v.getContext(), (newPassword) -> {

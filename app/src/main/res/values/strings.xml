@@ -100,6 +100,9 @@
     <string name="Settings_FMDCommand_Description">The command used to communicate with Whereabouts.</string>
     <string name="Toast_Empty_FMDCommand">Empty command not allowed, using default.</string>
     <string name="Settings_Ringer_Tone_Description">Select a ringtone for the \"ring\" command.</string>
+    <string name="sound_chooser_silent">Silent</string>
+    <string name="sound_chooser_default">Default</string>
+    <string name="sound_chooser_done">Done</string>
     <string name="Settings_Select_Ringtone">Select ringtone</string>
     <string name="Settings_no_ringtone_picker">No ringtone picker found!</string>
     <string name="Settings_Lockscreenmessage_Description">Lock screen message:\nWhen locking the device, this message will appear on the lock screen.</string>
