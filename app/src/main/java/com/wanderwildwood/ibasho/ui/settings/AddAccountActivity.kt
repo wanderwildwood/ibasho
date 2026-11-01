@@ -285,6 +285,22 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                 }
                 status.setText(R.string.setup_page_loading)
                 webView.webViewClient = object : android.webkit.WebViewClient() {
+                    // Only the policy page itself loads here; any other address goes to a real browser.
+                    override fun shouldOverrideUrlLoading(
+                        view: WebView,
+                        request: android.webkit.WebResourceRequest,
+                    ): Boolean {
+                        val target = request.url
+                        if (target.scheme == "https" && target.host == android.net.Uri.parse(url).host) return false
+                        val address = target.toString()
+                        com.wanderwildwood.ibasho.ui.openLink(
+                            context,
+                            address,
+                            getString(R.string.about_no_browser_address, address.removePrefix("https://")),
+                        )
+                        return true
+                    }
+
                     override fun onReceivedError(
                         view: WebView,
                         request: android.webkit.WebResourceRequest,
