@@ -159,8 +159,8 @@ private fun Page(
         PagedColumn(
             modifier = Modifier
                 .weight(1f)
-                .fillMaxWidth()
-                .padding(horizontal = 20.dp, vertical = 8.dp),
+                .fillMaxWidth(),
+            contentPadding = androidx.compose.foundation.layout.PaddingValues(start = 20.dp, end = 12.dp, top = 8.dp, bottom = 8.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
             content = content,
         )

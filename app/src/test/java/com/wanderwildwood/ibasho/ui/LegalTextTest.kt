@@ -1,14 +1,12 @@
 package com.wanderwildwood.ibasho.ui
 
-import com.wanderwildwood.ibasho.ui.settings.SOURCE_URL
-import com.wanderwildwood.ibasho.ui.settings.licenceParagraphs
 import java.io.File
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class LegalTextTest {
-    private val gpl = File("src/main/res/raw/gpl_3_0.txt")
+    private val gpl = File("src/main/res/raw/licence_gpl3.txt")
 
     @Test
     fun theGplTextIsBundledWhole() {
