@@ -66,6 +66,9 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
 
     private var loadingDialog: AlertDialog? = null
 
+    /** The register or login form while its request is out: closed on success, left open with its entries on a refusal. */
+    private var formDialog: AlertDialog? = null
+
     private var lastTextChangedMillis: Long = 0
 
     private var serverVersion = ""
@@ -167,6 +170,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
             }
             registerLayout.showDialogError(problem)
             if (problem == null) {
+                formDialog = registerDialog
                 showLoadingIndicator(context)
                 // Key generation and password hashing is expensive-ish, so we don't want
                 // to do it on the UI thread (e.g., it would block the loading indicator).
@@ -181,7 +185,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                     )
                 }
             }
-            problem == null
+            false
         }
         showPrivacyPolicyThenDialog(context, registerDialog)
     }
@@ -209,6 +213,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
             val ok = id.isNotEmpty() && password.isNotEmpty()
             loginLayout.showDialogError(if (ok) null else R.string.Settings_FMDServer_Error_id_or_pw_empty)
             if (ok) {
+                formDialog = loginDialog
                 showLoadingIndicator(context)
                 lifecycleScope.launch(Dispatchers.IO) {
                     val fmdServerRepo = getTemporaryApiService()
@@ -220,7 +225,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
                     )
                 }
             }
-            ok
+            false
         }
         showPrivacyPolicyThenDialog(context, loginDialog)
     }
@@ -379,6 +384,8 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
         runOnUiThread {
             val context = applicationContext
             loadingDialog?.cancel()
+            formDialog?.dismiss()
+            formDialog = null
 
             if (!settingsRepo.serverAccountExists()) {
                 Toast.makeText(context, R.string.server_login_no_user_id, Toast.LENGTH_LONG).show()
