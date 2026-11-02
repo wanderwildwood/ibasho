@@ -94,9 +94,8 @@
     <string name="licences_title">Licences</string>
     <string name="licences_back">Back</string>
     <string name="licences_source_head">Source code</string>
-    <string name="licences_licence_head">Licence</string>
-    <string name="licences_licence">Whereabouts is free software under the GNU General Public License, version 3 or later. Copyright wander wildwood. Built on FindMyDevice by Nulide, under the same licence. The full texts follow.</string>
-    <string name="licences_built_head">Built with</string>
+    <string name="licences_no_text">%s needs no licence text here.</string>
+    <string name="licences_licence">Whereabouts is free software under the GNU General Public License, version 3 or later. Copyright wander wildwood. Built on FindMyDevice by Nulide, under the same licence. What it is built on keeps its own licences, each on its own page.</string>
     <string name="licences_full_head">Full texts</string>
     <string name="licences_full_gpl" translatable="false">GNU General Public License 3.0 (full text)</string>
     <string name="licences_full_lgpl" translatable="false">GNU Lesser General Public License 2.1 (full text)</string>

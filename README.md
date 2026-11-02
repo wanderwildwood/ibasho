@@ -139,8 +139,8 @@ For updates without doing this by hand, add this repository to
 GNU General Public License, version 3 or later — the same as upstream, whose
 terms this inherits and keeps. See [LICENSE](LICENSE).
 
-In the app, the (i) in the top bar opens Privacy, Terms and Licences; Licences shows the source
-address, the full licence text and everything the app is built with.
+In the app, the (i) in the top bar opens Privacy, Terms and Licences; Licences lists the app and then
+every library it is built with; a row opens its author, website and full licence text, and the app's own page the source address.
 
     Copyright (C) 2022-2026  Nulide and FindMyDevice contributors
     Copyright (C) 2026  wander wildwood
