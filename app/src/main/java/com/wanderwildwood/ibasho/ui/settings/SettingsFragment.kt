@@ -143,9 +143,10 @@ class SettingsFragment : TaggedFragment() {
     }
 
     private fun showExportPasswordDialog(context: Context, uri: Uri) {
+        // A password is required: an unencrypted backup would carry the server password hash
+        // and the keys in the clear.
         val message = context.getString(R.string.export_password_message) +
-                "\n\n" + context.getString(R.string.export_password_rule) +
-                "\n\n" + context.getString(R.string.export_password_message_empty_warning)
+                "\n\n" + context.getString(R.string.export_password_rule)
 
         PasswordSetDialog(
             context,
@@ -156,7 +157,6 @@ class SettingsFragment : TaggedFragment() {
             },
             R.string.export_password_enter_title,
             message,
-            allowEmpty = true,
             // The picker has already made the file; no backup means no empty file left behind.
             onCancel = { deleteDocumentQuietly(context, uri) },
         ).show()

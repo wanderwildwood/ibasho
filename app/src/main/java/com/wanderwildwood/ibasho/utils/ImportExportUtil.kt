@@ -18,15 +18,15 @@ import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.database.ACCESS_DB_FILENAME
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import net.lingala.zip4j.exception.ZipException
-import net.lingala.zip4j.io.inputstream.ZipInputStream
 import net.lingala.zip4j.io.outputstream.ZipOutputStream
 import net.lingala.zip4j.model.ZipParameters
 import net.lingala.zip4j.model.enums.AesKeyStrength
 import net.lingala.zip4j.model.enums.CompressionLevel
 import net.lingala.zip4j.model.enums.CompressionMethod
 import net.lingala.zip4j.model.enums.EncryptionMethod
+import java.io.ByteArrayInputStream
 import java.io.File
+import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStream
 import java.io.OutputStreamWriter
@@ -57,6 +57,8 @@ class SettingsImportExporter(
 
     suspend fun exportData(uri: Uri, password: String) {
         writeToUri(context, uri) { outputStream ->
+            // Never an unencrypted backup: it holds the server password hash and the keys.
+            require(password.isNotBlank()) { "A backup needs a password" }
             AccessRepository.getInstance(context).forceWriteToDisk()
 
             // https://github.com/srikanth-lingala/zip4j#working-with-streams
@@ -64,11 +66,9 @@ class SettingsImportExporter(
                 compressionMethod = CompressionMethod.DEFLATE
                 compressionLevel = CompressionLevel.NORMAL
 
-                if (password.isNotBlank()) {
-                    isEncryptFiles = true
-                    encryptionMethod = EncryptionMethod.AES
-                    aesKeyStrength = AesKeyStrength.KEY_STRENGTH_256
-                }
+                isEncryptFiles = true
+                encryptionMethod = EncryptionMethod.AES
+                aesKeyStrength = AesKeyStrength.KEY_STRENGTH_256
             }
             val zipOutputStream = ZipOutputStream(outputStream, password.toCharArray())
 
@@ -127,7 +127,14 @@ class SettingsImportExporter(
                 return false
             }
 
-            SettingsRepository.getInstance(context).importFromStream(inputStream)
+            // Read and checked first: a file that is JSON but not settings ("{}", a list,
+            // another app's file) would otherwise reset every setting to its default.
+            val bytes = inputStream.readBytes()
+            if (!BackupZip.isSettings(bytes)) {
+                context.log().i(TAG, "Not a settings.json")
+                return false
+            }
+            SettingsRepository.getInstance(context).importFromStream(ByteArrayInputStream(bytes))
 
             // Apparently the import was successful
             context.log().i(TAG, "JSON import successful")
@@ -143,92 +150,72 @@ class SettingsImportExporter(
     // We need to open a new stream (or would need to reset the old stream).
     // Otherwise the ZIP reader starts reading wherever the JSON reader stopped.
 
-    // New format, "fmd-export.zip" (contains settings.json and other data)
+    // New format, "fmd-export.zip" (contains settings.json and other data).
+    //
+    // Read and checked whole first (see [BackupZip]): a wrong password, a cut-off or damaged
+    // file, or a zip that is not this app's backup changes nothing on the phone. Only then is
+    // the access database swapped in, as a whole file renamed over the old one, and the settings
+    // read in after it, so their migration runs on the restored database.
     private suspend fun importV2Zip(
         uri: Uri,
         password: String?,
     ): Boolean {
-        var inputStream: InputStream? = null
-        var dbClosed = false
-        try {
-            context.log().i(TAG, "Trying to import ZIP")
-            inputStream = context.contentResolver.openInputStream(uri)
-            if (inputStream == null) {
+        context.log().i(TAG, "Trying to import ZIP")
+        val entries = try {
+            val input = context.contentResolver.openInputStream(uri)
+            if (input == null) {
                 context.log().i(TAG, "Failed to open InputStream from URI")
                 return false
             }
-
-            // We need to close the DB file prior to import. Otherwise, if we copy the restored file
-            // in place, Room will just overwrite it with the DB cached in memory.
-            val accessRepo = AccessRepository.getInstance(context)
-            accessRepo.closeDb()
-            dbClosed = true
-
-            val zipInputStream = ZipInputStream(inputStream, password?.toCharArray())
-            var settingsFound = false
-            var allowlistFound = false
-            var accessDbFound = false
-
-            while (true) {
-                val entry = zipInputStream.nextEntry ?: break
-                when (entry.fileName) {
-                    SETTINGS_FILENAME -> {
-                        SettingsRepository.getInstance(context).importFromStream(zipInputStream)
-                        settingsFound = true
-                    }
-
-                    ALLOWLIST_FILENAME -> {
-                        AllowlistRepository.getInstance(context)
-                            .importFromStreamToDb(zipInputStream)
-                        allowlistFound = true
-                    }
-
-                    ACCESS_DB_FILENAME -> {
-                        val outputFile = context.getDatabasePath(ACCESS_DB_FILENAME)
-                        // No zipInputStream.use{} because we don't yet want to close the stream.
-                        outputFile.outputStream().use { output ->
-                            zipInputStream.copyTo(output)
-                        }
-                        accessDbFound = true
-                    }
-
-                    else -> {
-                        context.log().w(TAG, "Unknown entry '${entry.fileName}'")
-                        continue
-                    }
-                }
-                context.log().i(TAG, "Imported ${entry.fileName}")
-            }
-
-            accessRepo.openDb()
-            dbClosed = false
-
-            if (settingsFound && (allowlistFound || accessDbFound)) {
-                context.log().i(TAG, "ZIP import successful")
-                return true
-            }
-
-            // Consider this an import failure
-            context.log().w(
-                TAG,
-                "ZIP: settingsFound=$settingsFound allowlistFound=$allowlistFound accessDbFound=$accessDbFound"
-            )
-
-        } catch (e: Exception) {
-            context.log().e(TAG, "ZIP import failed:\n${e.stackTraceToString()}")
-            if (e is ZipException && e.type == ZipException.Type.WRONG_PASSWORD) {
+            input.use {
+                BackupZip.readAll(it, password?.toCharArray(), setOf(SETTINGS_FILENAME, ALLOWLIST_FILENAME, ACCESS_DB_FILENAME))
+            }.also { BackupZip.check(it, SETTINGS_FILENAME, ACCESS_DB_FILENAME, ALLOWLIST_FILENAME) }
+        } catch (e: BackupZip.Refused) {
+            context.log().w(TAG, "ZIP refused before anything was changed: ${e.reason}")
+            if (e.reason == BackupZip.Reason.WRONG_PASSWORD) {
                 lastFailureWasWrongPassword = true
             }
-            // continue
-        } finally {
-            inputStream?.close()
-            // A failed import must not leave the database closed.
-            if (dbClosed) {
-                AccessRepository.getInstance(context).openDb()
-            }
+            return false
+        } catch (e: Exception) {
+            context.log().e(TAG, "ZIP could not be read:\n${e.stackTraceToString()}")
+            return false
         }
 
-        return false
+        val accessRepo = AccessRepository.getInstance(context)
+        val target = context.getDatabasePath(ACCESS_DB_FILENAME)
+        val staged = File(target.parentFile, "$ACCESS_DB_FILENAME.restoring")
+        var dbClosed = false
+        try {
+            entries[ACCESS_DB_FILENAME]?.let { bytes ->
+                staged.writeBytes(bytes)
+                // Closed first: otherwise Room writes the database it holds in memory back over
+                // the restored file.
+                accessRepo.closeDb()
+                dbClosed = true
+                if (!staged.renameTo(target)) throw IOException("Could not put the restored database in place")
+                // The old database's journal must not be replayed into the new one.
+                File(target.path + "-wal").delete()
+                File(target.path + "-shm").delete()
+                File(target.path + "-journal").delete()
+                accessRepo.openDb()
+                dbClosed = false
+            }
+            SettingsRepository.getInstance(context).importFromStream(ByteArrayInputStream(entries.getValue(SETTINGS_FILENAME)))
+            entries[ALLOWLIST_FILENAME]?.let {
+                AllowlistRepository.getInstance(context).importFromStreamToDb(ByteArrayInputStream(it))
+            }
+            context.log().i(TAG, "ZIP import successful")
+            return true
+        } catch (e: Exception) {
+            context.log().e(TAG, "ZIP import failed:\n${e.stackTraceToString()}")
+            return false
+        } finally {
+            staged.delete()
+            // A failed import must not leave the database closed.
+            if (dbClosed) {
+                accessRepo.openDb()
+            }
+        }
     }
 }
 
