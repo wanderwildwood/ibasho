@@ -1,6 +1,8 @@
 package com.wanderwildwood.ibasho.net
 
 import com.wanderwildwood.ibasho.net.model.DataRequestResponse
+import com.wanderwildwood.ibasho.net.model.FamilyResponse
+import com.wanderwildwood.ibasho.net.model.IdentityBody
 import com.wanderwildwood.ibasho.net.model.LoginRequest
 import com.wanderwildwood.ibasho.net.model.LoginResponse
 import com.wanderwildwood.ibasho.net.model.MessagesResponse
@@ -9,7 +11,10 @@ import com.wanderwildwood.ibasho.net.model.PasswordResponse
 import com.wanderwildwood.ibasho.net.model.PushUrlRequestResponse
 import com.wanderwildwood.ibasho.net.model.RegisterRequest
 import com.wanderwildwood.ibasho.net.model.RegisterResponse
+import com.wanderwildwood.ibasho.net.model.PauseBody
 import com.wanderwildwood.ibasho.net.model.SaltResponse
+import com.wanderwildwood.ibasho.net.model.SealedGetResponse
+import com.wanderwildwood.ibasho.net.model.SealedPutRequest
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -63,6 +68,26 @@ interface FmdServerApiV2Service {
         @Path("type") dataType: String,
         @Path("id") id: String,
     ): Call<Unit>
+
+    /* ----- Family sharing (see docs/PLAN-family.md) ----- */
+
+    @GET("account/identity")
+    fun getIdentity(): Call<IdentityBody>
+
+    @POST("account/identity")
+    fun postIdentity(@Body request: IdentityBody): Call<Unit>
+
+    @GET("family")
+    fun getFamily(): Call<FamilyResponse>
+
+    @POST("family/pause")
+    fun postFamilyPause(@Body request: PauseBody): Call<PauseBody>
+
+    @GET("family/locations")
+    fun getFamilyLocations(): Call<SealedGetResponse>
+
+    @POST("family/locations")
+    fun postFamilyLocations(@Body request: SealedPutRequest): Call<Unit>
 
     /* ----- Server messages ----- */
 

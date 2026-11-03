@@ -262,6 +262,12 @@ class SettingsRepository private constructor(private val context: Context) {
         encSettings.putString(KEY_FMDSERVER_V2_MASTER_KEY, "")
 
         encSettings.setCachedAccessToken("")
+
+        // Family sharing belongs to the account: whom it shared with and the keys it pinned.
+        set(Settings.SET_FAMILY_SHARING, false)
+        set(Settings.SET_FAMILY_AUDIENCE, "")
+        set(Settings.SET_FAMILY_PINS, "")
+        set(Settings.SET_FAMILY_KEY_CHANGED, "")
     }
 
     fun storeLastKnownLocation(loc: FmdLocation) {

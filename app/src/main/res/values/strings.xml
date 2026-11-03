@@ -593,4 +593,36 @@
     <!-- Restricted settings (Android 13+), only while in force for this app -->
     <string name="restricted_settings_hint">Android blocks this for apps installed from a file.\nOpen App info, tap ⋮, then Allow restricted settings, and try again.</string>
     <string name="restricted_settings_app_info">App info</string>
+
+    <!-- Family (docs/PLAN-family.md) -->
+    <string name="Settings_Family">Family</string>
+    <string name="family_title">Family</string>
+    <string name="family_share_my_place">Share where this phone was last</string>
+    <string name="family_share_off_text">Off. No one in the family sees where this phone is. Tick it to choose who may.</string>
+    <string name="family_share_on_text">On. Each time this phone uploads its place, the people ticked below get a copy only they can open. Only the last place is kept, never a trail.</string>
+    <string name="family_share_with_them">Share my place with them</string>
+    <string name="family_saving">Saving…</string>
+    <string name="family_change_failed">That did not reach the server. Try again when the phone is online.</string>
+    <string name="family_looking">Looking…</string>
+    <string name="family_load_failed">Could not reach the server. Pull down to try again.</string>
+    <string name="family_empty">No one else has an account on this server yet. Others join with the server\'s address and its registration token.</string>
+    <string name="family_pull_hint">Pull down to look again.</string>
+    <string name="family_needs_account">Family needs this phone to be signed in to a server, on the current protocol. Everyone signed in to the same server is family.</string>
+    <string name="family_server_settings">Server settings</string>
+    <string name="family_open_in_map">Open in a map</string>
+    <string name="family_no_map_app">No map app is installed.</string>
+    <string name="family_age_just_now">just now</string>
+    <string name="family_age_minutes">%1$d min ago</string>
+    <string name="family_age_hours">%1$d h ago</string>
+    <string name="family_seen_place">Shares with you. Last place %1$s.</string>
+    <string name="family_seen_place_battery">Shares with you. Last place %1$s, battery %2$d%%.</string>
+    <string name="family_seen_not_sharing">Not sharing with you.</string>
+    <string name="family_seen_paused">Has turned sharing off.</string>
+    <string name="family_seen_not_set_up">Has not opened Family yet.</string>
+    <string name="family_seen_key_changed">Their key changed, so their place is not shown.</string>
+    <string name="family_seen_unreadable">What they shared could not be opened.</string>
+    <string name="family_key_changed_text">Their key is not the one this phone saw first. That happens when an account is deleted and made again under the same name; it could also mean the server is passing someone else off as them. Check with them before you trust it.</string>
+    <string name="family_trust">Trust their new key</string>
+    <string name="family_trust_armed">Tap again to trust it</string>
+    <string name="family_fingerprint">Key: %1$s</string>
 </resources>

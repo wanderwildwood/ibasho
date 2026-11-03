@@ -13,6 +13,7 @@ import com.wanderwildwood.ibasho.data.FmdLocation
 import com.wanderwildwood.ibasho.data.FmdPicture
 import com.wanderwildwood.ibasho.data.Settings
 import com.wanderwildwood.ibasho.data.SettingsRepository
+import com.wanderwildwood.ibasho.family.FamilyRepository
 import com.wanderwildwood.ibasho.net.interceptor.AuthorizationInterceptor
 import com.wanderwildwood.ibasho.net.interceptor.UserAgentInterceptor
 import com.wanderwildwood.ibasho.net.model.DataRequestResponse
@@ -406,8 +407,22 @@ class FmdServerApiV2Repository private constructor(
     }
 
     override fun sendLocation(location: FmdLocation) {
-        sendLocations(listOf(location))
+        // Once the place is safely up, family sharing seals the same place for the people this
+        // phone shares with (if any). No extra wake-up: it rides on this upload.
+        sendLocations(listOf(location), listener = {
+            FamilyRepository.getInstance(context).shareInBackground(location)
+        })
     }
+
+    /** For family sharing: a request with the cached token, retried once after a refresh. */
+    fun <T> familyRequest(
+        doRequest: (service: FmdServerApiV2Service) -> Call<T>,
+        listener: Listener<T>,
+        errorListener: ErrorListener,
+    ) = doRequestWithCachedToken(doRequest, listener, errorListener)
+
+    /** The account's long-term keys, or null when this phone is not logged in on v2. */
+    fun longTermKeysOrNull(): LongTermKeys? = if (::ltk.isInitialized) ltk else null
 
     fun sendLocations(
         locations: List<FmdLocation>,

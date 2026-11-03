@@ -91,6 +91,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ui.family.FamilyActivity"
+            android:label="@string/family_title" />
+        <activity
             android:name=".ui.access.AccessControlActivity"
             android:label="@string/Settings_Access_Control" />
         <activity

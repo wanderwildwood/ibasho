@@ -56,6 +56,13 @@ public class Settings extends HashMap<Integer, Object> {
     public static final String VAL_SETUP_TEXTS = "texts";
     public static final String VAL_SETUP_SERVER = "server";
     public static final int SET_SETUP_GUIDE_DONE = 123;
+    // Family sharing (docs/PLAN-family.md): off until the person turns it on; whom this phone
+    // shares with (JSON list of account names); the key pinned for each person (JSON map); and
+    // the people no longer sealed to because their key changed (JSON list).
+    public static final int SET_FAMILY_SHARING = 124;
+    public static final int SET_FAMILY_AUDIENCE = 125;
+    public static final int SET_FAMILY_PINS = 126;
+    public static final int SET_FAMILY_KEY_CHANGED = 127;
 
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS = 201;
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS = 202;
@@ -106,6 +113,7 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_UPDATEBOARDING_MODERN_CRYPTO_COMPLETED:
                 case SET_FMD_EDGE_INFO_SHOWN:
                 case SET_SETUP_GUIDE_DONE:
+                case SET_FAMILY_SHARING:
                     return false;
                 case SET_FMD_LOW_BAT_SEND:
                     return true;
@@ -132,6 +140,9 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_FMDSERVER_PUSH_URL:
                 case SET_FMDSERVER_PUSH_SOURCE:
                 case SET_SETUP_MODE:
+                case SET_FAMILY_AUDIENCE:
+                case SET_FAMILY_PINS:
+                case SET_FAMILY_KEY_CHANGED:
                     return "";
                 case SET_FMDSERVER_LAST_CMD_MILLIS:
                 case SET_FMDSERVER_LAST_UPLOAD_JOB_MILLIS:

@@ -34,6 +34,7 @@ public class SettingsEntry {
         entries.add(new SettingsEntry(context, R.string.Settings_Import, R.drawable.ic_import_export));
         entries.add(new SettingsEntry(context, R.string.Settings_Logs, R.drawable.ic_logs));
         entries.add(new SettingsEntry(context, R.string.Settings_Setup_Guide, R.drawable.ic_settings));
+        entries.add(new SettingsEntry(context, R.string.Settings_Family, R.drawable.ic_people));
         if (BuildConfig.DEBUG) {
             entries.add(new SettingsEntry(context, R.string.Settings_Debugging, R.drawable.ic_bug_report));
         }

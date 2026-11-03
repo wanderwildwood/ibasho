@@ -1,6 +1,7 @@
 package com.wanderwildwood.ibasho.ui.settings
 
 import android.app.Activity
+import com.wanderwildwood.ibasho.ui.family.FamilyActivity
 import com.wanderwildwood.ibasho.ui.setup.SetupGuideActivity
 import com.wanderwildwood.ibasho.ui.paging.turnsAPageOnSwipe
 import android.app.KeyguardManager
@@ -106,8 +107,9 @@ class SettingsFragment : TaggedFragment() {
 
             7 -> settingIntent = Intent(context, LogViewActivity::class.java)
             8 -> settingIntent = Intent(context, SetupGuideActivity::class.java)
+            9 -> settingIntent = Intent(context, FamilyActivity::class.java)
             // About is no longer a row here; it is the "i" on the main screen.
-            9 -> settingIntent = Intent(context, DebuggingActivity::class.java)
+            10 -> settingIntent = Intent(context, DebuggingActivity::class.java)
         }
 
         if (settingIntent != null) {
