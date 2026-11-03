@@ -224,12 +224,16 @@ private fun PersonRow(
                 onClick = { openInMap(context, row.person.name, seen) },
             ) { TextMMD(stringResource(R.string.family_open_in_map)) }
         }
-        CheckRow(
-            text = stringResource(R.string.family_share_with_them),
-            checked = row.chosen,
-            enabled = sharing && !busy,
-            onChange = onChoose,
-        )
+        // Whom to share with is asked only once sharing is on: a box that cannot be ticked
+        // looks the same as one that can on a black-and-white screen.
+        if (sharing) {
+            CheckRow(
+                text = stringResource(R.string.family_share_with_them),
+                checked = row.chosen,
+                enabled = !busy,
+                onChange = onChoose,
+            )
+        }
         if (row.keyChanged || row.seen == Seen.KeyChanged) {
             TextMMD(stringResource(R.string.family_key_changed_text))
             ArmedTrustButton(enabled = !busy, onTrust = onTrust)

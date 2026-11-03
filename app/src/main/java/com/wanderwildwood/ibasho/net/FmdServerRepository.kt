@@ -6,6 +6,7 @@ import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.net.interceptor.UserAgentInterceptor
 import okhttp3.Call
 import okhttp3.Callback
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
@@ -50,8 +51,15 @@ class FmdServerRepository(
             .addInterceptor(UserAgentInterceptor())
             .build()
 
+        // A half-typed address ("https://host:81http:...") is not a URL; OkHttp throws on it, and
+        // thrown here, on a background thread, it closed the whole app while someone typed.
+        val url = "${baseUrl.trimEnd('/')}/version".toHttpUrlOrNull()
+        if (url == null) {
+            errorListener.onError("Not a valid address")
+            return
+        }
         val request = Request.Builder()
-            .url("${baseUrl.trimEnd('/')}/version")
+            .url(url)
             .build()
 
         val callback = object : Callback {
