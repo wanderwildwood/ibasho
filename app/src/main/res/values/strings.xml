@@ -41,7 +41,7 @@
 
     <!-- Settings (main screen, with the list) -->
     <string name="Settings_Settings">Settings</string>
-    <string name="Settings_FMDConfig">General</string>
+    <string name="Settings_FMDConfig">Commands</string>
     <string name="Settings_FMDServer" translatable="false">Server</string>
     <string name="Settings_Access_Control">Access control</string>
     <string name="Settings_OpenCellId" translatable="false">BeaconDB &amp; OpenCelliD</string>
@@ -70,6 +70,8 @@
          the licence in full, what is bundled and under what, then the source. -->
     <!-- Title of the About dialog. %1$s is the version number, e.g. 0.1.6. Keep the app's name as it is -->
     <string name="about_title">Whereabouts %1$s</string>
+    <string name="about_close">Close</string>
+    <string name="about_feed_the_llamas">Feed the llamas</string>
     <string name="about_sends">This phone\'s location goes only to the server you set, encrypted on the phone first, and by text to the numbers you allow when they ask. Only your password can read what is on the server, and it cannot be reset.</string>
     <string name="about_sends_network">Cell and Wi-Fi positioning asks BeaconDB and OpenCelliD, which learn roughly where you are.</string>
     <string name="about_privacy_title">Privacy</string>
@@ -78,19 +80,13 @@
     <string name="about_terms_title">Terms</string>
     <string name="about_terms_free">This app is free software under the GNU General Public License, version 3 or later.</string>
     <string name="about_terms_warranty">It comes with no warranty: use it at your own risk. It can help you find a lost phone, but it cannot promise to.</string>
-    <string name="about_licence">GNU General Public License, version 3 or later.</string>
     <string name="about_built_on">Built on FindMyDevice by Nulide, under the same license.</string>
-    <string name="about_llama">feed the llamas</string>
     <!-- Toast when the llama row is pressed and nothing on the phone can open a web page -->
     <string name="about_no_browser_address">No browser is installed. The address is %1$s.</string>
     <string name="setup_about">Privacy, terms and licenses</string>
     <string name="setup_page_unavailable">The page could not be loaded, so the policy cannot be shown. Check the server address and your connection, then try again.</string>
     <string name="setup_page_loading">Loading the privacy policy. Accept is available once it has been shown.</string>
     <string name="setup_page_not_https">The privacy policy is only shown over https. Use an https server address.</string>
-    <string name="about_no_browser">There is no browser on this phone to open that with.</string>
-    <string name="about_source">%1$s</string>
-    <string name="about_libraries">Bundled libraries</string>
-    <string name="about_licences">Licenses</string>
     <string name="licences_title">Licenses</string>
     <string name="licences_back">Back</string>
     <string name="licences_source_head">Source code</string>

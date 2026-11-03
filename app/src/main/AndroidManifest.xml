@@ -109,9 +109,6 @@
             android:name=".ui.settings.FMDConfigActivity"
             android:label="@string/Settings_FMDConfig" />
         <activity
-            android:name=".ui.settings.LegalActivity"
-            android:label="@string/Settings_About" />
-        <activity
             android:name=".ui.CrashedActivity"
             android:process=":bug_report" />
         <activity

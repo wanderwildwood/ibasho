@@ -1,135 +1,81 @@
 package com.wanderwildwood.ibasho.ui
 
-import android.content.Context
-import android.content.Intent
-import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.WindowManager
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.compose.ui.res.stringResource
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentActivity
 import com.wanderwildwood.ibasho.BuildConfig
 import com.wanderwildwood.ibasho.R
-import com.wanderwildwood.ibasho.ui.settings.LegalActivity
-import android.net.Uri
-import android.view.Gravity
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
-import android.graphics.Color
-import android.graphics.Typeface
-import com.wanderwildwood.ibasho.ui.paging.PagingScrollView
-
-// No scheme: it has to fit one line at 480px, and a reader can type it.
-const val SITE_URL = "wanderthe.dev"
+import com.wanderwildwood.ibasho.ui.theme.AppTheme
 
 /**
- * About is a dialog reached by the "i" in the top right, not a settings row:
- * it is not a setting, and it is the one thing a stranger looks for before
- * trusting an app.
- *
- * The order is fixed — name and version, what it sends, the licence named in
- * full, what is bundled and whose it is, then the source.
+ * This app's About: only the words and the address. The dialog, its one Close button, the
+ * Licenses row, the links and the llama are the shared HouseAbout.kt, the same in every app.
+ * It is reached by the "i" in the top right, not a settings row.
  */
-fun showAboutDialog(context: Context) {
-    val density = context.resources.displayMetrics.density
-    val pad = (24 * density).toInt()
-
-    // Plain text in ink: a heading in bold, a paragraph under it.
-    fun heading(text: Int) = TextView(context).apply {
-        setText(text)
-        setTextColor(Color.BLACK)
-        textSize = 18f
-        setTypeface(typeface, Typeface.BOLD)
-        setPadding(0, (12 * density).toInt(), 0, (4 * density).toInt())
+@Composable
+fun AboutDialog(onDismiss: () -> Unit) {
+    val context = LocalContext.current
+    val data = AboutData(
+        title = stringResource(R.string.about_title, BuildConfig.VERSION_NAME),
+        sections = listOf(
+            AboutSection(stringResource(R.string.about_privacy_title), stringResource(R.string.about_sends)),
+            AboutSection(null, stringResource(R.string.about_sends_network)),
+            AboutSection(null, stringResource(R.string.about_privacy_permissions)),
+            AboutSection(null, stringResource(R.string.about_privacy_close)),
+            AboutSection(
+                stringResource(R.string.about_terms_title),
+                stringResource(R.string.about_terms_free) + " " + stringResource(R.string.about_terms_warranty),
+            ),
+            AboutSection(null, stringResource(R.string.about_built_on)),
+        ),
+        sourceUrl = SOURCE_URL,
+    )
+    val labels = AboutLabels(
+        close = stringResource(R.string.about_close),
+        licences = stringResource(R.string.licences_title),
+        feedTheLlamas = stringResource(R.string.about_feed_the_llamas),
+        noBrowser = { address -> context.getString(R.string.about_no_browser_address, address) },
+    )
+    HouseAboutDialog(data, labels, R.drawable.llama, onDismiss) { modifier, back ->
+        LicencesScreen(rememberLicencesData(), rememberLicencesLabels(), onBack = back, modifier = modifier)
     }
+}
 
-    fun paragraph(text: String) = TextView(context).apply {
-        this.text = text
-        setTextColor(Color.BLACK)
-        textSize = 16f
-        setPadding(0, 0, 0, (8 * density).toInt())
-    }
+/** Opens About over a View-based screen (the main screen is not Compose). */
+fun showAboutDialog(activity: FragmentActivity) {
+    if (activity.supportFragmentManager.findFragmentByTag(AboutDialogFragment.TAG) != null) return
+    AboutDialogFragment().show(activity.supportFragmentManager, AboutDialogFragment.TAG)
+}
 
-    // An address, opened in whatever the phone has for web pages. A Kompakt may have
-    // nothing, so that says so rather than the press doing nothing.
-    val open = { address: String ->
-        openLink(context, address, context.getString(R.string.about_no_browser_address, address.removePrefix("https://")))
-    }
-
-    // Under the message, one line: the site's name, which opens the site, then a llama
-    // which opens the page a donation goes to. The dialog is a
-    // builder rather than Compose, so the row is put together by hand rather than inflated:
-    // it is a name, a drawing and three words, and a layout file for that would be a file to keep.
-    val llama = LinearLayout(context).apply {
-        orientation = LinearLayout.HORIZONTAL
-        gravity = Gravity.CENTER_VERTICAL
-        isClickable = true
-        setOnClickListener {
-            // Straight to the checkout. The Donate button on the site only leads here
-            // anyway, so the page in between is a press the reader does not need. The short
-            // square.link form, not the long checkout.square.site address it redirects to --
-            // the short one is what the site itself links to, so a regenerated checkout
-            // follows it and a published app does not break.
-            open("https://square.link/u/AGu8oT10")
+/** An empty, transparent shell; the dialog itself is the Compose one above. */
+class AboutDialogFragment : DialogFragment() {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
+        ComposeView(requireContext()).apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent { AppTheme { AboutDialog(onDismiss = { dismissAllowingStateLoss() }) } }
         }
-        val size = (22 * density).toInt()
-        addView(
-            ImageView(context).apply { setImageResource(R.drawable.llama) },
-            LinearLayout.LayoutParams(size, size),
-        )
-        addView(
-            TextView(context).apply {
-                text = context.getString(R.string.about_llama)
-                val gap = (6 * density).toInt()
-                setPadding(gap, 0, 0, 0)
-            },
-        )
-    }
-    val row = LinearLayout(context).apply {
-        orientation = LinearLayout.HORIZONTAL
-        gravity = Gravity.CENTER_VERTICAL
-        setPadding(0, pad / 3, 0, pad / 2)
-        addView(
-            TextView(context).apply {
-                text = SITE_URL
-                isClickable = true
-                setOnClickListener { open("https://$SITE_URL") }
-                val gap = (4 * density).toInt()
-                setPadding(0, gap, 0, gap)
-            },
-        )
-        addView(
-            llama,
-            LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-            ).apply { marginStart = (6 * density).toInt() },
-        )
+
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.apply {
+            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
+            setLayout(1, 1)
+        }
     }
 
-    // Three doors, no rules between them: space sets them apart. Each opens its own page.
-    fun door(label: Int, page: String) = TextView(context).apply {
-        setText(label)
-        setTextColor(Color.BLACK)
-        textSize = 18f
-        gravity = Gravity.CENTER_VERTICAL
-        minHeight = (56 * density).toInt()
-        isClickable = true
-        setOnClickListener { context.startActivity(LegalActivity.intent(context, page)) }
+    companion object {
+        const val TAG = "about"
     }
-    val column = LinearLayout(context).apply {
-        orientation = LinearLayout.VERTICAL
-        setPadding(pad, 0, pad, 0)
-        addView(door(R.string.about_privacy_title, LegalActivity.PAGE_PRIVACY))
-        addView(door(R.string.about_terms_title, LegalActivity.PAGE_TERMS))
-        addView(door(R.string.about_licences, LegalActivity.PAGE_LICENCES))
-        addView(row)
-    }
-    val page = PagingScrollView(context).apply {
-        isVerticalScrollBarEnabled = false
-        addView(column)
-    }
-
-    EInkAlertDialogBuilder(context)
-        .setTitle(context.getString(R.string.about_title, BuildConfig.VERSION_NAME))
-        .setView(page)
-        .setPositiveButton(android.R.string.ok, null)
-        .show()
 }
