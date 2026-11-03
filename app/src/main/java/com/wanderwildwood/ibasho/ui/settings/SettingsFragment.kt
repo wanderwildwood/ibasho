@@ -86,30 +86,29 @@ class SettingsFragment : TaggedFragment() {
     fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
         val context = view.context
 
+        val entry = parent.getItemAtPosition(position) as SettingsEntry
         var settingIntent: Intent? = null
-        when (position) {
-            0 -> settingIntent = Intent(context, FMDConfigActivity::class.java)
-            1 -> settingIntent = if (!settings.serverAccountExists()) {
+        when (entry.action) {
+            SettingsEntry.Action.SERVER -> settingIntent = if (!settings.serverAccountExists()) {
                 Intent(context, AddAccountActivity::class.java)
             } else {
                 Intent(context, FMDServerActivity::class.java)
             }
-
-            2 -> settingIntent = Intent(context, AccessControlActivity::class.java)
-            3 -> settingIntent = Intent(context, OpenCellIdActivity::class.java)
-            4 -> settingIntent = Intent(context, AppearanceActivity::class.java)
-            5 -> authenticateForBackup(context)
-            6 -> {
+            SettingsEntry.Action.FAMILY -> settingIntent = Intent(context, FamilyActivity::class.java)
+            SettingsEntry.Action.COMMANDS -> settingIntent = Intent(context, FMDConfigActivity::class.java)
+            SettingsEntry.Action.ACCESS_CONTROL -> settingIntent = Intent(context, AccessControlActivity::class.java)
+            SettingsEntry.Action.LOCATION_SOURCES -> settingIntent = Intent(context, OpenCellIdActivity::class.java)
+            SettingsEntry.Action.EXPORT -> authenticateForBackup(context)
+            SettingsEntry.Action.IMPORT -> {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
                 intent.setType("*/*")
                 startActivityForResult(intent, IMPORT_REQ_CODE)
             }
-
-            7 -> settingIntent = Intent(context, LogViewActivity::class.java)
-            8 -> settingIntent = Intent(context, SetupGuideActivity::class.java)
-            9 -> settingIntent = Intent(context, FamilyActivity::class.java)
-            // About is no longer a row here; it is the "i" on the main screen.
-            10 -> settingIntent = Intent(context, DebuggingActivity::class.java)
+            SettingsEntry.Action.LANGUAGE -> settingIntent = Intent(context, AppearanceActivity::class.java)
+            SettingsEntry.Action.SETUP_GUIDE -> settingIntent = Intent(context, SetupGuideActivity::class.java)
+            SettingsEntry.Action.LOGS -> settingIntent = Intent(context, LogViewActivity::class.java)
+            // About is not a row here; it is the "i" on the main screen.
+            SettingsEntry.Action.TROUBLESHOOTING -> settingIntent = Intent(context, DebuggingActivity::class.java)
         }
 
         if (settingIntent != null) {

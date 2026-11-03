@@ -28,7 +28,7 @@ public class SettingsViewAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return settingsEntries.get(position);
     }
 
     @Override
@@ -42,6 +42,12 @@ public class SettingsViewAdapter extends BaseAdapter {
         SettingsEntry entry = settingsEntries.get(position);
         TextView name = view.findViewById(R.id.textViewSettingsTitle);
         name.setText(entry.string);
+        if (entry.startsGroup) {
+            // A group is set apart by space above its first row, never by a rule.
+            int gap = (int) (16 * view.getResources().getDisplayMetrics().density);
+            view.setPadding(view.getPaddingLeft(), view.getPaddingTop() + gap,
+                    view.getPaddingRight(), view.getPaddingBottom());
+        }
         return view;
     }
 }
