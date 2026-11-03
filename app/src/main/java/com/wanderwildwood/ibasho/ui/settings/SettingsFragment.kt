@@ -1,9 +1,22 @@
 package com.wanderwildwood.ibasho.ui.settings
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.items
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.mudita.mmd.components.text.TextMMD
+import com.wanderwildwood.ibasho.ui.PagedColumn
+import com.wanderwildwood.ibasho.ui.theme.AppTheme
 import android.app.Activity
 import com.wanderwildwood.ibasho.ui.family.FamilyActivity
 import com.wanderwildwood.ibasho.ui.setup.SetupGuideActivity
-import com.wanderwildwood.ibasho.ui.paging.turnsAPageOnSwipe
 import android.app.KeyguardManager
 import android.content.Context
 import android.content.Intent
@@ -13,9 +26,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.AdapterView.OnItemClickListener
-import android.widget.ListView
 import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
 import androidx.biometric.BiometricPrompt
@@ -28,7 +38,6 @@ import com.wanderwildwood.ibasho.ui.TaggedFragment
 import com.wanderwildwood.ibasho.ui.access.AccessControlActivity
 import com.wanderwildwood.ibasho.ui.common.PasswordSetDialog
 import com.wanderwildwood.ibasho.ui.helper.SettingsEntry
-import com.wanderwildwood.ibasho.ui.helper.SettingsViewAdapter
 import com.wanderwildwood.ibasho.utils.deleteDocumentQuietly
 import com.wanderwildwood.ibasho.utils.SettingsImportExporter
 import com.wanderwildwood.ibasho.utils.SettingsImportExporter.Companion.filenameForExport
@@ -73,20 +82,14 @@ class SettingsFragment : TaggedFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val settingsEntries = SettingsEntry.getSettingsEntries(view.context)
-
-        val listSettings = view.findViewById<ListView>(R.id.listSettings)
-        listSettings.turnsAPageOnSwipe()
-        listSettings.setAdapter(SettingsViewAdapter(view.context, settingsEntries))
-        listSettings.onItemClickListener =
-            OnItemClickListener { parent: AdapterView<*>, view: View, position: Int, id: Long ->
-                this.onItemClick(parent, view, position, id)
-            }
+        view.findViewById<ComposeView>(R.id.listSettings).apply {
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
+            setContent { AppTheme { SettingsList(settingsEntries) { open(it) } } }
+        }
     }
 
-    fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-        val context = view.context
-
-        val entry = parent.getItemAtPosition(position) as SettingsEntry
+    private fun open(entry: SettingsEntry) {
+        val context = requireContext()
         var settingIntent: Intent? = null
         when (entry.action) {
             SettingsEntry.Action.SERVER -> settingIntent = if (!settings.serverAccountExists()) {
@@ -293,4 +296,25 @@ class SettingsFragment : TaggedFragment() {
         startActivityForResult(intent, EXPORT_REQ_CODE)
     }
 
+}
+
+/**
+ * The Settings rows on the house list: whole rows per page, no rules between them; a group
+ * begins with space above its first row.
+ */
+@Composable
+private fun SettingsList(entries: List<SettingsEntry>, onOpen: (SettingsEntry) -> Unit) {
+    PagedColumn(modifier = Modifier.fillMaxSize(), isScrollbarVisible = false) {
+        items(entries) { entry ->
+            TextMMD(
+                text = entry.label(),
+                fontSize = 18.sp,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = if (entry.startsGroup()) 16.dp else 0.dp)
+                    .clickable { onOpen(entry) }
+                    .padding(16.dp),
+            )
+        }
+    }
 }

@@ -77,6 +77,11 @@ public class SettingsEntry {
         this.startsGroup = row.startsGroup && !first;
     }
 
+    public String label() { return string; }
+
+    /** True where this row begins a group (never the first row): it gets space above it. */
+    public boolean startsGroup() { return startsGroup; }
+
     public static List<SettingsEntry> getSettingsEntries(Context context) {
         List<SettingsEntry> entries = new ArrayList<>();
         for (Row r : rows(BuildConfig.DEBUG)) {
