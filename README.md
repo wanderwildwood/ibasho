@@ -8,7 +8,7 @@ able to read it: only the password chosen on the device can open it, and it
 cannot be reset. Commands can also be sent by SMS, with no server involved at
 all.
 
-Built for a 4.3" e-ink phone, so: no animation, no colour, one screen where one
+Built for a 4.3" e-ink phone, so: no animation, no color, one screen where one
 screen will do.
 
 | | |
@@ -57,7 +57,7 @@ For an app that wants to do the same, start this for a result:
 
 `RESULT_OK` carries `latitude` and `longitude` (double), `time` (long, when the
 fix was taken, in milliseconds since 1970) and, when the phone knows it,
-`accuracy` (float, metres). Cancel, Back, or no fix at all give `RESULT_CANCELED`.
+`accuracy` (float, meters). Cancel, Back, or no fix at all give `RESULT_CANCELED`.
 When there is a reason, it is in `reason`: `no_fix`, or `no_permission` if
 Whereabouts has not been allowed location. Started without asking for a result,
 it closes at once. No permission is needed to ask, and this is the only thing
@@ -118,7 +118,7 @@ Whereabouts is a fork of [FindMyDevice](https://gitlab.com/Nulide/findmydevice)
 by Nulide and its contributors. **Most of the code here is theirs**, and the
 parts worth thanking somebody for — the protocol, the encryption design, the
 transports — are all upstream's work. What is different here is what has been
-taken out and how it reads on a small grey screen.
+taken out and how it reads on a small gray screen.
 
 The built-in push connection is adapted from [Sunup](https://codeberg.org/Sunup/android)
 and the UnifiedPush Android distributor library, both Apache-2.0; see [NOTICE](NOTICE).
@@ -134,13 +134,13 @@ For updates without doing this by hand, add this repository to
 
     https://github.com/wanderwildwood/ibasho
 
-## Licence
+## License
 
 GNU General Public License, version 3 or later — the same as upstream, whose
 terms this inherits and keeps. See [LICENSE](LICENSE).
 
-In the app, the (i) in the top bar opens Privacy, Terms and Licences; Licences lists the app and then
-every library it is built with; a row opens its author, website and full licence text, and the app's own page the source address.
+In the app, the (i) in the top bar opens Privacy, Terms and Licenses; Licenses lists the app and then
+every library it is built with; a row opens its author, website and full license text, and the app's own page the source address.
 
     Copyright (C) 2022-2026  Nulide and FindMyDevice contributors
     Copyright (C) 2026  wander wildwood
