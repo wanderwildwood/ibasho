@@ -299,12 +299,12 @@ class SettingsFragment : TaggedFragment() {
 }
 
 /**
- * The Settings rows on the house list: whole rows per page, no rules between them; a group
- * begins with space above its first row.
+ * The Settings rows on the house list: whole rows per page, with its scrollbar, no rules between
+ * them; a group begins with space above its first row.
  */
 @Composable
 private fun SettingsList(entries: List<SettingsEntry>, onOpen: (SettingsEntry) -> Unit) {
-    PagedColumn(modifier = Modifier.fillMaxSize(), isScrollbarVisible = false) {
+    PagedColumn(modifier = Modifier.fillMaxSize()) {
         items(entries) { entry ->
             TextMMD(
                 text = entry.label(),
