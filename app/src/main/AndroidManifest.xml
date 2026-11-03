@@ -56,10 +56,10 @@
 
     <application
         android:name=".FmdApplication"
-        android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/no_backup"
         android:enableOnBackInvokedCallback="true"
-        android:fullBackupContent="@xml/backup"
+        android:fullBackupContent="false"
         android:icon="@drawable/ic_launcher_mudita"
         android:label="@string/app_name"
         android:largeHeap="true"
