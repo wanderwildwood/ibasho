@@ -43,7 +43,7 @@ Whereabouts already has.
 <!-- shared-about privacy section -->
 ## Who we are
 
-Whereabouts is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. Whereabouts keeps what you put in it on your phone, apart from what it sends to your own server, by text to the numbers you allow, and to Mozilla's push service, BeaconDB and OpenCelliD as described above, and sends nothing to the developer, so the developer holds no data about you.
+Whereabouts is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. What you put into Whereabouts stays on your phone. The only things that go out are the ones described above: the phone's location, encrypted on the phone first, to your own server; replies by text to the numbers you allow, carrying the location or the answer to their command; a connection to Mozilla's push service so your server can wake the phone, which carries no command; and, if you turn on locating by cell towers and Wi-Fi, a request to BeaconDB or OpenCelliD naming the towers and networks the phone sees. The developer receives nothing, so the developer holds no data about you.
 
 ## How to contact us
 
