@@ -1,0 +1,14 @@
+{
+  "uniqueId": "sunup",
+  "name": "Sunup (push connection code)",
+  "description": "The built-in push connection's WebSocket client, message formats and restart worker are adapted from Sunup 1.3.3 (commit fe768d0).",
+  "developers": [
+    {
+      "name": "The Sunup authors"
+    }
+  ],
+  "website": "https://codeberg.org/Sunup/android",
+  "licenses": [
+    "Apache-2.0"
+  ]
+}

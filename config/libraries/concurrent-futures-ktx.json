@@ -1,0 +1,7 @@
+{
+  "uniqueId": "androidx.concurrent:concurrent-futures-ktx",
+  "licenses": [
+    "Apache-2.0",
+    "concurrent-futures-ktx-notice"
+  ]
+}

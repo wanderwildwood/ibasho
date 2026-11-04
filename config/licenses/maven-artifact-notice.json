@@ -1,0 +1,5 @@
+{
+  "hash": "maven-artifact-notice",
+  "name": "NOTICE (org.apache.maven:maven-artifact)",
+  "content": "Maven Artifact\nCopyright 2001-2026 The Apache Software Foundation\n\n\nThis product includes software developed at\nThe Apache Software Foundation (http://www.apache.org/).\n"
+}

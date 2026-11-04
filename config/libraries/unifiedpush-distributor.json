@@ -1,0 +1,14 @@
+{
+  "uniqueId": "unifiedpush-android-distributor",
+  "name": "UnifiedPush android-distributor (reconnection code)",
+  "description": "The push connection's reconnection delays and its foreground service approach are adapted from android-distributor 0.7.6 (commit 6daaf14).",
+  "developers": [
+    {
+      "name": "The UnifiedPush authors"
+    }
+  ],
+  "website": "https://codeberg.org/UnifiedPush/android-distributor",
+  "licenses": [
+    "Apache-2.0"
+  ]
+}

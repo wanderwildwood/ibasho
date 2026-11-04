@@ -1,0 +1,14 @@
+{
+  "uniqueId": "findmydevice",
+  "name": "FindMyDevice (the app this is forked from)",
+  "description": "The app Whereabouts is built on: its commands, its server protocol and most of its code.",
+  "developers": [
+    {
+      "name": "Nulide"
+    }
+  ],
+  "website": "https://gitlab.com/Nulide/findmydevice",
+  "licenses": [
+    "GPL-3.0-or-later"
+  ]
+}

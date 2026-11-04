@@ -1,0 +1,7 @@
+{
+  "uniqueId": "org.apache.maven:maven-artifact",
+  "licenses": [
+    "Apache-2.0",
+    "maven-artifact-notice"
+  ]
+}

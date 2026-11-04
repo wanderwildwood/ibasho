@@ -97,7 +97,6 @@
     <string name="licences_full_lgpl" translatable="false">GNU Lesser General Public License 2.1 (full text)</string>
     <string name="licences_full_apache" translatable="false">Apache License 2.0 (full text)</string>
     <string name="licences_full_mpl" translatable="false">Mozilla Public License 2.0 (full text)</string>
-    <string name="licences_full_mit" translatable="false">MIT License (full text)</string>
     <string name="licences_full_ofl" translatable="false">SIL Open Font License 1.1 (full text)</string>
 
     <!-- Settings: General -->

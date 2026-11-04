@@ -1,0 +1,7 @@
+{
+  "uniqueId": "org.codehaus.plexus:plexus-utils",
+  "licenses": [
+    "Apache-2.0",
+    "plexus-utils-notice"
+  ]
+}
