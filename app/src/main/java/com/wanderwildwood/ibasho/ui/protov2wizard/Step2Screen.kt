@@ -6,10 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -21,11 +18,11 @@ import com.wanderwildwood.ibasho.ui.PagedColumn
 import com.mudita.mmd.components.text.TextMMD
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.ui.theme.AppTheme
-import kotlinx.coroutines.delay
+import com.wanderwildwood.ibasho.ui.theme.rememberArmedFlag
 
 // Upstream's three icon-led paragraphs lose their icons: on sixteen greys a small glyph is a
 // smudge, and the paragraphs say what the icons did. Deleting the history cannot be undone,
-// so that button asks in its own face and disarms itself after six seconds.
+// so that button asks in its own face and stays armed until the next other touch, Back or leaving.
 @Composable
 fun Step2Screen(
     numLocations: Int,
@@ -33,13 +30,7 @@ fun Step2Screen(
     onDeleteDataClicked: () -> Unit,
     onMigrateDataClicked: () -> Unit,
 ) {
-    var deleteArmed by remember { mutableStateOf(false) }
-    LaunchedEffect(deleteArmed) {
-        if (deleteArmed) {
-            delay(6000)
-            deleteArmed = false
-        }
-    }
+    var deleteArmed by rememberArmedFlag()
 
     PagedColumn(
         modifier = Modifier

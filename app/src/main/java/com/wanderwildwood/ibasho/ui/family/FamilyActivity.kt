@@ -45,10 +45,10 @@ import com.wanderwildwood.ibasho.ui.common.FmdTopAppBar
 import com.wanderwildwood.ibasho.ui.settings.AddAccountActivity
 import com.wanderwildwood.ibasho.ui.settings.FMDServerActivity
 import com.wanderwildwood.ibasho.ui.theme.AppTheme
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.util.Date
 import java.util.Locale
+import com.wanderwildwood.ibasho.ui.theme.rememberArmedFlag
 
 /**
  * Family: whether this phone shares its last place, with whom, and the last place of each person
@@ -244,16 +244,10 @@ private fun PersonRow(
     }
 }
 
-/** Trusting a new key is deliberate: the first tap changes the words, the second within 6 s acts. */
+/** Trusting a new key is deliberate: the first tap changes the words, the second acts. It stays armed until the next other touch, Back or leaving. */
 @Composable
 private fun ArmedTrustButton(enabled: Boolean, onTrust: () -> Unit) {
-    var armed by remember { mutableStateOf(false) }
-    LaunchedEffect(armed) {
-        if (armed) {
-            delay(6_000)
-            armed = false
-        }
-    }
+    var armed by rememberArmedFlag()
     OutlinedButtonMMD(
         modifier = Modifier.fillMaxWidth(),
         enabled = enabled,

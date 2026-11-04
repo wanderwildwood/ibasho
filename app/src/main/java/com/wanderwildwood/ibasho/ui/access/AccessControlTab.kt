@@ -18,8 +18,6 @@ import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -36,7 +34,6 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mudita.mmd.components.buttons.ButtonMMD
 import com.mudita.mmd.components.buttons.OutlinedButtonMMD
-import kotlinx.coroutines.delay
 import com.wanderwildwood.ibasho.ui.theme.EInkDialog
 import com.wanderwildwood.ibasho.ui.PagedColumn
 import com.mudita.mmd.components.text.TextMMD
@@ -49,6 +46,8 @@ import com.wanderwildwood.ibasho.database.TempPhoneNumber
 import com.wanderwildwood.ibasho.ui.theme.AppTheme
 import com.wanderwildwood.ibasho.utils.Utils
 import com.wanderwildwood.ibasho.utils.normalizeNumberForDisplay
+import com.wanderwildwood.ibasho.ui.theme.rememberArmedFlag
+import com.wanderwildwood.ibasho.ui.theme.ArmedScope
 
 // Help class so that we can both:
 // 1. Pass a ViewModel to create a tab to keep the upper code simple.
@@ -276,49 +275,48 @@ private fun <T> DeleteDialog(
     @StringRes deleteTitle: Int,
 ) {
     // Deleting asks in its own face: the first press arms the row, the second deletes. It
-    // disarms after six seconds.
-    var armed by remember { mutableStateOf(false) }
-    LaunchedEffect(armed) {
-        if (armed) {
-            delay(ARMED_MS)
-            armed = false
-        }
-    }
+    // stays armed until the next other touch, Back or leaving.
     EInkDialog(onDismiss = dismissDialog) {
-        TextMMD(stringResource(deleteTitle), style = MaterialTheme.typography.headlineSmall)
-        Spacer(Modifier.height(12.dp))
-        TextMMD(stringResource(R.string.allowlist_delete_message))
-        Spacer(Modifier.height(16.dp))
-        OutlinedButtonMMD(
-            modifier = Modifier
-                .fillMaxWidth()
-                .heightIn(min = 48.dp),
-            onClick = {
-                if (armed) {
-                    dismissDialog()
-                    onDeleteClicked(toDelete)
-                } else {
-                    armed = true
+        // The dialog is its own window, so it carries its own scope: a tap anywhere else in it
+        // disarms the row.
+        ArmedScope {
+            Column {
+                var armed by rememberArmedFlag()
+                TextMMD(stringResource(deleteTitle), style = MaterialTheme.typography.headlineSmall)
+                Spacer(Modifier.height(12.dp))
+                TextMMD(stringResource(R.string.allowlist_delete_message))
+                Spacer(Modifier.height(16.dp))
+                OutlinedButtonMMD(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .heightIn(min = 48.dp),
+                    onClick = {
+                        if (armed) {
+                            dismissDialog()
+                            onDeleteClicked(toDelete)
+                        } else {
+                            armed = true
+                        }
+                    },
+                ) {
+                    TextMMD(
+                        stringResource(if (armed) R.string.Delete_armed else R.string.Delete),
+                        fontWeight = if (armed) FontWeight.Bold else null,
+                    )
                 }
-            },
-        ) {
-            TextMMD(
-                stringResource(if (armed) R.string.Delete_armed else R.string.Delete),
-                fontWeight = if (armed) FontWeight.Bold else null,
-            )
-        }
-        OutlinedButtonMMD(
-            modifier = Modifier
-                .fillMaxWidth()
-                .heightIn(min = 48.dp),
-            onClick = dismissDialog,
-        ) {
-            TextMMD(stringResource(R.string.cancel))
+                OutlinedButtonMMD(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .heightIn(min = 48.dp),
+                    onClick = dismissDialog,
+                ) {
+                    TextMMD(stringResource(R.string.cancel))
+                }
+            }
         }
     }
 }
 
-private const val ARMED_MS = 6_000L
 
 @Preview
 @Composable
