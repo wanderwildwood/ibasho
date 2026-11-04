@@ -10,6 +10,12 @@
         <!-- MMD's type: Lato, which it bundles. Its "Medium" resolves to Regular. -->
         <item name="android:fontFamily">@font/lato_regular</item>
         <item name="fontFamily">@font/lato_regular</item>
+        <!-- The house floor, 16sp, for every TextView that names no style of its own (the
+             platform's default is textAppearanceSmall, 14sp: a 22 px line on the Kompakt). -->
+        <item name="android:textAppearance">@style/TextAppearance.Material3.BodyMedium</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.Material3.BodyMedium</item>
+        <item name="android:textAppearanceListItemSmall">@style/TextAppearance.Material3.BodyMedium</item>
+        <item name="android:textAppearanceListItemSecondary">@style/TextAppearance.Material3.BodyMedium</item>
         <!-- MMD's bottom bar, top bar and card, as the Compose half of the app draws them. -->
         <item name="bottomNavigationStyle">@style/Widget.Ibasho.BottomNavigation</item>
         <item name="toolbarStyle">@style/Widget.Ibasho.Toolbar</item>

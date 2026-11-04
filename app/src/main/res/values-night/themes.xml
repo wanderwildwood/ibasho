@@ -5,6 +5,12 @@
         <item name="android:scrollbarThumbHorizontal">@android:color/transparent</item>
         <!-- No activity transitions: a slide is a full panel repaint on e-ink. -->
         <item name="android:windowAnimationStyle">@null</item>
+        <!-- The house floor, 16sp, for every TextView that names no style of its own (the
+             platform's default is textAppearanceSmall, 14sp: a 22 px line on the Kompakt). -->
+        <item name="android:textAppearance">@style/TextAppearance.Material3.BodyMedium</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.Material3.BodyMedium</item>
+        <item name="android:textAppearanceListItemSmall">@style/TextAppearance.Material3.BodyMedium</item>
+        <item name="android:textAppearanceListItemSecondary">@style/TextAppearance.Material3.BodyMedium</item>
         <item name="colorPrimary">@color/md_theme_primary</item>
         <item name="colorOnPrimary">@color/md_theme_onPrimary</item>
         <item name="colorPrimaryContainer">@color/md_theme_primaryContainer</item>

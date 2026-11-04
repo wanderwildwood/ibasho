@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mudita.mmd.components.tabs.PrimaryTabRowMMD
@@ -28,6 +27,7 @@ import com.wanderwildwood.ibasho.ui.common.FmdTopAppBar
 import com.wanderwildwood.ibasho.ui.common.LoadingDialog
 import com.wanderwildwood.ibasho.ui.theme.AppTheme
 import kotlinx.coroutines.launch
+import com.wanderwildwood.ibasho.ui.theme.HouseTypeFloor
 
 private data class TabItem(
     @StringRes val title: Int,
@@ -84,11 +84,11 @@ fun AccessControlTabsScreen(
                                 }
                             },
                             // A third of 480 px holds one word of body text, so "Notification"
-                            // broke mid-word. The house minimum, centred, wraps between words.
+                            // broke mid-word. The house floor (16 sp), centered, wraps between words.
                             text = {
                                 TextMMD(
                                     text = stringResource(item.title),
-                                    fontSize = 14.sp,
+                                    fontSize = HouseTypeFloor,
                                     textAlign = TextAlign.Center,
                                 )
                             },

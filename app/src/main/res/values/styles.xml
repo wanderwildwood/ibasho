@@ -23,18 +23,18 @@
 
     <style name="FMD.Text.Log.Title" parent="TextAppearance.Material3.BodyMedium">
         <item name="fontFamily">monospace</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <style name="FMD.Text.Log.Message" parent="TextAppearance.Material3.BodyMedium">
         <item name="fontFamily">monospace</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
     <style name="FMD.Text.Log.Date" parent="TextAppearance.Material3.BodySmall">
         <item name="fontFamily">monospace</item>
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
 
 
@@ -86,29 +86,30 @@
         <item name="dividerColor">@android:color/black</item>
     </style>
 
-    <!-- Material 3's text styles, restated on MMD's scale (28/24/20/18/16/15/14, 14sp the
-         floor) and in ink. Same names, so every layout and widget that asks for one gets
+    <!-- Material 3's text styles, restated on the house scale (28/24/20/18/16, 16sp the
+         floor since 4 Nov 2026: a 16sp line is 25.6 px on the Kompakt, 14sp only 22) and in
+         ink. Same names, so every layout and widget that asks for one gets
          this one: the library's own 11sp and 12sp steps are below what the panel reads. -->
     <style name="TextAppearance.Material3.BodyLarge" parent="TextAppearance.AppCompat">
         <item name="android:textSize">16sp</item><item name="android:textColor">@android:color/black</item>
     </style>
     <style name="TextAppearance.Material3.BodyMedium" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">15sp</item><item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">16sp</item><item name="android:textColor">@android:color/black</item>
     </style>
     <style name="TextAppearance.Material3.BodySmall" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">14sp</item><item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">16sp</item><item name="android:textColor">@android:color/black</item>
     </style>
     <style name="TextAppearance.Material3.LabelLarge" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
     <style name="TextAppearance.Material3.LabelMedium" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
     <style name="TextAppearance.Material3.LabelSmall" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">16sp</item>
     </style>
     <style name="TextAppearance.Material3.TitleSmall" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">15sp</item><item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">16sp</item><item name="android:textColor">@android:color/black</item>
     </style>
     <style name="TextAppearance.Material3.TitleMedium" parent="TextAppearance.AppCompat">
         <item name="android:textSize">16sp</item><item name="android:textColor">@android:color/black</item>

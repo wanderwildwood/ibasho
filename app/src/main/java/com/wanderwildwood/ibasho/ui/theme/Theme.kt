@@ -29,5 +29,5 @@ fun AppTheme(content: @Composable () -> Unit) =
     // A steady cursor: a blinking one is two repaints a second on an e-ink panel for as long
     // as a field has focus (and the battery to match).
     CompositionLocalProvider(LocalCursorBlinkEnabled provides false) {
-        ThemeMMD(colorScheme = monochrome) { ArmedScope(content = content) }
+        ThemeMMD(colorScheme = monochrome, typography = houseTypography) { ArmedScope(content = content) }
     }
