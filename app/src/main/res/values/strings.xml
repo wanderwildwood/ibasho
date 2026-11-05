@@ -71,6 +71,11 @@
     <!-- Title of the About dialog. %1$s is the version number, e.g. 0.1.6. Keep the app's name as it is -->
     <string name="about_title">Whereabouts %1$s</string>
     <string name="about_close">Close</string>
+    <string name="about_what">Finds your phone when it is lost: where it is, a ring, a lock. With its server, the people who share with you appear on one map.</string>
+    <string name="about_open_drawer">Open %1$s</string>
+    <string name="about_close_drawer">Close %1$s</string>
+    <string name="about_contact_head">Contact</string>
+    <string name="about_links_head">Links</string>
     <string name="about_feed_the_llamas">Feed the llamas</string>
     <string name="about_sends">This phone\'s location goes only to the server you set, encrypted on the phone first, and by text to the numbers you allow when they ask. Only your password can read what is on the server, and it cannot be reset.</string>
     <string name="about_sends_network">Cell and Wi-Fi positioning asks BeaconDB and OpenCelliD, which learn roughly where you are.</string>
@@ -91,7 +96,7 @@
     <string name="licences_back">Back</string>
     <string name="licences_source_head">Source code</string>
     <string name="licences_no_text">%s needs no license text here.</string>
-    <string name="licences_licence">Whereabouts is free software under the GNU General Public License, version 3 or later. Copyright wander wildwood. Built on FindMyDevice by Nulide, under the same license. What it is built on keeps its own licenses, each on its own page.</string>
+    <string name="licences_licence">Whereabouts is free software under the GNU General Public License, version 3 or later. Copyright wander wildwood. Built on FindMyDevice by Nulide, under the same license. What it is built on keeps its own licenses, listed below.</string>
     <string name="licences_full_head">Full texts</string>
     <string name="licences_full_gpl" translatable="false">GNU General Public License 3.0 (full text)</string>
     <string name="licences_full_lgpl" translatable="false">GNU Lesser General Public License 2.1 (full text)</string>
