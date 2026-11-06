@@ -47,6 +47,8 @@
     <!-- DuraSpeed, so its absence can be told from its presence (KompaktOS has none). -->
     <queries>
         <package android:name="com.mediatek.duraspeed" />
+        <!-- Files (Cabinet), so open and save requests can go to its e-ink screens. -->
+        <package android:name="com.wanderwildwood.tana" />
         <intent>
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.BROWSABLE" />

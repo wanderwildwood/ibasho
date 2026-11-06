@@ -32,6 +32,7 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
 import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
+import com.wanderwildwood.ibasho.FilesPicker
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.ui.TaggedFragment
@@ -105,7 +106,7 @@ class SettingsFragment : TaggedFragment() {
             SettingsEntry.Action.IMPORT -> {
                 val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
                 intent.setType("*/*")
-                startActivityForResult(intent, IMPORT_REQ_CODE)
+                startActivityForResult(FilesPicker.aim(requireContext(), intent), IMPORT_REQ_CODE)
             }
             SettingsEntry.Action.LANGUAGE -> settingIntent = Intent(context, AppearanceActivity::class.java)
             SettingsEntry.Action.SETUP_GUIDE -> settingIntent = Intent(context, SetupGuideActivity::class.java)
@@ -293,7 +294,7 @@ class SettingsFragment : TaggedFragment() {
         val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
         intent.putExtra(Intent.EXTRA_TITLE, filenameForExport())
         intent.setType("*/*")
-        startActivityForResult(intent, EXPORT_REQ_CODE)
+        startActivityForResult(FilesPicker.aim(requireContext(), intent, writable = true), EXPORT_REQ_CODE)
     }
 
 }

@@ -8,6 +8,7 @@ import android.view.MenuItem
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
+import com.wanderwildwood.ibasho.FilesPicker
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.data.LogRepository
 import com.wanderwildwood.ibasho.ui.FmdActivity
@@ -61,7 +62,7 @@ class LogViewActivity : FmdActivity() {
             val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
             intent.putExtra(Intent.EXTRA_TITLE, LogRepository.filenameForExport())
             intent.type = "*/*"
-            startActivityForResult(intent, EXPORT_REQ_CODE)
+            startActivityForResult(FilesPicker.aim(this, intent, writable = true), EXPORT_REQ_CODE)
         } else if (item.itemId == R.id.menuClearLog) {
             EInkAlertDialogBuilder(this)
                 .setTitle(getString(R.string.log_view_clear))
