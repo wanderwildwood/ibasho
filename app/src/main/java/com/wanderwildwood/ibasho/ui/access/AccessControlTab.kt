@@ -99,6 +99,7 @@ fun <T : AccessItem> AccessControlTab(
         // which at 480x800 was not enough: it was cut off behind the buttons.
         PagedColumn(
             modifier = Modifier.weight(1f),
+            showCutRow = true,
         ) {
             item {
                 TextMMD(stringResource(accessType.hintText, commandKeyword))

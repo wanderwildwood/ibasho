@@ -163,6 +163,7 @@ private fun Page(
             contentPadding = androidx.compose.foundation.layout.PaddingValues(start = 20.dp, end = 12.dp, top = 8.dp, bottom = 8.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
             content = content,
+            showCutRow = true,
         )
         if (footer != null) {
             Column(

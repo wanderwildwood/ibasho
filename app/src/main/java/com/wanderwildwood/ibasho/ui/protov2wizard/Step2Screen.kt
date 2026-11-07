@@ -37,6 +37,7 @@ fun Step2Screen(
             .fillMaxSize(),
         contentPadding = androidx.compose.foundation.layout.PaddingValues(start = 20.dp, end = 12.dp, top = 8.dp, bottom = 8.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
+        showCutRow = true,
     ) {
         item {
             TextMMD(stringResource(R.string.proto_v2_wizard_step2_text_intro))

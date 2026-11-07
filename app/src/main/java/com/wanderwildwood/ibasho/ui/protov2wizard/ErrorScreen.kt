@@ -34,6 +34,7 @@ fun ErrorScreen(
             .fillMaxSize(),
         contentPadding = androidx.compose.foundation.layout.PaddingValues(start = 24.dp, end = 12.dp, top = 8.dp, bottom = 8.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp),
+        showCutRow = true,
     ) {
         item {
             TextMMD(stringResource(R.string.proto_v2_wizard_error), fontWeight = FontWeight.Bold)

@@ -122,6 +122,7 @@ private fun FamilyScreen() {
         contentPadding = PaddingValues(start = 20.dp, end = 12.dp, top = 8.dp, bottom = 8.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
         onPullAtTop = { reloads++ },
+        showCutRow = true,
     ) {
         item {
             CheckRow(

@@ -44,6 +44,7 @@ fun Step1Screen(
             .fillMaxSize(),
         contentPadding = androidx.compose.foundation.layout.PaddingValues(start = 20.dp, end = 12.dp, top = 8.dp, bottom = 8.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
+        showCutRow = true,
     ) {
         item {
             TextMMD(stringResource(R.string.proto_v2_start_text))
