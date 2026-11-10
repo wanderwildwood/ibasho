@@ -15,6 +15,7 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.ui.settings.FMDServerActivity
+import com.wanderwildwood.ibasho.utils.NetworkUtils
 import com.wanderwildwood.ibasho.utils.Notifications
 import com.wanderwildwood.ibasho.utils.log
 import okhttp3.OkHttpClient
@@ -254,10 +255,8 @@ class PushConnectionService : Service() {
         PushRestartWorker.runOnce(this, delay)
     }
 
-    private fun hasNetwork(): Boolean {
-        val cm = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
-        return cm.activeNetwork != null
-    }
+    // Not `activeNetwork != null`: a VPN stays the active network through airplane mode.
+    private fun hasNetwork(): Boolean = NetworkUtils.isNetworkAvailable(this)
 
     private fun registerNetworkCallback() {
         if (networkCallback != null) return
