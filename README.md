@@ -1,4 +1,4 @@
-# Whereabouts (居場所, ibasho)
+# 居場所 ibasho — Whereabouts
 
 Find your phone when it is lost: see where it is, make it ring, or lock it.
 
