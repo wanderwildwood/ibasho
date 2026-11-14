@@ -3,7 +3,10 @@
     <!-- Base application theme. -->
     <!-- Generated with https://material-foundation.github.io/material-theme-builder/ -->
     <!-- Now lives in themes.xml. The "NoActionBar" part is removed from the generated code. -->
-    <style name="Theme.Fmd" parent="AppTheme" />
+    <style name="Theme.Fmd" parent="AppTheme">
+        <!-- No start-up window: in dark mode it would flash white before the first frame. -->
+        <item name="android:windowDisablePreview">true</item>
+    </style>
 
     <style name="Theme.AppCompat.Translucent" parent="Theme.AppCompat.NoActionBar">
         <item name="android:background">#00000000</item>
