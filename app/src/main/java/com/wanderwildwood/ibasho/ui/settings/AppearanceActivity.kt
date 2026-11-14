@@ -12,6 +12,7 @@ import com.wanderwildwood.ibasho.databinding.ActivityAppearanceBinding
 import com.wanderwildwood.ibasho.ui.FmdActivity
 import com.wanderwildwood.ibasho.ui.UiUtil.Companion.setupEdgeToEdgeAppBar
 import com.wanderwildwood.ibasho.ui.UiUtil.Companion.setupEdgeToEdgeScrollView
+import com.wanderwildwood.ibasho.ui.theme.DarkMode
 import com.wanderwildwood.ibasho.utils.APP_LANGUAGES
 import java.util.Locale
 
@@ -27,6 +28,9 @@ class AppearanceActivity : FmdActivity() {
 
         setupEdgeToEdgeAppBar(findViewById(R.id.appBar))
         setupEdgeToEdgeScrollView(findViewById(R.id.scrollView))
+
+        viewBinding.switchDark.isChecked = DarkMode.on
+        viewBinding.switchDark.setOnCheckedChangeListener { _, on -> DarkMode.set(this, on) }
     }
 
     override fun onResume() {
