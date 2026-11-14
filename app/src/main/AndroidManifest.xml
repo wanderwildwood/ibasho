@@ -46,6 +46,8 @@
 
     <!-- DuraSpeed, so its absence can be told from its presence (KompaktOS has none). -->
     <queries>
+        <!-- Home, whose dark mode switch this app follows when Home is installed. -->
+        <package android:name="com.wanderwildwood.iori" />
         <package android:name="com.mediatek.duraspeed" />
         <!-- Files (Cabinet), so open and save requests can go to its e-ink screens. -->
         <package android:name="com.wanderwildwood.tana" />
@@ -70,6 +72,12 @@
         android:roundIcon="@drawable/ic_launcher_mudita"
         android:supportsRtl="true"
         android:theme="@style/Theme.Fmd">
+        <!-- Starts dark mode before the first screen is drawn. Holds no data. -->
+        <provider
+            android:name="com.wanderwildwood.ibasho.ui.theme.DarkModeInit"
+            android:authorities="${applicationId}.darkmodeinit"
+            android:exported="false" />
+
         <activity
             android:name=".ui.settings.AddAccountActivity"
             android:exported="false"
