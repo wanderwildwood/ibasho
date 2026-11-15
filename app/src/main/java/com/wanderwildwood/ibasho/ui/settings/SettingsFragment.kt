@@ -164,6 +164,8 @@ class SettingsFragment : TaggedFragment() {
             message,
             // The picker has already made the file; no backup means no empty file left behind.
             onCancel = { deleteDocumentQuietly(context, uri) },
+            // A backup's password cannot be recovered: typed twice, and the eye shows it.
+            confirm = true,
         ).show()
     }
 

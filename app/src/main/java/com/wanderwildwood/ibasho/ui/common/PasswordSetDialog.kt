@@ -20,6 +20,8 @@ class PasswordSetDialog @JvmOverloads constructor(
     val forceMinLength: Boolean = true,
     val allowEmpty: Boolean = false,
     val onCancel: () -> Unit = {},
+    /** Typed twice: for a password that cannot be recovered, where a slip makes a file nobody can open. */
+    val confirm: Boolean = false,
 ) {
 
     var dialog: AlertDialog
@@ -28,6 +30,8 @@ class PasswordSetDialog @JvmOverloads constructor(
         val passwordLayout: View =
             LayoutInflater.from(context).inflate(R.layout.dialog_password_set, null)
         val editTextPassword = passwordLayout.findViewById<EditText>(R.id.editTextPassword)
+        val editTextAgain = passwordLayout.findViewById<EditText>(R.id.editTextPasswordAgain)
+        if (confirm) passwordLayout.findViewById<View>(R.id.layoutPasswordAgain).visibility = View.VISIBLE
 
         if (!message.isNullOrBlank()) {
             val textView = passwordLayout.findViewById<TextView>(R.id.messagePassword)
@@ -46,6 +50,7 @@ class PasswordSetDialog @JvmOverloads constructor(
         dialog.closeOnlyWhen {
             val password = editTextPassword.getText().toString()
             val problem = passwordProblem(context, password, forceMinLength, allowEmpty)
+                ?: if (confirm && editTextAgain.text.toString() != password) R.string.password_mismatch else null
             passwordLayout.showDialogError(problem)
             if (problem == null) onSuccess(password)
             problem == null
