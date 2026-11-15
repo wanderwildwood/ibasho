@@ -117,17 +117,17 @@ class AccessRepository private constructor(private val context: Context) {
             val dao = db.phoneNumberDao()
 
             val allOld = dao.getAll().first()
-            val allNew = mutableSetOf<PhoneNumber>()
-
-            for (ele in allOld) {
-                val numE164 = normalizeNumberForStorage(context, ele.number) ?: ele.number
-                val new = ele.copy(number = numE164)
-                allNew.add(new)
-            }
 
             // Phone numbers must be UNIQUE. However, it can happen that the user previously added
             // different variants of the same number (prior to E.164 normalization).
-            // Therefore, use a set and keep just the first occurence. Other occurences are dropped.
+            // Therefore, keep just the first occurence. Other occurences are dropped.
+            val allNew = allOld
+                .map { old ->
+                    val numE164 = normalizeNumberForStorage(context, old.number) ?: old.number
+                    old.copy(number = numE164)
+                }
+                .distinctBy { it.number }
+
             allOld.forEach { dao.delete(it) }
             allNew.forEach { dao.insert(it) }
         }
