@@ -46,6 +46,11 @@ class FmdApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        // Dark mode is started by a provider, and Android starts a provider only in the app's
+        // main process. The crash report screen runs in one of its own (":bug_report"), where
+        // it stayed light; so it is started here as well. Starting it twice does nothing.
+        com.wanderwildwood.ibasho.ui.theme.DarkMode.init(this)
+
         this.log().i(TAG, "Starting FmdApplication")
 
         Notifications.init(this)
