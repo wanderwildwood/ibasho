@@ -14,7 +14,6 @@ import android.webkit.WebView
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.lifecycleScope
 import com.wanderwildwood.ibasho.ui.common.EInkAlertDialogBuilder
@@ -404,7 +403,7 @@ class AddAccountActivity : FmdActivity(), TextWatcher {
             formDialog = null
 
             if (!settingsRepo.serverAccountExists()) {
-                Toast.makeText(context, R.string.server_login_no_user_id, Toast.LENGTH_LONG).show()
+                com.wanderwildwood.ibasho.ui.Notices.say(context, R.string.server_login_no_user_id)
                 return@runOnUiThread
             }
 

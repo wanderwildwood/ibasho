@@ -6,7 +6,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.widget.EditText
-import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -98,7 +97,7 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
             try {
                 pickContactLauncher.launch(intent)
             } catch (e2: ActivityNotFoundException) {
-                Toast.makeText(this, R.string.WhiteList_no_contact_picker, Toast.LENGTH_LONG).show()
+                com.wanderwildwood.ibasho.ui.Notices.say(this, R.string.WhiteList_no_contact_picker)
             }
         }
     }
@@ -156,11 +155,11 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
     private suspend fun addContactToAllowList(rawNumber: String, name: String) {
         val normNumber = normalizeNumberForStorage(this, rawNumber)
         if (normNumber == null) {
-            Toast.makeText(this, R.string.allowlist_invalid_number, Toast.LENGTH_LONG).show()
+            com.wanderwildwood.ibasho.ui.Notices.say(this, R.string.allowlist_invalid_number)
             return
         }
         if (accessRepo.getPhoneNumber(normNumber) != null) {
-            Toast.makeText(this, R.string.Toast_Duplicate_contact, Toast.LENGTH_LONG).show()
+            com.wanderwildwood.ibasho.ui.Notices.say(this, R.string.Toast_Duplicate_contact)
             return
         }
 
@@ -229,7 +228,7 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
         val old = accessRepo.getSmsPassword(passwordHash)
         if (old != null) {
             val msg = getString(R.string.access_password_exists, old.label)
-            Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+            com.wanderwildwood.ibasho.ui.Notices.say(this, msg)
             return
         }
 
@@ -249,7 +248,7 @@ class AccessControlActivity : FmdActivity(), AccessControlFuns {
         val old = accessRepo.getNotificationPassword(passwordHash)
         if (old != null) {
             val msg = getString(R.string.access_password_exists, old.label)
-            Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+            com.wanderwildwood.ibasho.ui.Notices.say(this, msg)
             return
         }
 

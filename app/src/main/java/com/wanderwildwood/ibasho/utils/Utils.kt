@@ -8,7 +8,6 @@ import android.net.Uri
 import android.os.BatteryManager
 import android.os.Build
 import android.util.Base64
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.wanderwildwood.ibasho.R
 import java.time.Instant
@@ -25,7 +24,7 @@ class Utils {
             clipboard.setPrimaryClip(clip)
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.S_V2) {
                 val copied = context.getString(R.string.copied)
-                Toast.makeText(context, copied, Toast.LENGTH_LONG).show()
+                com.wanderwildwood.ibasho.ui.Notices.say(context, copied)
             }
         }
 

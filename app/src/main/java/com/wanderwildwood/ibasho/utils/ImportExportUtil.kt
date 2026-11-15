@@ -4,7 +4,6 @@ import android.content.Context
 import android.net.Uri
 import android.provider.DocumentsContract
 import android.os.Build
-import android.widget.Toast
 import com.google.gson.Gson
 import com.google.gson.JsonIOException
 import com.google.gson.JsonSyntaxException
@@ -249,14 +248,14 @@ suspend fun writeToUri(
         write(outputStream)
         context.log().i(TAG, "Export successful")
         withContext(Dispatchers.Main) {
-            Toast.makeText(context, R.string.export_success, Toast.LENGTH_LONG).show()
+            com.wanderwildwood.ibasho.ui.Notices.say(context, R.string.export_success)
         }
     } catch (e: Exception) {
         context.log().e(TAG, "Export failed:\n${e.stackTraceToString()}")
         // Don't leave a broken or empty file behind.
         deleteDocumentQuietly(context, uri)
         withContext(Dispatchers.Main) {
-            Toast.makeText(context, R.string.export_failed, Toast.LENGTH_SHORT).show()
+            com.wanderwildwood.ibasho.ui.Notices.say(context, R.string.export_failed)
         }
     } finally {
         outputStream?.close()

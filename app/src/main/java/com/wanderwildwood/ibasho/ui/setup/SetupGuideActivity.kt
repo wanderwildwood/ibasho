@@ -6,7 +6,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
-import android.widget.Toast
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
@@ -355,7 +354,7 @@ private fun NumberStep(onNext: () -> Unit) {
                             Intent(Intent.ACTION_PICK, ContactsContract.CommonDataKinds.Phone.CONTENT_URI)
                         )
                     } catch (e: ActivityNotFoundException) {
-                        Toast.makeText(context, R.string.WhiteList_no_contact_picker, Toast.LENGTH_LONG).show()
+                        com.wanderwildwood.ibasho.ui.Notices.say(context, R.string.WhiteList_no_contact_picker)
                     }
                 },
             ) { TextMMD(stringResource(R.string.setup_number_contacts)) }

@@ -97,6 +97,10 @@ public class MainActivity extends FmdActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
         bottomNav.setOnItemSelectedListener(navListener);
 
+        // Back from Transports or Settings goes to Commands; only Back from Commands leaves the
+        // app. On this panel the launcher is otherwise under the next tap.
+        getOnBackPressedDispatcher().addCallback(this, toFirstTab);
+
         commandsFragment = new CommandListFragment();
         transportFragment = new TransportListFragment();
         settingsFragment = new SettingsFragment();
@@ -113,6 +117,8 @@ public class MainActivity extends FmdActivity {
                 activeFragment = settingsFragment;
             }
         }
+
+        toFirstTab.setEnabled(activeFragment != commandsFragment);
 
         if (settings.serverAccountExists()) {
             checkServerVersion();
@@ -142,6 +148,15 @@ public class MainActivity extends FmdActivity {
         invalidateOptionsMenu();
     }
 
+    private final androidx.activity.OnBackPressedCallback toFirstTab =
+            new androidx.activity.OnBackPressedCallback(false) {
+                @Override
+                public void handleOnBackPressed() {
+                    BottomNavigationView bottomNav = findViewById(R.id.bottom_nav);
+                    bottomNav.setSelectedItemId(R.id.nav_commands);
+                }
+            };
+
     private final NavigationBarView.OnItemSelectedListener navListener = (item) -> {
         int itemId = item.getItemId();
         if (itemId == R.id.nav_commands) {
@@ -154,6 +169,7 @@ public class MainActivity extends FmdActivity {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, activeFragment)
                 .commit();
+        toFirstTab.setEnabled(activeFragment != commandsFragment);
         return true;
     };
 
@@ -186,9 +202,7 @@ public class MainActivity extends FmdActivity {
         toggle.setChecked(!com.wanderwildwood.ibasho.push.ConnectionPause.INSTANCE.isPaused(this));
         toggle.setOnCheckedChangeListener((button, on) -> {
             com.wanderwildwood.ibasho.push.ConnectionPause.INSTANCE.setPaused(this, !on);
-            android.widget.Toast.makeText(this,
-                    on ? R.string.connection_turned_on : R.string.connection_turned_off,
-                    android.widget.Toast.LENGTH_LONG).show();
+            com.wanderwildwood.ibasho.ui.Notices.say(this, on ? R.string.connection_turned_on : R.string.connection_turned_off);
         });
     }
 

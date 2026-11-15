@@ -1,7 +1,6 @@
 package com.wanderwildwood.ibasho.ui.protov2wizard
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Box
@@ -55,7 +54,7 @@ class ProtoV2WizardActivity : FmdActivity() {
 
             is WizardState.STEP_1 -> Step1Screen(username, serverUrl) { password ->
                 if (password.isBlank()) {
-                    Toast.makeText(this, R.string.pw_change_empty, Toast.LENGTH_LONG).show()
+                    com.wanderwildwood.ibasho.ui.Notices.say(this, R.string.pw_change_empty)
                 } else {
                     viewModel.advanceFromStep1(password)
                 }

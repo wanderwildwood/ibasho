@@ -23,6 +23,9 @@ import kotlinx.coroutines.launch
 
 const val EXTRA_RING_DURATION: String = "EXTRA_RING_DURATION"
 
+/** How long a ring is given to start before the screen says it could not. */
+private const val CHECK_PLAYING_MS = 1500L
+
 class RingerActivity : FmdActivity() {
 
     companion object {
@@ -79,9 +82,17 @@ class RingerActivity : FmdActivity() {
 
     private suspend fun startRinging(durationSec: Int) {
         raiseVolume()
-        ringtone?.play()
+        val started = ringtone != null && runCatching { ringtone?.play() }.isSuccess
 
-        delay(durationSec * 1000L)
+        // A ring the phone could not sound says so on its button, which still closes it.
+        delay(CHECK_PLAYING_MS)
+        if (!started || ringtone?.isPlaying != true) {
+            runOnUiThread {
+                findViewById<Button>(R.id.buttonStopRinging)?.text = getString(R.string.ringer_cannot_play)
+            }
+        }
+
+        delay((durationSec * 1000L - CHECK_PLAYING_MS).coerceAtLeast(0))
 
         finish()
     }

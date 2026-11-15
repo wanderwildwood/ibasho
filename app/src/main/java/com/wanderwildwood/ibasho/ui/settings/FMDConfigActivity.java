@@ -17,7 +17,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.wanderwildwood.ibasho.R;
 import com.wanderwildwood.ibasho.data.EncryptedSettingsRepository;
@@ -93,7 +92,7 @@ public class FMDConfigActivity extends FmdActivity implements TextWatcher {
             settings.set(Settings.SET_LOCKSCREEN_MESSAGE, edited.toString());
         } else if (edited == editTextFmdCommand.getText()) {
             if (edited.toString().isEmpty()) {
-                Toast.makeText(this, getString(R.string.Toast_Empty_FMDCommand), Toast.LENGTH_LONG).show();
+                com.wanderwildwood.ibasho.ui.Notices.say(this, getString(R.string.Toast_Empty_FMDCommand));
                 settings.set(Settings.SET_FMD_COMMAND, "fmd");
             } else {
                 settings.set(Settings.SET_FMD_COMMAND, edited.toString().toLowerCase());

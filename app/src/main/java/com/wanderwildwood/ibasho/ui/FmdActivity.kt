@@ -23,6 +23,7 @@ abstract class FmdActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        Notices.front(this)
 
         val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
         if (toolbar != null) {
@@ -34,6 +35,22 @@ abstract class FmdActivity : AppCompatActivity() {
                 toolbar.setNavigationOnClickListener { finish() }
             }
         }
+    }
+
+    override fun onPause() {
+        Notices.front(null)
+        super.onPause()
+    }
+
+    // A notice stays until the next press (see Notices): the presses are handed to it here.
+    override fun dispatchTouchEvent(ev: android.view.MotionEvent): Boolean {
+        Notices.pressed(ev)
+        return super.dispatchTouchEvent(ev)
+    }
+
+    override fun dispatchKeyEvent(event: android.view.KeyEvent): Boolean {
+        Notices.pressed(event)
+        return super.dispatchKeyEvent(event)
     }
 
     // Black on white, always. An ink screen has one appearance, so the theme and dynamic-colour

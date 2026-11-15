@@ -1,8 +1,8 @@
 package com.wanderwildwood.ibasho.utils
 
 import android.content.Context
-import android.widget.Toast
 import com.wanderwildwood.ibasho.R
+import com.wanderwildwood.ibasho.ui.Notices
 import java.io.OutputStream
 
 
@@ -35,7 +35,7 @@ class RootAccess {
 
                 proc.waitFor()
             } catch (e: Exception) {
-                Toast.makeText(context, context.getString(R.string.perm_root_denied), Toast.LENGTH_LONG).show()
+                Notices.say(context, context.getString(R.string.perm_root_denied))
                 e.printStackTrace()
             } finally {
                 proc?.destroy()

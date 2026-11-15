@@ -298,6 +298,6 @@ private fun openInMap(context: android.content.Context, name: String, place: See
     try {
         context.startActivity(intent)
     } catch (e: ActivityNotFoundException) {
-        android.widget.Toast.makeText(context, R.string.family_no_map_app, android.widget.Toast.LENGTH_LONG).show()
+        com.wanderwildwood.ibasho.ui.Notices.say(context, R.string.family_no_map_app)
     }
 }

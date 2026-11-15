@@ -56,17 +56,23 @@ object SoundChooser {
 
         var chosen = uris.indexOfFirst { it == current }.let { if (it >= 0) it else if (current == null && showSilent) 0 else -1 }
         var playing: Ringtone? = null
+        // The row whose sound the phone could not play, said on the row itself until the next press.
+        var unplayable = -1
         val handler = Handler(Looper.getMainLooper())
         val stop = Runnable { playing?.stop() }
-        fun preview(uri: Uri?) {
+        fun preview(which: Int) {
+            val uri = uris[which]
             handler.removeCallbacks(stop)
             playing?.stop()
             playing = uri?.let { u ->
-                RingtoneManager.getRingtone(context, u)?.apply {
-                    audioAttributes = AudioAttributes.Builder().setUsage(usage).build()
-                    play()
-                }
+                runCatching {
+                    RingtoneManager.getRingtone(context, u)?.apply {
+                        audioAttributes = AudioAttributes.Builder().setUsage(usage).build()
+                        play()
+                    }
+                }.getOrNull()
             }
+            unplayable = if (uri != null && playing == null) which else -1
             if (playing != null) handler.postDelayed(stop, PREVIEW_MS)
         }
 
@@ -74,7 +80,8 @@ object SoundChooser {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val row = super.getView(position, convertView, parent) as TextView
                 val on = position == chosen
-                row.text = (if (on) "●   " else "○   ") + titles[position]
+                row.text = (if (on) "●   " else "○   ") + titles[position] +
+                    (if (position == unplayable) "\n" + context.getString(R.string.sound_chooser_cannot_play) else "")
                 row.setTypeface(null, if (on) Typeface.BOLD else Typeface.NORMAL)
                 return row
             }
@@ -92,7 +99,8 @@ object SoundChooser {
             chosen = which
             adapter.notifyDataSetChanged()
             onPick(uris[which])
-            preview(uris[which])
+            preview(which)
+            adapter.notifyDataSetChanged()
         }
     }
 }

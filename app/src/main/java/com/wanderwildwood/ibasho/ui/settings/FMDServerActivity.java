@@ -24,7 +24,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
@@ -337,9 +336,9 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
                 String password = passwordInput.getText().toString();
 
                 if (password.isEmpty() || oldPassword.isEmpty()) {
-                    Toast.makeText(view.getContext(), R.string.pw_change_empty, Toast.LENGTH_LONG).show();
+                    com.wanderwildwood.ibasho.ui.Notices.say(view.getContext(), R.string.pw_change_empty);
                 } else if (password.length() < MIN_PASSWORD_LENGTH) {
-                    Toast.makeText(view.getContext(), R.string.password_min_length, Toast.LENGTH_LONG).show();
+                    com.wanderwildwood.ibasho.ui.Notices.say(view.getContext(), R.string.password_min_length);
                 } else {
                     runChangePassword(oldPassword, password);
                 }
@@ -384,14 +383,14 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
             fmdServerRepo.changePassword(oldPassword, newPassword,
                     (response -> runOnUiThread(() -> {
                         loadingDialog.cancel();
-                        Toast.makeText(this, R.string.pw_change_success, Toast.LENGTH_LONG).show();
+                        com.wanderwildwood.ibasho.ui.Notices.say(this, R.string.pw_change_success);
                     })),
                     (error -> runOnUiThread(() -> {
                         loadingDialog.cancel();
                         if (Objects.equals(error.getMessage(), "WRONG_PASSWORD")) {
-                            Toast.makeText(this, R.string.pw_change_wrong_password, Toast.LENGTH_LONG).show();
+                            com.wanderwildwood.ibasho.ui.Notices.say(this, R.string.pw_change_wrong_password);
                         } else {
-                            Toast.makeText(this, R.string.pw_change_network_failed, Toast.LENGTH_LONG).show();
+                            com.wanderwildwood.ibasho.ui.Notices.say(this, R.string.pw_change_network_failed);
                         }
                     }))
             );
@@ -407,7 +406,7 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
         fmdServerRepo.unregister(
                 response -> {
                     loadingDialog.cancel();
-                    Toast.makeText(context, R.string.Settings_FMDServer_Unregister_Success, Toast.LENGTH_LONG).show();
+                    com.wanderwildwood.ibasho.ui.Notices.say(context, R.string.Settings_FMDServer_Unregister_Success);
                     finish();
                 }, error -> {
                     loadingDialog.cancel();

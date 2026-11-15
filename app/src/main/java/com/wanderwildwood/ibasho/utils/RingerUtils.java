@@ -9,8 +9,23 @@ import android.os.Build;
 
 public class RingerUtils {
 
+    /**
+     * The chosen sound, or the phone's alarm sound when the chosen one is gone (a file deleted, a
+     * card out), or null when the phone has neither: the ring screen then says it cannot sound.
+     */
+    @androidx.annotation.Nullable
     public static Ringtone getRingtone(Context context, String ringtone) {
-        Ringtone r = RingtoneManager.getRingtone(context, Uri.parse(ringtone));
+        Ringtone r = null;
+        try {
+            r = RingtoneManager.getRingtone(context, Uri.parse(ringtone));
+        } catch (Exception ignored) {
+        }
+        if (r == null) {
+            r = RingtoneManager.getRingtone(context, RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM));
+        }
+        if (r == null) {
+            return null;
+        }
         AudioAttributes aa = new AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_ALARM)
                 .setContentType(AudioAttributes.CONTENT_TYPE_UNKNOWN)

@@ -111,6 +111,7 @@
     <string name="sound_chooser_silent">Silent</string>
     <string name="sound_chooser_default">Default</string>
     <string name="sound_chooser_done">Done</string>
+    <string name="sound_chooser_cannot_play">This sound could not be played.</string>
     <string name="Settings_Select_Ringtone">Select ringtone</string>
     <string name="Settings_no_ringtone_picker">No ringtone picker found!</string>
     <string name="Settings_Lockscreenmessage_Description">Lock screen message:\nWhen locking the device, this message will appear on the lock screen.</string>
@@ -516,6 +517,7 @@
 
     <!-- RingerActivity -->
     <string name="ringer_stop_ringing">STOP RINGING</string>
+    <string name="ringer_cannot_play">THE RING SOUND COULD NOT PLAY. PRESS TO CLOSE.</string>
 
     <!-- Crash activity -->
     <string name="crashed_title">Crash report</string>

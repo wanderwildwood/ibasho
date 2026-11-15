@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.os.UserHandle
-import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
@@ -69,11 +68,7 @@ class WriteSecureSettingsPermission : Permission() {
         try {
             proc.waitFor()
         } catch (e: InterruptedException) {
-            Toast.makeText(
-                context,
-                context.getString(R.string.perm_shizuku_failed),
-                Toast.LENGTH_LONG
-            ).show()
+            com.wanderwildwood.ibasho.ui.Notices.say(context, context.getString(R.string.perm_shizuku_failed))
             e.printStackTrace()
             context.log().e(TAG, e.toString())
         }
@@ -85,8 +80,7 @@ class WriteSecureSettingsPermission : Permission() {
                 "pm grant --user ${getUserId(context)} ${context.packageName} ${Manifest.permission.WRITE_SECURE_SETTINGS}"
             execCommand(context, command)
         } else {
-            Toast.makeText(context, context.getString(R.string.perm_root_denied), Toast.LENGTH_LONG)
-                .show()
+            com.wanderwildwood.ibasho.ui.Notices.say(context, context.getString(R.string.perm_root_denied))
         }
     }
 
