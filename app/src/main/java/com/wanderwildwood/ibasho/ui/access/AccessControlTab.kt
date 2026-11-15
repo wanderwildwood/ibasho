@@ -283,7 +283,7 @@ private fun <T> DeleteDialog(
         ArmedScope {
             Column {
                 var armed by rememberArmedFlag()
-                TextMMD(stringResource(deleteTitle), style = MaterialTheme.typography.headlineSmall)
+                TextMMD(stringResource(deleteTitle), style = MaterialTheme.typography.titleLarge)
                 Spacer(Modifier.height(12.dp))
                 TextMMD(stringResource(R.string.allowlist_delete_message))
                 Spacer(Modifier.height(16.dp))

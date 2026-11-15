@@ -46,7 +46,7 @@ fun FmdPermissionDialog(
     EInkDialog(onCancelClicked) {
         TextMMD(
             text = stringResource(R.string.fmd_permission_allowed_commands_title),
-            style = MaterialTheme.typography.headlineSmall,
+            style = MaterialTheme.typography.titleLarge,
         )
 
         // Column of commands/permissions
