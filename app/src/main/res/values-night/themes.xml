@@ -1,5 +1,11 @@
 <resources>
     <style name="AppTheme" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Selection handles and the cursor's handle: black with a white rim, so they show on the
+             white page and on dark mode's black one (they are windows of their own, which the
+             dark window's inversion does not reach). -->
+        <item name="android:textSelectHandleLeft">@drawable/text_handle_left</item>
+        <item name="android:textSelectHandleRight">@drawable/text_handle_right</item>
+        <item name="android:textSelectHandle">@drawable/text_handle_middle</item>
         <!-- No scrollbars: a list moves a page to a swipe, and nothing else needs one. -->
         <item name="android:scrollbarThumbVertical">@android:color/transparent</item>
         <item name="android:scrollbarThumbHorizontal">@android:color/transparent</item>
