@@ -1,5 +1,6 @@
 package com.wanderwildwood.ibasho.net
 
+import com.wanderwildwood.ibasho.commands.redactCommand
 import android.content.Context
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.lifecycle.lifecycleScope
@@ -90,7 +91,7 @@ class ServerCommandDownloader(
             return
         }
 
-        context.log().i(TAG, "Received remote command '$remoteCommand'")
+        context.log().i(TAG, "Received remote command '${redactCommand(remoteCommand, null)}'")
 
         // The CommandParser needs the keyword prepended
         val commandKeyword = settingsRepo.get(Settings.SET_FMD_COMMAND).toString()

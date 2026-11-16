@@ -131,10 +131,12 @@ class CommandHandler<T>
 
     private fun showUsageNotification(context: Context, rawCommand: String) {
         val source = transport.getDestinationString()
+        val trigger = SettingsRepository.getInstance(context).get(Settings.SET_FMD_COMMAND) as String
+        val shown = redactCommand(rawCommand, trigger)
         Notifications.notify(
             context,
             context.getString(R.string.usage_notification_title),
-            context.getString(R.string.usage_notification_text_source, rawCommand, source),
+            context.getString(R.string.usage_notification_text_source, shown, source),
             Notifications.CHANNEL_USAGE
         )
     }

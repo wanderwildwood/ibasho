@@ -1,5 +1,8 @@
 package com.wanderwildwood.ibasho.workers
 
+import com.wanderwildwood.ibasho.commands.redactCommand
+import com.wanderwildwood.ibasho.data.Settings
+import com.wanderwildwood.ibasho.data.SettingsRepository
 import android.app.NotificationManager
 import android.content.Context
 import android.content.pm.ServiceInfo
@@ -53,17 +56,22 @@ class CommandExecutionWorker(
         val command = inputData.getString(KEY_COMMAND) ?: return Result.failure()
         val transportType = inputData.getString(KEY_TRANSPORT_TYPE) ?: return Result.failure()
         val destination = inputData.getString(KEY_DESTINATION) ?: "Unknown destination"
+        // For the log and the notification: no passwords.
+        val shown = redactCommand(
+            command,
+            SettingsRepository.getInstance(applicationContext).get(Settings.SET_FMD_COMMAND) as String,
+        )
 
         applicationContext.log()
             .i(
                 TAG,
-                "Starting worker $id for transport=$transportType, destination=$destination, command=$command"
+                "Starting worker $id for transport=$transportType, destination=$destination, command=$shown"
             )
 
         val commandHandler = createCommandHandler(transportType, destination)
             ?: return Result.failure()
 
-        val foregroundInfo = createForegroundInfo(command, destination)
+        val foregroundInfo = createForegroundInfo(shown, destination)
         try {
             setForeground(foregroundInfo)
         } catch (e: IllegalStateException) {

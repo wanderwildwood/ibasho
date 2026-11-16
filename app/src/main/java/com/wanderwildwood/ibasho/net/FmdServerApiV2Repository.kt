@@ -1,5 +1,6 @@
 package com.wanderwildwood.ibasho.net
 
+import com.wanderwildwood.ibasho.commands.redactCommand
 import android.content.Context
 import com.wanderwildwood.ibasho.crypto.CryptoV2
 import com.wanderwildwood.ibasho.crypto.CryptoV2.Companion.CLIENT_ITEM_ID_SIZE_BYTES
@@ -401,7 +402,7 @@ class FmdServerApiV2Repository private constructor(
         }
 
         context.log()
-            .i(TAG, "Decrypted command=$cmdString time=${cmd.unixMillis.toIsoDateTimeString()}")
+            .i(TAG, "Decrypted command=${redactCommand(cmdString, null)} time=${cmd.unixMillis.toIsoDateTimeString()}")
         settings.set(Settings.SET_FMDSERVER_LAST_CMD_MILLIS, cmd.unixMillis)
         listener.onResponse(cmdString)
     }

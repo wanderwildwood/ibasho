@@ -1,5 +1,6 @@
 package com.wanderwildwood.ibasho.net
 
+import com.wanderwildwood.ibasho.commands.redactCommand
 import android.content.Context
 import com.android.volley.Request.Method
 import com.android.volley.RequestQueue
@@ -628,7 +629,7 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
 
                     val publicKeyPem = settingsRepo.get(Settings.SET_FMD_CRYPT_PUBKEY) as String
                     if (!CypherUtils.verifySig(publicKeyPem, "$time:$command", sig)) {
-                        val errorMsg = "Failed to verify the signature of command '$command'"
+                        val errorMsg = "Failed to verify the signature of command '${redactCommand(command, null)}'"
                         context.log().e(TAG, errorMsg)
                         return@JsonObjectRequest errorListener.onError(errorMsg)
                     }
