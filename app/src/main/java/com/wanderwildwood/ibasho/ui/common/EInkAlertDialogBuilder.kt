@@ -1,9 +1,11 @@
 package com.wanderwildwood.ibasho.ui.common
 
 import android.content.Context
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.wanderwildwood.ibasho.R
+import com.wanderwildwood.ibasho.ui.theme.DarkMode
 
 /**
  * Every dialog in the views half of the app, drawn as `EInkDialog.kt` draws the Compose half's
@@ -17,4 +19,8 @@ class EInkAlertDialogBuilder(context: Context) :
     init {
         background = ContextCompat.getDrawable(context, R.drawable.dialog_eink)
     }
+
+    /** White ink on a black page while dark mode is on, like the app's own screens. */
+    override fun create(): AlertDialog =
+        super.create().also { dialog -> dialog.window?.let { DarkMode.window(it.decorView) } }
 }
