@@ -68,8 +68,19 @@ class FmdServerRepository(
             }
 
             override fun onResponse(call: Call, response: Response) {
-                val version = response.body.string()
-                listener.onResponse(version)
+                // An error page (a proxy's 502, a 404 from the wrong address) is not a version
+                // number. From upstream FindMyDevice 9e0ccdfd (Nulide).
+                if (response.isSuccessful) {
+                    val version = response.body.string()
+                    listener.onResponse(version)
+                } else {
+                    val error = ServerError(
+                        statusCode = response.code,
+                        body = response.body.string(),
+                        message = response.message
+                    )
+                    errorListener.onError(error)
+                }
             }
         }
 
