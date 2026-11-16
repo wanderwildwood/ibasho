@@ -9,6 +9,8 @@ import androidx.annotation.StringRes
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.commands.AccessResponse
 import com.wanderwildwood.ibasho.commands.ParserResult
+import com.wanderwildwood.ibasho.commands.WrongPasswordRules
+import com.wanderwildwood.ibasho.commands.WrongPasswords
 import com.wanderwildwood.ibasho.commands.hasPermission
 import com.wanderwildwood.ibasho.data.AccessRepository
 import com.wanderwildwood.ibasho.data.Settings
@@ -17,6 +19,7 @@ import com.wanderwildwood.ibasho.database.TEMP_USAGE_VALIDITY_MILLIS
 import com.wanderwildwood.ibasho.permissions.SmsPermission
 import com.wanderwildwood.ibasho.services.TempContactExpiredService
 import com.wanderwildwood.ibasho.ui.access.AccessControlActivity
+import com.wanderwildwood.ibasho.utils.Notifications
 import com.wanderwildwood.ibasho.utils.log
 import com.wanderwildwood.ibasho.utils.normalizeNumberForStorage
 
@@ -102,8 +105,19 @@ class SmsTransport(
 
         // Case 3: the message contains a correct password
         if (parsed.passwordHash != null) {
+            val wrongPasswords = WrongPasswords(context, WrongPasswords.SMS)
+            if (wrongPasswords.isLocked()) {
+                // Too many wrong ones lately: not even checked, and it counts as one more.
+                context.log().w(TAG, "SMS password not checked: too many wrong passwords lately")
+                countWrongPassword(wrongPasswords)
+                return if (isKnownButDenied) AccessResponse.DENIED_EXISTS else AccessResponse.DENIED_UNKNOWN
+            }
             val smsPass = accessRepo.getSmsPassword(parsed.passwordHash)
-            if (smsPass != null) {
+            if (smsPass == null) {
+                context.log().i(TAG, "Received unknown SMS password")
+                countWrongPassword(wrongPasswords)
+            } else {
+                wrongPasswords.right()
                 context.log().i(TAG, "$phoneNumber used FMD via SMS password '${smsPass.label}'")
 
                 // Whatever the command is: add this phone number to the temporary list
@@ -116,12 +130,26 @@ class SmsTransport(
                 // Return based on whether this command is allowed
                 val hasPermission = smsPass.permission.hasPermission(parsed.command.permission)
                 return if (hasPermission) AccessResponse.ALLOWED else AccessResponse.DENIED_EXISTS
-            } else {
-                context.log().i(TAG, "Received unknown SMS password")
             }
         }
 
         return if (isKnownButDenied) AccessResponse.DENIED_EXISTS else AccessResponse.DENIED_UNKNOWN
+    }
+
+    private fun countWrongPassword(wrongPasswords: WrongPasswords) {
+        val (_, lockStarted) = wrongPasswords.wrong()
+        if (lockStarted) {
+            Notifications.notify(
+                context,
+                context.getString(R.string.wrong_passwords_paused_title),
+                context.getString(
+                    R.string.wrong_passwords_paused_text,
+                    WrongPasswordRules.MAX_WRONG,
+                    context.getString(R.string.transport_sms_title),
+                ),
+                Notifications.CHANNEL_SECURITY,
+            )
+        }
     }
 
     override fun send(context: Context, msg: String) {

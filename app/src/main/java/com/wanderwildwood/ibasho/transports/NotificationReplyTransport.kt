@@ -13,6 +13,8 @@ import androidx.annotation.StringRes
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.commands.AccessResponse
 import com.wanderwildwood.ibasho.commands.ParserResult
+import com.wanderwildwood.ibasho.commands.WrongPasswordRules
+import com.wanderwildwood.ibasho.commands.WrongPasswords
 import com.wanderwildwood.ibasho.commands.hasPermission
 import com.wanderwildwood.ibasho.data.AccessRepository
 import com.wanderwildwood.ibasho.data.Settings
@@ -20,6 +22,7 @@ import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.permissions.NotificationAccessPermission
 import com.wanderwildwood.ibasho.services.NotificationListenService
 import com.wanderwildwood.ibasho.ui.access.AccessControlActivity
+import com.wanderwildwood.ibasho.utils.Notifications
 import com.wanderwildwood.ibasho.utils.log
 
 
@@ -65,11 +68,22 @@ class NotificationReplyTransport(
             return AccessResponse.DENIED_UNKNOWN
         }
 
+        // Any app on the phone can post a notification, so guesses here cost nothing: after a
+        // few wrong ones, passwords by notification are not checked for a while.
+        val wrongPasswords = WrongPasswords(context, WrongPasswords.NOTIFICATION)
+        if (wrongPasswords.isLocked()) {
+            context.log().w(TAG, "Notification password not checked: too many wrong passwords lately")
+            countWrongPassword(wrongPasswords)
+            return AccessResponse.DENIED_UNKNOWN
+        }
+
         val notifPass = access.getNotificationPassword(parsed.passwordHash)
         if (notifPass == null) {
             context.log().i(TAG, "Notification password not found in database")
+            countWrongPassword(wrongPasswords)
             return AccessResponse.DENIED_UNKNOWN
         }
+        wrongPasswords.right()
 
         val hasPermission = notifPass.permission.hasPermission(parsed.command.permission)
         if (hasPermission) {
@@ -81,6 +95,22 @@ class NotificationReplyTransport(
                 "Notification password ${notifPass.label} denied access to ${parsed.command.keyword}."
             )
             return AccessResponse.DENIED_EXISTS
+        }
+    }
+
+    private fun countWrongPassword(wrongPasswords: WrongPasswords) {
+        val (_, lockStarted) = wrongPasswords.wrong()
+        if (lockStarted) {
+            Notifications.notify(
+                context,
+                context.getString(R.string.wrong_passwords_paused_title),
+                context.getString(
+                    R.string.wrong_passwords_paused_text,
+                    WrongPasswordRules.MAX_WRONG,
+                    context.getString(R.string.transport_notification_reply_title),
+                ),
+                Notifications.CHANNEL_SECURITY,
+            )
         }
     }
 

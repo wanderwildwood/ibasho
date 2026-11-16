@@ -137,16 +137,26 @@ class SettingsRepository private constructor(private val context: Context) {
         if (currentVersion < 5) {
             AccessRepository.getInstance(context).migrateNumbersToE164(context)
         }
+        if (currentVersion < 6) {
+            // The wipe password is kept only as a hash now, and upstream's old PIN, already
+            // copied into the access database above as a hash, is not kept as typed either.
+            withContext(Dispatchers.Default) {
+                encSettings.migrateDeletePasswordToHash()
+                encSettings.removeFmdPin()
+            }
+        }
 
         set(Settings.SET_SET_VERSION, Settings.SETTINGS_VERSION)
     }
 
 
-    private fun migrateDeletePassword() {
+    private suspend fun migrateDeletePassword() {
         // For users that upgrade, initialize the new delete password with the existing FMD PIN
         context.log().i(TAG, "Migrating to separate delete password")
         val pin = encSettings.getFmdPin()
-        encSettings.setDeletePassword(pin)
+        if (pin.isNotBlank()) {
+            withContext(Dispatchers.Default) { encSettings.setDeletePassword(pin) }
+        }
     }
 
     private fun migrateBackgroundLocationType() {

@@ -538,6 +538,11 @@
     <string name="cmd_delete_response_disabled">Cannot delete: delete command is not enabled in settings.</string>
     <string name="cmd_delete_response_pwd_missing">Cannot delete: missing password. Usage: %s.</string>
     <string name="cmd_delete_response_pwd_wrong">Cannot delete: wrong password.</string>
+    <string name="cmd_delete_response_switched_off">Cannot delete: too many wrong passwords. Wipe is now switched off on this phone.</string>
+    <string name="wipe_switched_off_title">Wipe switched off</string>
+    <string name="wipe_switched_off_text">%1$d wrong wipe passwords in a row, the last from %2$s. Wipe stays off until you switch it on again in Settings → Commands.</string>
+    <string name="wrong_passwords_paused_title">Passwords paused for an hour</string>
+    <string name="wrong_passwords_paused_text">%1$d wrong passwords in a row came in by %2$s. For the next hour no password sent that way is accepted. Numbers on the allowed list and your server still work.</string>
     <string name="cmd_delete_response_dry_run">Dry run successful, skipping the actual device deletion.</string>
     <string name="cmd_delete_response_failed">Failed to delete device due to an exception.</string>
     <string name="cmd_delete_response_success">The device should now be deleted. Goodbye!</string>

@@ -9,6 +9,7 @@ import com.wanderwildwood.ibasho.data.EncryptedSettingsRepository
 import com.wanderwildwood.ibasho.data.Settings
 import com.wanderwildwood.ibasho.permissions.WipeDataPermission
 import com.wanderwildwood.ibasho.transports.Transport
+import com.wanderwildwood.ibasho.utils.Notifications
 import com.wanderwildwood.ibasho.utils.log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -56,14 +57,37 @@ class DeleteCommand(context: Context) : Command(context) {
         }
         val pwd = args[0]
 
+        // Kept only as a hash; checked in constant time. Five wrong ones in a row switch the
+        // wipe off, and only the phone's owner can switch it on again, on the phone.
         val encSettings = EncryptedSettingsRepository.getInstance(context)
-        val expectedPassword = encSettings.getDeletePassword()
-        if (expectedPassword.isNullOrBlank() || expectedPassword != pwd) {
+        val wrongPasswords = WrongPasswords(context, WrongPasswords.WIPE)
+        val isRight = withContext(Dispatchers.Default) { encSettings.checkDeletePassword(pwd) }
+        if (!isRight) {
+            val (wrong, _) = wrongPasswords.wrong()
+            if (wrong >= WrongPasswordRules.MAX_WRONG) {
+                settings.set(Settings.SET_WIPE_ENABLED, false)
+                wrongPasswords.right()
+                Notifications.notify(
+                    context,
+                    context.getString(R.string.wipe_switched_off_title),
+                    context.getString(
+                        R.string.wipe_switched_off_text,
+                        WrongPasswordRules.MAX_WRONG,
+                        transport.getDestinationString(),
+                    ),
+                    Notifications.CHANNEL_SECURITY,
+                )
+                val msg = context.getString(R.string.cmd_delete_response_switched_off)
+                context.log().w(TAG, msg)
+                transport.send(context, msg)
+                return
+            }
             val msg = context.getString(R.string.cmd_delete_response_pwd_wrong)
             context.log().i(TAG, msg)
             transport.send(context, msg)
             return
         }
+        wrongPasswords.right()
 
         // Be defensive, match anything that might look right
         if (args.getOrNull(1)?.contains("dry") == true) {

@@ -18,6 +18,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.wanderwildwood.ibasho.commands.WrongPasswords;
 import com.wanderwildwood.ibasho.R;
 import com.wanderwildwood.ibasho.data.EncryptedSettingsRepository;
 import com.wanderwildwood.ibasho.data.Settings;
@@ -60,6 +61,8 @@ public class FMDConfigActivity extends FmdActivity implements TextWatcher {
         checkBoxDeviceWipe.setChecked((Boolean) settings.get(Settings.SET_WIPE_ENABLED));
         checkBoxDeviceWipe.setOnCheckedChangeListener((button, isChecked) -> {
             settings.set(Settings.SET_WIPE_ENABLED, isChecked);
+            // Switched on again by hand: wrong wipe passwords before this no longer count.
+            if (isChecked) new WrongPasswords(this, WrongPasswords.WIPE).right();
             updateDeletePasswordButton();
         });
         buttonDeletePassword = findViewById(R.id.buttonDeletePassword);
@@ -127,8 +130,14 @@ public class FMDConfigActivity extends FmdActivity implements TextWatcher {
 
     private void onEnterDeletePasswordClicked(View v) {
         new PasswordSetDialog(v.getContext(), (newPassword) -> {
-            encSettings.setDeletePassword(newPassword);
-            updateDeletePasswordButton();
+            // Only the hash is kept, and hashing takes a moment: not on the main thread.
+            new Thread(() -> {
+                encSettings.setDeletePassword(newPassword);
+                new WrongPasswords(this, WrongPasswords.WIPE).right();
+                runOnUiThread(() -> {
+                    if (!isFinishing() && !isDestroyed()) updateDeletePasswordButton();
+                });
+            }).start();
             return Unit.INSTANCE;
         }, R.string.password_enter, getString(R.string.delete_pw_message), true, true).show();
     }
@@ -136,8 +145,7 @@ public class FMDConfigActivity extends FmdActivity implements TextWatcher {
     // Upstream coloured this button green or red. On an ink screen the words have to say it.
     private void updateDeletePasswordButton() {
         boolean enabled = (boolean) settings.get(Settings.SET_WIPE_ENABLED);
-        String password = encSettings.getDeletePassword();
-        boolean isPasswordEmpty = password == null || password.isBlank();
+        boolean isPasswordEmpty = !encSettings.hasDeletePassword();
 
         buttonDeletePassword.setText(isPasswordEmpty ? R.string.password_set : R.string.password_change);
         findViewById(R.id.textViewDeletePasswordWarning)
