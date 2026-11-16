@@ -28,7 +28,10 @@ class UiUtil {
                     v.updatePadding(top = i.top)
                 }
                 if (bottom) {
-                    v.updatePadding(bottom = i.bottom)
+                    // With the keyboard up the content ends above it. The window itself is not
+                    // moved (adjustResize, not pan), so the title stays clear of the status bar.
+                    val ime = insets.getInsets(WindowInsetsCompat.Type.ime())
+                    v.updatePadding(bottom = maxOf(i.bottom, ime.bottom))
                 }
                 WindowInsetsCompat.CONSUMED
             }

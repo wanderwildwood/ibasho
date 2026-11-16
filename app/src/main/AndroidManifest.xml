@@ -80,6 +80,7 @@
 
         <activity
             android:name=".ui.settings.AddAccountActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false"
             android:label="@string/Settings_FMDServer_AddAccount" />
         <activity
@@ -111,12 +112,15 @@
             android:label="@string/Settings_Appearance" />
         <activity
             android:name=".ui.settings.FMDServerActivity"
+            android:windowSoftInputMode="adjustResize"
             android:label="@string/Settings_FMDServer" />
         <activity
             android:name=".ui.settings.OpenCellIdActivity"
+            android:windowSoftInputMode="adjustResize"
             android:label="@string/Settings_OpenCellId" />
         <activity
             android:name=".ui.settings.FMDConfigActivity"
+            android:windowSoftInputMode="adjustResize"
             android:label="@string/Settings_FMDConfig" />
         <activity
             android:name=".ui.CrashedActivity"
@@ -146,6 +150,7 @@
         </activity>
         <activity
             android:name=".ui.protov2wizard.ProtoV2WizardActivity"
+            android:windowSoftInputMode="adjustResize"
             android:label="@string/proto_v2_wizard_title" />
 
         <receiver
