@@ -16,18 +16,18 @@ screen will do.
 | ![The commands it answers, and what each needs](screenshots/01.png) | ![The SMS channel: who may text it, and how](screenshots/02.png) |
 | ![Setting up: texts only, or texts and a server](screenshots/03.png) | ![Settings: Server, Family, Access control and more](screenshots/04.png) |
 
-## Wiping, and what it does not do
+## What it does not do
 
-**Wiping is off unless the phone's owner turns it on.** Under **Settings →
-Commands → fmd delete**, on the phone itself, the wipe command is switched on and
-given a password of its own, separate from the server's. Until both are done it
-refuses, so nobody can arm it from the server or by text: knowing the server
-password is not enough to factory-reset someone's phone. It then answers
-`delete <password>` by text or from the server's web page, and
-`delete <password> dryrun` checks everything without wiping. The phone keeps
-only a hash of that password, not the password itself. Five wrong ones in a row
-switch wiping off again, and the phone says so; only its owner can switch it
-back on.
+**It cannot erase the phone.** Upstream's wipe command is gone, along with the
+device-admin right to erase. A lost phone can be found, rung or locked; nobody
+who gets hold of a server login or fakes a text can factory-reset it. Device
+admin is asked for only to lock the screen.
+
+**Lock from the server is off until you switch it on.** Lock can put any message
+on the screen, so on a new setup the server may not use it until you allow it
+on the phone, under **Settings → Server → Choose allowed commands**. A phone set
+up before keeps what it had. The server's page gets no answer when a command is
+not allowed, so a lock pressed there while it is off simply does nothing.
 
 **Guessing passwords is slow.** After five wrong passwords in a row by text, or
 five by notification, passwords sent that way are not checked for an hour, and

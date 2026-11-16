@@ -13,29 +13,22 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.wanderwildwood.ibasho.commands.WrongPasswords;
 import com.wanderwildwood.ibasho.R;
-import com.wanderwildwood.ibasho.data.EncryptedSettingsRepository;
 import com.wanderwildwood.ibasho.data.Settings;
 import com.wanderwildwood.ibasho.data.SettingsRepository;
 import com.wanderwildwood.ibasho.ui.FmdActivity;
-import com.wanderwildwood.ibasho.ui.common.PasswordSetDialog;
 import kotlin.Unit;
 
 public class FMDConfigActivity extends FmdActivity implements TextWatcher {
 
     private SettingsRepository settings;
-    private EncryptedSettingsRepository encSettings;
 
     private Button buttonSelectRingtone;
     private EditText editTextLockScreenMessage;
-    private CheckBox checkBoxDeviceWipe;
-    private Button buttonDeletePassword;
     private EditText editTextFmdCommand;
 
     private static final int REQUEST_CODE_RINGTONE = 5;
@@ -49,25 +42,10 @@ public class FMDConfigActivity extends FmdActivity implements TextWatcher {
         setupEdgeToEdgeScrollView(findViewById(R.id.scrollView));
 
         settings = SettingsRepository.Companion.getInstance(this);
-        encSettings = EncryptedSettingsRepository.Companion.getInstance(this);
 
         editTextLockScreenMessage = findViewById(R.id.editTextTextLockScreenMessage);
         editTextLockScreenMessage.setText((String) settings.get(Settings.SET_LOCKSCREEN_MESSAGE));
         editTextLockScreenMessage.addTextChangedListener(this);
-
-        // The wipe command is off unless it is switched on here, on this phone, and it needs a
-        // password of its own: nobody can arm it from the server.
-        checkBoxDeviceWipe = findViewById(R.id.checkBoxWipeData);
-        checkBoxDeviceWipe.setChecked((Boolean) settings.get(Settings.SET_WIPE_ENABLED));
-        checkBoxDeviceWipe.setOnCheckedChangeListener((button, isChecked) -> {
-            settings.set(Settings.SET_WIPE_ENABLED, isChecked);
-            // Switched on again by hand: wrong wipe passwords before this no longer count.
-            if (isChecked) new WrongPasswords(this, WrongPasswords.WIPE).right();
-            updateDeletePasswordButton();
-        });
-        buttonDeletePassword = findViewById(R.id.buttonDeletePassword);
-        buttonDeletePassword.setOnClickListener(this::onEnterDeletePasswordClicked);
-        updateDeletePasswordButton();
 
         buttonSelectRingtone = findViewById(R.id.buttonSelectRingTone);
         buttonSelectRingtone.setOnClickListener(this::onSelectRingtoneClicked);
@@ -126,29 +104,5 @@ public class FMDConfigActivity extends FmdActivity implements TextWatcher {
                     }
                     return kotlin.Unit.INSTANCE;
                 });
-    }
-
-    private void onEnterDeletePasswordClicked(View v) {
-        new PasswordSetDialog(v.getContext(), (newPassword) -> {
-            // Only the hash is kept, and hashing takes a moment: not on the main thread.
-            new Thread(() -> {
-                encSettings.setDeletePassword(newPassword);
-                new WrongPasswords(this, WrongPasswords.WIPE).right();
-                runOnUiThread(() -> {
-                    if (!isFinishing() && !isDestroyed()) updateDeletePasswordButton();
-                });
-            }).start();
-            return Unit.INSTANCE;
-        }, R.string.password_enter, getString(R.string.delete_pw_message), true, true).show();
-    }
-
-    // Upstream coloured this button green or red. On an ink screen the words have to say it.
-    private void updateDeletePasswordButton() {
-        boolean enabled = (boolean) settings.get(Settings.SET_WIPE_ENABLED);
-        boolean isPasswordEmpty = !encSettings.hasDeletePassword();
-
-        buttonDeletePassword.setText(isPasswordEmpty ? R.string.password_set : R.string.password_change);
-        findViewById(R.id.textViewDeletePasswordWarning)
-                .setVisibility(enabled && isPasswordEmpty ? View.VISIBLE : View.GONE);
     }
 }

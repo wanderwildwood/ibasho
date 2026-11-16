@@ -25,6 +25,11 @@ class DeviceAdminPermission : Permission() {
             DevicePolicyManager.EXTRA_DEVICE_ADMIN,
             ComponentName(activity, DeviceAdminReceiver::class.java)
         )
+        // Shown on Android's own screen, under what the app may do: that is lock the screen only.
+        intent.putExtra(
+            DevicePolicyManager.EXTRA_ADD_EXPLANATION,
+            activity.getString(R.string.perm_device_admin_explanation)
+        )
         activity.startActivity(intent)
     }
 }

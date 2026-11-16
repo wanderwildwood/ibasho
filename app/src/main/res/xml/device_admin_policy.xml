@@ -1,10 +1,8 @@
 <device-admin xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- force-lock for the lock command, wipe-data for the wipe command. Android enforces
-         what is declared here, so without wipe-data the app could not wipe even if asked.
-         The command itself stays off unless it is switched on in this phone's own settings
-         and given its own password, so nobody else can arm it. -->
+    <!-- force-lock for the lock command, and nothing else. There is no wipe command, and
+         without wipe-data declared here Android would not let the app erase the phone even if
+         some code asked it to. -->
     <uses-policies>
         <force-lock />
-        <wipe-data />
     </uses-policies>
 </device-admin>

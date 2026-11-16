@@ -39,7 +39,6 @@ class WrongPasswords(context: Context, private val channel: String) {
     companion object {
         const val SMS = "sms"
         const val NOTIFICATION = "notification"
-        const val WIPE = "wipe"
 
         private const val FILE = "wrong_passwords"
         private val lock = Any()

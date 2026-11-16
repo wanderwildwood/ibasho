@@ -103,7 +103,7 @@ public class Settings extends HashMap<Integer, Object> {
             return super.get(key);
         } else {
             switch (key) {
-                case SET_WIPE_ENABLED:
+                case SET_WIPE_ENABLED: // the wipe command is gone; only the migration removes it
                     // case SET_ACCESS_VIA_PIN:
                 case SET_FIRST_TIME_WHITELIST:
                 case SET_FIRST_TIME_CONTACT_ADDED:
@@ -152,7 +152,11 @@ public class Settings extends HashMap<Integer, Object> {
                     // 1) the server currently has no response channel for "access denied" error messages
                     // 2) the server is primarily for your own usage, not for giving access to
                     //    your phone to others (unlike SMS/Notification Reply).
-                    return FmdPermission.Companion.getALL();
+                    // Except lock: it can put any text on the screen, so whoever has the server
+                    // login could make the phone show a message of theirs. Off until switched on
+                    // under the server's permissions. Phones set up before keep what they had
+                    // (see SettingsRepository.migrateSettings).
+                    return FmdPermission.Companion.getALL() & ~FmdPermission.LOCK.getBit();
                 case SET_FMD_CRYPT_PROTO:
                     return FMD_SERVER_PROTO_V1;
                 //case SET_GPS_STATE:

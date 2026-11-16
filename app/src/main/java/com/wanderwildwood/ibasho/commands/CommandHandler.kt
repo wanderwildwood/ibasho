@@ -21,7 +21,6 @@ fun availableCommandsWithoutHelp(context: Context): List<Command> {
         // HelpCommand(context),
         LocateCommand(context),
         LockCommand(context),
-        DeleteCommand(context),
         NoDisturbCommand(context),
         RingCommand(context),
         RingerModeCommand(context),

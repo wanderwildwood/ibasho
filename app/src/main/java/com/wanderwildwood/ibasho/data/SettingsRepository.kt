@@ -127,9 +127,6 @@ class SettingsRepository private constructor(private val context: Context) {
     suspend fun migrateSettings() {
         val currentVersion = (get(Settings.SET_SET_VERSION) as Number).toInt()
 
-        if (currentVersion < 3) {
-            migrateDeletePassword()
-        }
         migrateBackgroundLocationType()
         if (currentVersion < 4) {
             migrateFmdPinToDb()
@@ -138,26 +135,24 @@ class SettingsRepository private constructor(private val context: Context) {
             AccessRepository.getInstance(context).migrateNumbersToE164(context)
         }
         if (currentVersion < 6) {
-            // The wipe password is kept only as a hash now, and upstream's old PIN, already
-            // copied into the access database above as a hash, is not kept as typed either.
-            withContext(Dispatchers.Default) {
-                encSettings.migrateDeletePasswordToHash()
-                encSettings.removeFmdPin()
+            // The wipe command is gone: its switch and its password go with it. Upstream's old
+            // PIN, already copied into the access database above as a hash, goes too.
+            remove(Settings.SET_WIPE_ENABLED)
+            encSettings.removeDeletePassword()
+            encSettings.removeFmdPin()
+
+            // Lock (it can put any text on the screen) is now off by default for the server.
+            // A phone set up before keeps what it had: if it never chose, that was everything,
+            // lock included, so that is written down for it. A new install (version 0) is left
+            // to the new default.
+            if (currentVersion > 0 && !settings.containsKey(Settings.SET_FMDSERVER_PERMISSIONS)) {
+                set(Settings.SET_FMDSERVER_PERMISSIONS, FmdPermission.ALL)
             }
         }
 
         set(Settings.SET_SET_VERSION, Settings.SETTINGS_VERSION)
     }
 
-
-    private suspend fun migrateDeletePassword() {
-        // For users that upgrade, initialize the new delete password with the existing FMD PIN
-        context.log().i(TAG, "Migrating to separate delete password")
-        val pin = encSettings.getFmdPin()
-        if (pin.isNotBlank()) {
-            withContext(Dispatchers.Default) { encSettings.setDeletePassword(pin) }
-        }
-    }
 
     private fun migrateBackgroundLocationType() {
         val oldType = (get(Settings.SET_FMDSERVER_LOCATION_TYPE) as Number).toInt()

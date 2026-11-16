@@ -240,9 +240,9 @@ class SettingsFragment : TaggedFragment() {
     }
 
     private fun showImportSuccessDialog(context: Context) {
-        // TODO: The message_warning is temporary. We should include these in the backup again.
-        val message =
-            getString(R.string.import_success_message) + "\n\n" + getString(R.string.import_success_message_warning)
+        // Upstream warned here that the wipe password is not in the backup. The wipe command is
+        // gone, and nothing else needs setting up again.
+        val message = getString(R.string.import_success_message)
         EInkAlertDialogBuilder(context)
             .setTitle(getString(R.string.Settings_Import_Success))
             .setMessage(message)

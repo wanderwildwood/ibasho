@@ -1,6 +1,10 @@
 package com.wanderwildwood.ibasho.commands
 
-/** The command words, as the commands themselves name them. */
+/**
+ * The command words, as the commands themselves name them, and "delete": the wipe command is
+ * gone, but an old habit or an old server page may still send "delete <password>", and that
+ * password stays out of view too.
+ */
 val COMMAND_KEYWORDS = setOf(
     "bluetooth", "bluetoothscan", "delete", "flash", "gps", "help", "locate", "lock",
     "nodisturb", "ring", "ringermode", "stats",
@@ -10,7 +14,7 @@ private const val HIDDEN = "***"
 
 /**
  * A command as it may be shown or logged: an access password (the word between the trigger
- * word and the command) and the wipe password (the word after "delete") are replaced by ***.
+ * word and the command) and the old wipe password (the word after "delete") are replaced by ***.
  *
  * Commands are shown in notifications, which can be read on the lock screen, and kept in the
  * app's log, which can be exported; neither should carry a password.
