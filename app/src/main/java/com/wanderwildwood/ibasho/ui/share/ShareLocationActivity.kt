@@ -119,6 +119,9 @@ class ShareLocationActivity : FmdActivity(), LocationListener {
                 }
             }
         }
+        // Share is a yes only when the person can see what they are saying yes to: a press that
+        // came through another app's window drawn over this one is dropped.
+        window.decorView.filterTouchesWhenObscured = true
     }
 
     private fun appLabel(pkg: String): String = try {
