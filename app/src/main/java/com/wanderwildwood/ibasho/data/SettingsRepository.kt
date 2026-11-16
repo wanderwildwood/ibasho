@@ -66,11 +66,32 @@ class SettingsRepository private constructor(private val context: Context) {
     init {
         settings = loadNoSet()
         encSettings = EncryptedSettingsRepository.getInstance(context)
+        sealSecrets()
     }
 
     fun load() {
         settings = loadNoSet()
         encSettings = EncryptedSettingsRepository.getInstance(context)
+        sealSecrets()
+    }
+
+    /**
+     * Moves the v1 login hash and private key (see [SealedSettings]) out of the plain settings
+     * into the encrypted store, written there first and then removed from the file. Runs on
+     * every load and import, so a plain copy never stays, whatever version it came from. If the
+     * encrypted store cannot take them, they are dropped all the same, never kept in plain: the
+     * server then needs logging in again.
+     */
+    private fun sealSecrets() {
+        if (SealedSettings.KEYS.keys.none { settings.containsKey(it) }) return
+        val values = synchronized(settings) { SealedSettings.takeOut(settings) }
+        for ((storeKey, value) in values) {
+            if (!encSettings.putString(storeKey, value)) {
+                context.log().e(TAG, "Could not keep $storeKey in the encrypted store; log in again")
+            }
+        }
+        context.log().i(TAG, "Moved ${values.size} server login values into the encrypted store")
+        saveSettings()
     }
 
     private fun loadNoSet(): Settings {
@@ -96,17 +117,38 @@ class SettingsRepository private constructor(private val context: Context) {
     }
 
     fun <T> set(key: Int, value: T) {
+        SealedSettings.KEYS[key]?.let { storeKey ->
+            encSettings.putString(storeKey, value as String?)
+            return
+        }
         settings.set(key, value)
         saveSettings()
     }
 
     fun get(key: Int): Any {
+        SealedSettings.KEYS[key]?.let { storeKey -> return encSettings.getString(storeKey) }
         return settings.get(key)
     }
 
     fun remove(key: Int) {
+        SealedSettings.KEYS[key]?.let { storeKey ->
+            encSettings.putString(storeKey, null)
+            return
+        }
         settings.remove(key)
         saveSettings()
+    }
+
+    /**
+     * The settings JSON for an export: the plain settings, with the v1 login hash and private
+     * key put back in, so a v1 account still works after the backup is imported on a new phone.
+     * The export is a password-protected zip; on import they go straight back into the
+     * encrypted store.
+     */
+    fun exportJsonBytes(): ByteArray {
+        val copy = synchronized(settings) { Settings().also { it.putAll(settings) } }
+        SealedSettings.putBack(copy) { encSettings.getString(it) }
+        return gson.toJson(copy, Settings::class.java).toByteArray(Charsets.UTF_8)
     }
 
     fun writeAsJson(outputStreamWriter: OutputStreamWriter) {
@@ -117,6 +159,11 @@ class SettingsRepository private constructor(private val context: Context) {
     fun importFromStream(inputStream: InputStream) {
         val reader = JsonReader(InputStreamReader(inputStream))
         settings = gson.fromJson(reader, Settings::class.java) ?: Settings()
+
+        // The imported settings replace this phone's, the v1 login with them: whatever the
+        // encrypted store held for v1 goes, and what the backup carries (if anything) goes in.
+        for (storeKey in SealedSettings.KEYS.values) encSettings.putString(storeKey, null)
+        sealSecrets()
 
         // Migrate after import to bring them to the latest structure
         runBlocking { migrateSettings() }

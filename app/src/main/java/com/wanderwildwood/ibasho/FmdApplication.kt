@@ -6,6 +6,7 @@ import android.service.notification.StatusBarNotification
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.wanderwildwood.ibasho.data.AllowlistRepository
+import com.wanderwildwood.ibasho.data.EncryptedSettingsRepository
 import com.wanderwildwood.ibasho.data.Settings
 import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.data.UncaughtExceptionHandler.Companion.initUncaughtExceptionHandler
@@ -55,6 +56,19 @@ class FmdApplication : Application() {
 
         Notifications.init(this)
         initUncaughtExceptionHandler(this)
+
+        // The encrypted store could not be opened (the keystore lost its key) and was started
+        // afresh: the server login kept in it is gone, and only logging in again brings it back.
+        if (EncryptedSettingsRepository.getInstance(this).wasReset &&
+            (SettingsRepository.getInstance(this).get(Settings.SET_FMDSERVER_ID) as String).isNotEmpty()
+        ) {
+            Notifications.notify(
+                this,
+                getString(R.string.server_login_lost_title),
+                getString(R.string.server_login_lost_text),
+                Notifications.CHANNEL_SECURITY,
+            )
+        }
 
         doUpdateMigrations(this)
 

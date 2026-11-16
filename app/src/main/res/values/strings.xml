@@ -528,6 +528,8 @@
     <!-- Varia -->
     <string name="invalid_url">Invalid URL</string>
 
+    <string name="server_login_lost_title">Log in to your server again</string>
+    <string name="server_login_lost_text">This phone could not read its saved server login, so it was cleared. Open Settings → Server and log in again. Until then your server cannot reach this phone.</string>
     <string name="wrong_passwords_paused_title">Passwords paused for an hour</string>
     <string name="wrong_passwords_paused_text">%1$d wrong passwords in a row came in by %2$s. For the next hour no password sent that way is accepted. Numbers on the allowed list and your server still work.</string>
 

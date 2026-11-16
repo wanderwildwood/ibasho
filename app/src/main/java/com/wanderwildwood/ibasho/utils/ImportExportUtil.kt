@@ -71,8 +71,14 @@ class SettingsImportExporter(
             }
             val zipOutputStream = ZipOutputStream(outputStream, password.toCharArray())
 
+            // The settings as an export carries them: with the v1 server login, which on the
+            // phone itself is kept in the encrypted store, not in the settings file.
+            zipParas.fileNameInZip = SETTINGS_FILENAME
+            zipOutputStream.putNextEntry(zipParas)
+            zipOutputStream.write(SettingsRepository.getInstance(context).exportJsonBytes())
+            zipOutputStream.closeEntry()
+
             val filesToAdd = listOf(
-                File(context.filesDir, SETTINGS_FILENAME),
                 context.getDatabasePath(ACCESS_DB_FILENAME),
             )
 
