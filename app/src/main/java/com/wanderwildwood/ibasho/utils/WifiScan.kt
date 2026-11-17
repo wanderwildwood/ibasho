@@ -24,6 +24,7 @@ class WifiScan(
 
     companion object {
         private val TAG = WifiScan::class.simpleName
+        private const val SCAN_WAIT_MS = 15_000L
     }
 
     private val wifiManager = context.applicationContext.getSystemService(WifiManager::class.java)
@@ -53,12 +54,22 @@ class WifiScan(
         if (!success) {
             context.log().i(TAG, "Starting WiFi scan failed. Using cached data.")
             onResult()
+        } else {
+            // Whereabouts: a scan whose answer never comes would leave a locate waiting until
+            // its worker is stopped; after a while the cached results answer instead.
+            android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                if (!answered.get()) context.log().i(TAG, "No scan results in time. Using cached data.")
+                onResult()
+            }, SCAN_WAIT_MS)
         }
     }
 
+    private val answered = java.util.concurrent.atomic.AtomicBoolean(false)
+
     @SuppressLint("MissingPermission") // ACCESS_FINE_LOCATION
     private fun onResult() {
-        context.unregisterReceiver(this.wifiScanReceiver)
+        if (!answered.compareAndSet(false, true)) return
+        runCatching { context.unregisterReceiver(this.wifiScanReceiver) }
         onScanResults(wifiManager.scanResults)
     }
 }
