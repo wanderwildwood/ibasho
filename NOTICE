@@ -1,7 +1,7 @@
 Whereabouts is GPL-3.0-or-later (see LICENSE). It is a fork of FindMyDevice.
 
 The built-in push distributor, in app/src/main/java/com/wanderwildwood/ibasho/push/,
-is adapted from two Apache-2.0 projects, whose licence is in LICENSES/Apache-2.0.txt:
+is adapted from two Apache-2.0 projects, whose license is in LICENSES/Apache-2.0.txt:
 
 - Sunup, https://codeberg.org/Sunup/android, commit fe768d0 (1.3.3).
   The autopush WebSocket client and its message formats (api/ServerConnection.kt,
