@@ -74,7 +74,16 @@ class PushConnectionService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         // Always first: a service started with startForegroundService() has five seconds.
-        startForeground(NOTIFICATION_ID, buildNotification())
+        try {
+            startForeground(NOTIFICATION_ID, buildNotification())
+        } catch (e: IllegalStateException) {
+            // Restarted by the system while the app is in the background, which Android 12 and
+            // later refuse a foreground service: stop quietly rather than crash. The restart
+            // worker and the next time the app is opened bring the connection back.
+            log().w(TAG, "Not allowed to run in the foreground now, stopping: ${e.javaClass.simpleName}")
+            stopSelf()
+            return START_NOT_STICKY
+        }
         if (!EmbeddedPush.shouldRun(this)) {
             log().i(TAG, "Nothing to hold a connection for, stopping")
             stopForeground(STOP_FOREGROUND_REMOVE)
