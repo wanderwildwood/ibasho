@@ -1,7 +1,8 @@
 # Privacy
 
 Whereabouts sends the phone's location only where you have set it up to: to your own
-server, or by text to the numbers you allow. Nothing is sent to this project, and there is
+server, by text to the numbers you allow, or as a reply in a messaging app to a message
+that carries your password. Nothing is sent to this project, and there is
 no account with anyone but your own server.
 
 ## Where it connects
@@ -17,6 +18,13 @@ no account with anyone but your own server.
   turn on locating by cell towers and Wi-Fi. Each learns roughly where the phone is each time
   it is asked.
 - **Text messages**, to and from the numbers on its list, when commands are sent by SMS.
+- **Replies in other apps**, only if you let Whereabouts read notifications and set a
+  password for it. It reads the text of other apps' notifications (not the text messaging
+  app's) to find ones that start with the command word, and acts only on a command that
+  carries the password. The answer goes back through that app's own reply button, to
+  whoever sent the message: for a location command, that is the coordinates and an
+  OpenStreetMap link. That notification is then marked read and dismissed. From there, the
+  other app carries the reply as it carries any message.
 
 ## Other apps on the phone
 
@@ -32,9 +40,10 @@ apps.
 The full list is in `app/src/main/AndroidManifest.xml`. Location, SMS, Do Not Disturb access and
 display over other apps are what let a lost phone be found, rung or locked. Bluetooth lets a command
 switch the phone's Bluetooth on or off or scan for nearby devices; the phone state and cell
-permissions read the cell towers the phone sees, for locating by cell; biometric is the lock on
-the app's settings. Contacts are read only for a contact you pick when adding a number. The
-notification listener is used only to spot the command word in a notification. Device
+permissions read the cell towers the phone sees, for locating by cell; your fingerprint or screen
+lock is asked for only before a backup is exported. Contacts are read only for a contact you pick when adding a number. The
+notification listener reads other apps' notifications only to spot the command word, and
+answers a command through that notification's reply, as described above. Device
 administration lets the app lock the screen, and nothing else: it cannot erase the phone. There is no camera
 permission. Sharing a location with another app needs no permission beyond the location access
 Whereabouts already has.
@@ -42,7 +51,7 @@ Whereabouts already has.
 <!-- shared-about privacy section -->
 ## Who we are
 
-Whereabouts is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. What you put into Whereabouts stays on your phone. The only things that go out are the ones described above: the phone's location, encrypted on the phone first, to your own server; replies by text to the numbers you allow, carrying the location or the answer to their command; a connection to Mozilla's push service so your server can wake the phone, which carries no command; and, if you turn on locating by cell towers and Wi-Fi, a request to BeaconDB or OpenCelliD naming the towers and networks the phone sees. The developer receives nothing, so the developer holds no data about you.
+Whereabouts is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. What you put into Whereabouts stays on your phone. The only things that go out are the ones described above: the phone's location, encrypted on the phone first, to your own server; replies by text to the numbers you allow, carrying the location or the answer to their command; if you let it read notifications, replies through another app's notification to whoever sent a command with your password; a connection to Mozilla's push service so your server can wake the phone, which carries no command; and, if you turn on locating by cell towers and Wi-Fi, a request to BeaconDB or OpenCelliD naming the towers and networks the phone sees. The developer receives nothing, so the developer holds no data about you.
 
 ## How to contact us
 
