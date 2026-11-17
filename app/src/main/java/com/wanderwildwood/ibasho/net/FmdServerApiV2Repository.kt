@@ -364,7 +364,14 @@ class FmdServerApiV2Repository private constructor(
         // Instead, delete the command and return, so that the caller can continue with the next command.
         errorListener: ErrorListener
     ) {
-        val uniqueId = cmd.clientItemIdHex.hexToByteArray()
+        // Whereabouts: an item that does not even decode (odd hex, bad base64, too short to
+        // decrypt) is deleted like any other bad one, rather than crashing at every fetch.
+        val uniqueId = runCatching { cmd.clientItemIdHex.hexToByteArray() }.getOrNull()
+        if (uniqueId == null) {
+            context.log().e(TAG, "bad itemId")
+            deleteSingleDatum(DataBlobType.Command.label, cmd.clientItemIdHex)
+            return
+        }
         if (uniqueId.size != CLIENT_ITEM_ID_SIZE_BYTES) {
             val errorMsg = "bad itemId length: ${uniqueId.size} != $CLIENT_ITEM_ID_SIZE_BYTES"
             context.log().e(TAG, errorMsg)
@@ -386,14 +393,15 @@ class FmdServerApiV2Repository private constructor(
             return
         }
 
-        val dataBlob = EncryptedDataBlob(
-            uniqueId = uniqueId,
-            unixMillis = cmd.unixMillis,
-            type = DataBlobType.Command.label,
-            ciphertext = cmd.ciphertext64.decodeBase64(),
-        )
-
-        val cmdString = ltk.decryptDataBlob(dataBlob)?.decodeToString()
+        val cmdString = runCatching {
+            val dataBlob = EncryptedDataBlob(
+                uniqueId = uniqueId,
+                unixMillis = cmd.unixMillis,
+                type = DataBlobType.Command.label,
+                ciphertext = cmd.ciphertext64.decodeBase64(),
+            )
+            ltk.decryptDataBlob(dataBlob)?.decodeToString()
+        }.getOrNull()
         if (cmdString == null) {
             val errorMsg = "failed to decrypt command"
             context.log().e(TAG, errorMsg)
