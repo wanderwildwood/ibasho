@@ -23,7 +23,6 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.io.FileReader
-import java.io.FileWriter
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.io.OutputStreamWriter
@@ -61,6 +60,9 @@ class SettingsRepository private constructor(private val context: Context) {
 
     // Should only be accessed via the getters/setters in this repository
     private var settings: Settings
+
+    /** One lock for reading, changing and writing the map, whichever map [settings] holds now. */
+    private val lock = Any()
     private var encSettings: EncryptedSettingsRepository
 
     init {
@@ -84,7 +86,7 @@ class SettingsRepository private constructor(private val context: Context) {
      */
     private fun sealSecrets() {
         if (SealedSettings.KEYS.keys.none { settings.containsKey(it) }) return
-        val values = synchronized(settings) { SealedSettings.takeOut(settings) }
+        val values = synchronized(lock) { SealedSettings.takeOut(settings) }
         for ((storeKey, value) in values) {
             if (!encSettings.putString(storeKey, value)) {
                 context.log().e(TAG, "Could not keep $storeKey in the encrypted store; log in again")
@@ -109,10 +111,20 @@ class SettingsRepository private constructor(private val context: Context) {
     }
 
     // Synchronized so two threads never write the file at the same time.
-    private fun saveSettings() = synchronized(settings) {
+    // Whereabouts: written beside the file, synced and renamed over it, so a kill mid-write keeps
+    // the settings as they were rather than leaving half a file that stops the app starting.
+    private fun saveSettings() = synchronized(lock) {
         val file = File(context.filesDir, SETTINGS_FILENAME)
-        FileWriter(file).use { writer ->
+        val tmp = File(context.filesDir, "$SETTINGS_FILENAME.tmp")
+        java.io.FileOutputStream(tmp).use { out ->
+            val writer = java.io.OutputStreamWriter(out, Charsets.UTF_8)
             gson.toJson(settings, Settings::class.java, writer)
+            writer.flush()
+            out.fd.sync()
+        }
+        if (!tmp.renameTo(file)) {
+            tmp.delete()
+            throw java.io.IOException("settings could not be saved")
         }
     }
 
@@ -121,13 +133,15 @@ class SettingsRepository private constructor(private val context: Context) {
             encSettings.putString(storeKey, value as String?)
             return
         }
-        settings.set(key, value)
-        saveSettings()
+        synchronized(lock) {
+            settings.set(key, value)
+            saveSettings()
+        }
     }
 
     fun get(key: Int): Any {
         SealedSettings.KEYS[key]?.let { storeKey -> return encSettings.getString(storeKey) }
-        return settings.get(key)
+        return synchronized(lock) { settings.get(key) }
     }
 
     fun remove(key: Int) {
@@ -135,8 +149,10 @@ class SettingsRepository private constructor(private val context: Context) {
             encSettings.putString(storeKey, null)
             return
         }
-        settings.remove(key)
-        saveSettings()
+        synchronized(lock) {
+            settings.remove(key)
+            saveSettings()
+        }
     }
 
     /**
@@ -146,7 +162,7 @@ class SettingsRepository private constructor(private val context: Context) {
      * encrypted store.
      */
     fun exportJsonBytes(): ByteArray {
-        val copy = synchronized(settings) { Settings().also { it.putAll(settings) } }
+        val copy = synchronized(lock) { Settings().also { it.putAll(settings) } }
         SealedSettings.putBack(copy) { encSettings.getString(it) }
         return gson.toJson(copy, Settings::class.java).toByteArray(Charsets.UTF_8)
     }
