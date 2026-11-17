@@ -633,4 +633,10 @@
     <string name="settings_dark">Dark mode</string>
     <string name="page_arrow_previous">Previous page</string>
     <string name="page_arrow_next">Next page</string>
+    <!-- Command words as typed, the same in every language. -->
+    <string name="config_title_command" translatable="false">fmd command</string>
+    <string name="config_title_trigger" translatable="false">fmd</string>
+    <string name="config_title_ring" translatable="false">fmd ring</string>
+    <string name="config_title_lock" translatable="false">fmd lock</string>
+    <string name="add_account_server_hint" translatable="false">https://fmd.example.com</string>
 </resources>

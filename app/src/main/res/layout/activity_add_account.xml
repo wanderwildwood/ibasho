@@ -62,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/margin_small"
-                android:hint="https://fmd.example.com"
+                android:hint="@string/add_account_server_hint"
                 android:importantForAutofill="no"
                 android:inputType="textUri"
                 tools:ignore="HardcodedText" />
