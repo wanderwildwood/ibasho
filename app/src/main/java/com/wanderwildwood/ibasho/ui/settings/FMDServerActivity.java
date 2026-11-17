@@ -215,11 +215,9 @@ public class FMDServerActivity extends FmdActivity implements CompoundButton.OnC
             }
         } else if (buttonView == checkBoxLowBat) {
             settings.set(Settings.SET_FMD_LOW_BAT_SEND, isChecked);
-            if (isChecked) {
-                FmdBatteryLowService.scheduleJobNow(this);
-            } else {
-                FmdBatteryLowService.cancelJob(this);
-            }
+            // Whereabouts: the job stays either way; it is also the upload watchdog, and it
+            // reads this setting before sending on low battery.
+            FmdBatteryLowService.scheduleJobNow(this);
         }
     }
 

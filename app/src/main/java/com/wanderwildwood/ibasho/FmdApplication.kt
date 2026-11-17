@@ -103,9 +103,10 @@ class FmdApplication : Application() {
         } else if (settings.serverAccountExists()) {
             // Scheduling a job that is already running should be fine (?),
             // because they have the same, fixed JOB_ID.
-            if (settings.get(Settings.SET_FMD_LOW_BAT_SEND) as Boolean) {
-                FmdBatteryLowService.scheduleJobNow(this)
-            }
+            // Whereabouts: always, whether or not low battery sends a location. This periodic job
+            // is also the watchdog that puts a lost location upload job back; the low-battery
+            // setting is checked where the upload is made.
+            FmdBatteryLowService.scheduleJobNow(this)
             ServerLocationUploadService.scheduleRecurring(this)
             ServerConnectivityCheckService.scheduleJob(this)
 
