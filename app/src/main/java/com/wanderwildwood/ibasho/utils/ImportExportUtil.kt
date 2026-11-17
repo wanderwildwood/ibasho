@@ -252,10 +252,16 @@ suspend fun writeToUri(
     try {
         outputStream = context.contentResolver.openOutputStream(uri) ?: return@withContext
         write(outputStream)
+        // Closed here, so a finished backup is whole before anything else can go wrong.
+        outputStream.close()
         context.log().i(TAG, "Export successful")
-        withContext(Dispatchers.Main) {
+        // Whereabouts: the screen may have closed meanwhile; the backup is still a good one,
+        // and the notice is said without waiting on that screen.
+        withContext(Dispatchers.Main + kotlinx.coroutines.NonCancellable) {
             com.wanderwildwood.ibasho.ui.Notices.say(context, R.string.export_success)
         }
+    } catch (e: kotlinx.coroutines.CancellationException) {
+        throw e
     } catch (e: Exception) {
         context.log().e(TAG, "Export failed:\n${e.stackTraceToString()}")
         // Don't leave a broken or empty file behind.
