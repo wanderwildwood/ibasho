@@ -63,8 +63,9 @@ class CommandParser(
 
         // Catch "help loop": https://gitlab.com/fmd-foss/fmd-android/-/work_items/442
         // Only check the keyword (not the usage) because the special characters may confuse it.
-        val commandMatches = availableCommands.count { raw.contains(it.keyword) }
-        if (commandMatches >= 3) {
+        // Whereabouts: as whole words, and not in the password, so "bring" is not "ring" and a
+        // password with a keyword in it does not stop every command.
+        if (looksLikeHelpEcho(raw, secondToken, availableCommands.map { it.keyword })) {
             return ParserResult.EmptyInvalid
         }
 
@@ -121,4 +122,16 @@ class CommandParser(
             emptyList(),
         )
     }
+}
+
+/**
+ * Whether [raw] reads like this app's own help text come back as a command: three or more
+ * command words in it as whole words, the second token left out when it is not one (it is
+ * then the password).
+ */
+internal fun looksLikeHelpEcho(raw: String, secondToken: String, keywords: List<String>): Boolean {
+    val words = raw.lowercase().split(Regex("[^a-z0-9]+")).filter { it.isNotEmpty() }.toMutableList()
+    val second = secondToken.lowercase()
+    if (keywords.none { it.lowercase() == second }) words.remove(second)
+    return keywords.count { it.lowercase() in words } >= 3
 }
