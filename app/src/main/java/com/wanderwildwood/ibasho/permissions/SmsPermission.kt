@@ -25,10 +25,8 @@ class SmsPermission : Permission() {
                 ContextCompat.checkSelfPermission(
                     context, Manifest.permission.RECEIVE_SMS
                 ) == PERMISSION_GRANTED)
-                && (
-                ContextCompat.checkSelfPermission(
-                    context, Manifest.permission.READ_SMS
-                ) == PERMISSION_GRANTED)
+        // Whereabouts: no READ_SMS. A command arrives as a text is received; the stored texts
+        // are never read.
     }
 
     override fun request(activity: Activity) {
@@ -36,8 +34,7 @@ class SmsPermission : Permission() {
             activity,
             arrayOf(
                 Manifest.permission.SEND_SMS,
-                Manifest.permission.RECEIVE_SMS,
-                Manifest.permission.READ_SMS
+                Manifest.permission.RECEIVE_SMS
             ),
             REQUEST_CODE
         )
