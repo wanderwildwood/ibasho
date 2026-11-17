@@ -112,7 +112,8 @@ class CellLocationProvider<T>(
                 context.log().i(TAG, "Failed to get location from OpenCelliD")
                 val msg = context.getString(
                     R.string.cmd_locate_response_opencellid_failed,
-                    it.url,
+                    // The owner's OpenCelliD key is in the address: never in a reply to a sender.
+                    withoutKey(it.url),
                     paras.prettyPrint()
                 )
                 transport.send(context, msg)
@@ -172,3 +173,7 @@ class CellLocationProvider<T>(
         }
     }
 }
+
+/** [url] with its `key=` parameter taken out. */
+internal fun withoutKey(url: String): String =
+    url.replace(Regex("([?&])key=[^&]*&?"), "$1").trimEnd('&', '?')
