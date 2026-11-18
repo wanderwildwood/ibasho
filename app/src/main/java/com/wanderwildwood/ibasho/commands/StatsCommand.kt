@@ -40,7 +40,9 @@ class StatsCommand(context: Context) : Command(context) {
 
         WifiScan(context, { scanResults ->
             val wifisString =
-                scanResults.joinToString("\n\n") { sr -> "SSID: ${sr.getSsidCompat()}\nBSSID: ${sr.BSSID}" }
+                scanResults.joinToString("\n\n") { sr ->
+                    context.getString(R.string.cmd_stats_wifi_entry, sr.getSsidCompat(), sr.BSSID)
+                }
 
             val reply = context.getString(R.string.cmd_stats_response, ipsString, wifisString)
 

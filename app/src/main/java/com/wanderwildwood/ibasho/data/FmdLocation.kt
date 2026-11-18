@@ -4,6 +4,7 @@ import android.content.Context
 import android.location.Location
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
+import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.utils.Utils
 import com.wanderwildwood.ibasho.utils.Utils.Companion.getOpenStreetMapLink
 import kotlinx.serialization.Serializable
@@ -66,27 +67,30 @@ data class FmdLocation(
         }
     }
 
-    override fun toString(): String {
+    /** The location reply sent back to the asker, with its labels from strings.xml. */
+    fun toReply(context: Context): String {
         val string = StringBuilder()
             .append("$provider:\n")
-            .append("Lat: $lat\n")
-            .append("Lon: $lon\n")
+            .append(context.getString(R.string.location_reply_lat, lat.toString())).append('\n')
+            .append(context.getString(R.string.location_reply_lon, lon.toString())).append('\n')
 
         if (accuracy != null) {
-            string.append("Accuracy: %.1f m\n".format(accuracy))
+            string.append(context.getString(R.string.location_reply_accuracy, accuracy)).append('\n')
         }
         if (altitude != null) {
-            string.append("Altitude: %.1f m\n".format(altitude))
+            string.append(context.getString(R.string.location_reply_altitude, altitude)).append('\n')
         }
         if (bearing != null) {
-            string.append("Bearing: %.0f\n".format(bearing))
+            string.append(context.getString(R.string.location_reply_bearing, bearing)).append('\n')
         }
         if (speed != null) {
-            string.append("Speed: %.1f m/s = %.1f km/h\n".format(speed, speed * 3.6))
+            string.append(context.getString(R.string.location_reply_speed, speed, speed * 3.6))
+                .append('\n')
         }
 
-        string.append("Time: ${Date(timeMillis)}\n")
-            .append("Battery: $batteryLevel %\n")
+        string.append(context.getString(R.string.location_reply_time, Date(timeMillis).toString()))
+            .append('\n')
+            .append(context.getString(R.string.location_reply_battery, batteryLevel)).append('\n')
             .append(getOpenStreetMapLink(lat, lon))
         return string.toString()
     }

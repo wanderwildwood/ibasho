@@ -80,7 +80,7 @@ abstract class Transport<DestinationType>(
     }
 
     open fun sendNewLocation(context: Context, location: FmdLocation) {
-        send(context, location.toString())
+        send(context, location.toReply(context))
     }
 
     /**

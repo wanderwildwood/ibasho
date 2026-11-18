@@ -413,6 +413,17 @@
     <string name="cmd_stats_description_short">Get network statistics</string>
     <string name="cmd_stats_description_long">Get network statistics from the device. For example, its IP address and a list of surrounding Wi-Fi networks.</string>
     <string name="cmd_stats_response">Network statistics:\n\nDevice IPs:\n%1$s\n\nWi-Fi networks:\n%2$s</string>
+    <string name="cmd_stats_wifi_entry">SSID: %1$s\nBSSID: %2$s</string>
+
+    <!-- Location reply sent back to the asker -->
+    <string name="location_reply_lat">Lat: %1$s</string>
+    <string name="location_reply_lon">Lon: %1$s</string>
+    <string name="location_reply_accuracy">Accuracy: %1$.1f m</string>
+    <string name="location_reply_altitude">Altitude: %1$.1f m</string>
+    <string name="location_reply_bearing">Bearing: %1$.0f</string>
+    <string name="location_reply_speed">Speed: %1$.1f m/s = %2$.1f km/h</string>
+    <string name="location_reply_time">Time: %1$s</string>
+    <string name="location_reply_battery">Battery: %1$d %%</string>
 
     <!-- Permissions -->
 
