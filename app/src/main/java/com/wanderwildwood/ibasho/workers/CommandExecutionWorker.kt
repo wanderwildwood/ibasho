@@ -24,6 +24,7 @@ import com.wanderwildwood.ibasho.transports.SmsTransport
 import com.wanderwildwood.ibasho.utils.Notifications
 import com.wanderwildwood.ibasho.utils.log
 import kotlin.random.Random
+import com.wanderwildwood.ibasho.utils.maskNumberForLog
 
 class CommandExecutionWorker(
     context: Context,
@@ -62,10 +63,13 @@ class CommandExecutionWorker(
             SettingsRepository.getInstance(applicationContext).get(Settings.SET_FMD_COMMAND) as String,
         )
 
+        // A sender's number stays out of the log but for its last digits.
+        val loggedDestination =
+            if (transportType == TRANS_SMS) maskNumberForLog(destination) else destination
         applicationContext.log()
             .i(
                 TAG,
-                "Starting worker $id for transport=$transportType, destination=$destination, command=$shown"
+                "Starting worker $id for transport=$transportType, destination=$loggedDestination, command=$shown"
             )
 
         val commandHandler = createCommandHandler(transportType, destination)

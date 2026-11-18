@@ -23,6 +23,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
+import com.wanderwildwood.ibasho.utils.maskNumberForLog
 
 class AccessRepository private constructor(private val context: Context) {
 
@@ -193,7 +194,7 @@ class AccessRepository private constructor(private val context: Context) {
         for (item in expired) {
             val transport = SmsTransport(context, item.number, item.subscriptionId)
             transport.send(context, context.getString(R.string.temporary_allowlist_expired))
-            context.log().i(TAG, "Phone number expired ${item.number}")
+            context.log().i(TAG, "Phone number expired ${maskNumberForLog(item.number)}")
         }
     }
 

@@ -23,6 +23,7 @@ import com.wanderwildwood.ibasho.ui.access.AccessControlActivity
 import com.wanderwildwood.ibasho.utils.Notifications
 import com.wanderwildwood.ibasho.utils.log
 import com.wanderwildwood.ibasho.utils.normalizeNumberForStorage
+import com.wanderwildwood.ibasho.utils.maskNumberForLog
 
 
 class SmsTransport(
@@ -70,7 +71,7 @@ class SmsTransport(
             val hasPermission = storedNumber.permission.hasPermission(parsed.command.permission)
             if (hasPermission) {
                 context.log()
-                    .i(TAG, "${storedNumber.toDisplayLabel(context)} used FMD via allowlist")
+                    .i(TAG, "${maskNumberForLog(storedNumber.number)} used FMD via allowlist")
                 return AccessResponse.ALLOWED
             } else {
                 // Even if the number is in the list of phone numbers and is explicitly denied this command, continue anyway.
@@ -78,7 +79,7 @@ class SmsTransport(
                 // As long as one element allows access, that is sufficient.
                 context.log().i(
                     TAG,
-                    "${storedNumber.toDisplayLabel(context)} denied access to ${parsed.command.keyword}. Continuing to check for password."
+                    "${maskNumberForLog(storedNumber.number)} denied access to ${parsed.command.keyword}. Continuing to check for password."
                 )
                 isKnownButDenied = true
             }
@@ -97,16 +98,16 @@ class SmsTransport(
             val isExpired = storedTempNumber.tempPhoneNumber.isExpired()
 
             if (hasPermission && !isExpired) {
-                context.log().i(TAG, "$phoneNumber used FMD via temporary allowlist")
+                context.log().i(TAG, "${maskNumberForLog(phoneNumber)} used FMD via temporary allowlist")
                 return AccessResponse.ALLOWED
             } else if (isExpired) {
-                context.log().i(TAG, "$phoneNumber: temporary access has run out")
+                context.log().i(TAG, "${maskNumberForLog(phoneNumber)}: temporary access has run out")
                 accessRepo.removeAndNotifyExpiredTempPhoneNumbers()
             } else {
                 val passwordLabel = storedTempNumber.smsPassword.toDisplayLabel(context)
                 context.log().i(
                     TAG,
-                    "$phoneNumber denied access to ${parsed.command.keyword} via password=$passwordLabel"
+                    "${maskNumberForLog(phoneNumber)} denied access to ${parsed.command.keyword} via password=$passwordLabel"
                 )
                 if (parsed.passwordHash == null) return AccessResponse.DENIED_EXISTS
                 isKnownButDenied = true
@@ -129,7 +130,7 @@ class SmsTransport(
                 countWrongPassword(wrongPasswords)
             } else {
                 wrongPasswords.right()
-                context.log().i(TAG, "$phoneNumber used FMD via SMS password '${smsPass.label}'")
+                context.log().i(TAG, "${maskNumberForLog(phoneNumber)} used FMD via SMS password '${smsPass.label}'")
 
                 // Whatever the command is: add this phone number to the temporary list
                 // (the number is there at most once, so a grant it had makes way)

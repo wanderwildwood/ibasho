@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.utils.log
+import com.wanderwildwood.ibasho.utils.hostForLog
 
 /**
  * The built-in UnifiedPush distributor: Whereabouts is its own push app.
@@ -94,7 +95,7 @@ object EmbeddedPush {
     }
 
     fun deliverEndpoint(context: Context, token: String, endpoint: String) {
-        context.log().i(TAG, "New endpoint for the connector: $endpoint")
+        context.log().i(TAG, "New endpoint for the connector at ${hostForLog(endpoint)}")
         context.sendBroadcast(toConnector(context, ACTION_NEW_ENDPOINT, token).apply {
             putExtra(EXTRA_ENDPOINT, endpoint)
         })

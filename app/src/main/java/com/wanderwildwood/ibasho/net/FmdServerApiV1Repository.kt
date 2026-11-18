@@ -23,6 +23,7 @@ import org.json.JSONException
 import org.json.JSONObject
 import java.security.KeyPair
 import java.security.PrivateKey
+import com.wanderwildwood.ibasho.utils.hostForLog
 
 data class FmdServerApiV1RepoSpec(
     val context: Context,
@@ -488,7 +489,7 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
         url: String,
         errorListener: ErrorListener,
     ) {
-        context.log().i(TAG, "Registering push endpoint $url")
+        context.log().i(TAG, "Registering push endpoint at ${hostForLog(url)}")
         val jsonObject = JSONObject()
         try {
             jsonObject.put("IDT", accessToken)
