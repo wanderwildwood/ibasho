@@ -99,14 +99,27 @@ class LogRepository private constructor(private val context: Context) {
         // Thus we can return and skip an unnecessary serialization + file IO.
         if (!dirty) return
 
-        val raw = synchronized(list) {
-            // Swap order, to easily return the string.
-            // Since it is synchronised, it should be fine.
+        // Whereabouts: serialized and written under the same lock, so two threads never write the
+        // file at once and an older snapshot cannot land after a newer one. Written beside the
+        // file and renamed over it, so a kill mid-write keeps the previous log (and its crash
+        // entry) instead of half a file that the next start would reset.
+        synchronized(list) {
             dirty = false
-            gson.toJson(list)
+            val raw = gson.toJson(list)
+            val file = File(context.filesDir, LOG_FILENAME)
+            val tmp = File(context.filesDir, "$LOG_FILENAME.tmp")
+            try {
+                tmp.writeText(raw)
+                if (!tmp.renameTo(file)) {
+                    tmp.delete()
+                    dirty = true
+                }
+            } catch (e: java.io.IOException) {
+                Log.e(TAG, "log could not be saved: ${e.message}")
+                tmp.delete()
+                dirty = true
+            }
         }
-        val file = File(context.filesDir, LOG_FILENAME)
-        file.writeText(raw)
     }
 
     fun add(new: LogEntry) {
