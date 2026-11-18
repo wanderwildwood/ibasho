@@ -13,8 +13,11 @@ val COMMAND_KEYWORDS = setOf(
 private const val HIDDEN = "***"
 
 /**
- * A command as it may be shown or logged: an access password (the word between the trigger
- * word and the command) and the old wipe password (the word after "delete") are replaced by ***.
+ * A command as it may be shown or logged: an access password (the token between the trigger
+ * word and the command) and the old wipe password (the token after "delete") are replaced by ***.
+ *
+ * Tokens are cut as the parser cuts them ([splitBySpaceWithQuotes]), so a quoted password with
+ * spaces in it, `fmd "blue river stone" locate`, is hidden whole, quotes and all.
  *
  * Commands are shown in notifications, which can be read on the lock screen, and kept in the
  * app's log, which can be exported; neither should carry a password.
@@ -23,20 +26,22 @@ private const val HIDDEN = "***"
  * when it did not (from the server, before the trigger word is put in front).
  */
 fun redactCommand(raw: String, triggerWord: String?): String {
-    val words = raw.trim().split(Regex("\\s+")).toMutableList()
-    if (words.isEmpty() || words[0].isEmpty()) return raw
+    val tokens = splitBySpaceWithQuotesKeepingQuotes(raw).toMutableList()
+    if (tokens.isEmpty()) return raw
 
     var i = 0
-    if (triggerWord != null && words[0].equals(triggerWord, ignoreCase = true)) {
+    if (triggerWord != null && tokens[0].trim('"').equals(triggerWord, ignoreCase = true)) {
         i = 1
-        // A word that is not a command, right after the trigger word, is a password.
-        if (i < words.size && words[i].lowercase() !in COMMAND_KEYWORDS) {
-            words[i] = HIDDEN
+        // A token that is not a command, right after the trigger word, is a password.
+        if (i < tokens.size && tokens[i].trim('"').lowercase() !in COMMAND_KEYWORDS) {
+            tokens[i] = HIDDEN
             i++
         }
     }
-    if (i < words.size && words[i].equals("delete", ignoreCase = true) && i + 1 < words.size) {
-        words[i + 1] = HIDDEN
+    if (i < tokens.size && tokens[i].trim('"').equals("delete", ignoreCase = true) &&
+        i + 1 < tokens.size
+    ) {
+        tokens[i + 1] = HIDDEN
     }
-    return words.joinToString(" ")
+    return tokens.joinToString(" ")
 }

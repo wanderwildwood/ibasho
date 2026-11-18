@@ -43,6 +43,23 @@ class RedactTest {
     }
 
     @Test
+    fun quotedPasswordWithSpacesIsHiddenWhole() {
+        assertEquals("fmd *** locate", redactCommand("fmd \"blue river stone\" locate", "fmd"))
+        assertEquals("fmd *** ring", redactCommand("fmd   \"blue  river\"   ring", "fmd"))
+    }
+
+    @Test
+    fun quotedWipePasswordIsHiddenWhole() {
+        assertEquals("fmd delete ***", redactCommand("fmd delete \"correct horse\"", "fmd"))
+    }
+
+    @Test
+    fun unclosedQuoteHidesTheRest() {
+        // The parser reads all of it as the password, so all of it is hidden.
+        assertEquals("fmd ***", redactCommand("fmd \"blue river locate", "fmd"))
+    }
+
+    @Test
     fun emptyStaysEmpty() {
         assertEquals("", redactCommand("", "fmd"))
     }

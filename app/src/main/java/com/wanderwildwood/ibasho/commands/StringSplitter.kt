@@ -6,7 +6,14 @@ import kotlin.collections.filter
 /**
  * Splits strings such as `fmd "this is my password" locate`.
  */
-internal fun splitBySpaceWithQuotes(raw: String): List<String> {
+internal fun splitBySpaceWithQuotes(raw: String): List<String> =
+    splitBySpaceWithQuotesKeepingQuotes(raw).map { it.trim('"') }
+
+/**
+ * The same tokens as [splitBySpaceWithQuotes], each still with its quotation marks, so a
+ * token can be replaced whole in the text it came from.
+ */
+internal fun splitBySpaceWithQuotesKeepingQuotes(raw: String): List<String> {
     val tokens = mutableListOf<String>()
     var startPosition = 0
     var inQuote = false
@@ -25,9 +32,8 @@ internal fun splitBySpaceWithQuotes(raw: String): List<String> {
     val lastToken = raw.substring(startPosition)
     tokens.add(lastToken)
 
-    // Remove leading + trailing whitespaces and quotation marks. Remove empty tokens.
+    // Remove leading + trailing whitespaces. Remove tokens that are empty without their quotes.
     return tokens
         .map { it.trim() }
-        .map { it.trim('"') }
-        .filter { it.isNotBlank() }
+        .filter { it.trim('"').isNotBlank() }
 }
