@@ -364,18 +364,34 @@ class SettingsRepository private constructor(private val context: Context) {
     fun storeLastKnownLocation(loc: FmdLocation) {
         lastLocationWriter.execute {
             try {
-                setAll(
-                    listOf(
-                        // historically stored as String
-                        Settings.SET_LAST_KNOWN_LOCATION_LAT to loc.lat.toString(),
-                        Settings.SET_LAST_KNOWN_LOCATION_LON to loc.lon.toString(),
-                        Settings.SET_LAST_KNOWN_LOCATION_ACCURACY to (loc.accuracy ?: Float.NaN),
-                        Settings.SET_LAST_KNOWN_LOCATION_ALTITUDE to (loc.altitude ?: Double.NaN),
-                        Settings.SET_LAST_KNOWN_LOCATION_BEARING to (loc.bearing ?: Float.NaN),
-                        Settings.SET_LAST_KNOWN_LOCATION_SPEED to (loc.speed ?: Float.NaN),
-                        Settings.SET_LAST_KNOWN_LOCATION_TIME to loc.timeMillis,
+                synchronized(lock) {
+                    // A coarser fix from the same moment (a cell tower beside a GPS fix from the
+                    // same locate) does not replace the better one already cached.
+                    val keep = try {
+                        !LastKnownLocationRule.shouldReplace(
+                            (get(Settings.SET_LAST_KNOWN_LOCATION_TIME) as Number).toLong(),
+                            (get(Settings.SET_LAST_KNOWN_LOCATION_ACCURACY) as Number).toFloat(),
+                            loc.timeMillis,
+                            loc.accuracy,
+                            System.currentTimeMillis(),
+                        )
+                    } catch (e: ClassCastException) {
+                        false
+                    }
+                    if (keep) return@execute
+                    setAll(
+                        listOf(
+                            // historically stored as String
+                            Settings.SET_LAST_KNOWN_LOCATION_LAT to loc.lat.toString(),
+                            Settings.SET_LAST_KNOWN_LOCATION_LON to loc.lon.toString(),
+                            Settings.SET_LAST_KNOWN_LOCATION_ACCURACY to (loc.accuracy ?: Float.NaN),
+                            Settings.SET_LAST_KNOWN_LOCATION_ALTITUDE to (loc.altitude ?: Double.NaN),
+                            Settings.SET_LAST_KNOWN_LOCATION_BEARING to (loc.bearing ?: Float.NaN),
+                            Settings.SET_LAST_KNOWN_LOCATION_SPEED to (loc.speed ?: Float.NaN),
+                            Settings.SET_LAST_KNOWN_LOCATION_TIME to loc.timeMillis,
+                        )
                     )
-                )
+                }
             } catch (e: Exception) {
                 context.log().e(TAG, "Could not cache the last known location: $e")
             }
