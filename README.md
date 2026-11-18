@@ -109,13 +109,8 @@ guide and in **Setup warnings**, goes there. Then:
    background, which is easy to read the wrong way round. Switching DuraSpeed off
    at the top works too, for every app.
 
-If **Setup warnings** still says background running is off after that, it can be
-lifted from a computer with `adb` installed: turn on developer mode (tap **Build
-number** in **Settings → About** until it says so), turn on **USB debugging** in
-**Settings → System → Developer options**, plug the phone in, allow the prompt,
-and run
-
-    adb shell cmd appops set com.wanderwildwood.ibasho RUN_ANY_IN_BACKGROUND allow
+**Setup warnings** looks again each time it opens. If it still says background running is
+off, open DuraSpeed from there once more and check that Whereabouts is on.
 
 Ringing also needs **Display over other apps** and **Do Not Disturb access**.
 Both can be granted on the phone: the app's permission buttons open the right
