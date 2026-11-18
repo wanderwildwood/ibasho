@@ -25,7 +25,7 @@ fun availableCommandsWithoutHelp(context: Context): List<Command> {
         RingCommand(context),
         RingerModeCommand(context),
         StatsCommand(context),
-    )
+    ).filter { it.offered() }
 }
 
 fun availableCommands(context: Context): List<Command> {

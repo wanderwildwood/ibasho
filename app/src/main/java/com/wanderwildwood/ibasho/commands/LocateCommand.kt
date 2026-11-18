@@ -48,7 +48,10 @@ class LocateCommand(context: Context) : Command(context) {
 
     override val requiredPermissions = listOf(LocationPermission())
 
-    override val optionalPermissions = listOf(WriteSecureSettingsPermission())
+    // Turning location on by itself needs WRITE_SECURE_SETTINGS, which only adb, root or
+    // Shizuku can give: listed only once it has been given, never offered as a thing to do.
+    override val optionalPermissions =
+        listOf(WriteSecureSettingsPermission()).filter { it.isGranted(context) }
 
     // Fields for execution
     private var providers = mutableListOf<LocationProvider>()

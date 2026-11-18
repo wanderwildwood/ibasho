@@ -34,6 +34,13 @@ abstract class Command(val context: Context) {
     abstract val requiredPermissions: List<Permission>
     open val optionalPermissions: List<Permission> = emptyList()
 
+    /**
+     * Whether the command is offered at all: listed, in help and accepted. A command whose
+     * permission can only be given from a computer (adb), root or Shizuku is not offered on a
+     * phone where it has not been given; nothing here should need any of those.
+     */
+    open fun offered(): Boolean = true
+
     fun missingRequiredPermissions(): List<Permission> {
         return requiredPermissions.filter { p -> !p.isGranted(context) }
     }

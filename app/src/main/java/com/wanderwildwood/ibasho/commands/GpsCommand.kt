@@ -27,6 +27,10 @@ class GpsCommand(context: Context) : Command(context) {
 
     override val requiredPermissions = listOf(WriteSecureSettingsPermission())
 
+    // Turning location on or off needs WRITE_SECURE_SETTINGS, which only adb, root or Shizuku
+    // can give: without it, the command is not offered.
+    override fun offered(): Boolean = WriteSecureSettingsPermission().isGranted(context)
+
     override suspend fun <T> executeInternal(
         args: List<String>,
         transport: Transport<T>,
