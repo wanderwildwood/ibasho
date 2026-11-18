@@ -2,15 +2,14 @@ package com.wanderwildwood.ibasho.data
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.security.keystore.KeyPermanentlyInvalidatedException
 import android.util.Log
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import com.wanderwildwood.ibasho.utils.SingletonHolder
-import java.security.GeneralSecurityException
-import java.security.InvalidKeyException
+import java.io.File
 import java.security.KeyStore
-import java.security.UnrecoverableKeyException
-import javax.crypto.BadPaddingException
+import javax.crypto.AEADBadTagException
 
 
 /**
@@ -55,23 +54,41 @@ class EncryptedSettingsRepository private constructor(context: Context) {
         private const val KEY_FAILED_STARTS = "failed_starts"
         private const val REOPEN_GAP_MILLIS = 10_000L
 
-        /** Whether [e] says the key or the stored keyset can no longer decrypt: gone for good. */
-        private fun meansKeyLost(e: Throwable): Boolean {
+        /**
+         * Whether [e] itself says the key is gone for good: the keystore calls it permanently
+         * invalidated, or the stored keyset's tag no longer matches the key. Nothing else counts:
+         * a busy keystore or a system error comes back as a plain InvalidKeyException ("Keystore
+         * operation failed"), and Tink wraps any failed decrypt as "decryption failed", so those
+         * go through the failed-starts count instead.
+         */
+        internal fun meansKeyLost(e: Throwable): Boolean {
             var cause: Throwable? = e
-            while (cause != null) {
-                // BadPaddingException covers AEADBadTagException; InvalidKeyException covers
-                // KeyPermanentlyInvalidatedException.
-                if (cause is BadPaddingException || cause is InvalidKeyException ||
-                    cause is UnrecoverableKeyException
-                ) return true
-                // Tink's word for a keyset that its key no longer opens.
-                if (cause is GeneralSecurityException &&
-                    cause.message?.contains("decrypt", ignoreCase = true) == true
-                ) return true
+            var depth = 0
+            while (cause != null && depth < 20) {
+                if (cause is KeyPermanentlyInvalidatedException || cause is AEADBadTagException) {
+                    return true
+                }
                 val next = cause.cause
                 cause = if (next === cause) null else next
+                depth++
             }
             return false
+        }
+
+        /**
+         * Whether the store's file is there but its master key is not in the keystore: what it
+         * holds can never be read again. A keystore that cannot be asked counts as not missing.
+         */
+        private fun masterKeyMissing(context: Context): Boolean {
+            val file = File(context.applicationInfo.dataDir, "shared_prefs/$FILENAME.xml")
+            if (!file.exists()) return false
+            return try {
+                !KeyStore.getInstance("AndroidKeyStore").apply { load(null) }
+                    .containsAlias(MasterKey.DEFAULT_MASTER_KEY_ALIAS)
+            } catch (e: Exception) {
+                Log.w(TAG, "Could not ask the keystore for the master key", e)
+                false
+            }
         }
     }
 
@@ -104,6 +121,8 @@ class EncryptedSettingsRepository private constructor(context: Context) {
         private set
 
     init {
+        // Asked before the first try, since opening makes a new master key when there is none.
+        val keyWasMissing = masterKeyMissing(context)
         var opened: SharedPreferences? = null
         var lastError: Exception? = null
         for (attempt in 1..OPEN_TRIES) {
@@ -128,7 +147,7 @@ class EncryptedSettingsRepository private constructor(context: Context) {
         sharedPrefs = if (opened != null) {
             if (failedStarts != 0) failures.edit().remove(KEY_FAILED_STARTS).commit()
             opened
-        } else if (lastError != null && !meansKeyLost(lastError) &&
+        } else if (lastError != null && !meansKeyLost(lastError) && !keyWasMissing &&
             failedStarts + 1 < FAILED_STARTS_BEFORE_RESET
         ) {
             // Not a lost key, as far as can be told: keep the store (and the server login in
