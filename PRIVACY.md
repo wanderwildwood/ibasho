@@ -1,9 +1,9 @@
 # Privacy
 
 Whereabouts sends the phone's location only where you have set it up to: to your own
-server, to the people on that server you pick under Family, by text to the numbers you allow, or as a reply in a messaging app to a message
-that carries your password. Nothing is sent to this project, and there is
-no account with anyone but your own server.
+server, to the people on that server you pick under Family, by text to the numbers you
+allow, or as a reply in a messaging app to a message that carries your password. Nothing is
+sent to this project, and there is no account with anyone but your own server.
 
 ## Where it connects
 
@@ -12,10 +12,11 @@ no account with anyone but your own server.
   encrypted on the phone before they leave, with a password chosen on the device, so the
   server stores them without being able to read them.
 - **Others on your server**, only if you turn on Family and tick them. Each time the phone
-  uploads its place, each person ticked gets a copy of that last place, with its accuracy, the
-  phone's battery level and the time, sealed on the phone so that only they can open it. Only
-  the last place is kept, never a trail. The server cannot read the copies, but it learns
-  whom you share with.
+  uploads its place, each person ticked gets a copy of that last location record, sealed on
+  the phone so that only they can open it: the place with its accuracy, altitude, speed and
+  heading, how it was found (satellites or network), the phone's battery level and the time.
+  Only the last place is kept, never a trail. The server cannot read the copies, but it learns
+  whom you share with and when each place was taken, not where.
 - **Mozilla's push service**, while a server is set up and the built-in push connection is
   chosen, so commands reach the phone. It learns that the phone is connected and when your
   server wakes it, not what the command is. Another push app can be chosen instead.
