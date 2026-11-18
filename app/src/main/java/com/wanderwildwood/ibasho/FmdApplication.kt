@@ -93,6 +93,14 @@ class FmdApplication : Application() {
 
     fun restartServices() {
         val settings = SettingsRepository.getInstance(this)
+        if (EncryptedSettingsRepository.getInstance(this).isShut &&
+            (settings.get(Settings.SET_FMDSERVER_ID) as String).isNotEmpty()
+        ) {
+            // The server login is out of reach on this start, not gone: leave the jobs and the
+            // push registration as they are rather than taking them down as if logged out.
+            this.log().w(TAG, "Encrypted settings are shut on this start; services left as they are")
+            return
+        }
         if (settings.serverAccountExists() && com.wanderwildwood.ibasho.push.ConnectionPause.isPaused(this)) {
             // Turned off by hand: everything that talks to the server stops, and nothing is
             // unregistered, so turning it on again needs no setting up. See ConnectionPause.
