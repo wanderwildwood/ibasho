@@ -104,6 +104,9 @@ public class ServerLocationUploadService extends FmdJobService {
         }
 
         settings.set(Settings.SET_FMDSERVER_LAST_UPLOAD_JOB_MILLIS, System.currentTimeMillis());
+        if (((Number) settings.get(Settings.SET_FMDSERVER_FIRST_UPLOAD_JOB_MILLIS)).longValue() == 0L) {
+            settings.set(Settings.SET_FMDSERVER_FIRST_UPLOAD_JOB_MILLIS, System.currentTimeMillis());
+        }
 
         if (!NetworkUtils.isNetworkAvailable(this)) {
             FmdLogKt.log(this).i(TAG, "No network connection, stopping job.");

@@ -63,6 +63,9 @@ public class Settings extends HashMap<Integer, Object> {
     public static final int SET_FAMILY_AUDIENCE = 125;
     public static final int SET_FAMILY_PINS = 126;
     public static final int SET_FAMILY_KEY_CHANGED = 127;
+    // When the regular upload job first started on this install. Until the server has taken a
+    // location, a stall is measured from here, so a server that never takes one is noticed.
+    public static final int SET_FMDSERVER_FIRST_UPLOAD_JOB_MILLIS = 128;
 
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS = 201;
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS = 202;
@@ -146,6 +149,7 @@ public class Settings extends HashMap<Integer, Object> {
                     return "";
                 case SET_FMDSERVER_LAST_CMD_MILLIS:
                 case SET_FMDSERVER_LAST_UPLOAD_JOB_MILLIS:
+                case SET_FMDSERVER_FIRST_UPLOAD_JOB_MILLIS:
                     return 0L;
                 case SET_FMDSERVER_PERMISSIONS:
                     // Use ALL instead of DEFAULT for FMD Server because

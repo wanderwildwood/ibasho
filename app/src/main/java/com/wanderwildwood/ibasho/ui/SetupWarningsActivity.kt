@@ -93,13 +93,21 @@ class SetupWarningsActivity : FmdActivity() {
         val stall = uploadStall(context)
         val settings = SettingsRepository.getInstance(context)
 
-        // "Since when": the last location that arrived, or failing that, when the job last ran.
+        // "Since when": the last location that arrived, or failing that, when the job first ran
+        // (no location has ever arrived) or last ran (it stopped running).
         val lastUpload =
             (settings.get(Settings.SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME) as Number).toLong()
         val lastJob =
             (settings.get(Settings.SET_FMDSERVER_LAST_UPLOAD_JOB_MILLIS) as Number).toLong()
-        val since = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT)
-            .format(if (lastUpload > 0L) lastUpload else lastJob)
+        val firstJob =
+            (settings.get(Settings.SET_FMDSERVER_FIRST_UPLOAD_JOB_MILLIS) as Number).toLong()
+        val since = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(
+            when {
+                lastUpload > 0L -> lastUpload
+                stall == UploadStall.NO_FIX && firstJob > 0L -> firstJob
+                else -> lastJob
+            }
+        )
 
         row.uploadStallText.text = when (stall) {
             UploadStall.NONE -> getString(

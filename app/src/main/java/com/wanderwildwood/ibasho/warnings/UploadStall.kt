@@ -53,8 +53,12 @@ fun uploadStall(context: Context): UploadStall {
 
     val lastUpload =
         (settings.get(Settings.SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME) as Number).toLong()
-    // -1 means nothing has been uploaded yet on this install; a fresh one is not "stalled".
-    if (lastUpload > 0L && now - lastUpload > threshold) return UploadStall.NO_FIX
+    // -1 means the server has not taken a location yet on this install. Then the stall is
+    // measured from the job's first run, so a fresh install is not "stalled" at once, but a
+    // server that has never taken one is noticed too.
+    val since = if (lastUpload > 0L) lastUpload
+    else (settings.get(Settings.SET_FMDSERVER_FIRST_UPLOAD_JOB_MILLIS) as Number).toLong()
+    if (since > 0L && now - since > threshold) return UploadStall.NO_FIX
 
     return UploadStall.NONE
 }

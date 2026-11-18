@@ -337,6 +337,9 @@ class SettingsRepository private constructor(private val context: Context) {
         set(Settings.SET_FAMILY_AUDIENCE, "")
         set(Settings.SET_FAMILY_PINS, "")
         set(Settings.SET_FAMILY_KEY_CHANGED, "")
+
+        // The next account's uploads are judged from its own first run.
+        set(Settings.SET_FMDSERVER_FIRST_UPLOAD_JOB_MILLIS, 0L)
     }
 
     fun storeLastKnownLocation(loc: FmdLocation) {
