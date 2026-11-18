@@ -175,6 +175,10 @@ class AccessRepository private constructor(private val context: Context) {
         db.tempPhoneNumberDao().insert(tempNumber)
     }
 
+    suspend fun deleteTempPhoneNumber(tempNumber: TempPhoneNumber) = withContext(Dispatchers.IO) {
+        db.tempPhoneNumberDao().delete(listOf(tempNumber))
+    }
+
     private suspend fun deleteExpiredTempPhoneNumbers(): List<TempPhoneNumber> =
         withContext(Dispatchers.IO) {
             val cutoffTimeMillis = System.currentTimeMillis() - TEMP_USAGE_VALIDITY_MILLIS

@@ -16,6 +16,7 @@ import com.wanderwildwood.ibasho.data.AccessRepository
 import com.wanderwildwood.ibasho.data.Settings
 import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.database.TEMP_USAGE_VALIDITY_MILLIS
+import com.wanderwildwood.ibasho.database.TempPhoneNumber
 import com.wanderwildwood.ibasho.permissions.SmsPermission
 import com.wanderwildwood.ibasho.services.TempContactExpiredService
 import com.wanderwildwood.ibasho.ui.access.AccessControlActivity
@@ -84,6 +85,11 @@ class SmsTransport(
         }
 
         // Case 2: phone number in temporary allowlist (i.e., it sent the correct password earlier)
+        // A grant that has run out counts as none, whether or not the cleanup job has removed it
+        // yet: it is removed now (with its "expired" text), and the password in this message is
+        // checked below. A grant that lacks this command's permission does not stop a password
+        // in the message from being checked either; a right one takes its place.
+        var replacedTempNumber: TempPhoneNumber? = null
         val storedTempNumber = accessRepo.getTempPhoneNumber(phoneNumber)
         if (storedTempNumber != null) {
             val hasPermission =
@@ -93,13 +99,18 @@ class SmsTransport(
             if (hasPermission && !isExpired) {
                 context.log().i(TAG, "$phoneNumber used FMD via temporary allowlist")
                 return AccessResponse.ALLOWED
+            } else if (isExpired) {
+                context.log().i(TAG, "$phoneNumber: temporary access has run out")
+                accessRepo.removeAndNotifyExpiredTempPhoneNumbers()
             } else {
                 val passwordLabel = storedTempNumber.smsPassword.toDisplayLabel(context)
                 context.log().i(
                     TAG,
-                    "$phoneNumber denied access to ${parsed.command.keyword} via password=$passwordLabel hasPermission=$hasPermission isExpired=$isExpired"
+                    "$phoneNumber denied access to ${parsed.command.keyword} via password=$passwordLabel"
                 )
-                return AccessResponse.DENIED_EXISTS
+                if (parsed.passwordHash == null) return AccessResponse.DENIED_EXISTS
+                isKnownButDenied = true
+                replacedTempNumber = storedTempNumber.tempPhoneNumber
             }
         }
 
@@ -121,6 +132,8 @@ class SmsTransport(
                 context.log().i(TAG, "$phoneNumber used FMD via SMS password '${smsPass.label}'")
 
                 // Whatever the command is: add this phone number to the temporary list
+                // (the number is there at most once, so a grant it had makes way)
+                replacedTempNumber?.let { accessRepo.deleteTempPhoneNumber(it) }
                 accessRepo.insertTempPhoneNumber(phoneNumber, subscriptionId, smsPass)
 
                 send(context, context.getString(R.string.access_sms_password_granted_info))
