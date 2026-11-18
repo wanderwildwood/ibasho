@@ -41,6 +41,12 @@ class OpenCellIdActivity : FmdActivity(), TextWatcher {
         settings = SettingsRepository.getInstance(this)
         val apiToken = settings.get(Settings.SET_OPENCELLID_API_KEY) as String
 
+        viewBinding.checkBoxLocateByCell.isChecked =
+            settings.get(Settings.SET_LOCATE_BY_CELL) as Boolean
+        viewBinding.checkBoxLocateByCell.setOnCheckedChangeListener { _, isChecked ->
+            settings.set(Settings.SET_LOCATE_BY_CELL, isChecked)
+        }
+
         viewBinding.editTextOpenCellIDAPIKey.setText(apiToken)
         viewBinding.editTextOpenCellIDAPIKey.addTextChangedListener(this)
 

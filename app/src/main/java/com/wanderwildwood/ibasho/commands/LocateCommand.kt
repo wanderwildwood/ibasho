@@ -5,6 +5,8 @@ import android.location.LocationManager.GPS_PROVIDER
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.wanderwildwood.ibasho.R
+import com.wanderwildwood.ibasho.data.Settings
+import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.locationproviders.AddJobResult
 import com.wanderwildwood.ibasho.locationproviders.CellLocationProvider
 import com.wanderwildwood.ibasho.locationproviders.FUSED_PROVIDER
@@ -96,24 +98,18 @@ class LocateCommand(context: Context) : Command(context) {
 
         // build the location providers
         providers.clear()
-        var chosen = false
+        val cellByDefault = SettingsRepository.getInstance(context)
+            .get(Settings.SET_LOCATE_BY_CELL) as Boolean
+        val choice = LocateChoice.from(args, cellByDefault)
 
-        if (args.contains("cell")) {
+        if (choice.cell) {
             providers.add(CellLocationProvider(context, transport))
-            chosen = true
         }
-        if (args.contains("fused")) {
+        if (choice.fused) {
             providers.add(GpsLocationProvider(context, transport, FUSED_PROVIDER, accuracy))
-            chosen = true
         }
-        if (args.contains("gps")) {
+        if (choice.gps) {
             providers.add(GpsLocationProvider(context, transport, GPS_PROVIDER, accuracy))
-            chosen = true
-        }
-
-        if (args.contains("all") || !chosen) {
-            providers.add(GpsLocationProvider(context, transport, FUSED_PROVIDER, accuracy))
-            providers.add(CellLocationProvider(context, transport))
         }
 
         // run the providers and get the locations

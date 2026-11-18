@@ -21,8 +21,9 @@ sent to this project, and there is no account with anyone but your own server.
   chosen, so commands reach the phone. It learns that the phone is connected and when your
   server wakes it, not what the command is. Another push app can be chosen instead.
 - **[BeaconDB](https://beacondb.net/) and [OpenCelliD](https://opencellid.org/)**, only if you
-  turn on locating by cell towers and Wi-Fi. Each learns roughly where the phone is each time
-  it is asked.
+  turn on locating by cell towers and Wi-Fi (off at first), or ask for it by name: a `locate
+  cell` or `locate all` command, or Cell ticked for the server's regular upload. Each learns
+  roughly where the phone is each time it is asked.
 - **Text messages**, to and from the numbers on its list, when commands are sent by SMS.
 - **Replies in other apps**, only if you let Whereabouts read notifications and set a
   password for it. It reads the text of other apps' notifications (not the text messaging
@@ -57,7 +58,7 @@ Whereabouts already has.
 <!-- shared-about privacy section -->
 ## Who we are
 
-Whereabouts is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. What you put into Whereabouts stays on your phone. The only things that go out are the ones described above: the phone's location, encrypted on the phone first, to your own server; if you turn on Family, a sealed copy of the last place, with the battery level, for each person on your server you tick, which only they can open; replies by text to the numbers you allow, carrying the location or the answer to their command; if you let it read notifications, replies through another app's notification to whoever sent a command with your password; a connection to Mozilla's push service so your server can wake the phone, which carries no command; and, if you turn on locating by cell towers and Wi-Fi, a request to BeaconDB or OpenCelliD naming the towers and networks the phone sees. The developer receives nothing, so the developer holds no data about you.
+Whereabouts is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. What you put into Whereabouts stays on your phone. The only things that go out are the ones described above: the phone's location, encrypted on the phone first, to your own server; if you turn on Family, a sealed copy of the last place, with the battery level, for each person on your server you tick, which only they can open; replies by text to the numbers you allow, carrying the location or the answer to their command; if you let it read notifications, replies through another app's notification to whoever sent a command with your password; a connection to Mozilla's push service so your server can wake the phone, which carries no command; and, if you turn on locating by cell towers and Wi-Fi or ask for it in a command, a request to BeaconDB or OpenCelliD naming the towers and networks the phone sees. The developer receives nothing, so the developer holds no data about you.
 
 ## How to contact us
 

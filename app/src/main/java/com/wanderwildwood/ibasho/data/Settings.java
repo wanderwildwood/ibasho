@@ -66,6 +66,10 @@ public class Settings extends HashMap<Integer, Object> {
     // When the regular upload job first started on this install. Until the server has taken a
     // location, a stall is measured from here, so a server that never takes one is noticed.
     public static final int SET_FMDSERVER_FIRST_UPLOAD_JOB_MILLIS = 128;
+    // Whether a plain "locate" (no provider word) also asks BeaconDB and OpenCelliD for the
+    // cell towers and Wi-Fi networks the phone sees. Off until the person turns it on;
+    // "locate cell" and "locate all" ask them whatever this says.
+    public static final int SET_LOCATE_BY_CELL = 129;
 
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_INTERVAL_HOURS = 201;
     public static final int SET_FMD_SERVER_CONNECTIVITY_CHECK_NOTIFY_AFTER_HOURS = 202;
@@ -117,6 +121,7 @@ public class Settings extends HashMap<Integer, Object> {
                 case SET_FMD_EDGE_INFO_SHOWN:
                 case SET_SETUP_GUIDE_DONE:
                 case SET_FAMILY_SHARING:
+                case SET_LOCATE_BY_CELL:
                     return false;
                 case SET_FMD_LOW_BAT_SEND:
                     return true;

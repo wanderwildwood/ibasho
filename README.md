@@ -46,7 +46,10 @@ Location comes from whatever the phone can offer: GPS, the Android fused
 provider, and optionally cell towers and Wi-Fi networks looked up through
 [BeaconDB](https://beacondb.net/) and [OpenCelliD](https://opencellid.org/).
 Those two services learn roughly where the phone is each time they are asked;
-that is the trade for working indoors, and it is off unless you turn it on.
+that is the trade for working indoors. A plain `locate` asks them only once
+"Locate by cell towers and Wi-Fi" is turned on (Settings, BeaconDB & OpenCelliD;
+off at first). `locate cell` and `locate all`, and Cell ticked for the server's
+regular upload, ask them because they name it.
 
 On a degoogled phone with no network location provider, expect GPS only —
 sparse, and outdoors.

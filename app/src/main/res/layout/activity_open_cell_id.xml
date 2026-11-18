@@ -39,6 +39,34 @@
             android:orientation="vertical"
             android:paddingBottom="?attr/actionBarSize">
 
+            <!-- Whether a plain locate asks these services -->
+
+            <TextView
+                style="@style/FMD.Text.SectionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/locate_by_cell_title" />
+
+            <TextView
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/locate_by_cell_description" />
+
+            <CheckBox
+                android:id="@+id/checkBoxLocateByCell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:text="@string/Enable" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:background="@null" />
+
             <!-- Intro -->
 
             <TextView
