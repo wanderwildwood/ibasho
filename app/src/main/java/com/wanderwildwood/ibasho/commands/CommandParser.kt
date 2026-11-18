@@ -127,11 +127,15 @@ class CommandParser(
 /**
  * Whether [raw] reads like this app's own help text come back as a command: three or more
  * command words in it as whole words, the second token left out when it is not one (it is
- * then the password).
+ * then the password). The password is left out piece by piece, cut the same way as the text,
+ * so one with punctuation or spaces in it (`ring.lock`, `"gps lock"`) is not counted either.
  */
 internal fun looksLikeHelpEcho(raw: String, secondToken: String, keywords: List<String>): Boolean {
-    val words = raw.lowercase().split(Regex("[^a-z0-9]+")).filter { it.isNotEmpty() }.toMutableList()
+    val wordSplit = Regex("[^a-z0-9]+")
+    val words = raw.lowercase().split(wordSplit).filter { it.isNotEmpty() }.toMutableList()
     val second = secondToken.lowercase()
-    if (keywords.none { it.lowercase() == second }) words.remove(second)
+    if (keywords.none { it.lowercase() == second }) {
+        second.split(wordSplit).filter { it.isNotEmpty() }.forEach { words.remove(it) }
+    }
     return keywords.count { it.lowercase() in words } >= 3
 }

@@ -23,4 +23,15 @@ class HelpEchoTest {
     fun aPasswordWithKeywordsInItIsNotCounted() {
         assertFalse(looksLikeHelpEcho("fmd gpslockring locate", "gpslockring", keywords))
     }
+
+    @Test
+    fun aPasswordWithKeywordsAndPunctuationIsNotCounted() {
+        assertFalse(looksLikeHelpEcho("fmd ring.lock locate", "ring.lock", keywords))
+        assertFalse(looksLikeHelpEcho("fmd Gps#Lock ring", "Gps#Lock", keywords))
+    }
+
+    @Test
+    fun aQuotedPasswordWithKeywordsIsNotCounted() {
+        assertFalse(looksLikeHelpEcho("fmd \"gps lock\" locate", "gps lock", keywords))
+    }
 }
