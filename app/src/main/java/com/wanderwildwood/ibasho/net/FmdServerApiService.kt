@@ -105,7 +105,8 @@ interface FmdServerApiService {
         errorListener: ErrorListener,
     )
 
-    fun sendLocation(location: FmdLocation)
+    /** Uploads [location]; [onSent] runs only once the server has taken it. */
+    fun sendLocation(location: FmdLocation, onSent: () -> Unit = {})
 
     fun sendPicture(picture: FmdPicture)
 

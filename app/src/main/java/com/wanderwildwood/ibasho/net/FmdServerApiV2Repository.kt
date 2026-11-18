@@ -415,10 +415,11 @@ class FmdServerApiV2Repository private constructor(
         listener.onResponse(cmdString)
     }
 
-    override fun sendLocation(location: FmdLocation) {
+    override fun sendLocation(location: FmdLocation, onSent: () -> Unit) {
         // Once the place is safely up, family sharing seals the same place for the people this
         // phone shares with (if any). No extra wake-up: it rides on this upload.
         sendLocations(listOf(location), listener = {
+            onSent()
             FamilyRepository.getInstance(context).shareInBackground(location)
         })
     }

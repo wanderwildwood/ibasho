@@ -21,7 +21,10 @@ enum class UploadStall {
     /** The upload job has not started for a long while: the phone is not letting it run. */
     NOT_RUNNING,
 
-    /** The job runs, but no location has reached the server in that time: no fix. */
+    /**
+     * The job runs, but no location has reached the server in that time: no fix, or a server
+     * that does not take the uploads (the time is stamped only when the server has taken one).
+     */
     NO_FIX,
 }
 

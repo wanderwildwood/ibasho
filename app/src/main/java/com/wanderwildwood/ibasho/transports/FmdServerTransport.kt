@@ -74,7 +74,9 @@ class FmdServerTransport(
 
     override fun sendNewLocation(context: Context, location: FmdLocation) {
         // no call to super(), we need to completely replace this for FMD Server
-        settings.set(Settings.SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME, location.timeMillis)
-        repo.sendLocation(location)
+        // "Last upload" is the last location the server took, not the last one tried.
+        repo.sendLocation(location) {
+            settings.set(Settings.SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME, location.timeMillis)
+        }
     }
 }

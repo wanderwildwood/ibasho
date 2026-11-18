@@ -64,7 +64,7 @@
     <string name="upload_stall_off">Not in use.</string>
     <string name="upload_stall_not_running">Nothing has reached the server since %1$s: the phone has stopped the app running in the background.</string>
     <string name="upload_stall_not_running_kompakt">Nothing has reached the server since %1$s: this phone stops apps running in the background. To fix it, open DuraSpeed below, tap Open, and switch Whereabouts on. Commands sent by text still work.</string>
-    <string name="upload_stall_no_fix">The app is running, but no location has reached the server since %1$s: the phone is getting no fix. GPS needs open sky; indoors, turn on a cell or Wi-Fi source.</string>
+    <string name="upload_stall_no_fix">The app is running, but no location has reached the server since %1$s. Either the phone is getting no fix (GPS needs open sky; indoors, turn on a cell or Wi-Fi source), or the server is not taking the uploads: check that it is up and its address is right.</string>
 
     <!-- About. Order fixed by the house style: name and version, what it sends,
          the licence in full, what is bundled and under what, then the source. -->

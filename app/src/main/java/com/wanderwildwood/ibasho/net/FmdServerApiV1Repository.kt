@@ -702,7 +702,7 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
      *
      * TODO: handled this internally in the repo.
      */
-    override fun sendLocation(location: FmdLocation) {
+    override fun sendLocation(location: FmdLocation, onSent: () -> Unit) {
         // Prepare payload
         val publicKey = settingsRepo.getKeysV1()?.publicKey
         if (publicKey == null) {
@@ -721,10 +721,10 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
 
         // Send payload
         doRequestWithCachedToken<Unit>(
-            doRequest = { accessToken, _, onError2 ->
-                sendLocationInternal(accessToken, encryptedLocation, onError2)
+            doRequest = { accessToken, onSuccess, onError2 ->
+                sendLocationInternal(accessToken, encryptedLocation, onSuccess, onError2)
             },
-            { _ -> },
+            { _ -> onSent() },
             errorListener,
         )
     }
@@ -732,6 +732,7 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
     fun sendLocationInternal(
         accessToken: String,
         encryptedLocation: String,
+        listener: Listener<Unit>,
         errorListener: ErrorListener,
     ) {
         val jsonObject = JSONObject()
@@ -744,7 +745,7 @@ class FmdServerApiV1Repository private constructor(spec: FmdServerApiV1RepoSpec)
 
         val request = JsonPostRequest(
             Method.POST, baseUrl + URL_LOCATION, jsonObject,
-            { _ -> },
+            { _ -> listener.onResponse(Unit) },
             errorListener.into(),
         )
         queue.add(request)
