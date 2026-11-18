@@ -115,7 +115,9 @@ public class ServerLocationUploadService extends FmdJobService {
         }
 
         long now = System.currentTimeMillis();
-        long lastUploadTimeMillis = ((Number) settings.get(Settings.SET_LAST_KNOWN_LOCATION_TIME)).longValue();
+        // The last location the server actually took, not the last fix from any locate:
+        // an SMS or notification locate must not hold back the regular upload.
+        long lastUploadTimeMillis = ((Number) settings.get(Settings.SET_FMDSERVER_LAST_LOCATION_UPLOAD_TIME)).longValue();
         long uploadIntervalMillis = ((Number) settings.get(Settings.SET_FMDSERVER_UPDATE_TIME)).longValue() * 60 * 1000L;
         if (lastUploadTimeMillis + uploadIntervalMillis / 2 > now) {
             FmdLogKt.log(this).i(TAG, "Skipping upload, last upload was recent");
