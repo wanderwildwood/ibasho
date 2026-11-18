@@ -60,6 +60,12 @@ class FmdBatteryLowService : FmdJobService() {
 
         val settings = SettingsRepository.getInstance(this)
         if (!settings.serverAccountExists()) {
+            if (settings.serverAccountUnreachable()) {
+                // The login is out of reach on this start, not gone: keep this periodic job.
+                this.log().w(TAG, "Encrypted settings are shut; job kept, nothing done now.")
+                jobFinished()
+                return false
+            }
             this.log().w(TAG, "Server account no longer exists. Stopping BATTERY_LOW uploading.")
             cancelJob(this) // Stop periodic rescheduling
             jobFinished()

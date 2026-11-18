@@ -299,6 +299,15 @@ class SettingsRepository private constructor(private val context: Context) {
         return id.isNotEmpty() && (pwV1.isNotEmpty() || pwV2.isNotEmpty())
     }
 
+    /**
+     * True when there is a server account but its login is out of reach on this start: the
+     * encrypted store is shut, not gone (see [EncryptedSettingsRepository.isShut]). Then
+     * [serverAccountExists] reads false, but jobs and push must be left as they are rather than
+     * taken down as if logged out.
+     */
+    fun serverAccountUnreachable(): Boolean =
+        encSettings.isShut && (get(Settings.SET_FMDSERVER_ID) as String).isNotEmpty()
+
     fun setKeys(keys: FmdKeyPair) {
         set(Settings.SET_FMD_CRYPT_PRIVKEY, keys.encryptedPrivateKey)
         set(Settings.SET_FMD_CRYPT_PUBKEY, CypherUtils.encodeBase64(keys.publicKey.encoded))

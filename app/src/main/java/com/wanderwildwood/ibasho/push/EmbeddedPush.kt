@@ -47,7 +47,9 @@ object EmbeddedPush {
      */
     fun shouldRun(context: Context): Boolean {
         val store = EmbeddedPushStore(context)
-        val hasAccount = SettingsRepository.getInstance(context).serverAccountExists() ||
+        val settings = SettingsRepository.getInstance(context)
+        // A login that is out of reach on this start (encrypted store shut) still counts.
+        val hasAccount = settings.serverAccountExists() || settings.serverAccountUnreachable() ||
                 store.debugWithoutAccount
         return hasAccount && PushChoice.get(context) == PushChoice.BUILT_IN && store.hasChannels() &&
                 !ConnectionPause.isPaused(context)

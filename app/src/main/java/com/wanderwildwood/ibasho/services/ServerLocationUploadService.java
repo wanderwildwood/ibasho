@@ -98,6 +98,12 @@ public class ServerLocationUploadService extends FmdJobService {
         settings = SettingsRepository.Companion.getInstance(this);
 
         if (!settings.serverAccountExists()) {
+            if (settings.serverAccountUnreachable()) {
+                // The login is out of reach on this start, not gone: keep the job.
+                FmdLogKt.log(this).w(TAG, "Encrypted settings are shut; job kept, no upload now.");
+                jobFinished();
+                return false;
+            }
             FmdLogKt.log(this).i(TAG, "No account, stopping and cancelling job.");
             cancelJob(this);
             return false;

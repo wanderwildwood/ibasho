@@ -93,9 +93,7 @@ class FmdApplication : Application() {
 
     fun restartServices() {
         val settings = SettingsRepository.getInstance(this)
-        if (EncryptedSettingsRepository.getInstance(this).isShut &&
-            (settings.get(Settings.SET_FMDSERVER_ID) as String).isNotEmpty()
-        ) {
+        if (settings.serverAccountUnreachable()) {
             // The server login is out of reach on this start, not gone: leave the jobs and the
             // push registration as they are rather than taking them down as if logged out.
             this.log().w(TAG, "Encrypted settings are shut on this start; services left as they are")
