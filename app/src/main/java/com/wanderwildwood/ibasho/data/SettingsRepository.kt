@@ -63,6 +63,9 @@ class SettingsRepository private constructor(private val context: Context) {
 
     /** One lock for reading, changing and writing the map, whichever map [settings] holds now. */
     private val lock = Any()
+
+    /** Writes the last known location, in order, off the location callbacks' main thread. */
+    private val lastLocationWriter = java.util.concurrent.Executors.newSingleThreadExecutor()
     private var encSettings: EncryptedSettingsRepository
 
     init {
@@ -135,6 +138,17 @@ class SettingsRepository private constructor(private val context: Context) {
         }
         synchronized(lock) {
             settings.set(key, value)
+            saveSettings()
+        }
+    }
+
+    /** Sets several plain (not sealed) settings at once, with one save. */
+    private fun setAll(values: List<Pair<Int, Any?>>) {
+        synchronized(lock) {
+            for ((key, value) in values) {
+                check(!SealedSettings.isSealed(key)) { "sealed setting $key" }
+                settings.set(key, value)
+            }
             saveSettings()
         }
     }
@@ -342,33 +356,30 @@ class SettingsRepository private constructor(private val context: Context) {
         set(Settings.SET_FMDSERVER_FIRST_UPLOAD_JOB_MILLIS, 0L)
     }
 
+    /**
+     * Caches [loc] as the last known location. All seven values go in under one lock and one
+     * save, so the cache never pairs one fix's latitude with another's longitude, and the save
+     * runs on a background thread: the callers are location callbacks on the main thread.
+     */
     fun storeLastKnownLocation(loc: FmdLocation) {
-        // historically stored as String
-        set<String>(Settings.SET_LAST_KNOWN_LOCATION_LAT, loc.lat.toString())
-        set<String>(Settings.SET_LAST_KNOWN_LOCATION_LON, loc.lon.toString())
-
-        if (loc.accuracy != null) {
-            set<Float>(Settings.SET_LAST_KNOWN_LOCATION_ACCURACY, loc.accuracy)
-        } else {
-            set<Float>(Settings.SET_LAST_KNOWN_LOCATION_ACCURACY, Float.NaN)
+        lastLocationWriter.execute {
+            try {
+                setAll(
+                    listOf(
+                        // historically stored as String
+                        Settings.SET_LAST_KNOWN_LOCATION_LAT to loc.lat.toString(),
+                        Settings.SET_LAST_KNOWN_LOCATION_LON to loc.lon.toString(),
+                        Settings.SET_LAST_KNOWN_LOCATION_ACCURACY to (loc.accuracy ?: Float.NaN),
+                        Settings.SET_LAST_KNOWN_LOCATION_ALTITUDE to (loc.altitude ?: Double.NaN),
+                        Settings.SET_LAST_KNOWN_LOCATION_BEARING to (loc.bearing ?: Float.NaN),
+                        Settings.SET_LAST_KNOWN_LOCATION_SPEED to (loc.speed ?: Float.NaN),
+                        Settings.SET_LAST_KNOWN_LOCATION_TIME to loc.timeMillis,
+                    )
+                )
+            } catch (e: Exception) {
+                context.log().e(TAG, "Could not cache the last known location: $e")
+            }
         }
-        if (loc.altitude != null) {
-            set<Double>(Settings.SET_LAST_KNOWN_LOCATION_ALTITUDE, loc.altitude)
-        } else {
-            set<Double>(Settings.SET_LAST_KNOWN_LOCATION_ALTITUDE, Double.NaN)
-        }
-        if (loc.bearing != null) {
-            set<Float>(Settings.SET_LAST_KNOWN_LOCATION_BEARING, loc.bearing)
-        } else {
-            set<Float>(Settings.SET_LAST_KNOWN_LOCATION_BEARING, Float.NaN)
-        }
-        if (loc.speed != null) {
-            set<Float>(Settings.SET_LAST_KNOWN_LOCATION_SPEED, loc.speed)
-        } else {
-            set<Float>(Settings.SET_LAST_KNOWN_LOCATION_SPEED, Float.NaN)
-        }
-
-        set<Long>(Settings.SET_LAST_KNOWN_LOCATION_TIME, loc.timeMillis)
     }
 
     /**
@@ -376,8 +387,8 @@ class SettingsRepository private constructor(private val context: Context) {
      */
     fun getLastKnownLocation(): FmdLocation? {
         return try {
-            val loc = getLastKnownLocationInt()
-            loc
+            // Under the lock, so all seven values come from the same save.
+            synchronized(lock) { getLastKnownLocationInt() }
         } catch (e: NumberFormatException) {
             null
         } catch (e: ClassCastException) {

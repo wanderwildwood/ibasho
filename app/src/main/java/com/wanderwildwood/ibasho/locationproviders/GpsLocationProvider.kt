@@ -205,9 +205,10 @@ class GpsLocationProvider<T>(
             ) {
                 return
             }
-            // Return this location and finish
-            val settings = SettingsRepository.getInstance(context)
-            settings.storeLastKnownLocation(fmdLocation)
+            // Return this location and finish (cached already when it became the best one)
+            if (currBestLocation !== fmdLocation) {
+                SettingsRepository.getInstance(context).storeLastKnownLocation(fmdLocation)
+            }
             transport.sendNewLocation(context, fmdLocation)
             cleanup()
         }
