@@ -574,6 +574,7 @@
     <!-- Share where you are, once, with another app that asks (ShareLocationActivity) -->
     <string name="share_location_title">Share where you are</string>
     <string name="share_location_question">Share where you are with %1$s?</string>
+    <string name="share_location_package">The app\'s package: %1$s</string>
     <string name="share_location_explain">Whereabouts takes one fix now and hands it to %1$s. Nothing is kept, and nothing is sent anywhere else.</string>
     <string name="share_location_share">Share</string>
     <string name="share_location_finding">Finding where you are…</string>

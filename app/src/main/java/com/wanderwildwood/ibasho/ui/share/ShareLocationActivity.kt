@@ -89,6 +89,9 @@ class ShareLocationActivity : FmdActivity(), LocationListener {
 
     private var step by mutableStateOf<Step>(Step.Ask)
     private var caller = ""
+    // The asking app's package name, shown under its label: a label can be anything an app
+    // chooses to call itself, the package name is the app.
+    private var callerPackage = ""
 
     private val locationManager by lazy { getSystemService(LOCATION_SERVICE) as LocationManager }
     private val handler = Handler(Looper.getMainLooper())
@@ -108,6 +111,7 @@ class ShareLocationActivity : FmdActivity(), LocationListener {
             return
         }
         caller = appLabel(calling)
+        callerPackage = calling
         setResult(Activity.RESULT_CANCELED)
 
         if (!LocationPermission().isForegroundGranted(this)) step = Step.NoPermission
@@ -151,10 +155,18 @@ class ShareLocationActivity : FmdActivity(), LocationListener {
             ) {
                 when (val s = step) {
                     Step.Ask -> {
-                        TextMMD(
-                            stringResource(R.string.share_location_question, caller),
-                            style = MaterialTheme.typography.titleMedium,
-                        )
+                        Column {
+                            TextMMD(
+                                stringResource(R.string.share_location_question, caller),
+                                style = MaterialTheme.typography.titleMedium,
+                            )
+                            if (callerPackage != caller) {
+                                TextMMD(
+                                    stringResource(R.string.share_location_package, callerPackage),
+                                    style = MaterialTheme.typography.bodySmall,
+                                )
+                            }
+                        }
                         TextMMD(stringResource(R.string.share_location_explain, caller))
                         ButtonMMD(modifier = Modifier.fillMaxWidth(), onClick = ::startFinding) {
                             TextMMD(stringResource(R.string.share_location_share))
