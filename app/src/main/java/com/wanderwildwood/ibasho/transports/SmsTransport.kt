@@ -9,7 +9,7 @@ import androidx.annotation.StringRes
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.commands.AccessResponse
 import com.wanderwildwood.ibasho.commands.ParserResult
-import com.wanderwildwood.ibasho.commands.WrongPasswordRules
+import com.wanderwildwood.ibasho.commands.PasswordPause
 import com.wanderwildwood.ibasho.commands.WrongPasswords
 import com.wanderwildwood.ibasho.commands.hasPermission
 import com.wanderwildwood.ibasho.data.AccessRepository
@@ -20,7 +20,6 @@ import com.wanderwildwood.ibasho.database.TempPhoneNumber
 import com.wanderwildwood.ibasho.permissions.SmsPermission
 import com.wanderwildwood.ibasho.services.TempContactExpiredService
 import com.wanderwildwood.ibasho.ui.access.AccessControlActivity
-import com.wanderwildwood.ibasho.utils.Notifications
 import com.wanderwildwood.ibasho.utils.log
 import com.wanderwildwood.ibasho.utils.normalizeNumberForStorage
 import com.wanderwildwood.ibasho.utils.maskNumberForLog
@@ -117,9 +116,10 @@ class SmsTransport(
 
         // Case 3: the message contains a correct password
         if (parsed.passwordHash != null) {
-            val wrongPasswords = WrongPasswords(context, WrongPasswords.SMS)
-            if (wrongPasswords.isLocked()) {
-                // Too many wrong ones lately: not even checked, and it counts as one more.
+            val wrongPasswords = WrongPasswords(context, WrongPasswords.SMS, getDestinationString())
+            if (wrongPasswords.pause() != PasswordPause.NONE) {
+                // Too many wrong ones lately, from this number or from all of them together:
+                // not even checked. From a number locked out, it counts as one more.
                 context.log().w(TAG, "SMS password not checked: too many wrong passwords lately")
                 countWrongPassword(wrongPasswords)
                 return if (isKnownButDenied) AccessResponse.DENIED_EXISTS else AccessResponse.DENIED_UNKNOWN
@@ -151,19 +151,7 @@ class SmsTransport(
     }
 
     private fun countWrongPassword(wrongPasswords: WrongPasswords) {
-        val (_, lockStarted) = wrongPasswords.wrong()
-        if (lockStarted) {
-            Notifications.notify(
-                context,
-                context.getString(R.string.wrong_passwords_paused_title),
-                context.getString(
-                    R.string.wrong_passwords_paused_text,
-                    WrongPasswordRules.MAX_WRONG,
-                    context.getString(R.string.transport_sms_title),
-                ),
-                Notifications.CHANNEL_SECURITY,
-            )
-        }
+        notifyPauseStarted(context, wrongPasswords.wrong(), context.getString(R.string.transport_sms_title))
     }
 
     override fun send(context: Context, msg: String) {

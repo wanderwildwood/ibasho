@@ -544,7 +544,9 @@
     <string name="server_login_lost_title">Log in to your server again</string>
     <string name="server_login_lost_text">This phone could not read its saved server login, so it was cleared. Open Settings → Server and log in again. Until then your server cannot reach this phone.</string>
     <string name="wrong_passwords_paused_title">Passwords paused for an hour</string>
-    <string name="wrong_passwords_paused_text">%1$d wrong passwords in a row came in by %2$s. For the next hour no password sent that way is accepted. Numbers on the allowed list and your server still work.</string>
+    <string name="wrong_passwords_paused_text">%1$d wrong passwords came in by %2$s within an hour. Until that hour is over no password sent that way is accepted. Numbers on the allowed list and your server still work.</string>
+    <string name="wrong_passwords_sender_paused_title">One sender\'s passwords paused</string>
+    <string name="wrong_passwords_sender_paused_text">%1$d wrong passwords in a row came from one sender by %2$s. For the next hour that sender\'s passwords are not checked. Passwords from anyone else still are.</string>
 
     <!-- The setup guide. -->
     <string name="setup_title">Setting up</string>

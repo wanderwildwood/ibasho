@@ -29,10 +29,14 @@ on the phone, under **Settings → Server → Choose allowed commands**. A phone
 up before keeps what it had. The server's page gets no answer when a command is
 not allowed, so a lock pressed there while it is off simply does nothing.
 
-**Guessing passwords is slow.** After five wrong passwords in a row by text, or
-five by notification, passwords sent that way are not checked for an hour, and
-each one that comes in meanwhile starts the hour again. The phone says when this
-happens. Numbers on the allowed list and your server keep working. Passwords
+**Guessing passwords is slow.** After five wrong passwords in a row from one
+number by text, or from one conversation by notification, that sender's
+passwords are not checked for an hour, and each one it sends meanwhile starts
+its hour again; everyone else's still are. After 30 wrong ones within an hour
+from all senders together, no password sent that way is checked until the hour
+is over, so someone sending wrong passwords from many numbers can still keep
+yours out for a while. The phone says when either happens. Numbers on the
+allowed list and your server keep working. Passwords
 are shown as `***` in the notice that a command ran and in the app's log.
 
 **It cannot take a photograph.** The camera command is gone, along with the

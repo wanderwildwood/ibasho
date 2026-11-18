@@ -13,7 +13,7 @@ import androidx.annotation.StringRes
 import com.wanderwildwood.ibasho.R
 import com.wanderwildwood.ibasho.commands.AccessResponse
 import com.wanderwildwood.ibasho.commands.ParserResult
-import com.wanderwildwood.ibasho.commands.WrongPasswordRules
+import com.wanderwildwood.ibasho.commands.PasswordPause
 import com.wanderwildwood.ibasho.commands.WrongPasswords
 import com.wanderwildwood.ibasho.commands.hasPermission
 import com.wanderwildwood.ibasho.data.AccessRepository
@@ -22,7 +22,6 @@ import com.wanderwildwood.ibasho.data.SettingsRepository
 import com.wanderwildwood.ibasho.permissions.NotificationAccessPermission
 import com.wanderwildwood.ibasho.services.NotificationListenService
 import com.wanderwildwood.ibasho.ui.access.AccessControlActivity
-import com.wanderwildwood.ibasho.utils.Notifications
 import com.wanderwildwood.ibasho.utils.log
 
 
@@ -69,9 +68,10 @@ class NotificationReplyTransport(
         }
 
         // Any app on the phone can post a notification, so guesses here cost nothing: after a
-        // few wrong ones, passwords by notification are not checked for a while.
-        val wrongPasswords = WrongPasswords(context, WrongPasswords.NOTIFICATION)
-        if (wrongPasswords.isLocked()) {
+        // few wrong ones from one conversation, or many from all of them, passwords by
+        // notification from there are not checked for a while.
+        val wrongPasswords = WrongPasswords(context, WrongPasswords.NOTIFICATION, senderOf(destination))
+        if (wrongPasswords.pause() != PasswordPause.NONE) {
             context.log().w(TAG, "Notification password not checked: too many wrong passwords lately")
             countWrongPassword(wrongPasswords)
             return AccessResponse.DENIED_UNKNOWN
@@ -99,19 +99,22 @@ class NotificationReplyTransport(
     }
 
     private fun countWrongPassword(wrongPasswords: WrongPasswords) {
-        val (_, lockStarted) = wrongPasswords.wrong()
-        if (lockStarted) {
-            Notifications.notify(
-                context,
-                context.getString(R.string.wrong_passwords_paused_title),
-                context.getString(
-                    R.string.wrong_passwords_paused_text,
-                    WrongPasswordRules.MAX_WRONG,
-                    context.getString(R.string.transport_notification_reply_title),
-                ),
-                Notifications.CHANNEL_SECURITY,
-            )
+        notifyPauseStarted(
+            context,
+            wrongPasswords.wrong(),
+            context.getString(R.string.transport_notification_reply_title),
+        )
+    }
+
+    /** Who a notification password came from: the app, and the conversation within it. */
+    private fun senderOf(sbn: StatusBarNotification?): String {
+        if (sbn == null) return ""
+        val conversation = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            sbn.notification.shortcutId
+        } else {
+            null
         }
+        return sbn.packageName + "|" + (conversation ?: "${sbn.tag}|${sbn.id}")
     }
 
     override fun send(context: Context, msg: String) {
