@@ -2,6 +2,7 @@ package com.wanderwildwood.ibasho.data
 
 import android.content.Context
 import android.location.Location
+import android.text.format.DateFormat
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.wanderwildwood.ibasho.R
@@ -88,7 +89,10 @@ data class FmdLocation(
                 .append('\n')
         }
 
-        string.append(context.getString(R.string.location_reply_time, Date(timeMillis).toString()))
+        val taken = Date(timeMillis)
+        val time = DateFormat.getMediumDateFormat(context).format(taken) + " " +
+            DateFormat.getTimeFormat(context).format(taken)
+        string.append(context.getString(R.string.location_reply_time, time))
             .append('\n')
             .append(context.getString(R.string.location_reply_battery, batteryLevel)).append('\n')
             .append(getOpenStreetMapLink(lat, lon))
