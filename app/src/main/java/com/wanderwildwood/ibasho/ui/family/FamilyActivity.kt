@@ -121,7 +121,8 @@ private fun FamilyScreen() {
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(start = 20.dp, end = 12.dp, top = 8.dp, bottom = 8.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
-        onPullAtTop = { reloads++ },
+        // A pull while it is still looking would start the look over: it waits instead.
+        onPullAtTop = { if (load !is Load.Looking && !busy) reloads++ },
         showCutRow = true,
     ) {
         item {
