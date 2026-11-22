@@ -39,8 +39,8 @@ android {
         // noinspection ExpiredTargetSdkVersion
         targetSdkVersion 32
         // Own versioning from here; upstream was at 0.16.2 when this forked.
-        versionCode 55
-        versionName "0.1.54"
+        versionCode 56
+        versionName "0.1.55"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
