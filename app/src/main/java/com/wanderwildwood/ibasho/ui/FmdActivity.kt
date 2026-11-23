@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.appbar.MaterialToolbar
 import com.wanderwildwood.ibasho.R
+import com.wanderwildwood.ibasho.permissions.LocationPermission
 
 
 abstract class FmdActivity : AppCompatActivity() {
@@ -40,6 +41,14 @@ abstract class FmdActivity : AppCompatActivity() {
     override fun onPause() {
         Notices.front(null)
         super.onPause()
+    }
+
+    // A Grant press Android refuses without showing anything goes to the app's settings instead.
+    override fun onRequestPermissionsResult(
+        requestCode: Int, permissions: Array<out String>, grantResults: IntArray,
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        LocationPermission.onResult(this, requestCode, permissions, grantResults)
     }
 
     // A notice stays until the next press (see Notices): the presses are handed to it here.
