@@ -13,8 +13,8 @@ screen will do.
 
 | | |
 |---|---|
-| ![The commands it answers, and what each needs](screenshots/01.png) | ![The SMS channel: who may text it, and how](screenshots/02.png) |
-| ![Setting up: texts only, or texts and a server](screenshots/03.png) | ![Settings: Server, Family, Access control and more](screenshots/04.png) |
+| ![Setting up: texts only, or texts and a server](screenshots/1-setup.png) | ![Ready: what a phone you trust can text it](screenshots/2-ready.png) |
+| ![The commands it answers, and what each needs](screenshots/3-commands.png) | ![Settings: Server, Family, Commands and more](screenshots/4-settings.png) |
 
 ## What it does not do
 
