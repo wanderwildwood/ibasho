@@ -136,7 +136,7 @@ and the UnifiedPush Android distributor library, both Apache-2.0; see [NOTICE](N
 
 ## Getting it, and keeping it
 
-Download <https://github.com/wanderwildwood/ibasho/releases/latest/download/whereabouts.apk>
+Download <https://github.com/wanderwildwood/ibasho/releases/latest/download/ibasho.apk>
 and sideload it. That address always points at the newest release, and every release
 publishes a `.sha256` beside the APK if you would rather check than trust.
 
